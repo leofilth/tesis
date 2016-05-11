@@ -9,6 +9,7 @@ class Aplicacion extends CI_Controller {
 		parent:: __construct();
 		$this->layout->setLayout('template');
 		$this->session_id=$this->session->userdata('login');
+		$this->layout->css(array(base_url()."public/css/micss.css"));
 	}
 	public function index()
 	{

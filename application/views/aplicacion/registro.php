@@ -1,21 +1,24 @@
 <div class="container" xmlns="http://www.w3.org/1999/html">
-    <h1>Registro de usuarios</h1>
+    <div class="titulo1">Registro de usuarios</div>
     <p>ñandú</p>
-    <h3>Ingresa tus datos</h3>
+    <div class="titulo2">Ingresa tus datos</div>
     <a class="btn btn-primary" href="<?php echo base_url()?>aplicacion">Volver Atrás</a>
     <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'form','name'=>'form');
     echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
     ?>
+    <br>
     <div class="row">
-        <div class="col-md-5">
-            <label class="control-label">Nombre: </label>
+        <div class="col-md-6">
+    <div class="row">
+        <div class="col-md-6">
+            <label class="control-label center-block">Nombre: </label>
             <?php
             $value=set_value("nombre");
             $datos=array
             (
                 'name'=>'nombre',
                 'id'=>'nombre',
-                'class'=>'form-control',
+                'class'=>'form-control center-block',
                 'value'=>$value
             );
             echo form_input($datos);
@@ -24,7 +27,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <label class="control-label">Edad: </label>
             <?php
             $value=set_value("edad");
@@ -41,7 +44,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <label class="control-label">Ciudad: </label>
             <?php
             $value=set_value("ciudad");
@@ -58,7 +61,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <label class="control-label">Nick: </label>
             <?php
             $value=set_value("nick");
@@ -75,7 +78,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <label class="control-label">Contraseña: </label>
             <?php
             $value=set_value("password");
@@ -93,13 +96,21 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <button type="submit" name="boton" id="boton" class="btn btn-primary btn-md">
                 <span class="glyphicon glyphicon-save"></span> Registrame
             </button>
 
         </div>
     </div>
+            </div>
+        <div class="col-md-6">
+            <div class="row">
+                <h2 class="text-center titulo3">Anímate</h2>
+                <img class="img-responsive center-block" src="<?php echo base_url()?>public/images/personaje1.png">
+            </div>
+        </div>
+        </div>
     <?php
     echo form_close();
     ?>

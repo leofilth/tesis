@@ -25,11 +25,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!--*************auxiliares*****************-->
-    <!--Carga css y js de public/css y public js
-    Eliminar si no se ocupa
+    <!--Carga css y js de public/css y public/js-->
         <?php echo $this->layout->css; ?>
         <?php echo $this->layout->js; ?>
-     -->
     <!--**********fin auxiliares*****************-->
 </head>
 <!--Padding por el menu bootstrap-->
