@@ -39,6 +39,5 @@
     <h1>Mi cuenta</h1>
     <h2>Bienvenido <?php echo $datos->nombre?></h2>
     <p><?php print_r($datos)?></p>
-    <p>Algún texto de prueba, ñandú</p>
-    <p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 </div>
+<?php include "footer.php"?>

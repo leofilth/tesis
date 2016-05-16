@@ -30,7 +30,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
                 <li><a href="../navbar-static-top/">Static top</a></li>
-                <li><a style="background-color: #008AD1;color: white" href="<?php echo base_url()?>aplicacion/sesion">Iniciar Sesion</a></li>
+                <li style="padding-bottom: 5px;padding-top: 5px"><a style="background-color: #008AD1;color: white;" href="<?php echo base_url()?>aplicacion/sesion">Iniciar Sesion</a></li>
 
             </ul>
         </div><!--/.nav-collapse -->
