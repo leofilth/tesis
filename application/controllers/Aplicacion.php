@@ -22,20 +22,21 @@ class Aplicacion extends CI_Controller {
 		{
 			if ($this->form_validation->run("aplicacion/registro")==true)//va a form_validation y obtiene las reglas
 			{
+				$pass=sha1($this->input->post("password",true));//encriptacion de password
 				$data=array
 				(
 					'nombre'=>$this->input->post("nombre",true),
 					'edad'=>$this->input->post("edad",true),
 					'ciudad'=>$this->input->post("ciudad",true),
 					'nick'=>$this->input->post("nick",true),
-					'password'=>$this->input->post("password",true)
+					'password'=>$pass
 
 				);
 				$guardar=$this->usuarios_model->agregar_usuario($data);
 				if($guardar)
 				{
-					$this->session->set_flashdata('ControllerMessage','Se ha agregado exitosamente el registro');
-					redirect(base_url().'aplicacion',301);
+					$this->session->set_flashdata('ControllerMessage','Registro guardado');
+					redirect(base_url().'aplicacion/sesion',301);
 				}
 				else{
 					$this->session->set_flashdata('ControllerMessage','Se ha producido un error');
@@ -49,7 +50,8 @@ class Aplicacion extends CI_Controller {
 	{
 		if($this->input->post())
 		{
-			$datos=$this->usuarios_model->iniciar_sesion($this->input->post('nick',true),$this->input->post('password',true));
+			$pass=sha1($this->input->post("password",true));
+			$datos=$this->usuarios_model->iniciar_sesion($this->input->post('nick',true),$pass);
 			if($datos==1)
 			{
 				$this->session->set_userdata("sesionsita");//crea una sesion de codeigniter

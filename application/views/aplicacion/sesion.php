@@ -1,4 +1,5 @@
-<div class="container bg-im">
+<?php include "nav.php"?>
+<div class="container-fluid bg-im">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'form','name'=>'form');
@@ -12,12 +13,17 @@
             </h3>
             <label class="control-label tituloform center-block">Nick</label>
             <input class="form-control" name="nick" type="text" placeholder="Tu Nick">
+            <br>
             <label class="control-label tituloform">Contraseña</label>
             <input class="form-control" name="password" type="password" placeholder="Tu contraseña">
+            <br>
             <br>
             <button type="submit" name="boton" id="boton" class="btn  btn-cf-submit titulo4 center-block">
                 Iniciar Sesión
             </button>
+            <div class="sesion">
+                <p>¿Olvidaste tu contraseña? Restablecela <a href="#" title="recuperar contraseña">aquí</a></p>
+            </div>
             <?php echo form_close(); ?>
         </div>
     </div>

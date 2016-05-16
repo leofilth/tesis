@@ -1,3 +1,4 @@
+<?php include "nav.php"?>
 <div class="container" xmlns="http://www.w3.org/1999/html">
     <div class="titulo1">Registro de usuarios</div>
     <div class="titulo2">Ingresa tus datos</div>

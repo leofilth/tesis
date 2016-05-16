@@ -92,9 +92,14 @@
     color: #999999;
     text-align: center;
 }
-.bg-im{
-    /*background-image: url("C:/xampp/htdocs/tesis/public/images/fondo.jpg") no-repeat center center fixed;*/
-    background-size: cover;
+.bg-im {
+    /*background: url("http://localhost:8080/tesis/public/images/fondo.jpg") no-repeat center center fixed;*/
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+    padding-top: 20px;
+    padding-bottom: 100px;
 }
 .bubble{
     -webkit-transform:translateZ(0);
@@ -179,4 +184,17 @@ a:link, a:visited {
     opacity: 1;
     text-decoration: none;
     transition: opacity 0.2s ease 0s;
+}
+.sesion a{
+    color: #008AD1;
+    olor: inherit;
+    opacity: 1;
+    text-decoration: none;
+    transition: opacity 0.2s ease 0s;
+    font-size: medium;
+}
+.sesion p{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
