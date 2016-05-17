@@ -18,6 +18,20 @@
         transform: translate(0px, 5px);
     }
 }
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Montserrat-Regular"), url("http://fonts.gstatic.com/s/montserrat/v6/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2") format("woff2");
+    unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Raleway"), local("Raleway-Regular"), url("http://fonts.gstatic.com/s/raleway/v10/yQiAaD56cjx1AooMTSghGfY6323mHUZFJMgTvxaG2iE.woff2") format("woff2");
+    unicode-range: U+100-24F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
 .titulo1 {
     font-family: "cabin sketch";
     color: #008ad1;
@@ -85,12 +99,23 @@
     color: #fff;
 }
 .footer {
-    background: #1B6A81 none repeat scroll 0 0;
+    background: #495052 none repeat scroll 0 0;
     padding-bottom: 80px;
     padding-top: 90px;
     position: relative;
-    color: white;
     text-align: center;
+}
+.footer h4{
+    font-family: montserrat;
+    color: white;
+    font-size: 17px;
+    line-height: 17px;
+}
+.footer p{
+    color: white;
+    font-family: raleway;
+    font-size: 15px;
+    line-height: 22px;
 }
 .bg-im {
     /*background: url("http://localhost:8080/tesis/public/images/fondo.jpg") no-repeat center center fixed;*/
@@ -100,6 +125,7 @@
      background-size: cover;
     padding-top: 20px;
     padding-bottom: 100px;
+    /*background-color: #F5F5DC;*/
 }
 .bubble{
     -webkit-transform:translateZ(0);
@@ -187,7 +213,6 @@ a:link, a:visited {
 }
 .sesion a{
     color: #008AD1;
-    olor: inherit;
     opacity: 1;
     text-decoration: none;
     transition: opacity 0.2s ease 0s;
@@ -197,4 +222,71 @@ a:link, a:visited {
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
+    font-family: "montserrat";
 }
+.rotate {
+    transition: all 0.5s ease 0s;
+}
+.rotate:hover {
+    transform: rotate(360deg);
+}
+.zoom:hover{
+    opacity: 1;
+    transform: scale(1.1,1.1);
+}
+.form-control{
+    font-family: "montserrat";
+}
+.form-control:hover{
+    transition: all 0.5s ease 0s;
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+    opacity: 1;
+    transform: scale(1.05,1.05);
+}
+/**
+css de barra nav
+**/
+.nav-link-reg{
+    background-color: #74CEE4;
+    font-family: 'finger paint';
+}
+.nav-link-ses{
+    background-color: #008AD1;
+    font-family: 'finger paint';
+}
+.li-nav{
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 20px;
+}
+.li-nav:focus, .li-nav:hover {
+    opacity: 1;
+    /*transform: scale(1.1,1.1);*/
+    background-color: #EC774B;
+    font-family: 'finger paint';
+    color: white;
+}
+.icon-size{
+    font-size: 20px;
+}
+/**
+*Cambia color texto de la barra Nav*
+*/
+.navbar-default .navbar-nav > li{
+    margin-left: 5px;
+}
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+.navbar-default .navbar-nav >li > a:focus,.navbar-default .navbar-nav >li > a:hover{
+    color: white;
+}
+.navbar-default {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+/**/

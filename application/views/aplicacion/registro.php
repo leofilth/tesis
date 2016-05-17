@@ -111,8 +111,8 @@
     </div>
         <div class="row">
             <div class="col-md-12">
-                <button type="submit" name="boton" id="boton" class="btn  btn-md btn-cf-submit titulo4 center-block">
-                    <span class="glyphicon glyphicon-save"></span> Registrame
+                <button type="submit" name="boton" id="boton" class="btn  btn-md btn-cf-submit titulo4 center-block zoom">
+                    <span class="glyphicon glyphicon-save"></span> Registrarme
                 </button>
                 <?php
                 echo form_close();

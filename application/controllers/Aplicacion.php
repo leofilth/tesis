@@ -84,4 +84,7 @@ class Aplicacion extends CI_Controller {
 		$this->session->sess_destroy("taller_ci");
 		redirect(base_url().'aplicacion',301);
 	}
+	public  function  restablecepassword(){
+		$this->layout->view("restablecepassword");
+	}
 }

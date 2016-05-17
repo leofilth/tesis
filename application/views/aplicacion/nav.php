@@ -11,9 +11,9 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="<?php echo base_url()?>">Inicio</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li class="li-nav nav-link-ses zoom"><a href="<?php echo base_url()?>">Inicio</a></li>
+                <li class="li-nav nav-link-reg zoom"><a href="#">About</a></li>
+                <li class="li-nav nav-link-ses zoom"><a href="#">Contact</a></li>
                 <li class="dropdown">
                     <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -28,9 +28,9 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-                <li><a href="../navbar-static-top/">Static top</a></li>
-                <li style="padding-bottom: 5px;padding-top: 5px"><a style="background-color: #008AD1;color: white;" href="<?php echo base_url()?>aplicacion/sesion">Iniciar Sesion</a></li>
+                <li class="li-nav nav-link-ses zoom"><a href="./">Default <span class="sr-only">(current)</span></a></li>
+                <li class=" li-nav nav-link-reg zoom"><a href="<?php echo base_url()?>aplicacion/registro"><span class="glyphicon glyphicon-edit rotate icon-size"></span> Registrate</a></li>
+                <li class="li-nav nav-link-ses zoom"><a href="<?php echo base_url()?>aplicacion/sesion"><span class="glyphicon glyphicon-user rotate icon-size"></span> Iniciar Sesion</a></li>
 
             </ul>
         </div><!--/.nav-collapse -->
