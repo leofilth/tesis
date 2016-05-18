@@ -123,7 +123,7 @@
      -moz-background-size: cover;
      -o-background-size: cover;
      background-size: cover;
-    padding-top: 20px;
+    padding-top: 100px;
     padding-bottom: 100px;
     /*background-color: #F5F5DC;*/
 }
@@ -190,9 +190,27 @@
 .bubble.rosado {
     animation: 1.5s ease-in-out 0s normal none infinite running float-a;
 }
+.bubble.verde{
+    animation: 1.5s ease-in-out 0s normal none infinite running float-b;
+}
+.bubble.verde a{
+    background: #397C4A none repeat scroll 0 0;
+    width: 180px;
+}
 .bubble.rosado a {
     background: #dc557a none repeat scroll 0 0;
     width: 180px;
+}
+.bubble.verde a::after {
+    left: 0;
+    right: auto;
+    transform: scaleX(1);
+}
+.bubble.verde a::after {
+    background: rgba(0, 0, 0, 0) url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns:xlink%3D%22http:%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2230px%22%20height%3D%2220px%22%20viewBox%3D%220%200%2030%2020%22%20enable-background%3D%22new%200%200%2030%2020%22%20xml:space%3D%22preserve%22%3E%3Cpolygon%20points%3D%2230%2C20%2030%2C0%200%2C0%22%20fill%3D%22%23dc557a%22%20%2F%3E%3C%2Fsvg%3E") no-repeat scroll center top;
+    left: 0;
+    right: auto;
+    transform: none;
 }
 .bubble.rosado a::after {
     left: 0;
@@ -248,6 +266,15 @@ a:link, a:visited {
 /**
 css de barra nav
 **/
+.navbar-default .navbar-brand {
+    color: #F68A26;
+    font-family: "finger paint";
+    font-size: 36px;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    background-color: transparent;
+    color: #F68A26;
+}
 .nav-link-reg{
     background-color: #74CEE4;
     font-family: 'finger paint';
@@ -268,9 +295,6 @@ css de barra nav
     font-family: 'finger paint';
     color: white;
 }
-.icon-size{
-    font-size: 20px;
-}
 /**
 *Cambia color texto de la barra Nav*
 */
@@ -284,9 +308,95 @@ css de barra nav
     color: white;
 }
 .navbar-default {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0;
     border: medium none;
     padding-bottom: 5px;
     padding-top: 5px;
 }
+.navbar-right {
+    margin-right: 0;
+}
 /**/
+/**css de carousel**/
+.carousel {
+    height: 900px;
+    margin-bottom: 60px;
+}
+.carousel-caption {
+    z-index: 10;
+    padding-bottom: 500px;
+}
+.carousel-caption p {
+    font-size: 21px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+.carousel .item {
+    background-color: #777;
+    height: 900px;
+}
+.carousel-inner > .item > img {
+
+    left: 0;
+    min-width: 100%;
+    position: absolute;
+    top: 0;
+    /*margin: auto;
+    min-width: 100%;*/
+}
+.carousel-control:focus, .carousel-control:hover {
+    color: #fff;
+    opacity: 0.9;
+    outline: 0 none;
+    text-decoration: none;
+}
+.carousel-control.left {
+    color: #f4511e;
+}
+.carousel-control.right {
+    left: auto;
+    right: 0;
+    color: #f4511e;
+}
+.carousel-indicators li {
+    border-color: #f4511e;
+}
+
+.carousel-indicators li.active {
+    background-color: #f4511e;
+}
+@media (max-width: 768px) {
+    .carousel-caption p {
+        font-size: 15px;
+        line-height: 1.4;
+        margin-bottom: 20px;
+    }
+    .carousel-caption{padding-bottom: 50px}
+    .carousel{height: 350px}
+    .carousel-inner >.item >img{height: 350px}
+    .carousel-inner >.item{height: 350px}
+}
+.carousel-fade .carousel-inner .item {
+    opacity: 0;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+    opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+    opacity: 1;
+}
+.carousel-fade .carousel-control {
+    z-index: 2;
+}
+/****/

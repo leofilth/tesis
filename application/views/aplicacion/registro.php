@@ -1,5 +1,5 @@
 <?php include "nav.php"?>
-<div class="container" xmlns="http://www.w3.org/1999/html">
+<div class="container bg-im" xmlns="http://www.w3.org/1999/html">
     <div class="titulo1">Registro de usuarios</div>
     <div class="titulo2">Ingresa tus datos</div>
     <a class="btn btn-primary" href="<?php echo base_url()?>aplicacion">Volver Atrás</a>
@@ -26,7 +26,6 @@
                 echo form_input($datos);
                 ?>
                 <label class="errorform"><?php echo form_error('nombre'); ?></label>
-
             </div>
         </div>
     </div>
@@ -73,6 +72,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
+                <h4 style="color: orangered;font-family: 'finger paint'"><?php if($this->session->flashdata('ErrorNick')!='')
+                    {
+                        echo " <span class='glyphicon glyphicon-info-sign'></span> ".$this->session->flashdata('ErrorNick');
+                    }
+                    ?>
+                </h4>
                 <label class="control-label tituloform">Nick </label>
                 <?php
                 $value=set_value("nick");

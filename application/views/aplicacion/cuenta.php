@@ -2,12 +2,12 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">Tesis</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand">Project name</a>
+            <a href="#" class="navbar-brand">La Tesih</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
@@ -35,7 +35,7 @@
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </nav>
-<div class="container">
+<div class="container-fluid">
     <h1>Mi cuenta</h1>
     <h2>Bienvenido <?php echo $datos->nombre?></h2>
     <p><?php print_r($datos)?></p>

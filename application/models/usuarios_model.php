@@ -28,5 +28,13 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->row();
     }
+    public function verifica_nick($nick){
+        $query=$this->db
+            ->select("nick")
+            ->from("usuarios")
+            ->where(array("nick"=>$nick))
+            ->count_all_results();
+        return $query;
+    }
 
 }

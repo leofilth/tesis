@@ -17,7 +17,6 @@ class Aplicacion extends CI_Controller {
 	}
 	public function registro()
 	{
-		/*editar para registro de usuarios*/
 		if($this->input->post())
 		{
 			if ($this->form_validation->run("aplicacion/registro")==true)//va a form_validation y obtiene las reglas
@@ -32,16 +31,28 @@ class Aplicacion extends CI_Controller {
 					'password'=>$pass
 
 				);
-				$guardar=$this->usuarios_model->agregar_usuario($data);
-				if($guardar)
-				{
-					$this->session->set_flashdata('ControllerMessage','Registro guardado');
-					redirect(base_url().'aplicacion/sesion',301);
+				$nick=$this->input->post("nick",true);
+				$consulta=$this->usuarios_model->verifica_nick($nick);
+				if($consulta){
+					$this->session->set_flashdata('ErrorNick','Nick ya existe');
+					//redirect(base_url().'aplicacion/registro',301);
+					$this->layout->view('registro');//guarda los datos de registro magicamente :D
 				}
 				else{
-					$this->session->set_flashdata('ControllerMessage','Se ha producido un error');
-					redirect(base_url().'aplicacion/registro',301);
+					//agrega el usuario
+					$guardar=$this->usuarios_model->agregar_usuario($data);
+					if($guardar)
+					{
+						$this->session->set_flashdata('ControllerMessage','Registro guardado');
+						redirect(base_url().'aplicacion/sesion',301);
+					}
+					else{
+						$this->session->set_flashdata('ControllerMessage','Se ha producido un error');
+						redirect(base_url().'aplicacion/registro',301);
+					}
+					//
 				}
+
 			}
 		}
 		$this->layout->view('registro');

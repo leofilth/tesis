@@ -1,16 +1,16 @@
 <?php include "nav.php"?>
-<div class="container-fluid bg-im">
+<div class="container bg-im">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-5 col-md-offset-3">
             <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'form','name'=>'form');
             echo form_open(null,$atributos);//utulizar siempre null, recomendado?>
             <h1 class="titulo1">Ingresa tus datos</h1>
-            <h3 style="color: orangered"><?php if($this->session->flashdata('ControllerMessage')!='')
+            <h4 style="color: orangered;font-family: 'finger paint'"><?php if($this->session->flashdata('ControllerMessage')!='')
                 {
                     echo " <span class='glyphicon glyphicon-info-sign'></span> ".$this->session->flashdata('ControllerMessage');
                 }
                 ?>
-            </h3>
+            </h4>
             <label class="control-label tituloform center-block">Nick</label>
             <input class="form-control" name="nick" type="text" placeholder="Tu Nick">
             <br>
@@ -25,6 +25,15 @@
                 <p>¿Olvidaste tu contraseña? Restablecela <a href="<?php echo base_url()."aplicacion/restablecepassword"?>" title="recuperar contraseña">aquí</a></p>
             </div>
             <?php echo form_close(); ?>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="bubble verde">
+                <a title="gogo" href="#">
+                    <h2>Vamos!</h2>
+                    <h3>Momento de aprender</h3>
+                </a>
+            </div>
+            <img class="img-responsive center-block" src="<?php echo base_url()."public/images/personaje5.png"?>">
         </div>
     </div>
 </div>
