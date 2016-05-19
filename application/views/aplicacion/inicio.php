@@ -12,9 +12,11 @@
             <img alt="First slide" src="<?php echo base_url()."public/images/fondo.png"?>">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Example headline.</h1>
-                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-                    <p><a role="button" href="#" class="btn btn-lg btn-primary">Sign up today</a></p>
+                    <div class="cc-text">
+                        <h1>¿En qué consiste?</h1>
+                        <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                        <p><a role="button" href="#" class="btn btn-lg btn-primary">Sign up today</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -22,9 +24,11 @@
             <img alt="Second slide" src="<?php echo base_url()."public/images/fondo.png"?>" class="second-slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a role="button" href="#" class="btn btn-lg btn-primary">Learn more</a></p>
+                    <div class="cc-text">
+                        <h1>¿Qué aprenderás?</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a role="button" href="#" class="btn btn-lg btn-primary">Learn more</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,9 +36,11 @@
             <img alt="Third slide" src="<?php echo base_url()."public/images/fondo.png"?>" class="third-slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a role="button" href="#" class="btn btn-lg btn-primary">Browse gallery</a></p>
+                    <div class="cc-text">
+                        <h1>Es gratis ! Solo registrate !</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a role="button" href="#" class="btn btn-lg btn-primary">Browse gallery</a></p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -190,8 +190,11 @@
 .bubble.rosado {
     animation: 1.5s ease-in-out 0s normal none infinite running float-a;
 }
-.bubble.verde{
+.bubble.bg{
     animation: 1.5s ease-in-out 0s normal none infinite running float-b;
+}
+.bubble.verde{
+    animation: 1.5s ease-in-out 0s normal none infinite running float-a;
 }
 .bubble.verde a{
     background: #397C4A none repeat scroll 0 0;
@@ -207,7 +210,7 @@
     transform: scaleX(1);
 }
 .bubble.verde a::after {
-    background: rgba(0, 0, 0, 0) url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns:xlink%3D%22http:%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2230px%22%20height%3D%2220px%22%20viewBox%3D%220%200%2030%2020%22%20enable-background%3D%22new%200%200%2030%2020%22%20xml:space%3D%22preserve%22%3E%3Cpolygon%20points%3D%2230%2C20%2030%2C0%200%2C0%22%20fill%3D%22%23dc557a%22%20%2F%3E%3C%2Fsvg%3E") no-repeat scroll center top;
+    background: rgba(0, 0, 0, 0) url("http://localhost:8080/tesis/public/images/indice-verde.png") no-repeat scroll center top;
     left: 0;
     right: auto;
     transform: none;
@@ -326,10 +329,17 @@ css de barra nav
     z-index: 10;
     padding-bottom: 500px;
 }
-.carousel-caption p {
+.carousel-caption p{
     font-size: 21px;
     line-height: 1.4;
     margin-bottom: 20px;
+    font-family: "montserrat";
+}
+.carousel-caption h1{
+    font-family: "montserrat";
+}
+.cc-text{
+    background-color: rgba(0,0,0,0.5);
 }
 .carousel .item {
     background-color: #777;

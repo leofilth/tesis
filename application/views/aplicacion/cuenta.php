@@ -36,8 +36,54 @@
     </div><!--/.container-fluid -->
 </nav>
 <div class="container-fluid">
-    <h1>Mi cuenta</h1>
-    <h2>Bienvenido <?php echo $datos->nombre?></h2>
-    <p><?php print_r($datos)?></p>
+    <h1>Bienvenido <strong><?php echo $datos->nombre?></strong></h1>
+    <p><?php echo print_r($datos)?></p>
+    <div class="row">
+        <div class="col-md-7">
+            <img width="200px" height="200px" class="img-circle zoom"
+                 src="<?php
+                             if($datos->avatar_name=="")
+                             {
+                                 echo base_url()."public/images/user_avatar/user.jpg";
+                             }
+                             else if($datos->avatar_name=$datos->nick)
+                             {
+                                 echo base_url()."public/images/user_avatar/".$datos->nick.".jpg";
+                             }
+                        ?>">
+            <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'miformulario','name'=>'form');
+            echo form_open_multipart(null,$atributos);//utulizar siempre null, recomendado
+            ?>
+            <?php
+            $datos=array
+            (
+                'name'=>'archivo',
+                'id'=>'file',
+                'type'=>'file',
+                'class'=>'filestyle',
+                'data-buttonName'=>"btn-primary"
+            );
+            echo form_input($datos);
+            ?>
+            <?php
+            $datos=array
+            (
+                'name'=>'boton',
+                'id'=>'boton',
+                'type'=>'submit',
+                'class'=>"btn btn-primary btn-md",
+                'value'=>'Actualizar Foto'
+            );
+            echo form_submit($datos);
+            ?>
+            <?php
+            echo form_close();
+            ?>
+            <h2>Tus datos</h2>
+        </div>
+        <div class="col-md-5">
+            <h2>Progreso</h2>
+        </div>
+    </div>
 </div>
 <?php include "footer.php"?>

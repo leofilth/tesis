@@ -22,7 +22,7 @@ class usuarios_model extends CI_Model
     public function getDatosUsuario($nick)
     {
         $query=$this->db
-            ->select("nombre,ciudad,edad,nick")
+            ->select("nombre,ciudad,edad,nick,avatar_name")
             ->from("usuarios")
             ->where(array("nick"=>$nick))
             ->get();
@@ -35,6 +35,12 @@ class usuarios_model extends CI_Model
             ->where(array("nick"=>$nick))
             ->count_all_results();
         return $query;
+    }
+    public function actualiza_usuario($datos=array(),$nick)
+    {
+        $this->db->where('nick',$nick);
+        $this->db->update('usuarios',$datos);
+        return true;
     }
 
 }

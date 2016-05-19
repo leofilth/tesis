@@ -10,6 +10,7 @@ class Aplicacion extends CI_Controller {
 		$this->layout->setLayout('template');
 		$this->session_id=$this->session->userdata('login');
 		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->js(array(base_url()."public/js/bootstrap-filestyle.min.js"));
 	}
 	public function index()
 	{
@@ -28,7 +29,8 @@ class Aplicacion extends CI_Controller {
 					'edad'=>$this->input->post("edad",true),
 					'ciudad'=>$this->input->post("ciudad",true),
 					'nick'=>$this->input->post("nick",true),
-					'password'=>$pass
+					'password'=>$pass,
+					'avatar_name'=>""
 
 				);
 				$nick=$this->input->post("nick",true);
@@ -81,6 +83,27 @@ class Aplicacion extends CI_Controller {
 	}
 	public function cuenta()
 	{
+		if($this->input->post()) {
+			//proceso la imagen
+			$error = null;
+			$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+			//valido la foto
+			$config['upload_path'] = './public/images/user_avatar';
+			$config['allowed_types'] = 'jpg';
+			$config['overwrite'] = true;
+			$config['encrypt_name'] = false;
+			$config['file_name'] = $datos->nick;
+			$this->load->library('upload', $config);
+			if ($this->upload->do_upload('archivo')) {
+				$datos->avatar_name=$datos->nick;
+				//actualizar dato
+				$this->usuarios_model->actualiza_usuario($datos,$this->session_id);
+				$this->layout->view("cuenta",compact("datos"));
+			} else {
+				$error = array('error' => $this->upload->display_errors());
+				$this->session->set_flashdata('ControllerMessage', $error["error"]);
+			}
+		}
 		if (!empty($this->session_id)) {
 			$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
 			$this->layout->view('cuenta',compact("datos"));
