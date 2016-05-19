@@ -9,12 +9,14 @@
     </ol>
     <div role="listbox" class="carousel-inner">
         <div class="item">
-            <img alt="First slide" src="<?php echo base_url()."public/images/fondo.png"?>">
+            <img alt="First slide" src="<?php echo base_url()."public/images/fondo2.png"?>">
             <div class="container">
                 <div class="carousel-caption">
                     <div class="cc-text">
                         <h1>¿En qué consiste?</h1>
-                        <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                        <p>Wambo es una aplicación que te enseñará sobre la importancia de la educación física
+                        y la vida saludable.</p>
+                        <p>Tiene muchas cosas entretenidas, unete!.</p>
                         <p><a role="button" href="#" class="btn btn-lg btn-primary">Sign up today</a></p>
                     </div>
                 </div>
@@ -26,7 +28,8 @@
                 <div class="carousel-caption">
                     <div class="cc-text">
                         <h1>¿Qué aprenderás?</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p>Aprenderás sobre alimentación, qué comer y qué no.</p>
+                        <p>Aprenderás sobre la actividad física!, si quieres ser más fuerte, más rapido, más flexible!</p>
                         <p><a role="button" href="#" class="btn btn-lg btn-primary">Learn more</a></p>
                     </div>
                 </div>

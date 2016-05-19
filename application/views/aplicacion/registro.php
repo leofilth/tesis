@@ -1,14 +1,12 @@
 <?php include "nav.php"?>
-<div class="container bg-im" xmlns="http://www.w3.org/1999/html">
+<div class="container-fluid bg-im" xmlns="http://www.w3.org/1999/html">
     <div class="titulo1">Registro de usuarios</div>
     <div class="titulo2">Ingresa tus datos</div>
-    <a class="btn btn-primary" href="<?php echo base_url()?>aplicacion">Volver Atrás</a>
-    <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'form','name'=>'form');
-    echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
-    ?>
-    <br>
     <div class="row">
         <div class="col-md-6">
+            <?php $atributos=array('role'=>'form','class'=>'form-group cuadradosombra','id'=>'form','name'=>'form');
+            echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
+            ?>
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
@@ -119,6 +117,7 @@
                 <button type="submit" name="boton" id="boton" class="btn  btn-md btn-cf-submit titulo4 center-block zoom">
                     <span class="glyphicon glyphicon-save"></span> Registrarme
                 </button>
+                <br>
                 <?php
                 echo form_close();
                 ?>

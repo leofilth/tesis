@@ -1,8 +1,8 @@
 <?php include "nav.php"?>
-<div class="container bg-im">
+<div class="container-fluid bg-im">
     <div class="row">
         <div class="col-md-5 col-md-offset-3">
-            <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'form','name'=>'form');
+            <?php $atributos=array('role'=>'form','class'=>'form-group cuadradosombra','id'=>'form','name'=>'form');
             echo form_open(null,$atributos);//utulizar siempre null, recomendado?>
             <h1 class="titulo1">Ingresa tus datos</h1>
             <h4 style="color: orangered;font-family: 'finger paint'"><?php if($this->session->flashdata('ControllerMessage')!='')
