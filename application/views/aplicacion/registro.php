@@ -1,7 +1,6 @@
 <?php include "nav.php"?>
 <div class="container-fluid bg-im" xmlns="http://www.w3.org/1999/html">
     <div class="titulo1">Registro de usuarios</div>
-    <div class="titulo2">Ingresa tus datos</div>
     <div class="row">
         <div class="col-md-6">
             <?php $atributos=array('role'=>'form','class'=>'form-group cuadradosombra','id'=>'form','name'=>'form');
@@ -10,6 +9,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
+                <h1 class="titulo2">Ingresa tus datos</h1>
                 <label class="control-label tituloform">Nombre: </label>
                 <?php
                 $value=set_value("nombre");

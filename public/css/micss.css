@@ -32,6 +32,60 @@
     src: local("Raleway"), local("Raleway-Regular"), url("http://fonts.gstatic.com/s/raleway/v10/yQiAaD56cjx1AooMTSghGfY6323mHUZFJMgTvxaG2iE.woff2") format("woff2");
     unicode-range: U+100-24F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
+/**
+css cuenta
+**/
+.titulocuenta {
+    font-family: "finger paint";
+    color: #008ad1;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 56px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-transform: uppercase;
+}
+.cuadradotarjeta1{
+    box-shadow: 0 4px 0 0 #EC774B;
+    background-color: #EC774B;
+    border-radius: 5px;
+    padding:20px 15px 20px 15px;
+}
+.descp-tarjeta{
+    color: white;
+    font-family: "montserrat";
+    font-size: 15px;
+    line-height: 22px;
+}
+.titulo-tarjeta{
+    color: white;
+    font-family: "montserrat";
+    font-size: 15px;
+    line-height: 22px;
+}
+.cuadradotarjeta2{
+     box-shadow: 0 4px 0 0 #74CEE4;
+     background-color: #74CEE4;
+     border-radius: 5px;
+    padding:20px 15px 20px 15px;
+}
+.cuadradotarjeta3{
+    box-shadow: 0 4px 0 0 #EDBF47;
+    background-color: #EDBF47;
+    border-radius: 5px;
+    padding:20px 15px 20px 15px;
+}
+.cuadradotarjeta4{
+    box-shadow: 0 4px 0 0 #C389CE;
+    background-color: #C389CE;
+    border-radius: 5px;
+    padding:20px 15px 20px 15px;
+}
+.fondoblanco{
+    background-color: white;
+}
+
+/**/
 .titulo1 {
     font-family: "finger paint";
     color: #008ad1;
@@ -123,6 +177,16 @@
      -moz-background-size: cover;
      -o-background-size: cover;
      background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    /*background-color: #6FC191;*/
+}
+.fondo-user {
+    background: url("http://localhost:8080/tesis/public/images/fondo.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     padding-top: 100px;
     padding-bottom: 100px;
     /*background-color: #6FC191;*/
@@ -322,7 +386,7 @@ css de barra nav
     color: white;
 }
 .navbar-default {
-    background: rgba(0,0,0,0.5) none repeat scroll 0 0;
+    background: rgba(0,0,0,0) none repeat scroll 0 0;
     border: medium none;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -372,12 +436,13 @@ css de barra nav
     text-decoration: none;
 }
 .carousel-control.left {
-    color: #f4511e;
+    color: #79D9FF;
+
 }
 .carousel-control.right {
     left: auto;
     right: 0;
-    color: #f4511e;
+    color: #79D9FF;
 }
 .carousel-indicators li {
     border-color: #f4511e;

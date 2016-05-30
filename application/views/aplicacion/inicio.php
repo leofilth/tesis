@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="item">
-            <img alt="Third slide" src="<?php echo base_url()."public/images/fondo.png"?>" class="third-slide">
+            <img alt="Third slide" src="<?php echo base_url()."public/images/fondo3.jpg"?>" class="third-slide">
             <div class="container">
                 <div class="carousel-caption">
                     <div class="cc-text">

@@ -36,9 +36,9 @@ class Aplicacion extends CI_Controller {
 				$nick=$this->input->post("nick",true);
 				$consulta=$this->usuarios_model->verifica_nick($nick);
 				if($consulta){
-					$this->session->set_flashdata('ErrorNick','Nick ya existe');
+					$this->session->set_flashdata('ErrorNick','Nick ya existe,ingrese uno distinto');
 					//redirect(base_url().'aplicacion/registro',301);
-					$this->layout->view('registro');//guarda los datos de registro magicamente :D
+					//$this->layout->view('registro');//guarda los datos de registro
 				}
 				else{
 					//agrega el usuario
@@ -83,10 +83,10 @@ class Aplicacion extends CI_Controller {
 	}
 	public function cuenta()
 	{
-		if($this->input->post()) {
+		if ($this->input->post()) {
 			//proceso la imagen
 			$error = null;
-			$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			//valido la foto
 			$config['upload_path'] = './public/images/user_avatar';
 			$config['allowed_types'] = 'jpg';
@@ -95,23 +95,23 @@ class Aplicacion extends CI_Controller {
 			$config['file_name'] = $datos->nick;
 			$this->load->library('upload', $config);
 			if ($this->upload->do_upload('archivo')) {
-				$datos->avatar_name=$datos->nick;
+				$datos->avatar_name = $datos->nick;
 				//actualizar dato
-				$this->usuarios_model->actualiza_usuario($datos,$this->session_id);
-				$this->layout->view("cuenta",compact("datos"));
+				$this->usuarios_model->actualiza_usuario($datos, $this->session_id);
+				redirect(base_url() . 'aplicacion/cuenta', 301);
 			} else {
 				$error = array('error' => $this->upload->display_errors());
 				$this->session->set_flashdata('ControllerMessage', $error["error"]);
 			}
 		}
-		if (!empty($this->session_id)) {
-			$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
-			$this->layout->view('cuenta',compact("datos"));
-		} else {
-			redirect(base_url() . 'aplicacion', 301);
-		}
+			if (!empty($this->session_id)) {
+				$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+				$this->layout->view('cuenta', compact("datos"));
+			} else {
+				redirect(base_url() . 'aplicacion', 301);
+			}
 
-	}
+		}
 	public function cerrarsesion()
 	{
 		$this->session->unset_userdata(array('login'=>''));
@@ -120,5 +120,21 @@ class Aplicacion extends CI_Controller {
 	}
 	public  function  restablecepassword(){
 		$this->layout->view("restablecepassword");
+	}
+	public function agilidad(){
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$this->layout->view('agilidad', compact("datos"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	public function vida_sana(){
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$this->layout->view('vida_sana', compact("datos"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
 	}
 }
