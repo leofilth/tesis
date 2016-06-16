@@ -10,7 +10,8 @@ class Aplicacion extends CI_Controller {
 		$this->layout->setLayout('template');
 		$this->session_id=$this->session->userdata('login');
 		$this->layout->css(array(base_url()."public/css/micss.css"));
-		$this->layout->js(array(base_url()."public/js/bootstrap-filestyle.min.js"));
+		$this->layout->js(array(base_url()."public/js/bootstrap-filestyle.min.js"));//borrar a futuro
+		$this->layout->js(array(base_url()."public/js/miJS.js"));
 	}
 	public function index()
 	{
@@ -121,18 +122,21 @@ class Aplicacion extends CI_Controller {
 	public  function  restablecepassword(){
 		$this->layout->view("restablecepassword");
 	}
-	public function agilidad(){
+	public function edufisica(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$this->layout->view('agilidad', compact("datos"));
+			$this->layout->view('edu-fisica', compact("datos"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
 	public function vida_sana(){
+		$this->layout->setLayout('template_vidasana');
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$this->layout->view('vida_sana', compact("datos"));
+			$frutas=$this->usuarios_model->getFrutas();
+			$verduras=$this->usuarios_model->getVerduras();
+			$this->layout->view('vida_sana', compact("datos","frutas","verduras"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}

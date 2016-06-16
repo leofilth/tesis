@@ -1,7 +1,7 @@
 <?php include "nav.php"?>
 <div class="container-fluid bg-im">
     <div class="row">
-        <div class="col-md-5 col-md-offset-3">
+        <div class="col-md-5 col-md-offset-1">
             <?php $atributos=array('role'=>'form','class'=>'form-group cuadradosombra','id'=>'form','name'=>'form');
             echo form_open(null,$atributos);//utulizar siempre null, recomendado?>
             <h1 class="titulo1">Ingresa tus datos</h1>
@@ -26,14 +26,14 @@
             </div>
             <?php echo form_close(); ?>
         </div>
-        <div class="col-md-4 text-center">
+        <div class="col-md-4 col-md-offset-1 text-center">
             <div class="bubble verde">
                 <a title="gogo" href="#">
                     <h2>Vamos!</h2>
                     <h3>Momento de aprender</h3>
                 </a>
             </div>
-            <img class="img-responsive center-block" src="<?php echo base_url()."public/images/personaje5.png"?>">
+            <img class="img-responsive center-block" src="<?php echo base_url()."public/images/iniciar_sesion.png"?>">
         </div>
     </div>
 </div>

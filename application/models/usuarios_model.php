@@ -42,5 +42,19 @@ class usuarios_model extends CI_Model
         $this->db->update('usuarios',$datos);
         return true;
     }
+    public function getFrutas(){
+        $query=$this->db
+            ->select("nombre,link,descripcion")
+            ->from("frutas")
+            ->get();
+        return $query->result();
+    }
+    public function getVerduras(){
+        $query=$this->db
+            ->select("nombre,link,descripcion")
+            ->from("verduras")
+            ->get();
+        return $query->result();
+    }
 
 }

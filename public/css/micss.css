@@ -32,12 +32,54 @@
     src: local("Raleway"), local("Raleway-Regular"), url("http://fonts.gstatic.com/s/raleway/v10/yQiAaD56cjx1AooMTSghGfY6323mHUZFJMgTvxaG2iE.woff2") format("woff2");
     unicode-range: U+100-24F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
+@font-face {
+    font-family: "Pacifico";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Pacifico Regular"), local("Pacifico-Regular"), url("http://fonts.gstatic.com/s/pacifico/v7/Q_Z9mv4hySLTMoMjnk_rCfesZW2xOQ-xsNqO47m55DA.woff2") format("woff2");
+    unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+.featurette-divider {
+    margin: 80px 0;
+}
+.featurette-heading {
+    margin-top: 120px;
+}
+/**
+css vida sana
+**/
+
+.affix {
+    top:0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+.navbar {
+    margin-bottom: 0px;
+}
+
+.affix ~ .container-fluid {
+    position: relative;
+    top: 50px;
+}
+#section1 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #1E88E5;}
+#section2 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #673ab7;}
+#section3 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #ff9800;}
+#section41 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #00bcd4;}
+#section42 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #009688;}
+/*fin css vida sana*/
+
 /**
 css cuenta
 **/
+.titulo-fruta{
+    font-family: "pacifico";
+    color: rgb(69,178,157);
+    font-size: 24px;
+}
 .titulocuenta {
     font-family: "finger paint";
-    color: #008ad1;
+    color: white;
     font-size: 36px;
     font-weight: 700;
     line-height: 56px;
@@ -82,10 +124,11 @@ css cuenta
     padding:20px 15px 20px 15px;
 }
 .fondoblanco{
-    background-color: white;
+    background-color: rgb(69,178,157);
+    padding: 5px 5px 5px 5px;
 }
 
-/**/
+/*fin css cuenta*/
 .titulo1 {
     font-family: "finger paint";
     color: #008ad1;
@@ -156,7 +199,6 @@ css cuenta
     background: #495052 none repeat scroll 0 0;
     padding-bottom: 80px;
     padding-top: 90px;
-    position: relative;
     text-align: center;
 }
 .footer h4{
@@ -182,7 +224,7 @@ css cuenta
     /*background-color: #6FC191;*/
 }
 .fondo-user {
-    background: url("http://localhost:8080/tesis/public/images/fondo.jpg") no-repeat center center fixed;
+    background: url("http://localhost:8080/tesis/public/images/colorful.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -262,7 +304,7 @@ css cuenta
 }
 .bubble.verde a{
     background: #397C4A none repeat scroll 0 0;
-    width: 180px;
+    width: auto;
 }
 .bubble.rosado a {
     background: #dc557a none repeat scroll 0 0;
@@ -335,7 +377,7 @@ a:link, a:visited {
 }
 .cuadradosombra{
     /*box-shadow: 0 4px 0 0 #f1f1f1;*/
-    background-color: rgba(249,249,249,0.6);
+    background-color: rgba(249,249,249,0.7);
     border-radius: 5px;
     padding-left: 15px;
     padding-right: 15px;

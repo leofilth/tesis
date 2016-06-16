@@ -8,26 +8,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand">La Tesih</a>
+            <a href="#" class="navbar-brand">Tesis</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
                 <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()."aplicacion/juegos"?>">Juegos/minijuegos</a></li>
-                <li class="dropdown nav-link-reg li-nav zoom">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo base_url()."aplicacion/aprender"?>">Aprender<span class="caret"></span></a>
-                    <ul class="dropdown-menu navbar-nav">
-                        <li class="nav-link-reg li-nav"><a href="<?php echo base_url()."aplicacion/agilidad"?>">Agilidad</a></li>
-                        <li class="nav-link-ses li-nav"><a href="#">Fuerza</a></li>
-                        <li class="nav-link-reg li-nav"><a href="#">Flexibilidad</a></li>
-                        <li class="nav-link-ses li-nav"><a href="<?php echo base_url()."aplicacion/vida_sana"?>">Vida Sana </a></li>
-                    </ul>
-                </li>
+                <li class="nav-link-reg li-nav"><a href="<?php echo base_url()."aplicacion/edu-fisica"?>">Quiero ser fuerte</a></li>
+                <li class="nav-link-ses li-nav"><a href="<?php echo base_url()."aplicacion/vida_sana"?>">Quiero ser sano</a></li>
                 <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()."aplicacion/animaciones"?>">Animaciones</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()."aplicacion/galeria"?>">Galeria</a></li>
-                <li class="nav-link-reg li-nav zoom"><a href="../navbar-static-top/">Static top</a></li>
-                <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()?>aplicacion/cerrarsesion">Cerrar Sesion</a></li>
+                <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()."aplicacion/galeria"?>">Galería</a></li>
+                <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()?>aplicacion/cerrarsesion">Cerrar Sesión</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
