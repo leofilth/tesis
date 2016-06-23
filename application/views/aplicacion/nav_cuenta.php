@@ -15,11 +15,11 @@
                 <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()."aplicacion/juegos"?>">Juegos/minijuegos</a></li>
                 <li class="nav-link-reg li-nav"><a href="<?php echo base_url()."aplicacion/edu-fisica"?>">Quiero ser fuerte</a></li>
                 <li class="nav-link-ses li-nav"><a href="<?php echo base_url()."aplicacion/vida_sana"?>">Quiero ser sano</a></li>
-                <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()."aplicacion/animaciones"?>">Animaciones</a></li>
+                <li class="nav-link-reg li-nav zoom"><a href="<?php echo base_url()."aplicacion/animaciones"?>">Animaciones</a></li>
+                <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()."aplicacion/galeria"?>">Galería</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()."aplicacion/galeria"?>">Galería</a></li>
-                <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()?>aplicacion/cerrarsesion">Cerrar Sesión</a></li>
+                <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()?>aplicacion/cerrarsesion"><span class="glyphicon glyphicon-log-out rotate"></span> Cerrar Sesión</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->

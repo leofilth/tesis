@@ -44,6 +44,14 @@
 }
 .featurette-heading {
     margin-top: 120px;
+    font-size:50px;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+.lead{
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 20px;
 }
 /**
 css vida sana
@@ -65,6 +73,7 @@ css vida sana
 #section1 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #1E88E5;}
 #section2 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #673ab7;}
 #section3 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #ff9800;}
+#section4 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #d35400;}
 #section41 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #00bcd4;}
 #section42 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #009688;}
 /*fin css vida sana*/
@@ -129,6 +138,12 @@ css cuenta
 }
 
 /*fin css cuenta*/
+/*Barra nav vida sana*/
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: black;
+    background-color: transparent;
+}
+/**/
 .titulo1 {
     font-family: "finger paint";
     color: #008ad1;

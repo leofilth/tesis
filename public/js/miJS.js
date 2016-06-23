@@ -1,15 +1,16 @@
 /**
  * Created by leon on 30-05-2016.
  */
-var elige="Elige una fruta";
+var fruta="Elige una Fruta";
+var verdura="Elige Verdura";
 var desc="Te enseñare sobre ella";
 $(document).ready(function(){
-    $("p").on({
+    /*$(".nav-link-reg").on({
         click: function(){
-            $("#hola").css("background-color", "yellow");
+            $(this).css("background-color", "orange");
             $("#hola").text("Cambiando dinamicamente con JQuery");
         }
-    });
+    });*/
     $(".fruta").on({
         mouseenter:function(){
             var texto=$(this).attr("title");
@@ -25,7 +26,7 @@ $(document).ready(function(){
             $("#modalimg").attr("src",link);
         },
         mouseleave:function(){
-            $("#explica").text(elige);
+            $("#explica").text(fruta);
             $("#descripcion").text(desc);
         }
 
@@ -45,7 +46,7 @@ $(document).ready(function(){
             $("#modalimg").attr("src",link);
         },
         mouseleave:function(){
-            $("#explica").text(elige);
+            $("#explica2").text(verdura);
             $("#descripcion").text(desc);
         }
 

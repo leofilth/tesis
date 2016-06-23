@@ -100,7 +100,7 @@
             </div>
         </div>
     </div>-->
-    <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+    <nav class="navbar navbar-default" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -108,23 +108,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Vida Sana</a>
+                <a class="navbar-brand" href="<?php echo base_url()."aplicacion/cuenta"?>">Mi cuenta</a>
             </div>
             <div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="#section1">Frutos Poderosos</a></li>
-                        <li><a href="#section2">Verduras Magicas</a></li>
-                        <li><a href="#section3">Alimentos Geniales</a></li>
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#section41">Section 4-1</a></li>
-                                <li><a href="#section42">Section 4-2</a></li>
-                            </ul>
-                        </li>
+                        <li class="nav-link-ses li-nav zoom"><a href="#section1">Frutos Poderosos</a></li>
+                        <li class="nav-link-reg li-nav zoom"><a href="#section2">Verduras Magicas</a></li>
+                        <li class="nav-link-ses li-nav zoom"><a href="#section3">Alimentos Geniales</a></li>
+                        <li class="nav-link-reg li-nav zoom"><a href="#section4">Tips Saludables</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()?>aplicacion/cerrarsesion">Cerrar Sesion</a></li>
+                        <li class="nav-link-ses li-nav zoom"><a href="<?php echo base_url()?>aplicacion/cerrarsesion"><span class="glyphicon glyphicon-log-out rotate"></span> Cerrar Sesion</a></li>
                     </ul>
                 </div>
             </div>
@@ -137,7 +132,7 @@
     <p>The navbar is attached to the top of the page after you have scrolled a specified amount of pixels, and the links in the navbar are automatically updated based on scroll position.</p>
 </div>
     <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="myModal" role="dialog" style="top: 10%">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -223,20 +218,38 @@
         </div>
     </div>
    </div>
-<div id="section3" class="container-fluid">
-    <h1>Section 3</h1>
-    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-</div>
-<div id="section41" class="container-fluid">
-    <h1>Section 4 Submenu 1</h1>
-    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-</div>
-<div id="section42" class="container-fluid">
-    <h1>Section 4 Submenu 2</h1>
-    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    <div id="section3" class="container-fluid">
+        <h1>Section 3</h1>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        <div class="col-md-6">
+            <div class="cuadradotarjeta1 zoom">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img width="150" height="150" src="<?php echo base_url()."public/images/icons/448/grape_color.png"?>" class="img-circle fondoblanco rotate">
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="titulo-tarjeta">TITULO</h4>
+                        <p class="descp-tarjeta">Descripcion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="section4" class="container-fluid">
+        <h1>Section 4</h1>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    </div>
+    <div id="section41" class="container-fluid">
+        <h1>Section 4 Submenu 1</h1>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    </div>
+    <div id="section42" class="container-fluid">
+        <h1>Section 4 Submenu 2</h1>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+        <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
 </div>
 <?php include "footer.php"?>
 

@@ -64,7 +64,7 @@
             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
-            <img alt="500x500" data-src="holder.js/500x500/auto" class="featurette-image img-responsive center-block" src="<?php echo base_url()."public/images/portada1.png"?>" data-holder-rendered="true">
+            <img style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
         </div>
     </div>
     <hr class="featurette-divider">
@@ -74,7 +74,7 @@
             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-            <img alt="500x500" data-src="holder.js/500x500/auto" class="featurette-image img-responsive center-block" src="<?php echo base_url()."public/images/portada2.png"?>" data-holder-rendered="true">
+            <img style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
         </div>
     </div>
     <hr class="featurette-divider">
@@ -84,7 +84,7 @@
             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
-            <img alt="500x500" data-src="holder.js/500x500/auto" class="featurette-image img-responsive center-block" src="<?php echo base_url()."public/images/portada3.png"?>" data-holder-rendered="true">
+            <img style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
         </div>
     </div>
     <hr class="featurette-divider">
