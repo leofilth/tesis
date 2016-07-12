@@ -1,5 +1,5 @@
 <!--Archivo que incluye el menu de navegación-->
-<?php include "nav.php"?>
+<?php include "navs/nav.php" ?>
 <div data-ride="carousel" class="carousel slide carousel-fade" id="myCarousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -16,8 +16,8 @@
                         <h1>¿En qué consiste?</h1>
                         <p>Wambo es una aplicación que te enseñará sobre la importancia de la educación física
                         y la vida saludable.</p>
-                        <p>Tiene muchas cosas entretenidas, unete!.</p>
-                        <p><a role="button" href="#" class="btn btn-lg btn-primary">Sign up today</a></p>
+                        <p>Tiene muchas cosas entretenidas, únete!.</p>
+                        <p><a role="button" href="<?php echo base_url()."aplicacion/registro"?>" class="btn btn-lg btn-primary">Regístrate Ahora!</a></p>
                     </div>
                 </div>
             </div>
@@ -28,9 +28,9 @@
                 <div class="carousel-caption">
                     <div class="cc-text">
                         <h1>¿Qué aprenderás?</h1>
-                        <p>Aprenderás sobre alimentación, qué comer y qué no.</p>
-                        <p>Aprenderás sobre la actividad física!, si quieres ser más fuerte, más rapido, más flexible!</p>
-                        <p><a role="button" href="#" class="btn btn-lg btn-primary">Learn more</a></p>
+                        <p>Aprenderás sobre alimentación saludable y sus beneficios.</p>
+                        <p>Aprenderás sobre la actividad física, sus beneficios, consejos y mucho más.</p>
+                        <p><a role="button" href="#explicativo" class="btn btn-lg btn-primary">Leer más</a></p>
                     </div>
                 </div>
             </div>
@@ -41,8 +41,8 @@
                 <div class="carousel-caption">
                     <div class="cc-text">
                         <h1>Es gratis ! Solo registrate !</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a role="button" href="#" class="btn btn-lg btn-primary">Browse gallery</a></p>
+                        <p>Wambo es una aplicación totalmente gratuita, animate!.</p>
+                        <p><a role="button" href="<?php echo base_url()."aplicacion/registro"?>" class="btn btn-lg btn-primary">Quiero registrarme</a></p>
                     </div>
                 </div>
             </div>
@@ -57,36 +57,51 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<div class="container">
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-            <img style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
-        </div>
+<div class="container-fluid bg-im2">
+    <div style="padding-bottom: 50px;padding-top: 25px;width: auto">
+        <h1 class="text-center titulo-portada cc-text" id="explicativo">Mira todo lo que ofrece Wambo</h1>
     </div>
-    <hr class="featurette-divider">
-    <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    <div class="container">
+        <div class="row featurette">
+            <div class="col-md-7 fondo-portada1">
+                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img height="400px" width="400px"style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
+            </div>
         </div>
-        <div class="col-md-5 col-md-pull-7">
-            <img style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
+        <hr class="featurette-divider">
+        <div class="row featurette">
+            <div class="col-md-7 col-md-push-5 fondo-portada2">
+                <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5 col-md-pull-7">
+                <img height="400px" width="400px" style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
+            </div>
         </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+            <div class="col-md-7 fondo-portada3">
+                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img height="400px" width="400px"style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+            <div class="col-md-7 col-md-push-5 fondo-portada4">
+                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5 col-md-pull-7">
+                <img height="400px" width="400px"style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada4.jpg"?>">
+            </div>
+        </div>
+        <hr class="featurette-divider">
     </div>
-    <hr class="featurette-divider">
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-            <img style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
-        </div>
-    </div>
-    <hr class="featurette-divider">
 </div>
 <?php include "footer.php"?>

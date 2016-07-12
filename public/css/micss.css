@@ -43,10 +43,10 @@
     margin: 80px 0;
 }
 .featurette-heading {
-    margin-top: 120px;
     font-size:50px;
     letter-spacing: -1px;
     line-height: 1;
+    color:white;
 }
 .lead{
     font-weight: 300;
@@ -56,7 +56,20 @@
 /**
 css vida sana
 **/
-
+.texto-modal{
+    font-family: "montserrat";
+    font-size: 15px;
+    color: rgb(73,80,82);
+}
+.texto-modal-titulo{
+    text-transform: uppercase;
+    color: black;
+    font-family: "montserrat";
+}
+.glyfy{
+    color: rgb(0,138,209);
+    font-size: 20px;
+}
 .affix {
     top:0;
     width: 100%;
@@ -70,17 +83,33 @@ css vida sana
     position: relative;
     top: 50px;
 }
-#section1 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #1E88E5;}
+#section1 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #6FC191;}
 #section2 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #673ab7;}
-#section3 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #ff9800;}
-#section4 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #d35400;}
-#section41 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #00bcd4;}
+#section3 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #74CEE4;}
+#section4 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #EDBF47;}
+#section41 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #EC774B;}
 #section42 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #009688;}
 /*fin css vida sana*/
 
 /**
 css cuenta
 **/
+.btn-cuenta{
+    box-shadow: 0 4px 0 0 #C389CE;
+    font-size: 17px;
+    padding: 10px 20px;
+    background-color: #C389CE;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    text-align: center;
+}
+.btn-cuenta:hover{
+    box-shadow: 0 0 0 0 transparent !important;
+    margin-bottom: -4px;
+    margin-top: 4px;
+}
 .titulo-fruta{
     font-family: "pacifico";
     color: rgb(69,178,157);
@@ -127,8 +156,8 @@ css cuenta
     padding:20px 15px 20px 15px;
 }
 .cuadradotarjeta4{
-    box-shadow: 0 4px 0 0 #C389CE;
-    background-color: #C389CE;
+    box-shadow: 0 4px 0 0 #EC774B;
+    background-color: #EC774B;
     border-radius: 5px;
     padding:20px 15px 20px 15px;
 }
@@ -136,7 +165,9 @@ css cuenta
     background-color: rgb(69,178,157);
     padding: 5px 5px 5px 5px;
 }
-
+.borde:hover{
+    box-shadow: 5px 0px 40px #EC774B;
+}
 /*fin css cuenta*/
 /*Barra nav vida sana*/
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
@@ -234,7 +265,17 @@ css cuenta
      -moz-background-size: cover;
      -o-background-size: cover;
      background-size: cover;
-    padding-top: 100px;
+    padding-top: 25px;
+    padding-bottom: 100px;
+    /*background-color: #6FC191;*/
+}
+.bg-im2 {
+    background: url("http://localhost:8080/tesis/public/images/Middle_texture.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 50px;
     padding-bottom: 100px;
     /*background-color: #6FC191;*/
 }
@@ -323,7 +364,7 @@ css cuenta
 }
 .bubble.rosado a {
     background: #dc557a none repeat scroll 0 0;
-    width: 180px;
+    width: auto;
 }
 .bubble.verde a::after {
     left: 0;
@@ -443,10 +484,11 @@ css de barra nav
     color: white;
 }
 .navbar-default {
-    background: rgba(0,0,0,0) none repeat scroll 0 0;
+    background: rgba(52, 73, 94,1.0) none repeat scroll 0 0;
     border: medium none;
     padding-bottom: 5px;
     padding-top: 5px;
+    border-radius: 0;
 }
 .navbar-right {
     margin-right: 0;
@@ -455,7 +497,7 @@ css de barra nav
 /**css de carousel**/
 .carousel {
     height: 900px;
-    margin-bottom: 60px;
+    /*margin-bottom: 60px;*/
 }
 .carousel-caption {
     z-index: 10;
@@ -472,6 +514,43 @@ css de barra nav
 }
 .cc-text{
     background-color: rgba(0,0,0,0.5);
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.fondo-portada1{
+    background-color: rgb(111,193,145);
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 90px;
+}
+.fondo-portada2{
+    background-color: rgb(116,206,228);
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 90px;
+}
+.fondo-portada3{
+    background-color: rgb(237,191,71);
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 90px;
+}
+.fondo-portada4{
+    background-color: rgb(236,119,75);
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 90px;
+}
+.titulo-portada{
+    font-size: 50px;
+    letter-spacing: -1px;
+    line-height: 1;
+    font-family: "finger paint";
+    color: white;
 }
 .carousel .item {
     background-color: #777;
@@ -541,5 +620,10 @@ css de barra nav
 }
 .carousel-fade .carousel-control {
     z-index: 2;
+}
+.btn-primary:hover{
+    color: white;
+    background-color: #EC774B;
+    border-color: #EC774B;
 }
 /****/

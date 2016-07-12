@@ -1,10 +1,11 @@
-<?php include "nav.php"?>
+<?php include "navs/nav.php" ?>
 <div class="container-fluid bg-im">
+    <div class="titulo1">Inicia tu sesión</div>
     <div class="row">
         <div class="col-md-5 col-md-offset-1">
             <?php $atributos=array('role'=>'form','class'=>'form-group cuadradosombra','id'=>'form','name'=>'form');
             echo form_open(null,$atributos);//utulizar siempre null, recomendado?>
-            <h1 class="titulo1">Ingresa tus datos</h1>
+            <h1 class="titulo2">Ingresa tus datos</h1>
             <h4 style="color: orangered;font-family: 'finger paint'"><?php if($this->session->flashdata('ControllerMessage')!='')
                 {
                     echo " <span class='glyphicon glyphicon-info-sign'></span> ".$this->session->flashdata('ControllerMessage');

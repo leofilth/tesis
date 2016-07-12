@@ -1,4 +1,4 @@
-<?php include "nav.php"?>
+<?php include "navs/nav.php" ?>
 <div class="container-fluid bg-im" xmlns="http://www.w3.org/1999/html">
     <div class="titulo1">Registro de usuarios</div>
         <div class="row">

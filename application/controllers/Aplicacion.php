@@ -107,7 +107,9 @@ class Aplicacion extends CI_Controller {
 		}
 			if (!empty($this->session_id)) {
 				$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-				$this->layout->view('cuenta', compact("datos"));
+				$num_tip=rand(1,10);//numero aleatorio de tips
+				$tip=$this->usuarios_model->getTips($num_tip);
+				$this->layout->view('cuenta', compact("datos","tip"));
 			} else {
 				redirect(base_url() . 'aplicacion', 301);
 			}
@@ -136,9 +138,42 @@ class Aplicacion extends CI_Controller {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$frutas=$this->usuarios_model->getFrutas();
 			$verduras=$this->usuarios_model->getVerduras();
-			$this->layout->view('vida_sana', compact("datos","frutas","verduras"));
+			$alimentos=$this->usuarios_model->getAlimentos();
+			$this->layout->view('vida_sana', compact("datos","frutas","verduras","alimentos"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
+	public function mis_recetas(){
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$this->layout->view('mis_recetas', compact("datos"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+}
+	/**
+	 * Inicio Funciones AJAX
+	 * */
+	public function respuesta_ajax_fruta(){
+		$this->layout->setLayout('template_ajax');
+		$id=$this->input->post("valor1",true);
+		$dataAjax=$this->usuarios_model->getFrutaId($id);
+		$this->layout->view("respuesta_ajax_fruta",compact("dataAjax"));
+	}
+	public function respuesta_ajax_verdura(){
+		$this->layout->setLayout('template_ajax');
+		$id=$this->input->post("valor1",true);
+		$dataAjax=$this->usuarios_model->getVerduraId($id);
+		$this->layout->view("respuesta_ajax_verdura",compact("dataAjax"));
+	}
+	public function respuesta_ajax_alimento(){
+		$this->layout->setLayout('template_ajax');
+		$id=$this->input->post("valor1",true);
+		$dataAjax=$this->usuarios_model->getAlimentoId($id);
+		$this->layout->view("respuesta_ajax_alimento",compact("dataAjax"));
+	}
+	/**
+	 * Termino funciones AJAX
+	 */
 }

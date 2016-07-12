@@ -1,10 +1,8 @@
-<?php include "nav_cuenta.php"?>
-<div class="container-fluid"style="background-color: #3498db;padding-top: 100px;padding-bottom: 100px;">
-    <div class="titulocuenta">Bienvenido <strong><?php echo $datos->nombre?></strong></div>
-    <div class="container">
+<?php include "navs/nav_cuenta.php" ?>
+<div class="container"style="padding-top: 50px">
         <div class="row">
-            <div class="col-md-4 cuadradosombra">
-                <img width="200px" height="200px" class="img-circle center-block"
+            <div class="col-md-3" style="background-color: #1E88E5;border-radius: 5px;padding-top: 5px">
+                <img width="200px" height="200px"  class="img-circle center-block"
                      src="<?php
                      if($datos->avatar_name=="")
                      {
@@ -15,6 +13,8 @@
                          echo base_url()."public/images/user_avatar/".$datos->nick.".jpg";
                      }
                      ?>">
+                <h3 class="text-center" style="color: white;font-family: 'finger paint'"><?php echo $datos->nick?></h3>
+                <!--
                         <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'miformulario','name'=>'form');
                         echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
                         ?>
@@ -23,40 +23,85 @@
                         <?php
                         echo form_close();
                         ?>
-                <h2 class="titulo2">Tus datos</h2>
-                <p><label>Edad: </label><?php echo $datos->edad?></p>
-                <p><label>Ciudad: </label><?php echo $datos->ciudad?></p>
-                <p><label>Nick: </label><?php echo $datos->nick?></p>
-                <p><label>Colegio: </label><!--<?php echo $datos->colegio?>--></p>
+                        -->
             </div>
-            <div class="col-md-8">
-                <div class="container-fluid">
-                    <h2>Striped Progress Bars</h2>
-                    <p>The .progress-bar-striped class adds stripes to the progress bars:</p>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                            40% Complete (success)
+            <div class="col-md-6">
+                <h1 class="titulo1">Bienvenido</h1>
+            </div>
+            <div class="col-md-3">
+                <div class="">
+                    <div class="cuadradotarjeta4 bubble datm" style="margin-top: 80px;box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img width="50" height="50" class="rotate" src="<?php echo base_url()."public/images/tip.png"?>">
+                                <img width="50" height="83" src="<?php echo base_url()."public/images/student5.png"?>">
+                            </div>
+                            <div class="col-md-8">
+                                <p class="descp-tarjeta">¿Sabías qué?</p>
+                                <p class="descp-tarjeta"><?php  echo $tip->descripcion?></p>
+                            </div>
                         </div>
+
                     </div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
-                            50% Complete (info)
-                        </div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
-                            60% Complete (warning)
-                        </div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                            <p>70% Complete (danger)</p>
-                        </div>
-                    </div>
+
                 </div>
+
+            </div>
+        </div>
+</div>
+    <div class="container-fluid"style="padding-bottom: 100px">
+        <h3 class="titulo1">Selecciona que quieres aprender</h3>
+        <div class="row"style="padding-bottom: 30px;padding-top: 30px">
+            <div class="col-md-3 col-md-offset-1 text-center zoom borde" style="background-color: #6FC191;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">
+                <img width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
+                <div style="background-color: #495052;">
+                    <h3 style="font-family: 'finger paint';color: white;padding: 5%">Vida Sana</h3>
+                </div>
+                <p class="descp-tarjeta">Todo sobre frutas!</p>
+                <a href="<?php echo base_url()."aplicacion/vida_sana"?>" class="btn-cuenta titulo4 center-block zoom">Ir</a>
+            </div>
+            <div class="col-md-3 text-center borde zoom"style="background-color: #74CEE4;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">
+                <img width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
+                <div style="background-color: #495052">
+                    <h3 style="font-family: 'finger paint';color: white;padding: 5%">Vida Sana</h3>
+                </div>
+                <p class="descp-tarjeta">Todo sobre verduras!</p>
+                <a href="" class="btn-cuenta titulo4 center-block zoom">Ir</a>
+            </div>
+            <div class="col-md-3 text-center zoom borde" style="background-color: #EDBF47;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">
+                <img width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
+                <div style="background-color: #495052">
+                    <h3 style="font-family: 'finger paint';color: white;padding: 5%">Actividad física</h3>
+                </div>
+                <p class="descp-tarjeta">Tdoo sobre la actividad física!</p>
+                <a href="<?php echo base_url()."aplicacion/edufisica"?>" class="btn-cuenta titulo4 center-block zoom">Ir</a>
+            </div>
+        </div>
+        <div class="row"style="padding-bottom: 30px;padding-top: 30px">
+            <div class="col-md-3 col-md-offset-1 text-center zoom borde" style="background-color: #E16C6C;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">
+                <img width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada4.jpg"?>">
+                <div style="background-color: #495052;">
+                    <h3 style="font-family: 'finger paint';color: white;padding: 5%">Mis recetas</h3>
+                </div>
+                <p class="descp-tarjeta">Ricas y saludables recetas de cocina</p>
+                <a href="<?php echo base_url()."aplicacion/mis_recetas"?>" class="btn-cuenta titulo4 center-block zoom">Ir</a>
+            </div>
+            <div class="col-md-3 text-center borde zoom"style="background-color: #74CEE4;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">
+                <img width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada4.jpg"?>">
+                <div style="background-color: #495052">
+                    <h3 style="font-family: 'finger paint';color: white;padding: 5%">Vida Sana</h3>
+                </div>
+                <p class="descp-tarjeta">Todo sobre verduras!</p>
+                <a href="" class="btn-cuenta titulo4 center-block zoom">Ir</a>
+            </div>
+            <div class="col-md-3 text-center zoom borde" style="background-color: #EDBF47;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">
+                <img width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
+                <div style="background-color: #495052">
+                    <h3 style="font-family: 'finger paint';color: white;padding: 5%">Actividad física</h3>
+                </div>
+                <p class="descp-tarjeta">Tdoo sobre la actividad física!</p>
+                <a href="<?php echo base_url()."aplicacion/edufisica"?>" class="btn-cuenta titulo4 center-block zoom">Ir</a>
             </div>
         </div>
     </div>
-
-</div>
 <?php include "footer.php"?>

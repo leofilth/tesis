@@ -44,10 +44,34 @@ class usuarios_model extends CI_Model
     }
     public function getFrutas(){
         $query=$this->db
-            ->select("nombre,link,descripcion")
+            ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
             ->from("frutas")
             ->get();
         return $query->result();
+    }
+    public function  getFrutaId($id){
+        $query=$this->db
+            ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
+            ->from("frutas")
+            ->where(array("nombre"=>$id))
+            ->get();
+        return $query->row();
+    }
+    public function  getVerduraId($id){
+        $query=$this->db
+            ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
+            ->from("verduras")
+            ->where(array("nombre"=>$id))
+            ->get();
+        return $query->row();
+    }
+    public function  getAlimentoId($id){
+        $query=$this->db
+            ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
+            ->from("food")
+            ->where(array("nombre"=>$id))
+            ->get();
+        return $query->row();
     }
     public function getVerduras(){
         $query=$this->db
@@ -55,6 +79,21 @@ class usuarios_model extends CI_Model
             ->from("verduras")
             ->get();
         return $query->result();
+    }
+    public function getAlimentos(){
+        $query=$this->db
+            ->select("nombre,link,descripcion")
+            ->from("food")
+            ->get();
+        return $query->result();
+    }
+    public function getTips($id){
+        $query=$this->db
+            ->select("descripcion")
+            ->from("tips")
+            ->where(array("id"=>$id))
+            ->get();
+        return $query->row();
     }
 
 }
