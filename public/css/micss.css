@@ -47,11 +47,13 @@
     letter-spacing: -1px;
     line-height: 1;
     color:white;
+    text-align: center;
 }
 .lead{
     font-weight: 300;
     line-height: 1.4;
     margin-bottom: 20px;
+    text-align: center;
 }
 /**
 css vida sana
@@ -438,6 +440,11 @@ a:link, a:visited {
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 10px;
+}
+.obligatorio{
+    color: red;
+    font-family: "Montserrat", sans-serif;
+    font-size: small;
 }
 /**
 css de barra nav

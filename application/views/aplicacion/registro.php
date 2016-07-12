@@ -10,7 +10,8 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <h1 class="titulo2">Ingresa tus datos</h1>
-                            <label class="control-label tituloform">Nombre: </label>
+                            <p class="obligatorio">*Todos los campos son obligatorios</p>
+                            <label class="control-label tituloform">Nombre</label>
                             <?php
                             $value=set_value("nombre");
                             $datos=array

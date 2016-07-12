@@ -132,14 +132,29 @@ class Aplicacion extends CI_Controller {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
-	public function vida_sana(){
-		$this->layout->setLayout('template_vidasana');
+	public function frutas(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$frutas=$this->usuarios_model->getFrutas();
+			$this->layout->view('frutas', compact("datos","frutas"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	public function verduras(){
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$verduras=$this->usuarios_model->getVerduras();
+			$this->layout->view('verduras', compact("datos","verduras"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	public function alimentos(){
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$alimentos=$this->usuarios_model->getAlimentos();
-			$this->layout->view('vida_sana', compact("datos","frutas","verduras","alimentos"));
+			$this->layout->view('alimentos', compact("datos","alimentos"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}

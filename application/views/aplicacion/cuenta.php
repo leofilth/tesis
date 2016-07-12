@@ -58,7 +58,7 @@
                     <h3 style="font-family: 'finger paint';color: white;padding: 5%">Vida Sana</h3>
                 </div>
                 <p class="descp-tarjeta">Todo sobre frutas!</p>
-                <a href="<?php echo base_url()."aplicacion/vida_sana"?>" class="btn-cuenta titulo4 center-block zoom">Ir</a>
+                <a href="<?php echo base_url()."aplicacion/frutas"?>" class="btn-cuenta titulo4 center-block zoom">Ir</a>
             </div>
             <div class="col-md-3 text-center borde zoom"style="background-color: #74CEE4;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">
                 <img width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
@@ -66,15 +66,15 @@
                     <h3 style="font-family: 'finger paint';color: white;padding: 5%">Vida Sana</h3>
                 </div>
                 <p class="descp-tarjeta">Todo sobre verduras!</p>
-                <a href="" class="btn-cuenta titulo4 center-block zoom">Ir</a>
+                <a href="<?php echo base_url()."aplicacion/verduras"?>" class="btn-cuenta titulo4 center-block zoom">Ir</a>
             </div>
-            <div class="col-md-3 text-center zoom borde" style="background-color: #EDBF47;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">
-                <img width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
+            <div class="col-md-3 text-center borde zoom"style="background-color: #74CEE4;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">
+                <img width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada4.jpg"?>">
                 <div style="background-color: #495052">
-                    <h3 style="font-family: 'finger paint';color: white;padding: 5%">Actividad física</h3>
+                    <h3 style="font-family: 'finger paint';color: white;padding: 5%">Vida Sana</h3>
                 </div>
-                <p class="descp-tarjeta">Tdoo sobre la actividad física!</p>
-                <a href="<?php echo base_url()."aplicacion/edufisica"?>" class="btn-cuenta titulo4 center-block zoom">Ir</a>
+                <p class="descp-tarjeta">Todo sobre Alimentos</p>
+                <a href="<?php echo base_url()."aplicacion/alimentos"?>" class="btn-cuenta titulo4 center-block zoom">Ir</a>
             </div>
         </div>
         <div class="row"style="padding-bottom: 30px;padding-top: 30px">
@@ -86,13 +86,13 @@
                 <p class="descp-tarjeta">Ricas y saludables recetas de cocina</p>
                 <a href="<?php echo base_url()."aplicacion/mis_recetas"?>" class="btn-cuenta titulo4 center-block zoom">Ir</a>
             </div>
-            <div class="col-md-3 text-center borde zoom"style="background-color: #74CEE4;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">
-                <img width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada4.jpg"?>">
+            <div class="col-md-3 text-center zoom borde" style="background-color: #EDBF47;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">
+                <img width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
                 <div style="background-color: #495052">
-                    <h3 style="font-family: 'finger paint';color: white;padding: 5%">Vida Sana</h3>
+                    <h3 style="font-family: 'finger paint';color: white;padding: 5%">Actividad física</h3>
                 </div>
-                <p class="descp-tarjeta">Todo sobre verduras!</p>
-                <a href="" class="btn-cuenta titulo4 center-block zoom">Ir</a>
+                <p class="descp-tarjeta">Tdoo sobre la actividad física!</p>
+                <a href="<?php echo base_url()."aplicacion/edufisica"?>" class="btn-cuenta titulo4 center-block zoom">Ir</a>
             </div>
             <div class="col-md-3 text-center zoom borde" style="background-color: #EDBF47;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">
                 <img width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
