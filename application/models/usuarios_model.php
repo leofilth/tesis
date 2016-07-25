@@ -95,5 +95,16 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->row();
     }
-
+    public function agregarFoto($datos=array())
+    {
+        $this->db->insert("upload",$datos);
+        return true;
+    }
+    public function getFotos(){
+        $query=$this->db
+            ->select("link,descripcion,dueño")
+            ->from("upload")
+            ->get();
+        return $query->result();
+    }
 }

@@ -1,6 +1,6 @@
 <?php include "navs/nav_frutas.php"?>
 <div class="container-fluid" style="background-color:#F44336;color:#fff;height:200px;">
-    <h1>Bienvenido a Vida Saludable</h1>
+    <h1 class="titulo">Bienvenido a Vida Saludable</h1>
     <h3>Aprenderas muchas cosas </h3>
     <p>Scroll this page to see how the navbar behaves with data-spy="affix" and data-spy="scrollspy".</p>
     <p>The navbar is attached to the top of the page after you have scrolled a specified amount of pixels, and the links in the navbar are automatically updated based on scroll position.</p>
@@ -19,7 +19,6 @@
                             ?>
                             <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
                                 <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $fruta->nombre?>" src="<?php echo base_url().$fruta->link?>" class="img-circle fondoblanco rotate center-block fruta" data-toggle="modal" data-target="#myModal">
-                                <p id="<?php echo $fruta->nombre?>" class="hidden"><?php echo $fruta->descripcion?></p>
                             </div>
 
                             <?php

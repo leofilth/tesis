@@ -191,4 +191,49 @@ class Aplicacion extends CI_Controller {
 	/**
 	 * Termino funciones AJAX
 	 */
+	/**
+	 * Galeria
+	 */
+	public function galeria(){
+		if ($this->input->post()) {
+			//proceso la imagen
+			$error = null;
+			//$nombrefoto=$this->input->post("titulo",true);
+			//$nombrefotoFormateado=str_replace(" ","_",$nombrefoto);
+			//valido la foto
+			$config['upload_path'] = './public/images/galeria';
+			$config['allowed_types'] = 'jpg';
+			$config['overwrite'] = false;
+			$config['encrypt_name'] = true;
+			//$config['file_name'] = $nombrefotoFormateado;
+			$this->load->library('upload', $config);
+			if ($this->upload->do_upload('archivo')) {
+				$ima = $this->upload->data();
+				$file_name = $ima["file_name"];
+				//guardar en base de datos
+				$foto=array
+				(
+					'descripcion'=>$this->input->post("descripcion",true),
+					'dueño'=>$this->session_id,
+					'link'=>base_url()."public/images/galeria/".$file_name
+
+				);
+				$this->usuarios_model->agregarFoto($foto);
+				redirect(base_url() . 'aplicacion/galeria', 301);
+			} else {
+				$error = array('error' => $this->upload->display_errors());
+				$this->session->set_flashdata('ControllerMessage', $error["error"]);
+			}
+		}
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$fotos=$this->usuarios_model->getFotos();
+			$this->layout->view("galeria",compact("datos","fotos"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	/**
+	 * Fin Galeria
+	 */
 }

@@ -85,8 +85,8 @@
         <hr class="featurette-divider">
         <div class="row featurette">
             <div class="col-md-7 fondo-portada3">
-                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <h2 class="featurette-heading">¿Quieres ser más fuerte, más rapido?<span class="text-muted">Conmigo sabrás cómo !</span></h2>
+                <p class="lead">Aprenderás la importancia del ejercicio y sus beneficios.</p>
             </div>
             <div class="col-md-5">
                 <img height="400px" width="400px"style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada3.png"?>">

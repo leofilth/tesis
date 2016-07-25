@@ -19,7 +19,6 @@
                             ?>
                             <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
                                 <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $alimento->nombre?>" src="<?php echo base_url().$alimento->link?>" class="img-circle fondoblanco rotate center-block alimentos" data-toggle="modal" data-target="#myModal">
-                                <p id="<?php echo $alimento->nombre?>" class="hidden"><?php echo $alimento->descripcion?></p>
                             </div>
                             <?php
                         }

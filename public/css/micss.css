@@ -58,6 +58,7 @@
 /**
 css vida sana
 **/
+.titulo
 .texto-modal{
     font-family: "montserrat";
     font-size: 15px;
@@ -214,6 +215,15 @@ css cuenta
     padding-top: 10px;
     padding-bottom: 10px;
 }
+.titulo5{
+    font-family:"Finger Paint";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}
 .tituloform {
     font-family: "finger paint";
     font-size: 16px;
@@ -269,7 +279,6 @@ css cuenta
      background-size: cover;
     padding-top: 25px;
     padding-bottom: 100px;
-    /*background-color: #6FC191;*/
 }
 .bg-im2 {
     background: url("http://localhost:8080/tesis/public/images/Middle_texture.jpg") no-repeat center center fixed;
@@ -279,17 +288,15 @@ css cuenta
     background-size: cover;
     padding-top: 50px;
     padding-bottom: 100px;
-    /*background-color: #6FC191;*/
 }
-.fondo-user {
-    background: url("http://localhost:8080/tesis/public/images/colorful.jpg") no-repeat center center fixed;
+.bg-im3 {
+    background: url("http://localhost:8080/tesis/public/images/aprender.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 100px;
-    /*background-color: #6FC191;*/
 }
 .bubble{
     -webkit-transform:translateZ(0);
@@ -391,7 +398,6 @@ css cuenta
     transform: none;
 }
 a:link, a:visited {
-    color: inherit;
     opacity: 1;
     text-decoration: none;
     transition: opacity 0.2s ease 0s;
@@ -633,4 +639,83 @@ css de barra nav
     background-color: #EC774B;
     border-color: #EC774B;
 }
-/****/
+/**
+Fin Css Carousel
+**/
+
+/*
+*CSS Galeria
+*/
+
+.img-overlay {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+.img-overlay a .btn-more {
+    background: rgba(60, 190, 230, 0.7) none repeat scroll 0 0;
+    height: 100%;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    text-decoration: none;
+    width: 100%;
+    z-index: 2;
+}
+.img-overlay a:hover .btn-more {
+    opacity: 1;
+}
+.img-overlay a img {
+    transition: all 0.3s ease 0s;
+}
+.img-overlay a:hover img {
+    transform: scale(1.2);
+}
+.img-team a .btn-more {
+    border-radius: 50%;
+}
+.img-team a:hover img {
+    transform: scale(1);
+}
+.img-overlay a .btn-zoom::before, .img-overlay a .btn-link::before {
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    color: #ffffff;
+    content: "";
+    display: inline-block;
+    font-family: "FontAwesome";
+    font-size: 16px;
+    height: 40px;
+    left: 50%;
+    line-height: 1;
+    margin: -20px 0 0 -20px;
+    padding-top: 10px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-30px);
+    transition: all 0.3s ease 0s;
+    width: 40px;
+    z-index: 3;
+}
+.img-overlay a .btn-link::before {
+    content: "";
+}
+.img-overlay a:hover .btn-zoom::before, .img-overlay a:hover .btn-link::before {
+    transform: translateY(0px);
+}
+.albums-holder .gallery, .events-holder .event {
+    margin-top: 54px;
+}
+.albums-holder:first-child .gallery, .events-holder:first-child .event {
+    margin-top: 0;
+}
+.gallery h5, .gallery p {
+    text-align: center;
+}
+.gallery p {
+    color: #48AADC;
+    font-style: italic;
+}
+
+/*Fin*/

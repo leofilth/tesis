@@ -129,7 +129,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="bubble rosado">
-                            <a title="gogo" href="#">
+                            <a title="" href="#">
                                 <h2>Unete</h2>
                                 <h3>Aprende conmigo</h3>
                             </a>
@@ -137,7 +137,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="bubble datm">
-                            <a title="hola probando" href="#">
+                            <a title="" href="#">
                                 <h2>Soy un maestro</h2>
                                 <h3>Eligeme.</h3>
                             </a>
