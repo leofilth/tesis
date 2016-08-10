@@ -58,7 +58,6 @@
 /**
 css vida sana
 **/
-.titulo
 .texto-modal{
     font-family: "montserrat";
     font-size: 15px;
@@ -716,6 +715,10 @@ Fin Css Carousel
 .gallery p {
     color: #48AADC;
     font-style: italic;
+}
+.botonfoto{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /*Fin*/

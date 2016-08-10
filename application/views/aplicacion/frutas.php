@@ -10,8 +10,9 @@
     <div  class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Section 1</h1>
-                <div class="titulo4">El poder de las frutas</div>
+                <h1>El poder de las frutas</h1>
+                <div class="titulo4">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
+                animate a superar el desafío Wambo Frutas!.</div>
                 <div class="row">
                     <div class="col-md-7 col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
@@ -20,14 +21,13 @@
                             <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
                                 <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $fruta->nombre?>" src="<?php echo base_url().$fruta->link?>" class="img-circle fondoblanco rotate center-block fruta" data-toggle="modal" data-target="#myModal">
                             </div>
-
                             <?php
                         }
                         ?>
                     </div>
                     <div class="col-md-5 col-sm-12 col-xs-12">
                         <div class="bubble verde">
-                            <a title="gogo" href="#">
+                            <a  href="#section1">
                                 <h2 id="explica">Elige una fruta</h2>
                                 <h3 id="descripcion">Te enseñare sobre ella</h3>
                             </a>
@@ -39,10 +39,45 @@
         </div>
     </div>
 </div>
+<div class="container-fluid" id="section2">
+    <div class="container">
+        <h1>Desafio Frutas</h1>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="titulo4 text-center">Test 1</h3>
+                        <img style="height: 120px;width: 120px;cursor: pointer" class="cuestionario center-block" name="cuestionario1" src="<?php echo base_url()."public/images/icons/test/test.png"?>">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="titulo4 text-center">Test 2</h3>
+                        <img style="height: 120px;width: 120px;cursor: pointer" class="cuestionario center-block" name="cuestionario2" src="<?php echo base_url()."public/images/icons/test/test.png"?>">
+
+                    </div>
+                </div>
+                <div id="cuestionario">
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="bubble verde">
+                    <a  href="#section2">
+                        <h2 id="explica">Anímate</h2>
+                        <h3 id="descripcion">Demuestra todo lo que sabes</h3>
+                    </a>
+                </div>
+                <img width="200" height="359" src="<?php echo base_url().'public/images/student1.png'?>" class="center-block">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="section4">
+    <div class="container">
+        <h1>Tips saludables</h1>
+    </div>
+</div>
 <?php include "footer.php"?>
 <div id="aqui" class="hidden"></div>
 <script>
-
     /**
      * Created by leon on 30-05-2016.
      */
@@ -52,6 +87,12 @@
      * Funciones que llaman metodo AJAX
      * */
     function carga_ajax_fruta(ruta,valor1,div){
+        $.post(ruta,{valor1:valor1},function(resp)
+        {
+            $("#"+div+"").html(resp);
+        });
+    }
+    function cuestionarioFruta(ruta,valor1,div){
         $.post(ruta,{valor1:valor1},function(resp)
         {
             $("#"+div+"").html(resp);
@@ -87,8 +128,12 @@
                 $("#explica").text(fruta);
                 $("#descripcion").text(desc);
             }
-
-        })
-
+        }),
+            $(".cuestionario").on({
+                click:function(){
+                    var texto=$(this).attr("name");
+                    cuestionarioFruta('<?php echo base_url()."aplicacion/cuestionarioFruta"?>',texto,"cuestionario");
+                }
+            })
     });
 </script>

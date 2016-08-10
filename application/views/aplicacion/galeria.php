@@ -3,13 +3,15 @@
     <div class="container">
         <h1 class="titulo1">Aqui podras compartir tus actividades con la comunidad.</h1>
         <div class="row">
-        <div class="col-md-6 col-md-offset-3 cuadradosombra">
-        <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'miformulario','name'=>'form');
+            <h3 class="text-center">Sube tu foto aquí</h3>
+           <a href="#"><img style="width: 64px;height: 64px" class="center-block zoom" data-toggle="collapse" data-target="#subirfoto" src="<?php echo base_url()."public/images/upload.png"?>"></a>
+            <div class="col-md-6 col-md-offset-3 cuadradosombra collapse" id="subirfoto">
+        <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'mifoto','name'=>'form');
         echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
         ?>
             <label class="control-label tituloform center-block">Elige tu foto</label><input type="file" class="" name="archivo" id="file">
             <label class="control-label tituloform center-block"> Descripción: </label><textarea class="form-control" rows="4" cols="50" name="descripcion"></textarea>
-            <button name="boton" id="boton" type="submit" class="btn  btn-cf-submit titulo4 center-block zoom">Sube tu foto !</button>
+            <button name="boton" id="boton" type="submit" class="btn  btn-cf-submit titulo4 center-block zoom botonfoto">Sube tu foto !</button>
         <?php
         echo form_close();
         ?>
@@ -37,7 +39,7 @@
                 <div class="col-md-4 gallery">
                     <figure class="img-overlay gal-img">
                     <a href="" data-toggle="modal" data-target="#myModal">
-                    <img style="width: auto;height: auto" src="<?php echo $foto->link?>" class="img-responsive">
+                    <img style="width: auto;height: auto" src="<?php echo base_url().$foto->link?>" class="img-responsive">
                     </a>
                     </figure>
                     <div class="cuadradosombra">
@@ -48,6 +50,7 @@
                 <?php
             }
             ?>
+        </div>
     </div>
 </div>
 <?php include "footer.php"?>
@@ -61,6 +64,5 @@
                 $("#modalimg").attr("src", link);
             }
         })
-
     });
 </script>

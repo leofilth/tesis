@@ -107,4 +107,17 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
+    public function getPreguntasFruta($id){
+        //consulta a dos tablas
+        $query=$this->db
+            ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta")
+            ->from("preguntasfruta as d")
+            ->join("preguntas as p","p.id=d.idpregunta","inner")
+            ->where(array('d.idpregunta' => $id))
+            ->get();
+        return $query->result();
+    }
+    public function getRespuestasFruta($id){
+
+    }
 }

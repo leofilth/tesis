@@ -57,7 +57,7 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<div class="container-fluid bg-im2">
+<div class="container-fluid bg-im">
     <div style="padding-bottom: 50px;padding-top: 25px;width: auto">
         <h1 class="text-center titulo-portada cc-text" id="explicativo">Mira todo lo que ofrece Wambo</h1>
     </div>

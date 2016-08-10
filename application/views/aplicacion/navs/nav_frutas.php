@@ -11,7 +11,7 @@
         <div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="nav-link-ses li-nav"><a href="#section3">Desafío Frutas</a></li>
+                    <li class="nav-link-ses li-nav"><a href="#section2">Desafío Frutas</a></li>
                     <li class="nav-link-reg li-nav"><a href="#section4">Tips Saludables</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

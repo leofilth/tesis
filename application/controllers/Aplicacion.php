@@ -168,7 +168,7 @@ class Aplicacion extends CI_Controller {
 		}
 }
 	/**
-	 * Inicio Funciones AJAX
+	 * Inicio Funciones AJAX para iconos
 	 * */
 	public function respuesta_ajax_fruta(){
 		$this->layout->setLayout('template_ajax');
@@ -189,7 +189,7 @@ class Aplicacion extends CI_Controller {
 		$this->layout->view("respuesta_ajax_alimento",compact("dataAjax"));
 	}
 	/**
-	 * Termino funciones AJAX
+	 * Termino funciones AJAX para iconos
 	 */
 	/**
 	 * Galeria
@@ -202,7 +202,7 @@ class Aplicacion extends CI_Controller {
 			//$nombrefotoFormateado=str_replace(" ","_",$nombrefoto);
 			//valido la foto
 			$config['upload_path'] = './public/images/galeria';
-			$config['allowed_types'] = 'jpg';
+			$config['allowed_types'] = 'jpg|png|jpeg';
 			$config['overwrite'] = false;
 			$config['encrypt_name'] = true;
 			//$config['file_name'] = $nombrefotoFormateado;
@@ -215,7 +215,7 @@ class Aplicacion extends CI_Controller {
 				(
 					'descripcion'=>$this->input->post("descripcion",true),
 					'dueño'=>$this->session_id,
-					'link'=>base_url()."public/images/galeria/".$file_name
+					'link'=>"public/images/galeria/".$file_name
 
 				);
 				$this->usuarios_model->agregarFoto($foto);
@@ -235,5 +235,19 @@ class Aplicacion extends CI_Controller {
 	}
 	/**
 	 * Fin Galeria
+	 */
+	/**
+	 * Funciones AJAX para cuestionarios
+	 */
+	public function cuestionarioFruta(){
+		$this->layout->setLayout('template_ajax');
+		$id=$this->input->post("valor1",true);
+		$preguntasFruta=$this->usuarios_model->getPreguntasFruta($id);
+		$respuestasFruta=$this->usuarios_model->getRespuestasFruta($id);
+		$this->layout->view("cuestionarioFruta",compact("preguntasFruta","respuestasFruta"));
+	}
+
+	/**
+	 * Fin Funciones AJAX cuestionarios
 	 */
 }
