@@ -38,6 +38,45 @@
         </div>
     </div>
 </div>
+<div class="container-fluid" id="section1">
+    <div class="container">
+        <h1>Desafío Verduras</h1>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row">
+                    <?php
+                    $i=1;
+                    $aux=$this->mis_funciones->limpia($cuestionarios);
+                    foreach($aux as $cuestionario){
+                    ?>
+                    <div class="col-md-6">
+                        <h3 class="titulo4 text-center">Test <?php echo $i?></h3>
+                        <img style="height: 120px;width: 120px;cursor: pointer" class="cuestionario center-block" name="<?php echo $cuestionario?>" src="<?php echo base_url()."public/images/icons/test/test.png"?>">
+                    </div>
+                    <?php
+                    $i++;
+                    }?>
+                </div>
+                <div id="cuestionario">
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="bubble verde">
+                    <a  href="#section2">
+                        <h2 id="explica">Anímate</h2>
+                        <h3 id="descripcion">Demuestra todo lo que sabes</h3>
+                    </a>
+                </div>
+                <img width="200" height="359" src="<?php echo base_url().'public/images/student1.png'?>" class="center-block">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="section4">
+    <div class="container">
+        <h1>Tips saludables</h1>
+    </div>
+</div>
 <div id="aqui" class="hidden"></div>
 <?php include "footer.php"?>
 <script>
@@ -51,6 +90,12 @@
      * Funciones que llaman metodo AJAX
      * */
     function carga_ajax_verdura(ruta,valor1,div){
+        $.post(ruta,{valor1:valor1},function(resp)
+        {
+            $("#"+div+"").html(resp);
+        });
+    }
+    function cuestionarioVerdura(ruta,valor1,div){
         $.post(ruta,{valor1:valor1},function(resp)
         {
             $("#"+div+"").html(resp);
@@ -86,6 +131,12 @@
                 $("#explica2").text(verdura);
                 $("#descripcion").text(desc);
             }
-        })
+        }),
+            $(".cuestionario").on({
+                click:function(){
+                    var texto=$(this).attr("name");
+                    cuestionarioVerdura('<?php echo base_url()."aplicacion/cuestionarioVerdura"?>',texto,"cuestionario");
+                }
+            })
     });
 </script>

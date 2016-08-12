@@ -145,7 +145,8 @@ class Aplicacion extends CI_Controller {
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$verduras=$this->usuarios_model->getVerduras();
-			$this->layout->view('verduras', compact("datos","verduras"));
+			$cuestionarios=$this->usuarios_model->getCuestionariosVerdura();
+			$this->layout->view('verduras', compact("datos","verduras","cuestionarios"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -243,8 +244,13 @@ class Aplicacion extends CI_Controller {
 		$this->layout->setLayout('template_ajax');
 		$id=$this->input->post("valor1",true);
 		$preguntasFruta=$this->usuarios_model->getPreguntasFruta($id);
-		$respuestasFruta=$this->usuarios_model->getRespuestasFruta($id);
-		$this->layout->view("cuestionarioFruta",compact("preguntasFruta","respuestasFruta"));
+		$this->layout->view("cuestionarioFruta",compact("preguntasFruta"));
+	}
+	public function cuestionarioVerdura(){
+		$this->layout->setLayout('template_ajax');
+		$id=$this->input->post("valor1",true);
+		$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($id);
+		$this->layout->view("cuestionarioVerdura",compact("preguntasVerdura"));
 	}
 
 	/**
