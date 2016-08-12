@@ -1,6 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class mis_funciones {
-   
     function limpia($var){
         $aux=$var[0]->idpregunta;
         $i=0;
