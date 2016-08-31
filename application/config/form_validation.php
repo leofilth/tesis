@@ -10,7 +10,16 @@ $config=array
         array('field'=>'edad','label'=>'Edad','rules'=>'required|numeric|trim'),
         array('field'=>'ciudad','label'=>'Ciudad','rules'=>'is_string|required|trim'),
         array('field'=>'nick','label'=>'Nick','rules'=>'required|trim'),
-        array('field'=>'password','label'=>'Contraseña','rules'=>'required|trim'),
+        array('field'=>'password','label'=>'Contraseña','rules'=>'required|trim')
     ),
+    'aplicacion/galeria'
+    =>array(
+        array('field'=>'archivo','label'=>'Archivo','rules'=>'required|trim'),
+        array('field'=>'descripcion','label'=>'Descripción','rules'=>'required|trim')
+    ),
+    'aplicacion/nuevotip'
+    =>array(
+        array('field'=>'descripcion','label'=>'Descripción','rules'=>'required|trim')
+    )
 
 );

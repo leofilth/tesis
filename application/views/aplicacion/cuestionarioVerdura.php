@@ -25,6 +25,7 @@ foreach($preguntasVerdura as $pregunta){
 <?php
 $num++;
 }?>
+<p>Puntaje:<span id="puntaje"></span></p>
 <button  name="boton" id="verificacuestionario" class="btn  btn-cf-submit titulo4 center-block zoom">
     <span class="glyphicon glyphicon-log-in"></span>  Enviar Respuestas
 </button>
@@ -36,22 +37,33 @@ $num++;
         var preguntas=<?php echo json_encode($preguntasVerdura,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
         $("#verificacuestionario").on({
             click:function(){
-                var i;
-                var j=0;
-                var cuestionario=preguntas[0].idpregunta;//obtengo el id del cuestionario seleccionado.
+                    var i;
+                    var j=0;
+                    var puntaje=0;//valor sera obtenido desde base de datos
+                    var cuestionario=preguntas[0].idpregunta;//obtengo el id del cuestionario seleccionado.
                 for(i=1;i<preguntas.length+1;i++){
-                    //var aux='"'+(cuestionario+i).toString()+'"';
-                    var aux=cuestionario+i;
-                    if($('input:radio[name='+aux+']:checked').val()==preguntas[j].respcorrecta){
-                       //console.log(aux);
-                        j++;
-                        $("#correcto"+i).text("correcto");
-                        /*Posible feeedback al usuario, en la respuesta*/
+                        //var aux='"'+(cuestionario+i).toString()+'"';
+                        var aux=cuestionario+i;
+                        /*Comprueba que se selecciona un input
+                         * */
+                        if($('input:radio[name='+aux+']').is(':checked')) {
+                            if($('input:radio[name='+aux+']:checked').val()==preguntas[j].respcorrecta){
+                                //console.log(aux);
+                                j++;
+                                puntaje=puntaje+100;
+                                $("#correcto"+i).text("correcto");
+                                /*Posible feeedback al usuario, en la respuesta*/
+                            }
+                            else{
+                                $("#correcto"+i).text("incorrecto");
+                            }
+                        } else {
+                            //alert("No está activado");
+                            $("#correcto"+i).text("Seleccione una opción");
+                        }
                     }
-                    else{
-                        $("#correcto"+i).text("incorrecto");
-                    }
+                    $("#puntaje").text(puntaje);
+                    $('"#'+cuestionario+'"').removeClass("hidden");
                 }
-            }
         })
 </script>

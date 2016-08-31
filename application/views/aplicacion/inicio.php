@@ -58,9 +58,9 @@
     </a>
 </div>
 <div class="container-fluid bg-im">
-    <div style="padding-bottom: 50px;padding-top: 25px;width: auto">
+    <header style="padding-bottom: 50px;padding-top: 25px;width: auto">
         <h1 class="text-center titulo-portada cc-text" id="explicativo">Mira todo lo que ofrece Wambo</h1>
-    </div>
+    </header>
     <div class="container">
         <div class="row featurette">
             <div class="col-md-7 fondo-portada1">
@@ -99,7 +99,7 @@
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-5 col-md-pull-7">
-                <img height="400px" width="400px"style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada4.jpg"?>">
+                <img height="400px" width="400px"style="border-radius: 5px" class="img-responsive center-block img-overlay" src="<?php echo base_url()."public/images/portada4.jpg"?>">
             </div>
         </div>
         <hr class="featurette-divider">

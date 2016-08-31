@@ -189,7 +189,7 @@ css cuenta
     text-transform: uppercase;
 }
 .titulo2 {
-     font-family: "montserrat";
+     font-family: "finger paint";
      color: #89b730;
      font-size: 24px;
      font-weight: 400;
@@ -290,6 +290,15 @@ css cuenta
 }
 .bg-im3 {
     background: url("http://localhost:8080/tesis/public/images/aprender.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+.bg-im4 {
+    background: url("http://localhost:8080/tesis/public/images/education-package-powerpoint-backgrounds.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -721,4 +730,30 @@ Fin Css Carousel
     margin-bottom: 5px;
 }
 
+/*Fin*/
+
+/*
+css para cuestionario cuando se completa
+*/
+.nicdark_btn.medium {
+    font-size: 17px;
+    padding: 10px 20px;
+}
+.nicdark_absolute_left {
+    margin-left: 110px;
+    margin-top: 20px;
+    position: absolute;
+}
+.nicdark_btn {
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Montserrat",sans-serif;
+    text-align: center;
+}
+.nicdark_radius {
+    border-radius: 5px;
+}
+.nicdark_bg_greydark {
+    background-color: #495052;
+}
 /*Fin*/

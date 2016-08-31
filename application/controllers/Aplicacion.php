@@ -64,20 +64,34 @@ class Aplicacion extends CI_Controller {
 	{
 		if($this->input->post())
 		{
-			$pass=sha1($this->input->post("password",true));
-			$datos=$this->usuarios_model->iniciar_sesion($this->input->post('nick',true),$pass);
-			if($datos==1)
-			{
-				$this->session->set_userdata("sesionsita");//crea una sesion de codeigniter
-				$this->session->set_userdata('login',$this->input->post('nick',true));
-				//$session_id=$this->session->userdata("login");
-				redirect(base_url().'aplicacion/cuenta',301);
+			$user=$this->input->post("nick",true);
+			if($user=="admin"){
+				$pass = sha1($this->input->post("password", true));
+				$datos = $this->usuarios_model->iniciar_sesion($this->input->post('nick', true), $pass);
+				if ($datos == 1) {
+					$this->session->set_userdata("sesionsita");//crea una sesion de codeigniter
+					$this->session->set_userdata('login', $this->input->post('nick', true));
+					//$session_id=$this->session->userdata("login");
+					redirect(base_url() . 'aplicacion/cuentaAdmin', 301);
 
+				} else {
+					$this->session->set_flashdata('ControllerMessage', 'Usuario y/o clave invalida.');
+					redirect(base_url() . 'aplicacion/sesion', 301);
+				}
 			}
-			else
-			{
-				$this->session->set_flashdata('ControllerMessage','Usuario y/o clave invalida.');
-				redirect(base_url().'aplicacion/sesion',301);
+			else {
+				$pass = sha1($this->input->post("password", true));
+				$datos = $this->usuarios_model->iniciar_sesion($this->input->post('nick', true), $pass);
+				if ($datos == 1) {
+					$this->session->set_userdata("sesionsita");//crea una sesion de codeigniter
+					$this->session->set_userdata('login', $this->input->post('nick', true));
+					//$session_id=$this->session->userdata("login");
+					redirect(base_url() . 'aplicacion/cuenta', 301);
+
+				} else {
+					$this->session->set_flashdata('ControllerMessage', 'Usuario y/o clave invalida.');
+					redirect(base_url() . 'aplicacion/sesion', 301);
+				}
 			}
 		}
 		$this->layout->view('sesion');
@@ -107,7 +121,8 @@ class Aplicacion extends CI_Controller {
 		}
 			if (!empty($this->session_id)) {
 				$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-				$num_tip=rand(1,10);//numero aleatorio de tips
+				$maximo=$this->usuarios_model->getMaxTips();
+				$num_tip=rand(1,$maximo);//numero aleatorio de tips
 				$tip=$this->usuarios_model->getTips($num_tip);
 				$this->layout->view('cuenta', compact("datos","tip"));
 			} else {
@@ -167,7 +182,16 @@ class Aplicacion extends CI_Controller {
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
-}
+	}
+	public function lideres(){
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$lideres=$this->usuarios_model->getLideres();
+			$this->layout->view('lideres', compact("datos","lideres"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
 	/**
 	 * Inicio Funciones AJAX para iconos
 	 * */
@@ -197,39 +221,42 @@ class Aplicacion extends CI_Controller {
 	 */
 	public function galeria(){
 		if ($this->input->post()) {
-			//proceso la imagen
-			$error = null;
-			//$nombrefoto=$this->input->post("titulo",true);
-			//$nombrefotoFormateado=str_replace(" ","_",$nombrefoto);
-			//valido la foto
-			$config['upload_path'] = './public/images/galeria';
-			$config['allowed_types'] = 'jpg|png|jpeg';
-			$config['overwrite'] = false;
-			$config['encrypt_name'] = true;
-			//$config['file_name'] = $nombrefotoFormateado;
-			$this->load->library('upload', $config);
-			if ($this->upload->do_upload('archivo')) {
-				$ima = $this->upload->data();
-				$file_name = $ima["file_name"];
-				//guardar en base de datos
-				$foto=array
-				(
-					'descripcion'=>$this->input->post("descripcion",true),
-					'dueño'=>$this->session_id,
-					'link'=>"public/images/galeria/".$file_name
+			if ($this->form_validation->run("aplicacion/galeria") == true)//va a form_validation y obtiene las reglas
+			{
+				//proceso la imagen
+				$error = null;
+				//$nombrefoto=$this->input->post("titulo",true);
+				//$nombrefotoFormateado=str_replace(" ","_",$nombrefoto);
+				//valido la foto
+				$config['upload_path'] = './public/images/galeria';
+				$config['allowed_types'] = 'jpg|png|jpeg';
+				$config['overwrite'] = false;
+				$config['encrypt_name'] = true;
+				//$config['file_name'] = $nombrefotoFormateado;
+				$this->load->library('upload', $config);
+				if ($this->upload->do_upload('archivo')) {
+					$ima = $this->upload->data();
+					$file_name = $ima["file_name"];
+					//guardar en base de datos
+					$foto = array
+					(
+						'descripcion' => $this->input->post("descripcion", true),
+						'dueño' => $this->session_id,
+						'link' => "public/images/galeria/" . $file_name
 
-				);
-				$this->usuarios_model->agregarFoto($foto);
-				redirect(base_url() . 'aplicacion/galeria', 301);
-			} else {
-				$error = array('error' => $this->upload->display_errors());
-				$this->session->set_flashdata('ControllerMessage', $error["error"]);
+					);
+					$this->usuarios_model->agregarFoto($foto);
+					redirect(base_url() . 'aplicacion/galeria', 301);
+				} else {
+					$error = array('error' => $this->upload->display_errors());
+					$this->session->set_flashdata('ControllerMessage', $error["error"]);
+				}
 			}
 		}
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$fotos=$this->usuarios_model->getFotos();
-			$this->layout->view("galeria",compact("datos","fotos"));
+			$fotos = $this->usuarios_model->getFotos();
+			$this->layout->view("galeria", compact("datos", "fotos"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -255,5 +282,74 @@ class Aplicacion extends CI_Controller {
 
 	/**
 	 * Fin Funciones AJAX cuestionarios
+	 */
+
+	/*
+	 * Cuestionario por url
+	 */
+	public function cuestionario($id){
+
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$id=$this->uri->segment(3);
+			$cuestionario="cuestionario".$id;//cuestionario3, que esta en BD con id
+			$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($cuestionario);
+			$this->layout->view("cuestionario",compact("datos","id","preguntasVerdura"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+
+	/*
+	 * Fin Cuestionario por url
+	 */
+
+	/**
+	 * Cuenta Administrador
+	 */
+	public function cuentaAdmin(){
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			if($datos->nick=="admin"){
+				$this->layout->view('cuentaAdmin', compact("datos"));
+			}
+			else{
+				redirect(base_url() . 'aplicacion/cuenta', 301);
+			}
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	public function nuevotip(){
+			if($this->input->post()) {
+				if ($this->form_validation->run("aplicacion/nuevotip") == true)//va a form_validation y obtiene las reglas
+				{
+					$tip = array
+					(
+						'descripcion' => $this->input->post("descripcion", true)
+					);
+					$this->usuarios_model->agregarTip($tip);
+					$this->session->set_flashdata('ControllerMessage','Tip guardado');
+					redirect(base_url() . 'aplicacion/nuevotip', 301);
+				}
+			}
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+					if ($datos->nick == "admin") {
+						$this->layout->view('nuevotip', compact("datos"));
+					} else {
+						redirect(base_url() . 'aplicacion/cuenta', 301);
+					}
+				}
+			else {
+					redirect(base_url() . 'aplicacion', 301);
+				}
+	}
+
+	public function nuevocuestioanrio(){
+
+	}
+	/**
+	 * Fin Cuenta Administrador
 	 */
 }

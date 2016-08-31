@@ -104,6 +104,7 @@ class usuarios_model extends CI_Model
         $query=$this->db
             ->select("link,descripcion,dueño")
             ->from("upload")
+            ->order_by('id','DESC')
             ->get();
         return $query->result();
     }
@@ -131,6 +132,21 @@ class usuarios_model extends CI_Model
         $query=$this->db
             ->select("idpregunta")
             ->from("preguntasverdura")
+            ->get();
+        return $query->result();
+    }
+    public function agregarTip($datos=array()){
+        $this->db->insert("tips",$datos);
+        return true;
+    }
+    public function getMaxTips(){
+        return $this->db->count_all_results('tips');
+    }
+    public function getLideres(){
+        $query=$this->db
+            ->select("nick_fk,puntaje")
+            ->from("lideres")
+            ->order_by('puntaje','DESC')
             ->get();
         return $query->result();
     }

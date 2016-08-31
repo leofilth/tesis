@@ -38,6 +38,16 @@
         </div>
     </div>
 </div>
+<div class="container-fluid" id="section1">
+    <div class="container">
+        <h1>Desafío alimentos</h1>
+    </div>
+</div>
+<div class="container-fluid" id="section2">
+    <div class="container">
+        <h1>Tips saludables</h1>
+    </div>
+</div>
 <div id="aqui" class="hidden"></div>
 <?php include "footer.php"?>
 <script>

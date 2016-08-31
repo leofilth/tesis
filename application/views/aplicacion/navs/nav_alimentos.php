@@ -11,8 +11,8 @@
         <div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="nav-link-ses li-nav"><a href="#section3">Desafío Alimentos</a></li>
-                    <li class="nav-link-reg li-nav"><a href="#section4">Tips Saludables</a></li>
+                    <li class="nav-link-ses li-nav"><a href="#section1">Desafío Alimentos</a></li>
+                    <li class="nav-link-reg li-nav"><a href="#section2">Tips Saludables</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><img height="32px"width="32px" src="<?php

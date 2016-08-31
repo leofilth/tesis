@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-md-5 col-sm-12 col-xs-12">
                         <div class="bubble rosado">
-                            <a title="gogo" href="#">
+                            <a title="gogo" href="#section2">
                                 <h2 id="explica2">Elige una verdura</h2>
                                 <h3 id="descripcion">Te enseñare sobre ella</h3>
                             </a>
@@ -46,12 +46,18 @@
                 <div class="row">
                     <?php
                     $i=1;
-                    $aux=$this->mis_funciones->limpia($cuestionarios);
+                    $aux=$this->mis_funciones->limpia($cuestionarios);//aux contiene los cuestionarios: cuestionario1 cuestionario2 ... sin repetir
                     foreach($aux as $cuestionario){
                     ?>
                     <div class="col-md-6">
                         <h3 class="titulo4 text-center">Test <?php echo $i?></h3>
-                        <img style="height: 120px;width: 120px;cursor: pointer" class="cuestionario center-block" name="<?php echo $cuestionario?>" src="<?php echo base_url()."public/images/icons/test/test.png"?>">
+                        <div id="<?php echo $cuestionario?>" class="hidden nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left" href="#">
+                            21
+                            <br>
+                            <small>DEC</small>
+                        </div>
+                        <?php $numero=intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10);?><!--obtiene solo el o los numeros de la cadena-->
+                        <a href="<?php echo base_url()."aplicacion/cuestionario/".$numero?>"><img style="height: 120px;width: 120px;cursor: pointer" class="cuestionario center-block"  name="<?php echo $cuestionario?>" src="<?php echo base_url()."public/images/icons/test/test.png"?>"/></a>
                     </div>
                     <?php
                     $i++;
@@ -62,7 +68,7 @@
             </div>
             <div class="col-md-5">
                 <div class="bubble verde">
-                    <a  href="#section2">
+                    <a  href="#section1">
                         <h2 id="explica">Anímate</h2>
                         <h3 id="descripcion">Demuestra todo lo que sabes</h3>
                     </a>
@@ -131,12 +137,12 @@
                 $("#explica2").text(verdura);
                 $("#descripcion").text(desc);
             }
-        }),
-            $(".cuestionario").on({
+        })
+            /*$(".cuestionario").on({
                 click:function(){
                     var texto=$(this).attr("name");
                     cuestionarioVerdura('<?php echo base_url()."aplicacion/cuestionarioVerdura"?>',texto,"cuestionario");
                 }
-            })
+            })*/
     });
 </script>

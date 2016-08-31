@@ -11,9 +11,7 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="nav-link-ses li-nav"><a href="<?php echo base_url()."aplicacion/cuenta"?>">Tu cuenta</a></li>
-                <li class="nav-link-reg li-nav"><a href="<?php echo base_url()."aplicacion/galeria"?>">Galería</a></li>
-                <li class="nav-link-ses li-nav"><a href="<?php echo base_url()."aplicacion/lideres"?>">Lideres</a></li>
+                <li class="nav-link-ses li-nav"><a href="<?php echo base_url()."aplicacion/cuentaAdmin"?>">Volver</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown nav-link-ses li-nav"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><img height="32px"width="32px" src="<?php
@@ -35,3 +33,25 @@
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </nav>
+<div class="container-fluid">
+    <div class="col-md-6 col-md-offset-3 cuadradosombra" id="tip">
+        <h2>Nuevo Tip Saludable</h2>
+        <?php if($this->session->flashdata('ControllerMessage')!=''){?>
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php
+                echo $this->session->flashdata('ControllerMessage');
+            ?>
+        </div>
+        <?php }?>
+        <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'tip','name'=>'form');
+        echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
+        ?>
+        <label class="control-label tituloform center-block"> Descripción: </label><textarea class="form-control" rows="4" cols="50" name="descripcion"></textarea>
+        <label class="errorform"><?php echo form_error('descripcion'); ?></label>
+        <button name="boton" id="boton" type="submit" class="btn  btn-cf-submit titulo4 center-block zoom botonfoto">Guardar Tip</button>
+        <?php
+        echo form_close();
+        ?>
+    </div>
+</div>

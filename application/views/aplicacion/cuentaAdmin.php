@@ -11,9 +11,8 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="nav-link-ses li-nav"><a href="<?php echo base_url()."aplicacion/cuenta"?>">Tu cuenta</a></li>
-                <li class="nav-link-reg li-nav"><a href="<?php echo base_url()."aplicacion/galeria"?>">Galería</a></li>
-                <li class="nav-link-ses li-nav"><a href="<?php echo base_url()."aplicacion/lideres"?>">Lideres</a></li>
+                <li class="nav-link-ses li-nav"><a href="<?php echo base_url()."aplicacion/nuevotip"?>">Nuevo Tip</a></li>
+                <li class="nav-link-ses li-nav"><a href="<?php echo base_url()."aplicacion/nuevocuestionario"?>">Nuevo Cuestionario</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown nav-link-ses li-nav"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><img height="32px"width="32px" src="<?php
@@ -35,3 +34,6 @@
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </nav>
+<div class="container-fluid">
+    <h1>Bienvenido Administrador</h1>
+</div>
