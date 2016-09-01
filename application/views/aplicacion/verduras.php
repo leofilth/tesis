@@ -44,24 +44,7 @@
         <div class="row">
             <div class="col-md-7">
                 <div class="row">
-                    <?php
-                    $i=1;
-                    $aux=$this->mis_funciones->limpia($cuestionarios);//aux contiene los cuestionarios: cuestionario1 cuestionario2 ... sin repetir
-                    foreach($aux as $cuestionario){
-                    ?>
-                    <div class="col-md-6">
-                        <h3 class="titulo4 text-center">Test <?php echo $i?></h3>
-                        <div id="<?php echo $cuestionario?>" class="hidden nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left" href="#">
-                            21
-                            <br>
-                            <small>DEC</small>
-                        </div>
-                        <?php $numero=intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10);?><!--obtiene solo el o los numeros de la cadena-->
-                        <a href="<?php echo base_url()."aplicacion/cuestionario/".$numero?>"><img style="height: 120px;width: 120px;cursor: pointer" class="cuestionario center-block"  name="<?php echo $cuestionario?>" src="<?php echo base_url()."public/images/icons/test/test.png"?>"/></a>
-                    </div>
-                    <?php
-                    $i++;
-                    }?>
+                <?php include "tests/testverdura.php"?>
                 </div>
                 <div id="cuestionario">
                 </div>
@@ -86,7 +69,6 @@
 <div id="aqui" class="hidden"></div>
 <?php include "footer.php"?>
 <script>
-
     /**
      * Created by leon on 30-05-2016.
      */

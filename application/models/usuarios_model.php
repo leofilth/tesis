@@ -150,4 +150,22 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
+    /*
+     * Cuestionario
+     */
+    public function guardaCuestResp($datos=array()){
+        $this->db->insert("cuestionariorespondido",$datos);
+        return true;
+    }
+    public function getCuestResponVerd($nick){
+        $query=$this->db
+            ->select("cuest_id_verdura")
+            ->from("cuestionariorespondido")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->result();
+    }
+    /*
+     * fin
+     */
 }

@@ -161,7 +161,8 @@ class Aplicacion extends CI_Controller {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$verduras=$this->usuarios_model->getVerduras();
 			$cuestionarios=$this->usuarios_model->getCuestionariosVerdura();
-			$this->layout->view('verduras', compact("datos","verduras","cuestionarios"));
+			$cuestRespondidos=$this->usuarios_model->getCuestResponVerd($datos->nick);
+			$this->layout->view('verduras', compact("datos","verduras","cuestionarios","cuestRespondidos"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -291,15 +292,25 @@ class Aplicacion extends CI_Controller {
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$id=$this->uri->segment(3);
-			$cuestionario="cuestionario".$id;//cuestionario3, que esta en BD con id
+			$identificador=$this->uri->segment(3);
+			$cuestionario="cuestionario".$identificador;//cuestionario3, que esta en BD con id
 			$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($cuestionario);
-			$this->layout->view("cuestionario",compact("datos","id","preguntasVerdura"));
+			$this->layout->view("cuestionario",compact("datos","identificador","preguntasVerdura","cuestionario"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
-
+	public function guardaCuest(){
+		$cuestionario=$this->input->post("valor1",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'nick_fk'=>$nick,
+			'cuest_id_fruta'=>"cuestionario1",
+			'cuest_id_verdura'=>$cuestionario
+		);
+		$this->usuarios_model->guardaCuestResp($aGuardar);
+	}
 	/*
 	 * Fin Cuestionario por url
 	 */

@@ -32,9 +32,20 @@
                     $num++;
                 }?>
                 <p>Puntaje:<span id="puntaje"></span></p>
-                <button  name="boton" id="verificacuestionario" class="btn  btn-cf-submit titulo4 center-block zoom">
-                    <span class="glyphicon glyphicon-log-in"></span>  Enviar Respuestas
-                </button>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button  name="boton" id="verificacuestionario" class="btn  btn-cf-submit titulo4 center-block zoom">
+                                    <span class="glyphicon glyphicon-log-in"></span>  Enviar Respuestas
+                                </button>
+                            </div>
+                            <div class="col-md-6" id="guardar">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -44,6 +55,12 @@
     /**
      * $('input[name=Choose]').attr('checked',false); //limpia el input
      */
+    function guardaCuestionario(ruta,valor1){
+        $.post(ruta,{valor1:valor1},function(resp)
+        {
+            return resp;
+        });
+    }
     var texto="<?php echo $preguntasVerdura[0]->idpregunta?>";
     var preguntas=<?php echo json_encode($preguntasVerdura,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
     $("#verificacuestionario").on({
@@ -74,12 +91,16 @@
                 }
             }
             $("#puntaje").text(puntaje);
-            $('"#'+cuestionario+'"').removeClass("hidden");
+            //$('"#'+cuestionario+'"').removeClass("hidden");
+            var cuestionario="<?php echo $cuestionario?>";
+            guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuest"?>',cuestionario);
+            $("#guardar").append("<a class='btn  btn-cf-submit titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/verduras'?>'>Guardar</a>");
+            $("#verificacuestionario").addClass("hidden");
         }
         /*
-        agregar boton guardar o voler para guardar el puntaje y el cuestionario respondido
+        agregar boton guardar o volver para guardar el puntaje y el cuestionario respondido
         actualizar en bd el cuestinoario respondido
-        al voler a verduras marcar el cuestionario respondido , quitar link (u otra variante)
+        al volver a verduras marcar el cuestionario respondido , quitar link (u otra variante)
          */
     })
 </script>
