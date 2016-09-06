@@ -41,6 +41,24 @@
 <div class="container-fluid" id="section1">
     <div class="container">
         <h1>Desafío alimentos</h1>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row">
+                    <?php include "tests/testalimento.php"?>
+                </div>
+                <div id="cuestionario">
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="bubble verde">
+                    <a  href="#section2">
+                        <h2 id="explica">Anímate</h2>
+                        <h3 id="descripcion">Demuestra todo lo que sabes</h3>
+                    </a>
+                </div>
+                <img width="200" height="359" src="<?php echo base_url().'public/images/student4.png'?>" class="center-block">
+            </div>
+        </div>
     </div>
 </div>
 <div class="container-fluid" id="section2">

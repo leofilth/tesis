@@ -14,7 +14,7 @@ class mis_funciones {
         }
         return $format;
     }
-    function limpia2($var){
+    function limpiaDos($var){
         $aux=$var[0]->cuest_id_verdura;
         $i=0;
         $format=array();
@@ -28,5 +28,32 @@ class mis_funciones {
         }
         return $format;
     }
-
+    function limpiaTres($var){
+        $aux=$var[0]->cuest_id_fruta;
+        $i=0;
+        $format=array();
+        $format[0]=$aux;
+        foreach($var as $val){
+            if($val->cuest_id_fruta!=$aux){
+                $i++;
+                $aux=$val->cuest_id_fruta;
+                $format[$i]=$val->cuest_id_fruta;
+            }
+        }
+        return $format;
+    }
+    function limpiaCuatro($var){
+        $aux=$var[0]->cuest_id_alimento;
+        $i=0;
+        $format=array();
+        $format[0]=$aux;
+        foreach($var as $val){
+            if($val->cuest_id_alimento!=$aux){
+                $i++;
+                $aux=$val->cuest_id_alimento;
+                $format[$i]=$val->cuest_id_alimento;
+            }
+        }
+        return $format;
+    }
 }

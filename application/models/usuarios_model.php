@@ -108,6 +108,81 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
+    public function agregarTip($datos=array()){
+        $this->db->insert("tips",$datos);
+        return true;
+    }
+    public function getMaxTips(){
+        return $this->db->count_all_results('tips');
+    }
+    public function getLideres(){
+        $query=$this->db
+            ->select("nick_fk,puntaje,avatar_name")
+            ->from("lideres")
+            ->order_by('puntaje','DESC')
+            ->get();
+        return $query->result();
+    }
+    /*
+     * Cuestionario
+     */
+    public function guardaCuestRespVerd($datos=array()){
+        $this->db->insert("cuest_resp_verd",$datos);
+        return true;
+    }
+    public function guardaCuestRespFrut($datos=array()){
+        $this->db->insert("cuest_resp_frut",$datos);
+        return true;
+    }
+    public function guardaCuestRespAli($datos=array()){
+        $this->db->insert("cuest_resp_ali",$datos);
+        return true;
+    }
+    public function getCuestResponVerd($nick){
+        $query=$this->db
+            ->select("cuest_id_verdura")
+            ->from("cuest_resp_verd")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->result();
+    }
+    public function getCuestResponFrut($nick){
+        $query=$this->db
+            ->select("cuest_id_fruta")
+            ->from("cuest_resp_frut")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->result();
+    }
+    public function getCuestResponAli($nick){
+        $query=$this->db
+            ->select("cuest_id_alimento")
+            ->from("cuest_resp_ali")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->result();
+    }
+    public function getCuestionariosVerdura(){
+        $query=$this->db
+            ->select("idpregunta")
+            ->from("preguntasverdura")
+            ->get();
+        return $query->result();
+    }
+    public function getCuestionariosFruta(){
+        $query=$this->db
+            ->select("idpregunta")
+            ->from("preguntasfruta")
+            ->get();
+        return $query->result();
+    }
+    public function getCuestionariosAlimento(){
+        $query=$this->db
+            ->select("idpregunta")
+            ->from("preguntasalimento")
+            ->get();
+        return $query->result();
+    }
     public function getPreguntasFruta($id){
         //consulta a dos tablas
         $query=$this->db
@@ -128,42 +203,53 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
-    public function getCuestionariosVerdura(){
+    public function getPreguntasAlimento($id){
+        //consulta a dos tablas
         $query=$this->db
-            ->select("idpregunta")
-            ->from("preguntasverdura")
+            ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta")
+            ->from("preguntasalimento as d")
+            ->join("preguntas as p","p.id=d.idpregunta","inner")
+            ->where(array('d.idpregunta' => $id))
             ->get();
         return $query->result();
     }
-    public function agregarTip($datos=array()){
-        $this->db->insert("tips",$datos);
+    public function guardaPuntaje($datos=array(),$nick){
+
+        /*$this->db->update('puntos',$datos)
+            ->where(array('nick_fk'=>$nick));*/
+        $this->db->where('nick_fk', $nick);
+        $this->db->update('puntos', $datos);
+    }
+    public function guardaPuntajeLider($datos=array(),$nick){
+
+        /*$this->db->replace('lideres', $datos)
+            ->where(array('nick_fk'=>$nick));*/
+        $this->db->where('nick_fk', $nick);
+        $this->db->update('lideres', $datos);
+    }
+    public function agregarEnPuntos($datos=array()){
+        $this->db->insert("puntos",$datos);
         return true;
     }
-    public function getMaxTips(){
-        return $this->db->count_all_results('tips');
-    }
-    public function getLideres(){
-        $query=$this->db
-            ->select("nick_fk,puntaje")
-            ->from("lideres")
-            ->order_by('puntaje','DESC')
-            ->get();
-        return $query->result();
-    }
-    /*
-     * Cuestionario
-     */
-    public function guardaCuestResp($datos=array()){
-        $this->db->insert("cuestionariorespondido",$datos);
+    public function agregarEnLider($datos=array()){
+        $this->db->insert("lideres",$datos);
         return true;
     }
-    public function getCuestResponVerd($nick){
+    public function getPuntaje($nick){
         $query=$this->db
-            ->select("cuest_id_verdura")
-            ->from("cuestionariorespondido")
+            ->select("puntos")
+            ->from("puntos")
             ->where(array("nick_fk"=>$nick))
             ->get();
-        return $query->result();
+        return $query->row();
+    }
+    public function getPuntajeLider($nick){
+        $query=$this->db
+            ->select("puntaje")
+            ->from("lideres")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->row();
     }
     /*
      * fin

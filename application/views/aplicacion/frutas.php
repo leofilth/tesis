@@ -45,15 +45,7 @@
         <div class="row">
             <div class="col-md-7">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h3 class="titulo4 text-center">Test 1</h3>
-                        <img style="height: 120px;width: 120px;cursor: pointer" class="cuestionario center-block" name="cuestionario1" src="<?php echo base_url()."public/images/icons/test/test.png"?>">
-                    </div>
-                    <div class="col-md-6">
-                        <h3 class="titulo4 text-center">Test 2</h3>
-                        <img style="height: 120px;width: 120px;cursor: pointer" class="cuestionario center-block" name="cuestionario2" src="<?php echo base_url()."public/images/icons/test/test.png"?>">
-
-                    </div>
+                    <?php include "tests/testfruta.php"?>
                 </div>
                 <div id="cuestionario">
                 </div>
@@ -129,12 +121,12 @@
                 $("#descripcion").text(desc);
             }
         }),
-            $(".cuestionario").on({
+            /*$(".cuestionario").on({
                 click:function(){
                     var texto=$(this).attr("name");
                     cuestionarioFruta('<?php echo base_url()."aplicacion/cuestionarioFruta"?>',texto,"cuestionario");
                 }
-            }),
+            }),*/
             $('[data-toggle="tooltip"]').tooltip();
     });
 </script>

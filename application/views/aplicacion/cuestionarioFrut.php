@@ -2,12 +2,25 @@
 <div class="container-fluid bg-im3">
     <div class="container">
         <header class="titulo4 text-center">Bienvenido a Cuestionarios</header>
+        <?php
+        if($cuestRespondidos!=null){
+        $cuestResp=$this->mis_funciones->limpiaTres($cuestRespondidos);
+        if(in_array($cuestionario,$cuestResp)){?>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <p>ya respondido</p>
+                    <a id='volver' class='btn  btn-cf-submit titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/verduras'?>'>Volver</a>
+                </div>
+            </div>
+        <?php }}
+        else {?>
+        <p id="noguardado">Puntaje no guardado</p>
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <?php
                 //para hacer name con nombre unico usando el id de la bd
                 $num=1;
-                foreach($preguntasVerdura as $pregunta){
+                foreach($preguntasFruta as $pregunta){
                     ?>
                     <li><?php echo $pregunta->pregunta?><p id="correcto<?php echo $num?>"></p>
                         <ul>
@@ -41,13 +54,13 @@
                                 </button>
                             </div>
                             <div class="col-md-6" id="guardar">
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <?php }?>
     </div>
 </div>
 <?php include "footer.php"?>
@@ -61,13 +74,25 @@
             return resp;
         });
     }
-    var texto="<?php echo $preguntasVerdura[0]->idpregunta?>";
-    var preguntas=<?php echo json_encode($preguntasVerdura,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
+    function guardaPuntaje(ruta,valor){
+        $.post(ruta,{valor:valor},function(resp){
+            return resp;
+        })
+    }
+    function guardaPuntajeLider(ruta,valor){
+        $.post(ruta,{valor:valor},function(resp){
+            return resp;
+        })
+    }
+    var texto="<?php echo $preguntasFruta[0]->idpregunta?>";
+    var preguntas=<?php echo json_encode($preguntasFruta,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
+    var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
+    var puntaje=0;//puntaje para este cuestionario
+    var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres
     $("#verificacuestionario").on({
         click:function(){
             var i;
             var j=0;
-            var puntaje=0;//valor sera obtenido desde base de datos
             var cuestionario=preguntas[0].idpregunta;//obtengo el id del cuestionario seleccionado.
             for(i=1;i<preguntas.length+1;i++){
                 //var aux='"'+(cuestionario+i).toString()+'"';
@@ -93,14 +118,33 @@
             $("#puntaje").text(puntaje);
             //$('"#'+cuestionario+'"').removeClass("hidden");
             var cuestionario="<?php echo $cuestionario?>";
-            guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuest"?>',cuestionario);
-            $("#guardar").append("<a class='btn  btn-cf-submit titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/verduras'?>'>Guardar</a>");
+            guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestFrut"?>',cuestionario);
+            $("#guardar").append("<a id='volver' class='btn  hidden btn-cf-submit titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/frutas'?>'>Volver</a>");
             $("#verificacuestionario").addClass("hidden");
+            var temp1=puntaje+puntosBD;
+            var temp2=puntaje+puntajeLider;
+            guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>',temp1);
+            guardaPuntajeLider('<?php echo base_url()."aplicacion/guardaPuntajeLider"?>',temp2);
+            $("#noguardado").text("Puntaje Guardado!");
+            temp1=0;
+            temp2=0;
+            //$("#guardarPuntos").addClass("hidden");
+            $("#volver").removeClass("hidden");
+            //$("#guardarPuntos").removeClass("hidden");
         }
-        /*
-        agregar boton guardar o volver para guardar el puntaje y el cuestionario respondido
-        actualizar en bd el cuestinoario respondido
-        al volver a verduras marcar el cuestionario respondido , quitar link (u otra variante)
-         */
-    })
+    });
+
+    /*$("#guardarPuntos").on({
+     click: function () {
+     var temp1=puntaje+puntosBD;
+     var temp2=puntaje+puntajeLider;
+     guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>',temp1);
+     guardaPuntajeLider('<?php echo base_url()."aplicacion/guardaPuntajeLider"?>',temp2);
+     $("#noguardado").text("Puntaje Guardado!");
+     temp1=0;
+     temp2=0;
+     $("#guardarPuntos").addClass("hidden");
+     $("#volver").removeClass("hidden");
+     }
+     });*/
 </script>

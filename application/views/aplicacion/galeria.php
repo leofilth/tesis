@@ -8,17 +8,11 @@
                 <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'mifoto','name'=>'form');
                 echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
                 ?>
-                        <div class="input-group">
-                            <label class="input-group-btn">
-                            <span class="btn btn-primary">
-                                Browse&hellip; <input type="file" name="archivo" style="display: none;" multiple>
-                            </span>
-                            </label>
-                            <input type="text" class="form-control" readonly>
-                        </div>
-                        <span class="help-block">Selecciona tu imagen</span>
+                <span class="help-block">Selecciona tu imagen</span>
+                <input type="file" name="archivo"  required>
+
                         <label class="errorform"><?php echo form_error('archivo'); ?></label>
-                    <label class="control-label tituloform center-block"> Descripción: </label><textarea class="form-control" rows="4" cols="50" name="descripcion"></textarea>
+                    <label class="control-label tituloform center-block"> Descripción: </label><textarea class="form-control" rows="4" cols="50" name="descripcion" required></textarea>
                         <label class="errorform"><?php echo form_error('descripcion'); ?></label>
                         <button name="boton" id="boton" type="submit" class="btn  btn-cf-submit titulo4 center-block zoom botonfoto">Sube tu foto !</button>
                 <?php
@@ -71,32 +65,34 @@
 </div>
 <?php include "footer.php"?>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $(".img-responsive").on({
-            click:function() {
+            click: function () {
                 //var titulo = $(this).attr("title");
                 var link = $(this).attr("src");
                 //$("#modal-title").text(titulo);
                 $("#modalimg").attr("src", link);
             }
-        }),
-            $(':file').on('fileselect', function(event, numFiles, label) {
+        });
+        /*,
+         $(':file').on('fileselect', function(event, numFiles, label) {
 
-                var input = $(this).parents('.input-group').find(':text'),
-                    log = numFiles > 1 ? numFiles + ' files selected' : label;
+         var input = $(this).parents('.input-group').find(':text'),
+         log = numFiles > 1 ? numFiles + ' files selected' : label;
 
-                if (input.length) {
-                    input.val(log);
-                } else {
-                    if (log) alert(log);
-                }
-            })
+         if (input.length) {
+         input.val(log);
+         } else {
+         if (log) alert(log);
+         }
+         })
 
-    });
-    $(document).on('change', ':file', function() {
-        var input = $(this),
-            numFiles = input.get(0).files ? input.get(0).files.length : 1,
-            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-        input.trigger('fileselect', [numFiles, label]);
-    });
+         });
+         $(document).on('change', ':file', function() {
+         var input = $(this),
+         numFiles = input.get(0).files ? input.get(0).files.length : 1,
+         label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+         input.trigger('fileselect', [numFiles, label]);
+         });*/
+    })
 </script>

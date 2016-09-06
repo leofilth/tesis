@@ -9,7 +9,7 @@
                          {
                              echo base_url()."public/images/user_avatar/user.jpg";
                          }
-                         else if($datos->avatar_name=$datos->nick)
+                         else if($datos->avatar_name==$datos->nick)
                          {
                              echo base_url()."public/images/user_avatar/".$datos->nick.".jpg";
                          }

@@ -34,6 +34,14 @@ class Aplicacion extends CI_Controller {
 					'avatar_name'=>""
 
 				);
+				$jugador=array(
+					'nick_fk'=>$this->input->post("nick",true),
+					'puntos'=>0
+				);//al comenzar tiene 0 puntos
+				$lider=array(
+					'nick_fk'=>$this->input->post("nick",true),
+					'puntaje'=>0
+				);
 				$nick=$this->input->post("nick",true);
 				$consulta=$this->usuarios_model->verifica_nick($nick);
 				if($consulta){
@@ -44,9 +52,12 @@ class Aplicacion extends CI_Controller {
 				else{
 					//agrega el usuario
 					$guardar=$this->usuarios_model->agregar_usuario($data);
+					//agrega jugador con 0 puntos
 					if($guardar)
 					{
 						$this->session->set_flashdata('ControllerMessage','Registro guardado');
+						$this->usuarios_model->agregarEnPuntos($jugador);//agrega usuario en tabla puntos para guardar su puntaje
+						$this->usuarios_model->agregarEnLider($lider);
 						redirect(base_url().'aplicacion/sesion',301);
 					}
 					else{
@@ -151,7 +162,9 @@ class Aplicacion extends CI_Controller {
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$frutas=$this->usuarios_model->getFrutas();
-			$this->layout->view('frutas', compact("datos","frutas"));
+			$cuestionarios=$this->usuarios_model->getCuestionariosFruta();
+			$cuestRespondidos=$this->usuarios_model->getCuestResponFrut($datos->nick);
+			$this->layout->view('frutas', compact("datos","frutas","cuestionarios","cuestRespondidos"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -171,7 +184,9 @@ class Aplicacion extends CI_Controller {
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$alimentos=$this->usuarios_model->getAlimentos();
-			$this->layout->view('alimentos', compact("datos","alimentos"));
+			$cuestionarios=$this->usuarios_model->getCuestionariosAlimento();
+			$cuestRespondidos=$this->usuarios_model->getCuestResponAli($datos->nick);
+			$this->layout->view('alimentos', compact("datos","alimentos","cuestionarios","cuestRespondidos"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -222,15 +237,15 @@ class Aplicacion extends CI_Controller {
 	 */
 	public function galeria(){
 		if ($this->input->post()) {
-			if ($this->form_validation->run("aplicacion/galeria") == true)//va a form_validation y obtiene las reglas
-			{
+			//if ($this->form_validation->run("aplicacion/galeria"))//va a form_validation y obtiene las reglas
+			{echo "entre a validacion !!!";
 				//proceso la imagen
 				$error = null;
 				//$nombrefoto=$this->input->post("titulo",true);
 				//$nombrefotoFormateado=str_replace(" ","_",$nombrefoto);
 				//valido la foto
 				$config['upload_path'] = './public/images/galeria';
-				$config['allowed_types'] = 'jpg|png|jpeg';
+				$config['allowed_types'] = 'jpg|png';
 				$config['overwrite'] = false;
 				$config['encrypt_name'] = true;
 				//$config['file_name'] = $nombrefotoFormateado;
@@ -246,6 +261,7 @@ class Aplicacion extends CI_Controller {
 						'link' => "public/images/galeria/" . $file_name
 
 					);
+					echo "hola";
 					$this->usuarios_model->agregarFoto($foto);
 					redirect(base_url() . 'aplicacion/galeria', 301);
 				} else {
@@ -265,51 +281,106 @@ class Aplicacion extends CI_Controller {
 	/**
 	 * Fin Galeria
 	 */
-	/**
-	 * Funciones AJAX para cuestionarios
-	 */
-	public function cuestionarioFruta(){
-		$this->layout->setLayout('template_ajax');
-		$id=$this->input->post("valor1",true);
-		$preguntasFruta=$this->usuarios_model->getPreguntasFruta($id);
-		$this->layout->view("cuestionarioFruta",compact("preguntasFruta"));
-	}
-	public function cuestionarioVerdura(){
-		$this->layout->setLayout('template_ajax');
-		$id=$this->input->post("valor1",true);
-		$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($id);
-		$this->layout->view("cuestionarioVerdura",compact("preguntasVerdura"));
-	}
 
-	/**
-	 * Fin Funciones AJAX cuestionarios
-	 */
 
 	/*
 	 * Cuestionario por url
 	 */
-	public function cuestionario($id){
+	public function cuestionarioVerd($id){
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
+			$identificador=$this->uri->segment(3);
+			$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
+			$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($cuestionario);
+			$cuestRespondidos=$this->usuarios_model->getCuestResponVerd($datos->nick);
+			$this->layout->view("cuestionarioVerd",compact("datos","identificador","preguntasVerdura","cuestionario",
+				"puntaje","puntajeLider","cuestRespondidos"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	public function cuestionarioFrut($id){
+
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
 			$identificador=$this->uri->segment(3);
 			$cuestionario="cuestionario".$identificador;//cuestionario3, que esta en BD con id
-			$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($cuestionario);
-			$this->layout->view("cuestionario",compact("datos","identificador","preguntasVerdura","cuestionario"));
+			$preguntasFruta=$this->usuarios_model->getPreguntasFruta($cuestionario);
+			$cuestRespondidos=$this->usuarios_model->getCuestResponFrut($datos->nick);
+			$this->layout->view("cuestionarioFrut",compact("datos","identificador","preguntasFruta","cuestionario",
+				"puntaje","puntajeLider","cuestRespondidos"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	public function cuestionarioAli($id){
+
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
+			$identificador=$this->uri->segment(3);
+			$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
+			$preguntasAlimento=$this->usuarios_model->getPreguntasAlimento($cuestionario);
+			$cuestRespondidos=$this->usuarios_model->getCuestResponAli($datos->nick);
+			$this->layout->view("cuestionarioAli",compact("datos","identificador","preguntasAlimento","cuestionario",
+				"puntaje","puntajeLider","cuestRespondidos"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
 	public function guardaCuest(){
-		$cuestionario=$this->input->post("valor1",true);
+		$cuestionarioId=$this->input->post("valor1",true);
 		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
 		$nick=$datos->nick;
 		$aGuardar=array(
 			'nick_fk'=>$nick,
-			'cuest_id_fruta'=>"cuestionario1",
-			'cuest_id_verdura'=>$cuestionario
+			'cuest_id_verdura'=>$cuestionarioId
 		);
-		$this->usuarios_model->guardaCuestResp($aGuardar);
+		$this->usuarios_model->guardaCuestRespVerd($aGuardar);
+	}
+	public function guardaCuestFrut(){
+		$cuestionarioId=$this->input->post("valor1",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'nick_fk'=>$nick,
+			'cuest_id_fruta'=>$cuestionarioId
+		);
+		$this->usuarios_model->guardaCuestRespFrut($aGuardar);
+	}
+	public function guardaCuestAli(){
+		$cuestionarioId=$this->input->post("valor1",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'nick_fk'=>$nick,
+			'cuest_id_alimento'=>$cuestionarioId
+		);
+		$this->usuarios_model->guardaCuestRespAli($aGuardar);
+	}
+	public function guardaPuntaje(){
+		$puntos=$this->input->post("valor",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'puntos'=>$puntos
+		);
+		$this->usuarios_model->guardaPuntaje($aGuardar,$nick);
+	}
+	public function guardaPuntajeLider(){
+		$puntaje=$this->input->post("valor",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'puntaje'=>$puntaje
+		);
+		$this->usuarios_model->guardaPuntajeLider($aGuardar,$nick);
 	}
 	/*
 	 * Fin Cuestionario por url

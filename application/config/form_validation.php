@@ -21,5 +21,4 @@ $config=array
     =>array(
         array('field'=>'descripcion','label'=>'Descripción','rules'=>'required|trim')
     )
-
 );
