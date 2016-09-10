@@ -42,6 +42,11 @@ class usuarios_model extends CI_Model
         $this->db->update('usuarios',$datos);
         return true;
     }
+    public function actualizaperfil($datos=array(),$nick){
+        $this->db->where('nick',$nick);
+        $this->db->update('usuarios',$datos);
+        return true;
+    }
     public function getFrutas(){
         $query=$this->db
             ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
@@ -75,14 +80,14 @@ class usuarios_model extends CI_Model
     }
     public function getVerduras(){
         $query=$this->db
-            ->select("nombre,link,descripcion")
+            ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
             ->from("verduras")
             ->get();
         return $query->result();
     }
     public function getAlimentos(){
         $query=$this->db
-            ->select("nombre,link,descripcion")
+            ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
             ->from("food")
             ->get();
         return $query->result();

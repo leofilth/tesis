@@ -27,8 +27,8 @@
                         }
                         ?>"  class="img-circle"><?php echo $datos->nick?><span class="caret"></span></a>
                     <ul class="dropdown-menu nav-link-ses">
+                        <li><a href="<?php echo base_url()."aplicacion/modificaperfil"?>">Modificar Perfil</a></li>
                         <li><a href="<?php echo base_url()?>aplicacion/cerrarsesion">Cerrar Sesión</a></li>
-                        <li><a href="#">Page 1-2</a></li>
                     </ul>
                 </li>
             </ul>

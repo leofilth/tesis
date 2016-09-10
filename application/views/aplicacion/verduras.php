@@ -18,7 +18,7 @@
                         foreach($verduras as $verdura){
                             ?>
                             <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $verdura->nombre?>" src="<?php echo base_url().$verdura->link?>" class="img-circle fondoblanco rotate center-block verduras" data-toggle="modal" data-target="#myModal">
+                                <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $verdura->nombre?>" src="<?php echo base_url().$verdura->link?>" class="img-circle fondoverdura rotate center-block verduras" data-toggle="modal" data-target="#myModal">
                             </div>
                             <?php
                         }
@@ -66,7 +66,6 @@
         <h1>Tips saludables</h1>
     </div>
 </div>
-<div id="aqui" class="hidden"></div>
 <?php include "footer.php"?>
 <script>
     /**
@@ -74,57 +73,34 @@
      */
     var verdura="Elige una Verdura";
     var desc="Te enseñare sobre ella";
-    /**
-     * Funciones que llaman metodo AJAX
-     * */
-    function carga_ajax_verdura(ruta,valor1,div){
-        $.post(ruta,{valor1:valor1},function(resp)
-        {
-            $("#"+div+"").html(resp);
-        });
-    }
-    function cuestionarioVerdura(ruta,valor1,div){
-        $.post(ruta,{valor1:valor1},function(resp)
-        {
-            $("#"+div+"").html(resp);
-        });
-    }
-    /**
-     * Fin
-     * */
     $(document).ready(function(){
+        var verduras=<?php echo json_encode($verduras,JSON_PRETTY_PRINT)?>;//arreglo con todas las verduras
         $(".verduras").on({
             mouseenter:function(){
                 var texto=$(this).attr("title");
                 $("#explica2").text(texto);
-                carga_ajax_verdura('<?php echo base_url()."aplicacion/respuesta_ajax_verdura"?>',texto,"aqui");
+                //carga_ajax_verdura('<?php echo base_url()."aplicacion/respuesta_ajax_verdura"?>',texto,"aqui");
             },
             click:function(){
                 var titulo=$(this).attr("title");
                 var link=$(this).attr("src");
-                var verduraconsumo=$("#ajaxconsumo").text();
-                var verduracategoria=$("#ajaxcategoria").text();
-                var verdurasaludable=$("#ajaxsaludable").text();
-                var verdurabeneficios=$("#ajaxbeneficios").html();
-                var verduradescripcion=$("#ajaxdescripcion").text();
-                $("#modal-descripcion").text(verduradescripcion);
-                $("#modal-title").text(titulo);
-                $("#modalimg").attr("src",link);
-                $("#modal-consumo").text(verduraconsumo);
-                $("#modal-saludable").text(verdurasaludable);
-                $("#modal-beneficios").html(verdurabeneficios);
-                $("#modal-categoria").text(verduracategoria);
+                var i;
+                for(i=0;i<verduras.length;i++){
+                    if(verduras[i].nombre == titulo){
+                        $("#modal-descripcion").html(verduras[i].descripcion);
+                        $("#modal-title").text(titulo);
+                        $("#modalimg").attr("src",link);
+                        $("#modal-consumo").text(verduras[i].consumo);
+                        $("#modal-saludable").text(verduras[i].saludable);
+                        $("#modal-beneficios").html(verduras[i].beneficios);
+                        $("#modal-categoria").text(verduras[i].categoria);
+                    }
+                }
             },
             mouseleave:function(){
                 $("#explica2").text(verdura);
                 $("#descripcion").text(desc);
             }
-        })
-            /*$(".cuestionario").on({
-                click:function(){
-                    var texto=$(this).attr("name");
-                    cuestionarioVerdura('<?php echo base_url()."aplicacion/cuestionarioVerdura"?>',texto,"cuestionario");
-                }
-            })*/
+        });
     });
 </script>

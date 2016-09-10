@@ -4,20 +4,22 @@
         <h2 class="titulo1">Comparte tus actividades</h2>
         <div class="row">
            <!--<a href="#"><img style="width: 64px;height: 64px" class="center-block zoom" data-toggle="collapse" data-target="#subirfoto" src="<?php echo base_url()."public/images/upload.png"?>"></a>
-            --><div class="col-md-6 col-md-offset-3 cuadradosombra" id="subirfoto">
-                <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'mifoto','name'=>'form');
-                echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
-                ?>
-                <span class="help-block">Selecciona tu imagen</span>
-                <input type="file" name="archivo"  required>
-
-                        <label class="errorform"><?php echo form_error('archivo'); ?></label>
+            --><div class="col-md-4 col-md-offset-4" id="subirfoto">
+                <button type="button" class="btn btn-info center-block" data-toggle="collapse" data-target="#demo">Sube tu foto aqui</button>
+                <div id="demo" class="collapse cuadradosombra">
+                    <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'mifoto','name'=>'form');
+                    echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
+                    ?>
+                    <span class="help-block">Selecciona tu imagen</span>
+                    <input type="file" name="archivo"  required>
+                    <label class="errorform"><?php echo form_error('archivo'); ?></label>
                     <label class="control-label tituloform center-block"> Descripción: </label><textarea class="form-control" rows="4" cols="50" name="descripcion" required></textarea>
-                        <label class="errorform"><?php echo form_error('descripcion'); ?></label>
-                        <button name="boton" id="boton" type="submit" class="btn  btn-cf-submit titulo4 center-block zoom botonfoto">Sube tu foto !</button>
-                <?php
-                echo form_close();
-                ?>
+                    <label class="errorform"><?php echo form_error('descripcion'); ?></label>
+                    <button name="boton" id="boton" type="submit" class="btn  btn-cf-submit titulo4 center-block zoom botonfoto">Guardar</button>
+                    <?php
+                    echo form_close();
+                    ?>
+                </div>
             </div>
         </div>
         <!-- Modal -->
@@ -42,7 +44,7 @@
                 <?php if($i==1) {?>
                 <div class="row albums-holder">
                 <?php } ?>
-                <div class="col-md-4 gallery">
+                <div class="col-md-3 gallery">
                     <figure class="img-overlay gal-img">
                     <a href="" data-toggle="modal" data-target="#myModal">
                     <img style="width: 100%;height: 100%" src="<?php echo base_url().$foto->link?>" class="img-responsive">
@@ -54,7 +56,7 @@
                     </div>
                 </div>
                 <?php $i++?>
-                <?php if($i==4){
+                <?php if($i==5){
                     $i=1?>
                     </div>
                 <?php }?>

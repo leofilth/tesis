@@ -163,8 +163,16 @@ css cuenta
     border-radius: 5px;
     padding:20px 15px 20px 15px;
 }
-.fondoblanco{
+.fondoverdura{
     background-color: rgb(69,178,157);
+    padding: 5px 5px 5px 5px;
+}
+.fondofruta{
+    background-color: #673AB7;
+    padding: 5px 5px 5px 5px;
+}
+.fondoalimento{
+    background-color: #397C4A;
     padding: 5px 5px 5px 5px;
 }
 .borde:hover{

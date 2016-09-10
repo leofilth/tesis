@@ -109,6 +109,20 @@ class Aplicacion extends CI_Controller {
 	}
 	public function cuenta()
 	{
+			if (!empty($this->session_id)) {
+				$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+				$maximo=$this->usuarios_model->getMaxTips();
+				$num_tip=rand(1,$maximo);//numero aleatorio de tips
+				$tip=$this->usuarios_model->getTips($num_tip);
+				$this->layout->view('cuenta', compact("datos","tip"));
+			} else {
+				redirect(base_url() . 'aplicacion', 301);
+			}
+	}
+	/*
+	 * Perfil usuario
+	 */
+	public function modificaPerfil(){
 		if ($this->input->post()) {
 			//proceso la imagen
 			$error = null;
@@ -124,23 +138,38 @@ class Aplicacion extends CI_Controller {
 				$datos->avatar_name = $datos->nick;
 				//actualizar dato
 				$this->usuarios_model->actualiza_usuario($datos, $this->session_id);
-				redirect(base_url() . 'aplicacion/cuenta', 301);
+				redirect(base_url() . 'aplicacion/modificaperfil', 301);
 			} else {
 				$error = array('error' => $this->upload->display_errors());
 				$this->session->set_flashdata('ControllerMessage', $error["error"]);
 			}
 		}
-			if (!empty($this->session_id)) {
-				$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-				$maximo=$this->usuarios_model->getMaxTips();
-				$num_tip=rand(1,$maximo);//numero aleatorio de tips
-				$tip=$this->usuarios_model->getTips($num_tip);
-				$this->layout->view('cuenta', compact("datos","tip"));
-			} else {
-				redirect(base_url() . 'aplicacion', 301);
-			}
-
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$this->layout->view('modificaperfil', compact("datos"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
 		}
+	}
+	public function actualizaperfil(){
+		$this->layout->setLayout('template_ajax');
+		$nombre=$this->input->post("valor1",true);
+		$edad=$this->input->post("valor2",true);
+		$ciudad=$this->input->post("valor3",true);
+		//$nick=$this->input->post("valor4",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$aGuardar=array(
+			'nombre'=>$nombre,
+			'edad'=>$edad,
+			'ciudad'=>$ciudad
+			//'nick'=>$nick,
+		);
+		$this->usuarios_model->actualizaperfil($aGuardar,$datos->nick);
+		$this->layout->view("actualizaperfil");
+	}
+	/*
+	 * Fin
+	 */
 	public function cerrarsesion()
 	{
 		$this->session->unset_userdata(array('login'=>''));

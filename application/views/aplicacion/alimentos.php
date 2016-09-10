@@ -18,7 +18,7 @@
                         foreach($alimentos as $alimento){
                             ?>
                             <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $alimento->nombre?>" src="<?php echo base_url().$alimento->link?>" class="img-circle fondoblanco rotate center-block alimentos" data-toggle="modal" data-target="#myModal">
+                                <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $alimento->nombre?>" src="<?php echo base_url().$alimento->link?>" class="img-circle fondoalimento rotate center-block alimentos" data-toggle="modal" data-target="#myModal">
                             </div>
                             <?php
                         }
@@ -66,49 +66,36 @@
         <h1>Tips saludables</h1>
     </div>
 </div>
-<div id="aqui" class="hidden"></div>
 <?php include "footer.php"?>
 <script>
-
     /**
      * Created by leon on 30-05-2016.
      */
     var alimento="Elige un Alimento";
     var desc="Te enseñare sobre el";
-    /**
-     * Funciones que llaman metodo AJAX
-     * */
-    function carga_ajax_alimento(ruta,valor1,div){
-        $.post(ruta,{valor1:valor1},function(resp)
-        {
-            $("#"+div+"").html(resp);
-        });
-    }
-    /**
-     * Fin
-     * */
     $(document).ready(function(){
+        var alimentos=<?php echo json_encode($alimentos,JSON_PRETTY_PRINT)?>;//arreglo con todas los alimentos
         $(".alimentos").on({
             mouseenter:function(){
                 var texto=$(this).attr("title");
                 $("#explica3").text(texto);
-                carga_ajax_alimento('<?php echo base_url()."aplicacion/respuesta_ajax_alimento"?>',texto,"aqui");
+               // carga_ajax_alimento('<?php echo base_url()."aplicacion/respuesta_ajax_alimento"?>',texto,"aqui");
             },
             click:function(){
                 var titulo=$(this).attr("title");
                 var link=$(this).attr("src");
-                var alimentoconsumo=$("#ajaxconsumo").text();
-                var alimentocategoria=$("#ajaxcategoria").text();
-                var alimentosaludable=$("#ajaxsaludable").text();
-                var alimentobeneficios=$("#ajaxbeneficios").html();
-                var alimentodescripcion=$("#ajaxdescripcion").text();
-                $("#modal-descripcion").text(alimentodescripcion);
-                $("#modal-title").text(titulo);
-                $("#modalimg").attr("src",link);
-                $("#modal-consumo").text(alimentoconsumo);
-                $("#modal-saludable").text(alimentosaludable);
-                $("#modal-beneficios").html(alimentobeneficios);
-                $("#modal-categoria").text(alimentocategoria);
+                var i;
+                for(i=0;i<alimentos.length;i++){
+                    if(alimentos[i].nombre == titulo){
+                        $("#modal-descripcion").html(alimentos[i].descripcion);
+                        $("#modal-title").text(titulo);
+                        $("#modalimg").attr("src",link);
+                        $("#modal-consumo").text(alimentos[i].consumo);
+                        $("#modal-saludable").text(alimentos[i].saludable);
+                        $("#modal-beneficios").html(alimentos[i].beneficios);
+                        $("#modal-categoria").text(alimentos[i].categoria);
+                    }
+                }
             },
             mouseleave:function(){
                 $("#explica3").text(alimento);

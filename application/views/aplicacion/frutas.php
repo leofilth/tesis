@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="titulo1">El poder de las frutas</h1>
-                <div class="titulo2">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
+                <div class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
                 animate a superar el desafío Wambo Frutas!.</div>
                 <div class="row">
                     <div class="col-md-7 col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
@@ -19,7 +19,7 @@
                         foreach($frutas as $fruta){
                             ?>
                             <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $fruta->nombre?>" src="<?php echo base_url().$fruta->link?>" class="img-circle fondoblanco rotate center-block fruta" data-toggle="modal" data-target="#myModal">
+                                <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $fruta->nombre?>" src="<?php echo base_url().$fruta->link?>" class="img-circle fondofruta rotate center-block fruta" data-toggle="modal" data-target="#myModal">
                             </div>
                             <?php
                         }
@@ -68,65 +68,40 @@
     </div>
 </div>
 <?php include "footer.php"?>
-<div id="aqui" class="hidden"></div>
 <script>
     /**
      * Created by leon on 30-05-2016.
      */
     var fruta="Elige una Fruta";
     var desc="Te enseñare sobre ella";
-    /**
-     * Funciones que llaman metodo AJAX
-     * */
-    function carga_ajax_fruta(ruta,valor1,div){
-        $.post(ruta,{valor1:valor1},function(resp)
-        {
-            $("#"+div+"").html(resp);
-        });
-    }
-    function cuestionarioFruta(ruta,valor1,div){
-        $.post(ruta,{valor1:valor1},function(resp)
-        {
-            $("#"+div+"").html(resp);
-        });
-    }
-    /**
-     * Fin
-     * */
     $(document).ready(function(){
+        var frutas=<?php echo json_encode($frutas,JSON_PRETTY_PRINT)?>;//arreglo con todas las frutas
         $(".fruta").on({
             mouseenter:function(){
                 var texto=$(this).attr("title");
                 $("#explica").text(texto);
-                carga_ajax_fruta('<?php echo base_url()."aplicacion/respuesta_ajax_fruta"?>',texto,"aqui");
+               // carga_ajax_fruta('<?php echo base_url()."aplicacion/respuesta_ajax_fruta"?>',texto,"aqui");
             },
             click:function(){
                 var titulo=$(this).attr("title");
                 var link=$(this).attr("src");
-                var frutaconsumo=$("#ajaxconsumo").text();
-                var frutacategoria=$("#ajaxcategoria").text();
-                var frutasaludable=$("#ajaxsaludable").text();
-                var frutabeneficios=$("#ajaxbeneficios").html();
-                var frutadescripcion=$("#ajaxdescripcion").html();
-                $("#modal-descripcion").html(frutadescripcion);
-                $("#modal-title").text(titulo);
-                $("#modalimg").attr("src",link);
-                $("#modal-consumo").text(frutaconsumo);
-                $("#modal-saludable").text(frutasaludable);
-                $("#modal-beneficios").html(frutabeneficios);
-                $("#modal-categoria").text(frutacategoria);
+                var i;
+                for(i=0;i<frutas.length;i++){
+                    if(frutas[i].nombre == titulo){
+                        $("#modal-descripcion").html(frutas[i].descripcion);
+                        $("#modal-title").text(titulo);
+                        $("#modalimg").attr("src",link);
+                        $("#modal-consumo").text(frutas[i].consumo);
+                        $("#modal-saludable").text(frutas[i].saludable);
+                        $("#modal-beneficios").html(frutas[i].beneficios);
+                        $("#modal-categoria").text(frutas[i].categoria);
+                    }
+                }
             },
             mouseleave:function(){
                 $("#explica").text(fruta);
                 $("#descripcion").text(desc);
             }
-        }),
-            /*$(".cuestionario").on({
-                click:function(){
-                    var texto=$(this).attr("name");
-                    cuestionarioFruta('<?php echo base_url()."aplicacion/cuestionarioFruta"?>',texto,"cuestionario");
-                }
-            }),*/
-            $('[data-toggle="tooltip"]').tooltip();
+        });
     });
 </script>

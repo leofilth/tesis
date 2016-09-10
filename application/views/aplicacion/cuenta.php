@@ -14,31 +14,21 @@
                              echo base_url()."public/images/user_avatar/".$datos->nick.".jpg";
                          }
                          ?>">
-                    <!--
-                        <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'miformulario','name'=>'form');
-                    echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
-                    ?>
-                        <input type="file" class="" name="archivo" id="file">
-                        <button name="boton" id="boton" type="submit" class="btn btn-primary btn-md">Actualizar foto</button>
-                        <?php
-                    echo form_close();
-                    ?>
-                        -->
                 </div>
                 <div class="col-md-6">
                     <h1 class="titulo1">Bienvenido</h1>
                 </div>
                 <div class="col-md-3">
                     <div class="">
-                        <div class="cuadradotarjeta4 bubble datm" style="margin-top: 80px;box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
+                        <div class="cuadradotarjeta4 bubble datm" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <img width="50" height="50" class="rotate" src="<?php echo base_url()."public/images/tip.png"?>">
-                                    <img width="50" height="83" src="<?php echo base_url()."public/images/student5.png"?>">
+                                <div class="col-md-4 col-xs-4">
+                                    <img width="50" height="50" class="rotate center-block" src="<?php echo base_url()."public/images/tip.png"?>">
+                                    <img width="50" height="83" class="center-block" src="<?php echo base_url()."public/images/student5.png"?>">
                                 </div>
-                                <div class="col-md-8">
-                                    <p class="descp-tarjeta">¿Sabías qué?</p>
-                                    <p class="descp-tarjeta"><?php  echo $tip->descripcion?></p>
+                                <div class="col-md-8 col-xs-8">
+                                    <p class="descp-tarjeta text-center">¿Sabías qué?</p>
+                                    <p class="descp-tarjeta text-center"><?php  echo $tip->descripcion?></p>
                                 </div>
                             </div>
 
@@ -49,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <h3 class="titulo3" style="text-align: center;color: #008AD1">Selecciona que quieres aprender</h3>
+        <h3 class="titulo1 text-center">Selecciona que quieres aprender</h3>
         <div class="container">
             <div class="row"style="padding-bottom: 30px;padding-top: 30px">
                 <div class="col-md-3 col-md-offset-1 text-center zoom borde" style="background-color: #6FC191;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px">

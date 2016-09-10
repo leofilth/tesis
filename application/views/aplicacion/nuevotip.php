@@ -37,12 +37,12 @@
     <div class="col-md-6 col-md-offset-3 cuadradosombra" id="tip">
         <h2>Nuevo Tip Saludable</h2>
         <?php if($this->session->flashdata('ControllerMessage')!=''){?>
-        <div class="alert alert-info alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <?php
+            <div class="alert alert-success">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Hecho </strong><?php
                 echo $this->session->flashdata('ControllerMessage');
-            ?>
-        </div>
+                ?>
+            </div>
         <?php }?>
         <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'tip','name'=>'form');
         echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
