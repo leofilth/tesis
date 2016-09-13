@@ -16,11 +16,11 @@
                         <tr class="success text-center">
                             <td class="titulo4"><?php echo $lider->nick_fk?><img width="64px" height="64px"  class="img-circle center-block"
                                                                                  src="<?php
-                                                                                 if($lider->avatar_name=="")
+                                                                                 if($lider->avatar_name=="user")
                                                                                  {
                                                                                      echo base_url()."public/images/user_avatar/user.jpg";
                                                                                  }
-                                                                                 else if($lider->avatar_name==$lider->nick_fk)
+                                                                                 else
                                                                                  {
                                                                                      echo base_url()."public/images/user_avatar/".$lider->nick_fk.".jpg";
                                                                                  }

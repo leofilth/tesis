@@ -71,6 +71,11 @@
     /**
      * Created by leon on 30-05-2016.
      */
+    function guardaCuestTemp(ruta,valor){
+        $.post(ruta,{valor:valor},function(resp){
+            return resp;
+        })
+    }
     var verdura="Elige una Verdura";
     var desc="Te enseñare sobre ella";
     $(document).ready(function(){
@@ -100,6 +105,15 @@
             mouseleave:function(){
                 $("#explica2").text(verdura);
                 $("#descripcion").text(desc);
+            }
+        });
+
+        $(".cuest").on({
+            click:function(){
+                var cuestionario=$(this).attr("id");
+                console.log(cuestionario);
+               guardaCuestTemp('<?php echo base_url()."aplicacion/guardaCuestTemp"?>',cuestionario);
+                console.log("holi");
             }
         });
     });

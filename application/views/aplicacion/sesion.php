@@ -13,10 +13,10 @@
                 ?>
             </h4>
             <label class="control-label tituloform center-block">Nick</label>
-            <input class="form-control" name="nick" type="text" placeholder="Tu Nick">
+            <input class="form-control" name="nick" type="text" placeholder="Tu Nick" required>
             <br>
             <label class="control-label tituloform">Contraseña</label>
-            <input class="form-control" name="password" type="password" placeholder="Tu contraseña">
+            <input class="form-control" name="password" type="password" placeholder="Tu contraseña" required>
             <br>
             <br>
             <button type="submit" name="boton" id="boton" class="btn  btn-cf-submit titulo4 center-block zoom">

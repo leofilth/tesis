@@ -25,8 +25,8 @@ if($cuestRespondidos!=null) {
             <div class="col-md-6">
                 <h3 class="titulo4 text-center">Test <?php echo $i ?></h3>
                 <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
-                <a href="<?php echo base_url() . "aplicacion/cuestionariofrut/" . $numero ?>"><img
-                        style="height: 120px;width: 120px;cursor: pointer" class="cuestionario center-block rotate"
+                <a href="<?php echo base_url() . "aplicacion/cuestionariofrut"?>"><img
+                        style="height: 120px;width: 120px;cursor: pointer" class="cuestionario center-block rotate cuest"
                         id="<?php echo $cuestionario ?>" name="<?php echo $cuestionario ?>"
                         src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/></a>
             </div>
@@ -40,8 +40,8 @@ else{?>
         <div class="col-md-6">
             <h3 class="titulo4 text-center">Test <?php echo $i ?></h3>
             <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
-            <a href="<?php echo base_url() . "aplicacion/cuestionariofrut/" . $numero ?>"><img
-                    style="height: 120px;width: 120px;cursor: pointer" class="cuestionario center-block rotate"
+            <a href="<?php echo base_url() . "aplicacion/cuestionariofrut"?>"><img
+                    style="height: 120px;width: 120px;cursor: pointer" class="cuestionario center-block rotate cuest"
                     id="<?php echo $cuestionario ?>" name="<?php echo $cuestionario ?>"
                     src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/></a>
         </div>

@@ -131,6 +131,23 @@ class usuarios_model extends CI_Model
     /*
      * Cuestionario
      */
+    public function agregaUserCuestTemp($datos=array()){
+        $this->db->insert("cuesttemp",$datos);
+        return true;
+    }
+    public function guardaCuestTemp($datos=array(),$nick){
+        $this->db->where('nick_fk',$nick);
+        $this->db->update('cuesttemp',$datos);
+        return true;
+    }
+    public function getCuestTemp($nick){
+        $query=$this->db
+            ->select("cuesttemp")
+            ->from("cuesttemp")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->row();
+    }
     public function guardaCuestRespVerd($datos=array()){
         $this->db->insert("cuest_resp_verd",$datos);
         return true;

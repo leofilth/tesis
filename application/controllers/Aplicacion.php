@@ -31,7 +31,7 @@ class Aplicacion extends CI_Controller {
 					'ciudad'=>$this->input->post("ciudad",true),
 					'nick'=>$this->input->post("nick",true),
 					'password'=>$pass,
-					'avatar_name'=>""
+					'avatar_name'=>"user"
 
 				);
 				$jugador=array(
@@ -40,7 +40,12 @@ class Aplicacion extends CI_Controller {
 				);//al comenzar tiene 0 puntos
 				$lider=array(
 					'nick_fk'=>$this->input->post("nick",true),
-					'puntaje'=>0
+					'puntaje'=>0,
+					'avatar_name'=>"user"
+				);
+				$UserTempCuest=array(
+					'nick_fk'=>$this->input->post("nick",true),
+					'cuesttemp'=>"cuestionario"
 				);
 				$nick=$this->input->post("nick",true);
 				$consulta=$this->usuarios_model->verifica_nick($nick);
@@ -58,6 +63,7 @@ class Aplicacion extends CI_Controller {
 						$this->session->set_flashdata('ControllerMessage','Registro guardado');
 						$this->usuarios_model->agregarEnPuntos($jugador);//agrega usuario en tabla puntos para guardar su puntaje
 						$this->usuarios_model->agregarEnLider($lider);
+						$this->usuarios_model->agregaUserCuestTemp($UserTempCuest);
 						redirect(base_url().'aplicacion/sesion',301);
 					}
 					else{
@@ -138,7 +144,7 @@ class Aplicacion extends CI_Controller {
 				$datos->avatar_name = $datos->nick;
 				//actualizar dato
 				$this->usuarios_model->actualiza_usuario($datos, $this->session_id);
-				redirect(base_url() . 'aplicacion/modificaperfil', 301);
+				redirect(base_url() . 'aplicacion/modificaperfil', 'refresh');
 			} else {
 				$error = array('error' => $this->upload->display_errors());
 				$this->session->set_flashdata('ControllerMessage', $error["error"]);
@@ -290,9 +296,8 @@ class Aplicacion extends CI_Controller {
 						'link' => "public/images/galeria/" . $file_name
 
 					);
-					echo "hola";
 					$this->usuarios_model->agregarFoto($foto);
-					redirect(base_url() . 'aplicacion/galeria', 301);
+					redirect(base_url() . 'aplicacion/galeria', 'refresh');
 				} else {
 					$error = array('error' => $this->upload->display_errors());
 					$this->session->set_flashdata('ControllerMessage', $error["error"]);
@@ -315,15 +320,26 @@ class Aplicacion extends CI_Controller {
 	/*
 	 * Cuestionario por url
 	 */
-	public function cuestionarioVerd($id){
+	public function guardaCuestTemp(){
+		$cuestionarioId=$this->input->post("valor",true);
+		$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+		$aGuardar=array(
+			'cuesttemp'=>$cuestionarioId
+		);
+		//guarda en bd el cuest temporal;
+		$this->usuarios_model->guardaCuestTemp($aGuardar,$datos->nick);
+
+	}
+	public function cuestionarioVerd(){
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
-			$identificador=$this->uri->segment(3);
-			$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
-			$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($cuestionario);
+			//$identificador=$this->uri->segment(3);
+			//$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
+			$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
+			$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($cuestionario->cuesttemp);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponVerd($datos->nick);
 			$this->layout->view("cuestionarioVerd",compact("datos","identificador","preguntasVerdura","cuestionario",
 				"puntaje","puntajeLider","cuestRespondidos"));
@@ -331,15 +347,16 @@ class Aplicacion extends CI_Controller {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
-	public function cuestionarioFrut($id){
+	public function cuestionarioFrut(){
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
-			$identificador=$this->uri->segment(3);
-			$cuestionario="cuestionario".$identificador;//cuestionario3, que esta en BD con id
-			$preguntasFruta=$this->usuarios_model->getPreguntasFruta($cuestionario);
+			//$identificador=$this->uri->segment(3);
+			//$cuestionario="cuestionario".$identificador;//cuestionario3, que esta en BD con id
+			$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
+			$preguntasFruta=$this->usuarios_model->getPreguntasFruta($cuestionario->cuesttemp);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponFrut($datos->nick);
 			$this->layout->view("cuestionarioFrut",compact("datos","identificador","preguntasFruta","cuestionario",
 				"puntaje","puntajeLider","cuestRespondidos"));
@@ -347,15 +364,16 @@ class Aplicacion extends CI_Controller {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
-	public function cuestionarioAli($id){
+	public function cuestionarioAli(){
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
-			$identificador=$this->uri->segment(3);
-			$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
-			$preguntasAlimento=$this->usuarios_model->getPreguntasAlimento($cuestionario);
+			//$identificador=$this->uri->segment(3);
+			//$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
+			$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
+			$preguntasAlimento=$this->usuarios_model->getPreguntasAlimento($cuestionario->cuesttemp);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponAli($datos->nick);
 			$this->layout->view("cuestionarioAli",compact("datos","identificador","preguntasAlimento","cuestionario",
 				"puntaje","puntajeLider","cuestRespondidos"));

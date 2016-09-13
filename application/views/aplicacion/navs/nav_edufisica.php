@@ -16,11 +16,11 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><img height="32px"width="32px" src="<?php
-                            if($datos->avatar_name=="")
+                            if($datos->avatar_name=="user")
                             {
                                 echo base_url()."public/images/user_avatar/user.jpg";
                             }
-                            else if($datos->avatar_name=$datos->nick)
+                            else
                             {
                                 echo base_url()."public/images/user_avatar/".$datos->nick.".jpg";
                             }

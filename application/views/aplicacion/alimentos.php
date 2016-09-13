@@ -71,6 +71,11 @@
     /**
      * Created by leon on 30-05-2016.
      */
+    function guardaCuestTemp(ruta,valor){
+        $.post(ruta,{valor:valor},function(resp){
+            return resp;
+        })
+    }
     var alimento="Elige un Alimento";
     var desc="Te enseñare sobre el";
     $(document).ready(function(){
@@ -101,6 +106,14 @@
                 $("#explica3").text(alimento);
                 $("#descripcion").text(desc);
             }
-        })
+        });
+        $(".cuest").on({
+            click:function(){
+                var cuestionario=$(this).attr("id");
+                console.log(cuestionario);
+                guardaCuestTemp('<?php echo base_url()."aplicacion/guardaCuestTemp"?>',cuestionario);
+                console.log("holi");
+            }
+        });
     });
 </script>

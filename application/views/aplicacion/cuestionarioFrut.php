@@ -76,7 +76,7 @@
             }
             $("#puntaje").text(puntaje);
             //$('"#'+cuestionario+'"').removeClass("hidden");
-            var cuestionario="<?php echo $cuestionario?>";
+            var cuestionario="<?php echo $cuestionario->cuesttemp?>";
             guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestFrut"?>',cuestionario);
             $("#guardar").append("<a id='volver' class='btn  hidden btn-cf-submit titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/frutas'?>'>Volver</a>");
             $("#verificacuestionario").addClass("hidden");

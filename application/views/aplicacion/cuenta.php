@@ -5,11 +5,11 @@
                 <div class="col-md-3">
                     <img width="200px" height="200px"  class="img-circle center-block"
                          src="<?php
-                         if($datos->avatar_name=="")
+                         if($datos->avatar_name=="user")
                          {
                              echo base_url()."public/images/user_avatar/user.jpg";
                          }
-                         else if($datos->avatar_name==$datos->nick)
+                         else
                          {
                              echo base_url()."public/images/user_avatar/".$datos->nick.".jpg";
                          }
