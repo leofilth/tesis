@@ -765,3 +765,10 @@ css para cuestionario cuando se completa
     background-color: #495052;
 }
 /*Fin*/
+/*
+*css recetas
+*/
+.gris {
+    -webkit-filter: grayscale(50%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+}

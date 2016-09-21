@@ -26,9 +26,37 @@
                             echo base_url()."public/images/user_avatar/".$datos->nick.".jpg";
                         }
                         ?>"  class="img-circle"><?php echo $datos->nick?><span class="caret"></span></a>
-                    <ul class="dropdown-menu nav-link-ses">
-                        <li><a href="<?php echo base_url()."aplicacion/modificaperfil"?>">Modificar Perfil</a></li>
-                        <li><a href="<?php echo base_url()?>aplicacion/cerrarsesion">Cerrar Sesión</a></li>
+                    <ul class="dropdown-menu nav-link-ses" style="width: auto;padding:10px;min-width: 300px;">
+                        <li>
+                            <div class="row" style="padding-bottom: 5px">
+                                <div class="col-md-5">
+                                    <img height="64px"width="64px" src="<?php
+                                    if($datos->avatar_name=="user")
+                                    {
+                                        echo base_url()."public/images/user_avatar/user.jpg";
+                                    }
+                                    else
+                                    {
+                                        echo base_url()."public/images/user_avatar/".$datos->nick.".jpg";
+                                    }
+                                    ?>"  class="img-circle center-block">
+                                </div>
+                                <div class="col-md-7">
+                                    <p class="text-center"><?php echo $datos->nombre?></p>
+                                    <p class="text-center"><?php echo $datos->edad." años"?></p>
+                                    <p class="text-center"><?php echo $datos->ciudad?></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6 center-block text-center">
+                                    <a class="btn btn-primary" href="<?php echo base_url()."aplicacion/modificaperfil"?>">Modificar Perfil</a>
+                                </div>
+                                <div class="col-md-6 center-block text-center">
+                                    <a class="btn btn-primary" href="<?php echo base_url()?>aplicacion/cerrarsesion">Cerrar Sesión</a></li>
+                                </div>
+                            </div>
                     </ul>
                 </li>
             </ul>

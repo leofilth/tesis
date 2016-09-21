@@ -12,6 +12,7 @@ class Aplicacion extends CI_Controller {
 		$this->layout->css(array(base_url()."public/css/micss.css"));
 		$this->layout->js(array(base_url()."public/js/bootstrap-filestyle.min.js"));//borrar a futuro
 		$this->layout->js(array(base_url()."public/js/miJS.js"));
+		$this->layout->js(array(base_url()."public/js/bootbox.js"));
 	}
 	public function index()
 	{
@@ -226,14 +227,35 @@ class Aplicacion extends CI_Controller {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
+
+	/**
+	 * Recetas
+	 */
 	public function mis_recetas(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$this->layout->view('mis_recetas', compact("datos"));
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$recetas=$this->usuarios_model->getRecetas();
+			$recetasUsuario=$this->usuarios_model->getRecetaUsuario($datos->nick);
+			$this->layout->view('mis_recetas', compact("datos","puntaje","recetas","recetasUsuario"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
+	public function guardaRecetaUsuario(){
+		$idreceta=$this->input->post("valor",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'nick_fk'=>$nick,
+			'id_receta_fk'=>$idreceta
+		);
+		$this->usuarios_model->guardaRecetaUsuario($aGuardar);
+	}
+
+	/**
+	 * Fin Recetas
+	 */
 	public function lideres(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
@@ -273,7 +295,7 @@ class Aplicacion extends CI_Controller {
 	public function galeria(){
 		if ($this->input->post()) {
 			//if ($this->form_validation->run("aplicacion/galeria"))//va a form_validation y obtiene las reglas
-			{echo "entre a validacion !!!";
+			{
 				//proceso la imagen
 				$error = null;
 				//$nombrefoto=$this->input->post("titulo",true);

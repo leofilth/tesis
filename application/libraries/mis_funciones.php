@@ -56,4 +56,32 @@ class mis_funciones {
         }
         return $format;
     }
+    function limpiaCinco($var){
+        $aux=$var[0]->id;
+        $i=0;
+        $format=array();
+        $format[0]=$aux;
+        foreach($var as $val){
+            if($val->id!=$aux){
+                $i++;
+                $aux=$val->id;
+                $format[$i]=$val->id;
+            }
+        }
+        return $format;
+    }
+    function limpiaSeis($var){
+        $aux=$var[0]->id_receta_fk;
+        $i=0;
+        $format=array();
+        $format[0]=$aux;
+        foreach($var as $val){
+            if($val->id_receta_fk!=$aux){
+                $i++;
+                $aux=$val->id_receta_fk;
+                $format[$i]=$val->id_receta_fk;
+            }
+        }
+        return $format;
+    }
 }

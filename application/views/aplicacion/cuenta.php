@@ -23,7 +23,7 @@
                         <div class="cuadradotarjeta4 bubble datm" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
                             <div class="row">
                                 <div class="col-md-4 col-xs-4">
-                                    <img width="50" height="50" class="rotate center-block" src="<?php echo base_url()."public/images/tip.png"?>">
+                                    <img width="80" height="80" class="rotate center-block" src="<?php echo base_url()."public/images/icons/animat-lightbulb-color.gif"?>">
                                     <img width="50" height="83" class="center-block" src="<?php echo base_url()."public/images/student5.png"?>">
                                 </div>
                                 <div class="col-md-8 col-xs-8">

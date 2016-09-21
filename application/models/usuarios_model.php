@@ -128,7 +128,7 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
-    /*
+    /**
      * Cuestionario
      */
     public function agregaUserCuestTemp($datos=array()){
@@ -273,7 +273,32 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->row();
     }
-    /*
+    /**
      * fin
+     */
+    /**
+     * Recetas
+     */
+    public function getRecetas(){
+        $query=$this->db
+            ->select("id,titulo,descripcion,foto")
+            ->from("recetas")
+            ->get();
+        return $query->result();
+    }
+    public function guardaRecetaUsuario($datos=array()){
+        $this->db->insert("receta_usuario",$datos);
+        return true;
+    }
+    public function getRecetaUsuario($nick){
+        $query=$this->db
+            ->select("id_receta_fk")
+            ->from("receta_usuario")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->result();
+    }
+    /**
+     * Fin Recetas
      */
 }
