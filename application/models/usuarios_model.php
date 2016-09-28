@@ -279,6 +279,31 @@ class usuarios_model extends CI_Model
     /**
      * Recetas
      */
+    public function agregaUserRecetaTemp($datos=array()){
+        $this->db->insert("recetatemp",$datos);
+        return true;
+    }
+    public function guardaRecetaTemp($datos=array(),$nick){
+        $this->db->where('nick_fk',$nick);
+        $this->db->update('recetatemp',$datos);
+        return true;
+    }
+    public function getRecetaTemp($nick){
+        $query=$this->db
+            ->select("receta")
+            ->from("recetatemp")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->row();
+    }
+    public function getRecetaFull($id){
+        $query=$this->db
+            ->select("titulo,descripcion,ingredientes,preparacion,foto")
+            ->from("recetas")
+            ->where(array("id"=>$id))
+            ->get();
+        return $query->row();
+    }
     public function getRecetas(){
         $query=$this->db
             ->select("id,titulo,descripcion,foto")

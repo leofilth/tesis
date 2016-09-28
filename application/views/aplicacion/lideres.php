@@ -3,12 +3,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h1 class="text-center">Lideres de Wambo</h1>
+                <h1 class="text-center titulo1">Lideres de Wambo</h1>
                 <table class="table">
                     <thead>
                     <tr>
-                        <th class="text-center">Nick</th>
-                        <th class="text-center">Puntaje</th>
+                        <th class="text-center titulo2">Nick</th>
+                        <th class="text-center titulo2">Puntaje</th>
                     </tr>
                     </thead>
                     <tbody>

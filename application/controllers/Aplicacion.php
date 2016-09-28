@@ -48,6 +48,10 @@ class Aplicacion extends CI_Controller {
 					'nick_fk'=>$this->input->post("nick",true),
 					'cuesttemp'=>"cuestionario"
 				);
+				$UserTempReceta=array(
+					'nick_fk'=>$this->input->post("nick",true),
+					'receta'=>"receta"
+				);
 				$nick=$this->input->post("nick",true);
 				$consulta=$this->usuarios_model->verifica_nick($nick);
 				if($consulta){
@@ -63,8 +67,9 @@ class Aplicacion extends CI_Controller {
 					{
 						$this->session->set_flashdata('ControllerMessage','Registro guardado');
 						$this->usuarios_model->agregarEnPuntos($jugador);//agrega usuario en tabla puntos para guardar su puntaje
-						$this->usuarios_model->agregarEnLider($lider);
-						$this->usuarios_model->agregaUserCuestTemp($UserTempCuest);
+						$this->usuarios_model->agregarEnLider($lider);//agrega puntaje en tabla lideres
+						$this->usuarios_model->agregaUserCuestTemp($UserTempCuest);//agrega cuestionario temporal
+						$this->usuarios_model->agregaUserRecetaTemp($UserTempReceta);
 						redirect(base_url().'aplicacion/sesion',301);
 					}
 					else{
@@ -121,7 +126,8 @@ class Aplicacion extends CI_Controller {
 				$maximo=$this->usuarios_model->getMaxTips();
 				$num_tip=rand(1,$maximo);//numero aleatorio de tips
 				$tip=$this->usuarios_model->getTips($num_tip);
-				$this->layout->view('cuenta', compact("datos","tip"));
+				$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+				$this->layout->view('cuenta', compact("datos","tip","puntaje"));
 			} else {
 				redirect(base_url() . 'aplicacion', 301);
 			}
@@ -231,13 +237,34 @@ class Aplicacion extends CI_Controller {
 	/**
 	 * Recetas
 	 */
-	public function mis_recetas(){
+	public function tureceta(){
+
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$receta=$this->usuarios_model->getRecetaTemp($datos->nick);
+			$recetafull=$this->usuarios_model->getRecetaFull($receta->receta);
+			$this->layout->view("tureceta",compact("datos","recetafull"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	public function guardaRecetaTemp(){
+		$recetaId=$this->input->post("valor",true);
+		$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+		$aGuardar=array(
+			'receta'=>$recetaId
+		);
+		//guarda en bd el cuest temporal;
+		$this->usuarios_model->guardaRecetaTemp($aGuardar,$datos->nick);
+
+	}
+	public function receta(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$recetas=$this->usuarios_model->getRecetas();
 			$recetasUsuario=$this->usuarios_model->getRecetaUsuario($datos->nick);
-			$this->layout->view('mis_recetas', compact("datos","puntaje","recetas","recetasUsuario"));
+			$this->layout->view('receta', compact("datos","puntaje","recetas","recetasUsuario"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}

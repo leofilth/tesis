@@ -3,7 +3,7 @@
     <section class="container">
         <header class="titulo1 text-center">Modifica tu Perfil</header>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6 col-md-offset-3 cuadradosombra">
                 <img width="200px" height="200px"  class="img-circle center-block"
                      src="<?php
                      if($datos->avatar_name=="user")
@@ -27,11 +27,11 @@
                 <?php
                 echo form_close();
                 ?>
-            </div>
-            <div class="col-md-6">
+                <br>
+                <br>
                 <div id="listo">
                 </div>
-                <form class="form-horizontal">
+                <form class="form-horizontal cuadradosombra">
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-2">
@@ -75,7 +75,6 @@
                 </form>
                 <br>
                 <button id="guardar" class="btn btn-primary center-block">Guardar</button>
-            </div>
         </div>
     </section>
 </section>

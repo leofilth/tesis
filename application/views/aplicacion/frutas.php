@@ -19,7 +19,7 @@
                         foreach($frutas as $fruta){
                             ?>
                             <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $fruta->nombre?>" src="<?php echo base_url().$fruta->link?>" class="img-circle fondofruta rotate center-block fruta" data-toggle="modal" data-target="#myModal">
+                                <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $fruta->nombre?>" src="<?php echo base_url().$fruta->link?>" class="img-circle fondofruta rotate center-block fruta borde" data-toggle="modal" data-target="#myModal">
                             </div>
                             <?php
                         }

@@ -1,7 +1,7 @@
 <?php include "navs/nav_cuenta.php"?>
 <div class="container-fluid bg-im3">
     <div class="container">
-        <header class="titulo4 text-center">Bienvenido a Cuestionarios</header>
+        <header class="titulo4 text-center titulo1">Bienvenido a Cuestionarios</header>
         <?php if($cuestRespondidos == null){?>
         <?php include "cuestionarios/cuestVerd.php"?>
         <?php }

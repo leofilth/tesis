@@ -178,6 +178,9 @@ css cuenta
 .borde:hover{
     box-shadow: 5px 0px 40px #EC774B;
 }
+.borde{
+    box-shadow: 5px 0px 20px #008ad1;
+}
 /*fin css cuenta*/
 /*Barra nav vida sana*/
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
@@ -204,6 +207,22 @@ css cuenta
      line-height: 24px;
     padding-bottom: 10px;
  }
+.titulopuntaje{
+    font-family: "finger paint";
+    color: #f68a26;
+    font-size: 24px;
+}
+.puntaje{
+    font-size: 30px;
+    line-height: 45px;
+    padding: 20px;
+    box-shadow: 0 4px 0 0 #DF7A00;
+    color: #ffffff;
+    width: 50px;
+    text-align: center;
+    border-radius: 100%;
+    background-color:#EC774B;
+}
 .titulo3 {
     color: #f68a26;
     font-family: "Chewy";
@@ -234,6 +253,13 @@ css cuenta
 .tituloform {
     font-family: "finger paint";
     font-size: 16px;
+    color: #008ad1;
+    font-weight: 400;
+    line-height: 24px;
+}
+.titulopiegaleria {
+    font-family: "finger paint";
+    font-size: 14px;
     color: #008ad1;
     font-weight: 400;
     line-height: 24px;
@@ -293,7 +319,7 @@ css cuenta
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 100px;
 }
 .bg-im3 {

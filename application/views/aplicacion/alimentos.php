@@ -18,7 +18,7 @@
                         foreach($alimentos as $alimento){
                             ?>
                             <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $alimento->nombre?>" src="<?php echo base_url().$alimento->link?>" class="img-circle fondoalimento rotate center-block alimentos" data-toggle="modal" data-target="#myModal">
+                                <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $alimento->nombre?>" src="<?php echo base_url().$alimento->link?>" class="borde img-circle fondoalimento rotate center-block alimentos" data-toggle="modal" data-target="#myModal">
                             </div>
                             <?php
                         }
