@@ -206,7 +206,8 @@ class Aplicacion extends CI_Controller {
 			$frutas=$this->usuarios_model->getFrutas();
 			$cuestionarios=$this->usuarios_model->getCuestionariosFruta();
 			$cuestRespondidos=$this->usuarios_model->getCuestResponFrut($datos->nick);
-			$this->layout->view('frutas', compact("datos","frutas","cuestionarios","cuestRespondidos"));
+			$tipsFrutas=$this->usuarios_model->getTipFrutas();
+			$this->layout->view('frutas', compact("datos","frutas","cuestionarios","cuestRespondidos","tipsFrutas"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}

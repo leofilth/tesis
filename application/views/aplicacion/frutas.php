@@ -6,6 +6,24 @@
     <p>The navbar is attached to the top of the page after you have scrolled a specified amount of pixels, and the links in the navbar are automatically updated based on scroll position.</p>
 </div>
 <?php include "modal/modal.php"?>
+<!-- Modal -->
+<div class="modal fade" id="modaltip" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 id="titulo-tip" class="modal-title titulo1">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p id="descripcion-tip"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid" id="section1">
     <div  class="container">
         <div class="row">
@@ -65,6 +83,22 @@
 <div class="container-fluid" id="section4">
     <div class="container">
         <h1>Tips saludables</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <?php
+                $i=0;
+                $colores=array("verde","rosado","celeste","naranjo","rojo");
+                foreach ($tipsFrutas as $tipfruta){
+                    ?>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="tip-<?php echo $colores[$i]?> tip zoom" title="<?php echo $tipfruta->nombre?>" data-toggle="modal" data-target="#modaltip">
+                            <h1 class="titulo-tip"><?php echo $tipfruta->nombre?></h1>
+                        </div>
+                    </div>
+                    <?php $i++;
+                    if($i==5){$i=0;}}?>
+            </div>
+        </div>
     </div>
 </div>
 <?php include "footer.php"?>
@@ -81,6 +115,7 @@
     var desc="Te enseñare sobre ella";
     $(document).ready(function(){
         var frutas=<?php echo json_encode($frutas,JSON_PRETTY_PRINT)?>;//arreglo con todas las frutas
+        var tips=<?php echo json_encode($tipsFrutas,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsFrutas
         $(".fruta").on({
             mouseenter:function(){
                 var texto=$(this).attr("title");
@@ -111,9 +146,19 @@
         $(".cuest").on({
             click:function(){
                 var cuestionario=$(this).attr("id");
-                console.log(cuestionario);
                 guardaCuestTemp('<?php echo base_url()."aplicacion/guardaCuestTemp"?>',cuestionario);
-                console.log("holi");
+            }
+        });
+        $(".tip").on({
+            click:function(){
+                var titulo=$(this).attr("title");
+                var i;
+                for(i=0;i<tips.length;i++){
+                    if(tips[i].nombre == titulo){
+                        $("#descripcion-tip").text(tips[i].descripcion);
+                        $("#titulo-tip").text(titulo);
+                    }
+                }
             }
         });
     });

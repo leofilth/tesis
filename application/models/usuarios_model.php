@@ -107,7 +107,7 @@ class usuarios_model extends CI_Model
     }
     public function getFotos(){
         $query=$this->db
-            ->select("link,descripcion,dueño")
+            ->select("id,link,descripcion,dueño")
             ->from("upload")
             ->order_by('id','DESC')
             ->get();
@@ -325,5 +325,40 @@ class usuarios_model extends CI_Model
     }
     /**
      * Fin Recetas
+     */
+    /**
+     * Tips frutas verduras alimentos deporte
+     */
+    public function getTipFrutas(){
+        $query=$this->db
+            ->select("id,nombre,descripcion")
+            ->from("tipsaludablefruta")
+            ->get();
+        return $query->result();
+    }
+    public function getTipVerduras(){
+        $query=$this->db
+            ->select("id,nombre,descripcion")
+            ->from("tipsaludableverdura")
+            ->get();
+        return $query->result();
+    }
+    public function getTipAlimentos(){
+        $query=$this->db
+            ->select("id,nombre,descripcion")
+            ->from("tipsaludablealimento")
+            ->get();
+        return $query->result();
+    }
+    public function getTipDeporte(){
+        $query=$this->db
+            ->select("id,nombre,descripcion")
+            ->from("tipsaludabledeporte")
+            ->get();
+        return $query->result();
+    }
+
+    /**
+     * fin
      */
 }

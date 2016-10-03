@@ -688,7 +688,14 @@ Fin Css Carousel
 /*
 *CSS Galeria
 */
-
+@media screen and (max-width: 768px) {
+    .altura{
+        height: 250px;
+    }
+}
+.altura{
+    height: 250px;
+}
 .img-overlay {
     display: block;
     overflow: hidden;
@@ -798,3 +805,52 @@ css para cuestionario cuando se completa
     -webkit-filter: grayscale(50%); /* Chrome, Safari, Opera */
     filter: grayscale(100%);
 }
+.tituloreceta{
+    /*box-shadow: 0 4px 0 0 #f1f1f1;*/
+    background-color: rgba(249,249,249,0.7);
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 1px;
+}
+/**
+*tips
+*/
+.tip-verde{
+    box-shadow: 0 4px 0 0 #6ab78a;
+    border-radius: 5px;
+    background-color: #6fc191;
+    cursor: pointer;
+}
+.titulo-tip{
+    padding: 15px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+}
+.tip-naranjo{
+    box-shadow: 0 4px 0 0 #DF764E;
+    border-radius: 5px;
+    background-color: #EC774B;
+    cursor: pointer;
+}
+.tip-celeste{
+    box-shadow: 0 4px 0 0 #6FC4D9;
+    border-radius: 5px;
+    background-color: #74CEE4;
+    cursor: pointer;
+}
+.tip-rojo{
+    box-shadow: 0 4px 0 0 #C86969;
+    border-radius: 5px;
+    background-color: #E16C6C;
+    cursor: pointer;
+}
+.tip-rosado{
+    box-shadow: 0 4px 0 0 #C389CE;
+    border-radius: 5px;
+    background-color: #C19BC8;
+    cursor: pointer;
+}
+/**/
+

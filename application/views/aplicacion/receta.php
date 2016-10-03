@@ -13,16 +13,22 @@
                         foreach ($recetas as $receta){
                             if( in_array($receta->id,$recetasUsuarioLimpio)){?>
                                 <div class="col-md-3 col-xs-6 gallery" style="margin-bottom: 20px">
-                                    <figure class="img-overlay  borde">
+                                    <figure class="img-overlay  ">
                                     <a id="<?php echo "linkreceta".$receta->id?>" href='<?php echo base_url()."aplicacion/tureceta"?>'><img id="<?php echo $receta->id?>" class="img-responsive receta" style="border-radius: 5px" title="<?php echo $receta->titulo?>" src="<?php echo base_url().$receta->foto?>"></a>
-                                </figure>
+                                    </figure>
+                                    <div class="tituloreceta">
+                                        <h5 class="titulopiegaleria"><?php echo $receta->titulo?></h5>
+                                    </div>
                                 </div>
                             <?php }
                             else{?>
                                 <div class="col-md-3 col-xs-6 gallery" style="margin-bottom: 20px">
-                                    <figure class="img-overlay  borde">
+                                    <figure class="img-overlay  ">
                                     <a id="<?php echo "linkreceta".$receta->id?>" href="#"><img id="<?php echo $receta->id?>" class="img-responsive gris"  style="border-radius: 5px" title="<?php echo $receta->titulo?>" src="<?php echo base_url().$receta->foto?>"></a>
-                                </figure>
+                                    </figure>
+                                    <div class="tituloreceta">
+                                        <h5 class="titulopiegaleria"><?php echo $receta->titulo?></h5>
+                                    </div>
                                 </div>
                                 <?php }?>
                         <?php }?>
@@ -30,12 +36,15 @@
                         foreach ($recetas as $receta) {
                             ?>
                             <div class="col-md-3 col-xs-6 gallery" style="margin-bottom: 20px">
-                                <figure class="img-overlay   borde">
+                                <figure class="img-overlay   ">
                                     <a id="<?php echo "linkreceta" . $receta->id ?>" href="#"><img
                                             id="<?php echo $receta->id ?>" class="img-responsive gris"
                                             style="border-radius: 5px" title="<?php echo $receta->titulo ?>"
                                             src="<?php echo base_url() . $receta->foto ?>"></a>
                                 </figure>
+                                <div class="tituloreceta">
+                                    <h5 class="titulopiegaleria"><?php echo $receta->titulo?></h5>
+                                </div>
                             </div>
                         <?php }
                     }?>

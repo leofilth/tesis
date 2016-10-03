@@ -5,8 +5,8 @@
         <div class="row">
             <!--<a href="#"><img style="width: 64px;height: 64px" class="center-block zoom" data-toggle="collapse" data-target="#subirfoto" src="<?php echo base_url()."public/images/upload.png"?>"></a>
             --><div class="col-md-4 col-md-offset-4" id="subirfoto">
-                <button type="button" class="btn btn-info center-block" data-toggle="modal" data-target="#modal2">Sube tu foto aqui</button>
-            </div>
+                    <button type="button" class="btn btn-info center-block" data-toggle="modal" data-target="#modal2">Sube tu foto aqui</button>
+                </div>
         </div>
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
@@ -19,6 +19,7 @@
                     </div>
                     <div class="modal-body">
                         <img style="height:100%;width:100%" id="modalimg" class="center-block" src="">
+                        <h5 class="titulopiegaleria text-center" id="modal-descripcion"></h5>
                     </div>
                 </div>
             </div>
@@ -49,40 +50,41 @@
                 </div>
             </div>
         </div>
-        <?php
-        $i=1;
-        foreach($fotos as $foto){
-            ?>
-            <?php if($i==1){?>
-        <div class="row albums-holder">
-            <?php }else{?>
-            <div class="col-md-3 col-xs-6 gallery">
-                <figure class="img-overlay cuadradosombra">
-                    <a href="" data-toggle="modal" data-target="#myModal">
-                        <img style="width: 100%;height: 100%" src="<?php echo base_url().$foto->link?>" class="img-responsive">
-                    </a>
-                </figure>
-                <div class="cuadradosombra">
-                    <h5 class="titulopiegaleria"><?php echo $foto->descripcion?></h5>
-                    <p>Por: <b><?php echo $foto->dueño?></b></p>
-                </div>
-            </div>
-                <?php };$i++;
-            if($i==6){?>
-                </div>
-                <?php $i=1;}?>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <?php
+                foreach($fotos as $foto){?>
+                    <div class="col-md-3 col-xs-6 col-sm-4 gallery altura">
+                        <figure class="img-overlay cuadradosombra">
+                            <a href="" data-toggle="modal" data-target="#myModal">
+                                <img style="width: 100%;height: 100%" src="<?php echo base_url().$foto->link?>" class="img-responsive" id="<?php echo $foto->id?>">
+                            </a>
+                        </figure>
+                        <div class="cuadradosombra">
+                            <p>Por: <b><?php echo $foto->dueño?></b></p>
+                        </div>
+                    </div>
                 <?php }?>
+            </div>
+        </div>
     </div>
 </div>
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
+        var fotos=<?php echo json_encode($fotos,JSON_PRETTY_PRINT)?>;
         $(".img-responsive").on({
             click: function () {
-                //var titulo = $(this).attr("title");
+                var id = $(this).attr("id");
                 var link = $(this).attr("src");
-                //$("#modal-title").text(titulo);
-                $("#modalimg").attr("src", link);
+                var i;
+                for(i=0;i<fotos.length;i++){
+                    if(fotos[i].id == id){
+                        $("#modalimg").attr("src", link);
+                        $("#modal-descripcion").text(fotos[i].descripcion);
+                    }
+                }
             }
         });
     })
