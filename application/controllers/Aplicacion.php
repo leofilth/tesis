@@ -218,7 +218,8 @@ class Aplicacion extends CI_Controller {
 			$verduras=$this->usuarios_model->getVerduras();
 			$cuestionarios=$this->usuarios_model->getCuestionariosVerdura();
 			$cuestRespondidos=$this->usuarios_model->getCuestResponVerd($datos->nick);
-			$this->layout->view('verduras', compact("datos","verduras","cuestionarios","cuestRespondidos"));
+			$tipsVerduras=$this->usuarios_model->getTipVerduras();
+			$this->layout->view('verduras', compact("datos","verduras","cuestionarios","cuestRespondidos","tipsVerduras"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -229,7 +230,8 @@ class Aplicacion extends CI_Controller {
 			$alimentos=$this->usuarios_model->getAlimentos();
 			$cuestionarios=$this->usuarios_model->getCuestionariosAlimento();
 			$cuestRespondidos=$this->usuarios_model->getCuestResponAli($datos->nick);
-			$this->layout->view('alimentos', compact("datos","alimentos","cuestionarios","cuestRespondidos"));
+			$tipsAlimentos=$this->usuarios_model->getTipAlimentos();
+			$this->layout->view('alimentos', compact("datos","alimentos","cuestionarios","cuestRespondidos","tipsAlimentos"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}

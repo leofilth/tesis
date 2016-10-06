@@ -5,21 +5,23 @@
     <p>Scroll this page to see how the navbar behaves with data-spy="affix" and data-spy="scrollspy".</p>
     <p>The navbar is attached to the top of the page after you have scrolled a specified amount of pixels, and the links in the navbar are automatically updated based on scroll position.</p>
 </div>
-<?php include "modal/modal.php"?>
+<?php include "modal/modal_fruta.php" ?>
 <!-- Modal -->
 <div class="modal fade" id="modaltip" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 id="titulo-tip" class="modal-title titulo1">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-                <p id="descripcion-tip"></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <div class="modal-body" style="background-color: #673AB7">
+                <div class="tip-modal">
+                    <div class="margen-modal">
+                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Modal Header</h4>
+                        <p class="texto-modal-tip" id="descripcion-tip"></p>
+                    </div>
+                </div>
+                <div class="triangulo"></div>
+                <br>
+                <img class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -90,9 +92,9 @@
                 $colores=array("verde","rosado","celeste","naranjo","rojo");
                 foreach ($tipsFrutas as $tipfruta){
                     ?>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="tip-<?php echo $colores[$i]?> tip zoom" title="<?php echo $tipfruta->nombre?>" data-toggle="modal" data-target="#modaltip">
-                            <h1 class="titulo-tip"><?php echo $tipfruta->nombre?></h1>
+                    <div class="col-md-3 col-xs-6 col-sm-4" style="height: 160px">
+                        <div class="tip-<?php echo $colores[$i]?> tip zoom borde" title="<?php echo $tipfruta->nombre?>" data-toggle="modal" data-target="#modaltip">
+                            <div><h1 class="titulo-tip"><?php echo $tipfruta->nombre?></h1></div><div><i class="glyphicon glyphicon-apple hoja"></i></div>
                         </div>
                     </div>
                     <?php $i++;

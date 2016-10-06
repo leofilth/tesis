@@ -69,7 +69,7 @@ css vida sana
     font-family: "montserrat";
 }
 .glyfy{
-    color: rgb(0,138,209);
+    color: #EC644B;
     font-size: 20px;
 }
 .affix {
@@ -96,6 +96,21 @@ css vida sana
 /**
 css cuenta
 **/
+.frutacuenta{
+    background-color: #6FC191;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+}
+.verduracuenta{
+    background-color: #74CEE4;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+}
+.alimentocuenta{
+    background-color: #EDBF47;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+}
+.recetacuenta{
+    background-color: #E16C6C;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+}
+.deportecuenta{
+    background-color: #EC774B;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+}
 .btn-cuenta{
     box-shadow: 0 4px 0 0 #C389CE;
     font-size: 17px;
@@ -260,9 +275,10 @@ css cuenta
 .titulopiegaleria {
     font-family: "finger paint";
     font-size: 14px;
-    color: #008ad1;
+    color: white;
     font-weight: 400;
     line-height: 24px;
+    text-transform: uppercase;
 }
 .errorform{
     color: orangered;
@@ -852,5 +868,100 @@ css para cuestionario cuando se completa
     background-color: #C19BC8;
     cursor: pointer;
 }
+.tip{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.hoja{
+    font-size: 30px;
+    position: absolute;
+    left: auto;
+    overflow: hidden;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    width: 1em;
+    color: #EC644B;
+}
+.tip-modal{
+    box-shadow: 0 4px 0 0 #6ab78a;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #6fc191;
+}
+.margen-modal{
+    display: inline-block;
+    margin: 20px;
+    padding: 0;
+}
+.triangulo{
+    border-color: #6ab78a transparent transparent;
+    margin-left: 20px;
+    border-style: solid;
+    border-width: 15px 15px 0;
+    height: 0;
+    position: absolute;
+    width: 0;
+}
+.modal-header {
+    border-bottom: none;
+    padding: 5px;
+}
+.modal-footer {
+    border-top: none;
+    padding: 5px;
+    text-align: right;
+}
+.texto-modal-tip{
+    font-family: "montserrat";
+    font-size: 15px;
+    color: white;
+}
+.titulo-modal-tip{
+    padding: 15px;
+    text-align: center;
+    font-family: "finger paint";
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+}
 /**/
+/**
+*cuestionario
+*/
+.preg-cuest{
+    font-family: "montserrat";
+    font-size: 15px;
+    color: black;
+}
+/**/
+/*
+lideres
+*/
+.thead{
+    background-color: #edbf47;
+    border-radius: 5px;
+}
+.thead h1{
+    font-family:"Finger Paint";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    text-align: center;
+}
+.tbody{
+    background-color: #f9f9f9;
+}
+.tableshadow{
+    border-radius: 5px;
+    box-shadow: 0 4px 0 0 #f1f1f1;
+}
 

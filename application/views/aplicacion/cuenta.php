@@ -39,52 +39,61 @@
         </div>
         <h3 class="titulo1 text-center">Selecciona que quieres aprender</h3>
         <div class="container">
-            <div class="row"style="margin-bottom: 30px;margin-top: 30px">
-                <div id="fruta" class="col-md-3 col-md-offset-1 text-center zoom borde" style="background-color: #6FC191;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;margin-bottom: 10px">
-                    <img id="portadafruta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
-                    <div style="background-color: #495052;">
-                        <h3 id="tfrut" style="font-family: 'finger paint';color: white;padding: 5%">Frutas</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="fruta" class="col-md-4 col-sm-6">
+                        <div class=" text-center zoom borde frutacuenta">
+                            <img id="portadafruta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
+                            <div style="background-color: #495052;">
+                                <h3 id="tfrut" style="font-family: 'finger paint';color: white;padding: 5%">Frutas</h3>
+                            </div>
+                            <p class="descp-tarjeta">Todo sobre frutas</p>
+                            <a href="<?php echo base_url()."aplicacion/frutas"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                        </div>
                     </div>
-                    <p class="descp-tarjeta">Todo sobre frutas</p>
-                    <a href="<?php echo base_url()."aplicacion/frutas"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
-                </div>
-                <div id="verdura" class="col-md-3 text-center borde zoom"style="background-color: #74CEE4;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;margin-bottom: 10px">
-                    <img id="portadaverdura" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
-                    <div style="background-color: #495052;width: 100%">
-                        <h3 id="tverd" style="font-family: 'finger paint';color: white;padding: 5%">Verduras</h3>
+                    <div id="verdura" class="col-md-4 col-sm-6">
+                        <div class=" text-center borde zoom verduracuenta">
+                            <img id="portadaverdura" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
+                            <div style="background-color: #495052;width: 100%">
+                                <h3 id="tverd" style="font-family: 'finger paint';color: white;padding: 5%">Verduras</h3>
+                            </div>
+                            <p class="descp-tarjeta">Todo sobre las verduras</p>
+                            <a href="<?php echo base_url()."aplicacion/verduras"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                        </div>
                     </div>
-                    <p class="descp-tarjeta">Todo sobre las verduras</p>
-                    <a href="<?php echo base_url()."aplicacion/verduras"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
-                </div>
-                <div id="alimento" class="col-md-3 text-center borde zoom"style="background-color: #EDBF47;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;margin-bottom: 10px">
-                    <img id="portadaalimento" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada5.png"?>">
-                    <div style="background-color: #495052">
-                        <h3 id="tali" style="font-family: 'finger paint';color: white;padding: 5%">Alimentos</h3>
+                    <div id="alimento" class="col-md-4 col-sm-6">
+                        <div class="text-center borde zoom alimentocuenta">
+                            <img id="portadaalimento" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada5.png"?>">
+                            <div style="background-color: #495052">
+                                <h3 id="tali" style="font-family: 'finger paint';color: white;padding: 5%">Alimentos</h3>
+                            </div>
+                            <p class="descp-tarjeta">Todo sobre los alimentos</p>
+                            <a href="<?php echo base_url()."aplicacion/alimentos"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                        </div>
                     </div>
-                    <p class="descp-tarjeta">Todo sobre los alimentos</p>
-                    <a href="<?php echo base_url()."aplicacion/alimentos"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
-                </div>
-            </div>
-            <div class="row" style="padding-bottom: 30px;padding-top: 30px">
-                <div id="receta" class="col-md-3 col-md-offset-1 text-center zoom borde" style="background-color: #E16C6C;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;margin-bottom: 10px">
-                    <img id="portadareceta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada4.jpg"?>">
-                    <div style="background-color: #495052;">
-                        <h3 id="trec" style="font-family: 'finger paint';color: white;padding: 5%">Mis recetas</h3>
+                    <div id="receta" class="col-md-4 col-sm-6">
+                        <div class="text-center zoom borde recetacuenta">
+                            <img id="portadareceta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada4.jpg"?>">
+                            <div style="background-color: #495052;">
+                                <h3 id="trec" style="font-family: 'finger paint';color: white;padding: 5%">Mis recetas</h3>
+                            </div>
+                            <p class="descp-tarjeta">Ricas y saludables recetas</p>
+                            <a href="<?php echo base_url()."aplicacion/receta"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                        </div>
                     </div>
-                    <p class="descp-tarjeta">Ricas y saludables recetas</p>
-                    <a href="<?php echo base_url()."aplicacion/receta"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
-                </div>
-                <div id="deporte" class="col-md-3 text-center zoom borde" style="background-color: #EDBF47;margin-right: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;margin-bottom: 10px">
-                    <img id="portadadeporte" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
-                    <div style="background-color: #495052">
-                        <h3 id="tdep" style="font-family: 'finger paint';color: white;padding: 5%">Actividad física</h3>
+                    <div id="deporte" class="col-md-4 col-sm-6">
+                        <div class="text-center zoom borde deportecuenta">
+                            <img id="portadadeporte" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
+                            <div style="background-color: #495052">
+                                <h3 id="tdep" style="font-family: 'finger paint';color: white;padding: 5%">Actividad física</h3>
+                            </div>
+                            <p class="descp-tarjeta">Tdoo sobre la actividad física!</p>
+                            <a href="<?php echo base_url()."aplicacion/edufisica"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                        </div>
                     </div>
-                    <p class="descp-tarjeta">Tdoo sobre la actividad física!</p>
-                    <a href="<?php echo base_url()."aplicacion/edufisica"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                 </div>
             </div>
         </div>
-
     </div>
 <?php include "footer.php"?>
 <script>

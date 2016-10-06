@@ -8,7 +8,7 @@
         else {?>
             <?php
             $cuestResp=$this->mis_funciones->limpiaCuatro($cuestRespondidos);
-            if(in_array($cuestionario,$cuestResp)){?>
+            if(in_array($cuestionario->cuesttemp,$cuestResp)){?>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <p>ya respondido</p>

@@ -13,13 +13,10 @@
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 id="modal-title" class="modal-title titulo1"></h4>
-                    </div>
-                    <div class="modal-body">
+                    <div class="modal-body" style="background-color: #673AB7">
                         <img style="height:100%;width:100%" id="modalimg" class="center-block" src="">
                         <h5 class="titulopiegaleria text-center" id="modal-descripcion"></h5>
+                        <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
@@ -52,7 +49,7 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 col-lg-12">
                 <?php
                 foreach($fotos as $foto){?>
                     <div class="col-md-3 col-xs-6 col-sm-4 gallery altura">

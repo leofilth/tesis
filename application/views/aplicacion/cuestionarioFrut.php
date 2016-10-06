@@ -8,10 +8,12 @@
         else {?>
             <?php
             $cuestResp=$this->mis_funciones->limpiaTres($cuestRespondidos);
-            if(in_array($cuestionario,$cuestResp)){?>
+            if(in_array($cuestionario->cuesttemp,$cuestResp)){?>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <p>ya respondido</p>
+                        <div id="noguardado" class="alert alert-danger text-center">
+                            Este <strong>Cuestionario</strong> ya ha sido respondido.
+                        </div>
                         <a id='volver' class='btn  btn-cf-submit titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/verduras'?>'>Volver</a>
                     </div>
                 </div>
@@ -70,7 +72,6 @@
                         $("#correcto"+i).text("incorrecto");
                     }
                 } else {
-                    //alert("No está activado");
                     $("#correcto"+i).text("Seleccione una opción");
                 }
             }
@@ -84,6 +85,8 @@
             var temp2=puntaje+puntajeLider;
             guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>',temp1);
             guardaPuntajeLider('<?php echo base_url()."aplicacion/guardaPuntajeLider"?>',temp2);
+            $("#noguardado").removeClass("alert-danger");
+            $("#noguardado").addClass("alert-info");
             $("#noguardado").text("Puntaje Guardado!");
             temp1=0;
             temp2=0;
