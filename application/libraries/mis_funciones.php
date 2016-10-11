@@ -84,4 +84,18 @@ class mis_funciones {
         }
         return $format;
     }
+    function limpiaSiete($var){
+        $aux=$var[0]->cuest_id_deporte;
+        $i=0;
+        $format=array();
+        $format[0]=$aux;
+        foreach($var as $val){
+            if($val->cuest_id_deporte!=$aux){
+                $i++;
+                $aux=$val->cuest_id_deporte;
+                $format[$i]=$val->cuest_id_deporte;
+            }
+        }
+        return $format;
+    }
 }

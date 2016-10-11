@@ -81,7 +81,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid" id="section4">
+<div class="container-fluid" id="tipsaludable">
     <div class="container">
         <h1>Tips saludables</h1>
         <div class="row">
@@ -93,7 +93,7 @@
                     ?>
                     <div class="col-md-3 col-xs-6 col-sm-4" style="height: 160px">
                         <div class="tip-<?php echo $colores[$i]?> tip zoom borde" title="<?php echo $tipverdura->nombre?>" data-toggle="modal" data-target="#modaltip">
-                            <div><h1 class="titulo-tip"><?php echo $tipverdura->nombre?></h1></div><div><i class="glyphicon glyphicon-apple hoja"></i></div>
+                            <div><h1 class="titulo-tip"><?php echo $tipverdura->nombre?></h1></div><div><i class="glyphicon glyphicon-leaf hoja"></i></div>
                         </div>
                     </div>
                     <?php $i++;

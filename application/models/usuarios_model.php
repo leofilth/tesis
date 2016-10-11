@@ -54,6 +54,21 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
+    public function getDeportes(){
+        $query=$this->db
+            ->select("nombre,link,descripcion,categoria,saludable,beneficios,frecuencia")
+            ->from("deportes")
+            ->get();
+        return $query->result();
+    }
+    public function  getDeporteId($id){
+        $query=$this->db
+            ->select("nombre,link,descripcion,categoria,saludable,beneficios,frecuencia")
+            ->from("deportes")
+            ->where(array("nombre"=>$id))
+            ->get();
+        return $query->row();
+    }
     public function  getFrutaId($id){
         $query=$this->db
             ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
@@ -156,6 +171,10 @@ class usuarios_model extends CI_Model
         $this->db->insert("cuest_resp_frut",$datos);
         return true;
     }
+    public function guardaCuestRespDepo($datos=array()){
+        $this->db->insert("cuest_resp_depor",$datos);
+        return true;
+    }
     public function guardaCuestRespAli($datos=array()){
         $this->db->insert("cuest_resp_ali",$datos);
         return true;
@@ -184,6 +203,14 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
+    public function getCuestResponDep($nick){
+        $query=$this->db
+            ->select("cuest_id_deporte")
+            ->from("cuest_resp_depor")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->result();
+    }
     public function getCuestionariosVerdura(){
         $query=$this->db
             ->select("idpregunta")
@@ -202,6 +229,13 @@ class usuarios_model extends CI_Model
         $query=$this->db
             ->select("idpregunta")
             ->from("preguntasalimento")
+            ->get();
+        return $query->result();
+    }
+    public function getCuestionariosDeporte(){
+        $query=$this->db
+            ->select("idpregunta")
+            ->from("preguntasdeporte")
             ->get();
         return $query->result();
     }
@@ -230,6 +264,16 @@ class usuarios_model extends CI_Model
         $query=$this->db
             ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta")
             ->from("preguntasalimento as d")
+            ->join("preguntas as p","p.id=d.idpregunta","inner")
+            ->where(array('d.idpregunta' => $id))
+            ->get();
+        return $query->result();
+    }
+    public function getPreguntasDeporte($id){
+        //consulta a dos tablas
+        $query=$this->db
+            ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta")
+            ->from("preguntasdeporte as d")
             ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->where(array('d.idpregunta' => $id))
             ->get();
@@ -350,7 +394,7 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
-    public function getTipDeporte(){
+    public function getTipDeportes(){
         $query=$this->db
             ->select("id,nombre,descripcion")
             ->from("tipsaludabledeporte")

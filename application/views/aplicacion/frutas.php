@@ -82,7 +82,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid" id="section4">
+<div class="container-fluid" id="tipsaludable">
     <div class="container">
         <h1>Tips saludables</h1>
         <div class="row">

@@ -5,7 +5,7 @@
         <div class="row">
             <!--<a href="#"><img style="width: 64px;height: 64px" class="center-block zoom" data-toggle="collapse" data-target="#subirfoto" src="<?php echo base_url()."public/images/upload.png"?>"></a>
             --><div class="col-md-4 col-md-offset-4" id="subirfoto">
-                    <button type="button" class="btn btn-info center-block" data-toggle="modal" data-target="#modal2">Sube tu foto aqui</button>
+                <img width="20%" style="cursor: pointer" data-toggle="modal" data-target="#modal2" class="center-block zoom" src="<?php echo base_url()."public/images/icons/camera.png"?>">
                 </div>
         </div>
         <!-- Modal -->

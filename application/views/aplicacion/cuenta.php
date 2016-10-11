@@ -21,11 +21,10 @@
                 </div>
                 <div class="col-md-3">
                     <div class="">
-                        <div class="cuadradotarjeta4 bubble datm" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
+                        <div class="cuadradotarjeta4 bubble datm tipmain">
                             <div class="row">
                                 <div class="col-md-4 col-xs-4">
-                                    <img width="70" height="70" class="zoom center-block" src="<?php echo base_url()."public/images/icons/animat-lightbulb-color.gif"?>">
-                                    <img width="50" height="83" class="center-block" src="<?php echo base_url()."public/images/student5.png"?>">
+                                    <img width="70" height="70" class="zoom center-block" src="<?php echo base_url()."public/images/icons/bulb.png"?>">
                                 </div>
                                 <div class="col-md-8 col-xs-8">
                                     <p class="descp-tarjeta text-center">¿Sabías qué?</p>
@@ -44,8 +43,16 @@
                     <div id="fruta" class="col-md-4 col-sm-6">
                         <div class=" text-center zoom borde frutacuenta">
                             <img id="portadafruta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
-                            <div style="background-color: #495052;">
-                                <h3 id="tfrut" style="font-family: 'finger paint';color: white;padding: 5%">Frutas</h3>
+                            <div class="maintitulo">
+                                <h3 id="tfrut">
+                                    Frutas
+                                    <div class="progress barra">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:34%">
+                                            40%
+                                        </div>
+                                    </div>
+                                </h3>
                             </div>
                             <p class="descp-tarjeta">Todo sobre frutas</p>
                             <a href="<?php echo base_url()."aplicacion/frutas"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
@@ -54,8 +61,16 @@
                     <div id="verdura" class="col-md-4 col-sm-6">
                         <div class=" text-center borde zoom verduracuenta">
                             <img id="portadaverdura" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
-                            <div style="background-color: #495052;width: 100%">
-                                <h3 id="tverd" style="font-family: 'finger paint';color: white;padding: 5%">Verduras</h3>
+                            <div class="maintitulo">
+                                <h3 id="tverd">
+                                    Verduras
+                                    <div class="progress barra">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:64%">
+                                            40%
+                                        </div>
+                                    </div>
+                                </h3>
                             </div>
                             <p class="descp-tarjeta">Todo sobre las verduras</p>
                             <a href="<?php echo base_url()."aplicacion/verduras"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
@@ -64,8 +79,16 @@
                     <div id="alimento" class="col-md-4 col-sm-6">
                         <div class="text-center borde zoom alimentocuenta">
                             <img id="portadaalimento" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada5.png"?>">
-                            <div style="background-color: #495052">
-                                <h3 id="tali" style="font-family: 'finger paint';color: white;padding: 5%">Alimentos</h3>
+                            <div class="maintitulo">
+                                <h3 id="tali">
+                                    Alimentos
+                                    <div class="progress barra">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:18%">
+                                            40%
+                                        </div>
+                                    </div>
+                                </h3>
                             </div>
                             <p class="descp-tarjeta">Todo sobre los alimentos</p>
                             <a href="<?php echo base_url()."aplicacion/alimentos"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
@@ -74,8 +97,16 @@
                     <div id="receta" class="col-md-4 col-sm-6">
                         <div class="text-center zoom borde recetacuenta">
                             <img id="portadareceta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada4.jpg"?>">
-                            <div style="background-color: #495052;">
-                                <h3 id="trec" style="font-family: 'finger paint';color: white;padding: 5%">Mis recetas</h3>
+                            <div class="maintitulo">
+                                <h3 id="trec">
+                                    Mis recetas
+                                    <div class="progress barra">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:20%">
+                                            40%
+                                        </div>
+                                    </div>
+                                </h3>
                             </div>
                             <p class="descp-tarjeta">Ricas y saludables recetas</p>
                             <a href="<?php echo base_url()."aplicacion/receta"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
@@ -84,11 +115,29 @@
                     <div id="deporte" class="col-md-4 col-sm-6">
                         <div class="text-center zoom borde deportecuenta">
                             <img id="portadadeporte" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
-                            <div style="background-color: #495052">
-                                <h3 id="tdep" style="font-family: 'finger paint';color: white;padding: 5%">Actividad física</h3>
+                            <div class="maintitulo">
+                                <h3 id="tdep">
+                                    Actividad física
+                                    <div class="progress barra">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                                            40%
+                                        </div>
+                                    </div>
+                                </h3>
                             </div>
                             <p class="descp-tarjeta">Tdoo sobre la actividad física!</p>
                             <a href="<?php echo base_url()."aplicacion/edufisica"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                        </div>
+                    </div>
+                    <div id="fruta" class="col-md-4 col-sm-6">
+                        <div class=" text-center zoom borde frutacuenta">
+                            <img id="portadafruta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
+                            <div class="maintitulo">
+                                <h3 id="tfrut">Super Tips</h3>
+                            </div>
+                            <p class="descp-tarjeta">Super consejos para tu vida</p>
+                            <a href="<?php echo base_url()."aplicacion/frutas"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
                 </div>

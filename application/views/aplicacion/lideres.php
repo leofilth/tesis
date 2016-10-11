@@ -30,7 +30,8 @@
                             </td>
                             <td class="titulo4"><?php echo $lider->puntaje?></td>
                         </tr>
-                    <?php $numero++;}?>
+                    <?php $numero++;
+                    if($numero==11){break;}}?>
                     </tbody>
                 </table>
             </div>

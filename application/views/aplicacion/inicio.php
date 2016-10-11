@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div class="item">
+        <!--<div class="item">
             <img alt="Third slide" src="<?php echo base_url()."public/images/fondo3.jpg"?>" class="third-slide">
             <div class="container">
                 <div class="carousel-caption">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
     <a data-slide="prev" role="button" href="#myCarousel" class="left carousel-control">
         <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>

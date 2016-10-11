@@ -195,7 +195,11 @@ class Aplicacion extends CI_Controller {
 	public function edufisica(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$this->layout->view('edu-fisica', compact("datos"));
+			$deportes=$this->usuarios_model->getDeportes();
+			$cuestionarios=$this->usuarios_model->getCuestionariosDeporte();
+			$cuestRespondidos=$this->usuarios_model->getCuestResponDep($datos->nick);
+			$tipsDeportes=$this->usuarios_model->getTipDeportes();
+			$this->layout->view('deporte', compact("datos","deportes","cuestionarios","cuestRespondidos","tipsDeportes"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -411,6 +415,21 @@ class Aplicacion extends CI_Controller {
 			$preguntasFruta=$this->usuarios_model->getPreguntasFruta($cuestionario->cuesttemp);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponFrut($datos->nick);
 			$this->layout->view("cuestionarioFrut",compact("datos","identificador","preguntasFruta","cuestionario",
+				"puntaje","puntajeLider","cuestRespondidos"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	public function cuestionarioDep(){
+
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
+			$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
+			$preguntasDeporte=$this->usuarios_model->getPreguntasDeporte($cuestionario->cuesttemp);
+			$cuestRespondidos=$this->usuarios_model->getCuestResponDep($datos->nick);
+			$this->layout->view("cuestionarioDep",compact("datos","identificador","preguntasDeporte","cuestionario",
 				"puntaje","puntajeLider","cuestRespondidos"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);

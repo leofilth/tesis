@@ -91,6 +91,7 @@ css vida sana
 #section4 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #EDBF47;}
 #section41 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #EC774B;}
 #section42 {padding-top:50px;padding-bottom:50px;color: #fff; background-color: #009688;}
+#tipsaludable{padding-top:50px;padding-bottom:50px;color: #fff; background-color: #297FB8;}
 /*fin css vida sana*/
 
 /**
@@ -110,6 +111,22 @@ css cuenta
 }
 .deportecuenta{
     background-color: #EC774B;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+}
+.barra{
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.tipmain{
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.maintitulo{
+    background-color: #297FB8;
+    width: 100%;
+}
+.maintitulo h3{
+    font-family: 'finger paint';
+    color: white;
+    padding: 5%;
 }
 .btn-cuenta{
     box-shadow: 0 4px 0 0 #C389CE;
@@ -275,7 +292,7 @@ css cuenta
 .titulopiegaleria {
     font-family: "finger paint";
     font-size: 14px;
-    color: white;
+    color: #48AADC;
     font-weight: 400;
     line-height: 24px;
     text-transform: uppercase;
@@ -884,7 +901,7 @@ css para cuestionario cuando se completa
     margin-left: 0.2em;
     margin-right: 0.2em;
     width: 1em;
-    color: #EC644B;
+    color: #ffffff;
 }
 .tip-modal{
     box-shadow: 0 4px 0 0 #6ab78a;
@@ -895,7 +912,7 @@ css para cuestionario cuando se completa
     background-color: #6fc191;
 }
 .margen-modal{
-    display: inline-block;
+
     margin: 20px;
     padding: 0;
 }
@@ -938,6 +955,12 @@ css para cuestionario cuando se completa
     font-family: "montserrat";
     font-size: 15px;
     color: black;
+}
+.hecho{
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    margin: 0px;
 }
 /**/
 /*
