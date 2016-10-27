@@ -22,7 +22,7 @@ class usuarios_model extends CI_Model
     public function getDatosUsuario($nick)
     {
         $query=$this->db
-            ->select("nombre,ciudad,edad,nick,avatar_name")
+            ->select("nombre,ciudad,edad,sexo,nick,avatar_name")
             ->from("usuarios")
             ->where(array("nick"=>$nick))
             ->get();
@@ -47,19 +47,66 @@ class usuarios_model extends CI_Model
         $this->db->update('usuarios',$datos);
         return true;
     }
+    public function getAvatarFem(){
+        $query=$this->db
+            ->select("nombre,link")
+            ->from("avatar_fem")
+            ->get();
+        return $query->result();
+    }
+    public function guardaAvatar($datos=array(),$datos2=array(),$nick)
+    {
+        $this->db->where('nick',$nick);
+        $this->db->update('usuarios',$datos);
+        $this->db->where('nick_fk',$nick);
+        $this->db->update('lideres',$datos2);
+        return true;
+
+    }
+    public function getAvatarMas(){
+        $query=$this->db
+            ->select("nombre,link")
+            ->from("avatar_mas")
+            ->get();
+        return $query->result();
+    }
     public function getFrutas(){
         $query=$this->db
-            ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
+            ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo")
             ->from("frutas")
             ->get();
         return $query->result();
     }
+    public function getFrutaUsuario($nick){
+        $query=$this->db
+            ->select("id_fruta_fk")
+            ->from("fruta_usuario")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->result();
+    }
+    public function guardaFrutaUsuario($datos=array()){
+        $this->db->insert("fruta_usuario",$datos);
+        return true;
+    }
     public function getDeportes(){
         $query=$this->db
-            ->select("nombre,link,descripcion,categoria,saludable,beneficios,frecuencia")
+            ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,frecuencia")
             ->from("deportes")
             ->get();
         return $query->result();
+    }
+    public function getDeporteUsuario($nick){
+        $query=$this->db
+            ->select("id_deporte_fk")
+            ->from("deporte_usuario")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->result();
+    }
+    public function guardaDeporteUsuario($datos=array()){
+        $this->db->insert("deporte_usuario",$datos);
+        return true;
     }
     public function  getDeporteId($id){
         $query=$this->db
@@ -93,19 +140,43 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->row();
     }
+    public function getAlimentoUsuario($nick){
+        $query=$this->db
+            ->select("id_alimento_fk")
+            ->from("alimento_usuario")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->result();
+    }
     public function getVerduras(){
         $query=$this->db
-            ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
+            ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo")
             ->from("verduras")
             ->get();
         return $query->result();
     }
+    public function getVerduraUsuario($nick){
+        $query=$this->db
+            ->select("id_verdura_fk")
+            ->from("verdura_usuario")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->result();
+    }
+    public function guardaVerduraUsuario($datos=array()){
+        $this->db->insert("verdura_usuario",$datos);
+        return true;
+    }
     public function getAlimentos(){
         $query=$this->db
-            ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
+            ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo")
             ->from("food")
             ->get();
         return $query->result();
+    }
+    public function guardaAlimentoUsuario($datos=array()){
+        $this->db->insert("alimento_usuario",$datos);
+        return true;
     }
     public function getTips($id){
         $query=$this->db
@@ -137,7 +208,7 @@ class usuarios_model extends CI_Model
     }
     public function getLideres(){
         $query=$this->db
-            ->select("nick_fk,puntaje,avatar_name")
+            ->select("nick_fk,puntaje,sexo,avatar_name_fk")
             ->from("lideres")
             ->order_by('puntaje','DESC')
             ->get();
@@ -405,4 +476,14 @@ class usuarios_model extends CI_Model
     /**
      * fin
      */
+    /**
+     * noticias
+     */
+    public function getNoticias(){
+        $query=$this->db
+            ->select("id,titulo,descripcion,foto")
+            ->from("noticias")
+            ->get();
+        return $query->result();
+    }
 }

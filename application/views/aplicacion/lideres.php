@@ -7,7 +7,7 @@
                 <table class="table tableshadow">
                     <thead class="thead">
                     <tr>
-                        <th><h1>#</h1></th>
+                        <th><h1>#Posición</h1></th>
                         <th><h1>Nick</h1></th>
                         <th><h1>Puntaje</h1></th>
                     </tr>
@@ -18,13 +18,17 @@
                             <td class=""><p class="titulo4"><?php echo $numero;?></p></td>
                             <td class="titulo4"><?php echo $lider->nick_fk?><img width="64px" height="64px"  class="img-circle center-block"
                                                                                  src="<?php
-                                                                                 if($lider->avatar_name=="user")
+                                                                                 if($lider->avatar_name_fk=="user")
                                                                                  {
-                                                                                     echo base_url()."public/images/user_avatar/user.jpg";
+                                                                                     if($lider->sexo=="masculino"){
+                                                                                         echo base_url()."public/images/user_avatar/user-mas.png";
+                                                                                     }else{
+                                                                                         echo base_url()."public/images/user_avatar/user-fem.png";
+                                                                                     }
                                                                                  }
                                                                                  else
                                                                                  {
-                                                                                     echo base_url()."public/images/user_avatar/".$lider->nick_fk.".jpg";
+                                                                                     echo base_url()."public/images/user_avatar/".$lider->avatar_name_fk.".png";
                                                                                  }
                                                                                  ?>">
                             </td>

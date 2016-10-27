@@ -29,6 +29,7 @@ class Aplicacion extends CI_Controller {
 				(
 					'nombre'=>$this->input->post("nombre",true),
 					'edad'=>$this->input->post("edad",true),
+					'sexo'=>$this->input->post("sexo",true),
 					'ciudad'=>$this->input->post("ciudad",true),
 					'nick'=>$this->input->post("nick",true),
 					'password'=>$pass,
@@ -42,6 +43,7 @@ class Aplicacion extends CI_Controller {
 				$lider=array(
 					'nick_fk'=>$this->input->post("nick",true),
 					'puntaje'=>0,
+					'sexo'=>$this->input->post("sexo",true),
 					'avatar_name'=>"user"
 				);
 				$UserTempCuest=array(
@@ -136,7 +138,7 @@ class Aplicacion extends CI_Controller {
 	 * Perfil usuario
 	 */
 	public function modificaPerfil(){
-		if ($this->input->post()) {
+		/*if ($this->input->post()) {
 			//proceso la imagen
 			$error = null;
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
@@ -156,13 +158,25 @@ class Aplicacion extends CI_Controller {
 				$error = array('error' => $this->upload->display_errors());
 				$this->session->set_flashdata('ControllerMessage', $error["error"]);
 			}
-		}
+		}*/
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$this->layout->view('modificaperfil', compact("datos"));
+			$avatar_fem=$this->usuarios_model->getAvatarFem();
+			$avatar_mas=$this->usuarios_model->getAvatarMas();
+			$this->layout->view('modificaperfil', compact("datos","avatar_fem","avatar_mas"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
+	}
+	public function guardaAvatar(){
+		$avatar=$this->input->post("valor",true);
+		$aGuardar=array(
+			'avatar_name'=>$avatar
+		);
+		$aGuardar2=array(
+			'avatar_name_fk'=>$avatar
+		);
+		$this->usuarios_model->guardaAvatar($aGuardar,$aGuardar2,$this->session_id);
 	}
 	public function actualizaperfil(){
 		$this->layout->setLayout('template_ajax');
@@ -192,53 +206,111 @@ class Aplicacion extends CI_Controller {
 	public  function  restablecepassword(){
 		$this->layout->view("restablecepassword");
 	}
-	public function edufisica(){
+	public function noticias(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$deportes=$this->usuarios_model->getDeportes();
-			$cuestionarios=$this->usuarios_model->getCuestionariosDeporte();
-			$cuestRespondidos=$this->usuarios_model->getCuestResponDep($datos->nick);
-			$tipsDeportes=$this->usuarios_model->getTipDeportes();
-			$this->layout->view('deporte', compact("datos","deportes","cuestionarios","cuestRespondidos","tipsDeportes"));
+			$noticias=$this->usuarios_model->getNoticias();
+			//$supertip=$this->usuarios_model->getSuperTip();
+			$this->layout->view('noticias', compact("datos","noticias"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
+	}
+	public function deporte(){
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$deportes=$this->usuarios_model->getDeportes();
+			$misdeportes=$this->usuarios_model->getDeporteUsuario($datos->nick);
+			$cuestionarios=$this->usuarios_model->getCuestionariosDeporte();
+			$cuestRespondidos=$this->usuarios_model->getCuestResponDep($datos->nick);
+			$tipsDeportes=$this->usuarios_model->getTipDeportes();
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$this->layout->view('deporte', compact("datos","deportes","cuestionarios","cuestRespondidos","tipsDeportes","puntaje","misdeportes"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	public function guardaDeporteUsuario(){
+		$iddeporte=$this->input->post("valor",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'nick_fk'=>$nick,
+			'id_deporte_fk'=>$iddeporte
+		);
+		$this->usuarios_model->guardaDeporteUsuario($aGuardar);
 	}
 	public function frutas(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$frutas=$this->usuarios_model->getFrutas();
+			$misfrutas=$this->usuarios_model->getFrutaUsuario($datos->nick);
 			$cuestionarios=$this->usuarios_model->getCuestionariosFruta();
 			$cuestRespondidos=$this->usuarios_model->getCuestResponFrut($datos->nick);
 			$tipsFrutas=$this->usuarios_model->getTipFrutas();
-			$this->layout->view('frutas', compact("datos","frutas","cuestionarios","cuestRespondidos","tipsFrutas"));
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$this->layout->view('frutas', compact("datos","frutas","cuestionarios","cuestRespondidos","tipsFrutas","misfrutas","puntaje"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
+	}
+	public function guardaFrutaUsuario(){
+		$idfruta=$this->input->post("valor",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'nick_fk'=>$nick,
+			'id_fruta_fk'=>$idfruta
+		);
+		$this->usuarios_model->guardaFrutaUsuario($aGuardar);
 	}
 	public function verduras(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$verduras=$this->usuarios_model->getVerduras();
+			$misverduras=$this->usuarios_model->getVerduraUsuario($datos->nick);
 			$cuestionarios=$this->usuarios_model->getCuestionariosVerdura();
 			$cuestRespondidos=$this->usuarios_model->getCuestResponVerd($datos->nick);
 			$tipsVerduras=$this->usuarios_model->getTipVerduras();
-			$this->layout->view('verduras', compact("datos","verduras","cuestionarios","cuestRespondidos","tipsVerduras"));
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$this->layout->view('verduras', compact("datos","verduras","cuestionarios","cuestRespondidos","tipsVerduras","misverduras","puntaje"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
+	}
+	public function guardaVerduraUsuario(){
+		$idverdura=$this->input->post("valor",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'nick_fk'=>$nick,
+			'id_verdura_fk'=>$idverdura
+		);
+		$this->usuarios_model->guardaVerduraUsuario($aGuardar);
 	}
 	public function alimentos(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$alimentos=$this->usuarios_model->getAlimentos();
+			$misalimentos=$this->usuarios_model->getAlimentoUsuario($datos->nick);
 			$cuestionarios=$this->usuarios_model->getCuestionariosAlimento();
 			$cuestRespondidos=$this->usuarios_model->getCuestResponAli($datos->nick);
 			$tipsAlimentos=$this->usuarios_model->getTipAlimentos();
-			$this->layout->view('alimentos', compact("datos","alimentos","cuestionarios","cuestRespondidos","tipsAlimentos"));
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$this->layout->view('alimentos', compact("datos","alimentos","cuestionarios","cuestRespondidos","tipsAlimentos","misalimentos","puntaje"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
+	}
+	public function guardaAlimentoUsuario(){
+		$idalimento=$this->input->post("valor",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'nick_fk'=>$nick,
+			'id_alimento_fk'=>$idalimento
+		);
+		$this->usuarios_model->guardaAlimentoUsuario($aGuardar);
 	}
 
 	/**
@@ -481,6 +553,16 @@ class Aplicacion extends CI_Controller {
 			'cuest_id_alimento'=>$cuestionarioId
 		);
 		$this->usuarios_model->guardaCuestRespAli($aGuardar);
+	}
+	public function guardaCuestDep(){
+		$cuestionarioId=$this->input->post("valor1",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'nick_fk'=>$nick,
+			'cuest_id_deporte'=>$cuestionarioId
+		);
+		$this->usuarios_model->guardaCuestRespDepo($aGuardar);
 	}
 	public function guardaPuntaje(){
 		$puntos=$this->input->post("valor",true);

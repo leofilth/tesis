@@ -1,5 +1,16 @@
-<div id="noguardado" class="alert alert-danger" style="width: 30%">
-    <strong>Advertencia</strong> Puntaje no guardado
+<div class="col-md-6" style="margin-left: 50px">
+    <div class="instruccion-naranjo">
+        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
+        <ol class="texto-modal-tip" id="descripcion-tip">
+            <li>Responde cada pregunta</li>
+            <li>Revisa bien tu respuesta</li>
+            <li>cuando estes listo revisa tus resultados</li>
+        </ol>
+    </div>
+    <div style="float: left;margin-left: 50px;clear: left">
+        <div class="triangulo-naranjo"></div>
+    </div>
+    <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
 </div>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">

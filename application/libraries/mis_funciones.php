@@ -98,4 +98,72 @@ class mis_funciones {
         }
         return $format;
     }
+    function limpiaTuFruta($var)
+    {
+        if ($var != null) {
+            $aux = $var[0]->id_fruta_fk;
+            $i = 0;
+            $format = array();
+            $format[0] = $aux;
+            foreach ($var as $val) {
+                if ($val->id_fruta_fk != $aux) {
+                    $i++;
+                    $aux = $val->id_fruta_fk;
+                    $format[$i] = $val->id_fruta_fk;
+                }
+            }
+            return $format;
+        }
+    }
+    function limpiaTuAlimento($var)
+    {
+        if ($var != null) {
+            $aux = $var[0]->id_alimento_fk;
+            $i = 0;
+            $format = array();
+            $format[0] = $aux;
+            foreach ($var as $val) {
+                if ($val->id_alimento_fk != $aux) {
+                    $i++;
+                    $aux = $val->id_alimento_fk;
+                    $format[$i] = $val->id_alimento_fk;
+                }
+            }
+            return $format;
+        }
+    }
+    function limpiaTuVerdura($var)
+    {
+        if ($var != null) {
+            $aux = $var[0]->id_verdura_fk;
+            $i = 0;
+            $format = array();
+            $format[0] = $aux;
+            foreach ($var as $val) {
+                if ($val->id_verdura_fk != $aux) {
+                    $i++;
+                    $aux = $val->id_verdura_fk;
+                    $format[$i] = $val->id_verdura_fk;
+                }
+            }
+            return $format;
+        }
+    }
+    function limpiaTuDeporte($var)
+    {
+        if ($var != null) {
+            $aux = $var[0]->id_deporte_fk;
+            $i = 0;
+            $format = array();
+            $format[0] = $aux;
+            foreach ($var as $val) {
+                if ($val->id_deporte_fk != $aux) {
+                    $i++;
+                    $aux = $val->id_deporte_fk;
+                    $format[$i] = $val->id_deporte_fk;
+                }
+            }
+            return $format;
+        }
+    }
 }

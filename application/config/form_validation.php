@@ -10,7 +10,8 @@ $config=array
         array('field'=>'edad','label'=>'Edad','rules'=>'required|numeric|trim'),
         array('field'=>'ciudad','label'=>'Ciudad','rules'=>'is_string|required|trim'),
         array('field'=>'nick','label'=>'Nick','rules'=>'required|trim'),
-        array('field'=>'password','label'=>'Contraseña','rules'=>'required|trim')
+        array('field'=>'password','label'=>'Contraseña','rules'=>'required|trim'),
+        array('field'=>'sexo','label'=>'Sexo','rules'=>'required|trim')
     ),
     'aplicacion/galeria'
     =>array(

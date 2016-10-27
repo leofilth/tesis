@@ -1,63 +1,108 @@
-<?php include "navs/nav_cuenta.php"?>
-<div class="container-fluid bg-im3">
+<?php include "navs/nav_receta.php"?>
+<div class="container-fluid" id="section1">
     <div class="container">
         <header class="titulo1">Eligue tu receta para comprar</header>
-        <p id="puntaje">tu puntaje es : <?php echo $puntaje->puntos?></p>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="row albums-holder">
-                    <?php
-                    //$recetaslimpio=$this->mis_funciones->limpiaCinco($recetas);
-                    if($recetasUsuario!=null){
-                        $recetasUsuarioLimpio=$this->mis_funciones->limpiaSeis($recetasUsuario);
-                        foreach ($recetas as $receta){
-                            if( in_array($receta->id,$recetasUsuarioLimpio)){?>
-                                <div class="col-md-3 col-xs-6 gallery" style="margin-bottom: 20px">
-                                    <figure class="img-overlay  ">
-                                    <a id="<?php echo "linkreceta".$receta->id?>" href='<?php echo base_url()."aplicacion/tureceta"?>'><img id="<?php echo $receta->id?>" class="img-responsive receta" style="border-radius: 5px" title="<?php echo $receta->titulo?>" src="<?php echo base_url().$receta->foto?>"></a>
-                                    </figure>
-                                    <div class="tituloreceta">
-                                        <h5 class="titulopiegaleria"><?php echo $receta->titulo?></h5>
-                                    </div>
-                                </div>
-                            <?php }
-                            else{?>
-                                <div class="col-md-3 col-xs-6 gallery" style="margin-bottom: 20px">
-                                    <figure class="img-overlay  ">
-                                    <a id="<?php echo "linkreceta".$receta->id?>" href="#"><img id="<?php echo $receta->id?>" class="img-responsive gris"  style="border-radius: 5px" title="<?php echo $receta->titulo?>" src="<?php echo base_url().$receta->foto?>"></a>
-                                    </figure>
-                                    <div class="tituloreceta">
-                                        <h5 class="titulopiegaleria"><?php echo $receta->titulo?></h5>
-                                    </div>
-                                </div>
-                                <?php }?>
-                        <?php }?>
-                    <?php }else {
-                        foreach ($recetas as $receta) {
-                            ?>
-                            <div class="col-md-3 col-xs-6 gallery" style="margin-bottom: 20px">
-                                <figure class="img-overlay   ">
-                                    <a id="<?php echo "linkreceta" . $receta->id ?>" href="#"><img
-                                            id="<?php echo $receta->id ?>" class="img-responsive gris"
-                                            style="border-radius: 5px" title="<?php echo $receta->titulo ?>"
-                                            src="<?php echo base_url() . $receta->foto ?>"></a>
-                                </figure>
-                                <div class="tituloreceta">
-                                    <h5 class="titulopiegaleria"><?php echo $receta->titulo?></h5>
-                                </div>
-                            </div>
-                        <?php }
-                    }?>
+        <p id="puntaje">Tus puntos: <?php echo $puntaje->puntos?></p>
+            <!--<div class="col-md-6 col-md-offset-6">
+                <div class="instruccion-morado">
+                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Modal Header</h4>
+                    <p class="texto-modal-tip" id="descripcion-tip"></p>
                 </div>
+                <div style="float: right;margin-right: 70px;clear: right">
+                    <div class="triangulo-morado"></div>
+                </div>
+                <img class="img-circle pull-right" width="20%" style="margin-top: 10px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+            </div>-->
+            <div class="col-md-6" style="margin-left: 50px">
+                <div class="instruccion-morado">
+                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
+                    <ol class="texto-modal-tip" id="descripcion-tip">
+                        <li>Compra tu receta</li>
+                        <li>Haz click en ella</li>
+                        <li>Cocina :0</li>
+                    </ol>
+                </div>
+                <div style="float: left;margin-left: 50px;clear: left">
+                    <div class="triangulo-morado"></div>
+                </div>
+                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
             </div>
-            <div class="col-md-4">
-                <div class="bubble verde">
-                    <a  href="#section2">
-                        <h2 id="explica">Compra tu receta</h2>
-                        <h3 id="descripcion">Rico y sano</h3>
-                    </a>
+
+    </div>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#menu1">Platos generales</a></li>
+            <li><a data-toggle="tab" href="#menu2">Sandwhiches</a></li>
+            <li><a data-toggle="tab" href="#menu3">Jugos</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="menu1" class="tab-pane fade in active">
+        <div class="row">
+        <?php
+        //$recetaslimpio=$this->mis_funciones->limpiaCinco($recetas);
+        if ($recetasUsuario != null) {
+        $recetasUsuarioLimpio = $this->mis_funciones->limpiaSeis($recetasUsuario);
+        foreach ($recetas as $receta) {
+                if (in_array($receta->id, $recetasUsuarioLimpio)) {
+                ?>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <article style="margin: 20px">
+                        <figure class="img-overlay borde">
+                            <a id="<?php echo "linkreceta" . $receta->id ?>"
+                               href='<?php echo base_url() . "aplicacion/tureceta" ?>'>
+                                <img
+                                    id="<?php echo $receta->id ?>" class="img-responsive receta"
+                                    style="border-radius: 5px" title="<?php echo $receta->titulo ?>"
+                                    src="<?php echo base_url() . $receta->foto ?>"/>
+                            </a>
+                            <header class="tituloreceta">
+                                <h2><?php echo $receta->titulo ?></h2>
+                            </header>
+                        </figure>
+                    </article>
                 </div>
-                <img width="50%" height="70%" src="<?php echo base_url().'public/images/student6.png'?>" class="center-block">
+                <?php }
+    else {
+    ?>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <article style="margin: 20px">
+                <figure class="img-overlay borde">
+                    <a id="<?php echo "linkreceta" . $receta->id ?>" href="#">
+                        <img
+                            id="<?php echo $receta->id ?>" class="img-responsive gris"
+                            style="border-radius: 5px" title="<?php echo $receta->titulo ?>"
+                            src="<?php echo base_url() . $receta->foto ?>"/>
+                    </a>
+                    <header class="tituloreceta">
+                        <h2><?php echo $receta->titulo ?></h2>
+                    </header>
+                </figure>
+            </article>
+        </div>
+        <?php
+        }
+     }
+     }
+    else {
+    foreach ($recetas as $receta) {
+        ?>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <article style="margin: 20px">
+                <figure class="img-overlay">
+                    <a id="<?php echo "linkreceta" . $receta->id ?>" href="#"><img
+                            id="<?php echo $receta->id ?>" class="img-responsive gris"
+                            style="border-radius: 5px" title="<?php echo $receta->titulo ?>"
+                            src="<?php echo base_url() . $receta->foto ?>">
+                    </a>
+                    <header class="tituloreceta">
+                        <h2><?php echo $receta->titulo ?></h2>
+                    </header>
+                </figure>
+            </article>
+        </div>
+        <?php }
+    } ?>
+        </div>
             </div>
         </div>
     </div>

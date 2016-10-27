@@ -1,23 +1,54 @@
 <?php include "navs/nav_cuenta.php" ?>
     <div class="container-fluid bg-im3"style="padding-bottom: 100px">
         <div class="container">
+            <!-- Modal -->
+            <div class="modal fade" id="modaltip" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body" style="background-color: #673AB7">
+                            <div class="tip-modal">
+                                <div class="margen-modal">
+                                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Modal Header</h4>
+                                    <p class="texto-modal-tip" id="descripcion-tip"></p>
+                                </div>
+                            </div>
+                            <div class="triangulo"></div>
+                            <br>
+                            <img class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                            <div style="margin-top: 100px">
+                                <button id="mostrarmodal" type="button" class="btn btn-info" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
+                                <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-3">
-                    <img width="200px" height="200px"  class="img-circle center-block"
+                    <img width="200px" height="200px"  class="img-circle center-block fondoavatar"
                          src="<?php
                          if($datos->avatar_name=="user")
                          {
-                             echo base_url()."public/images/user_avatar/user.jpg";
+                             if($datos->sexo=="masculino"){
+                                 echo base_url()."public/images/user_avatar/user-mas.png";
+                             }else{
+                                 echo base_url()."public/images/user_avatar/user-fem.png";
+                             }
                          }
                          else
                          {
-                             echo base_url()."public/images/user_avatar/".$datos->nick.".jpg";
+                             echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
                          }
                          ?>">
                     <p class="text-center"><span class="puntaje"><?php echo $puntaje->puntos?></span></p>
                 </div>
                 <div class="col-md-6">
-                    <h1 class="titulo1">Bienvenido</h1>
+                    <?php if($datos->sexo == "masculino"){?>
+                    <h1 class="titulo1">Bienvenido <?php echo $datos->nick?></h1>
+                    <?php }else{?>
+                    <h1 class="titulo1">Bienvenida <?php echo $datos->nick?></h1>
+                    <?php }?>
                 </div>
                 <div class="col-md-3">
                     <div class="">
@@ -41,7 +72,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div id="fruta" class="col-md-4 col-sm-6">
-                        <div class=" text-center zoom borde frutacuenta">
+                        <div class=" text-center borde frutacuenta">
                             <img id="portadafruta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
                             <div class="maintitulo">
                                 <h3 id="tfrut">
@@ -59,7 +90,7 @@
                         </div>
                     </div>
                     <div id="verdura" class="col-md-4 col-sm-6">
-                        <div class=" text-center borde zoom verduracuenta">
+                        <div class=" text-center borde  verduracuenta">
                             <img id="portadaverdura" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
                             <div class="maintitulo">
                                 <h3 id="tverd">
@@ -77,7 +108,7 @@
                         </div>
                     </div>
                     <div id="alimento" class="col-md-4 col-sm-6">
-                        <div class="text-center borde zoom alimentocuenta">
+                        <div class="text-center borde  alimentocuenta">
                             <img id="portadaalimento" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada5.png"?>">
                             <div class="maintitulo">
                                 <h3 id="tali">
@@ -95,7 +126,7 @@
                         </div>
                     </div>
                     <div id="receta" class="col-md-4 col-sm-6">
-                        <div class="text-center zoom borde recetacuenta">
+                        <div class="text-center  borde recetacuenta">
                             <img id="portadareceta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada4.jpg"?>">
                             <div class="maintitulo">
                                 <h3 id="trec">
@@ -113,7 +144,7 @@
                         </div>
                     </div>
                     <div id="deporte" class="col-md-4 col-sm-6">
-                        <div class="text-center zoom borde deportecuenta">
+                        <div class="text-center  borde deportecuenta">
                             <img id="portadadeporte" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
                             <div class="maintitulo">
                                 <h3 id="tdep">
@@ -127,17 +158,17 @@
                                 </h3>
                             </div>
                             <p class="descp-tarjeta">Tdoo sobre la actividad física!</p>
-                            <a href="<?php echo base_url()."aplicacion/edufisica"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                            <a href="<?php echo base_url()."aplicacion/deporte"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
                     <div id="fruta" class="col-md-4 col-sm-6">
-                        <div class=" text-center zoom borde frutacuenta">
+                        <div class=" text-center  borde noticiacuenta">
                             <img id="portadafruta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
                             <div class="maintitulo">
-                                <h3 id="tfrut">Super Tips</h3>
+                                <h3 id="tfrut">Noticias</h3>
                             </div>
-                            <p class="descp-tarjeta">Super consejos para tu vida</p>
-                            <a href="<?php echo base_url()."aplicacion/frutas"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                            <p class="descp-tarjeta">Super noticias saludables</p>
+                            <a href="<?php echo base_url()."aplicacion/noticias"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
                         </div>
                     </div>
                 </div>
@@ -147,6 +178,16 @@
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
+        var mostrar=true;
+        $("#mostrarmodal").click(function(){
+            mostrar=false;
+        });
+        $(window).load(function(){
+            if(mostrar){
+                $('#modaltip').modal('show');
+            }
+        });
+
         $("#fruta").on({
             mouseenter:function(){
                 $("#portadafruta").addClass("borde");

@@ -1,10 +1,4 @@
 <?php include "navs/nav_alimentos.php"?>
-<div class="container-fluid" style="background-color:#F44336;color:#fff;height:200px;">
-    <h1>Bienvenido a Vida Saludable</h1>
-    <h3>Aprenderas muchas cosas </h3>
-    <p>Scroll this page to see how the navbar behaves with data-spy="affix" and data-spy="scrollspy".</p>
-    <p>The navbar is attached to the top of the page after you have scrolled a specified amount of pixels, and the links in the navbar are automatically updated based on scroll position.</p>
-</div>
 <?php include "modal/modal_alimento.php" ?>
 <!-- Modal -->
 <div class="modal fade" id="modaltip" role="dialog">
@@ -26,28 +20,73 @@
         </div>
     </div>
 </div>
-<div class="container-fluid" id="section3">
+<div class="container-fluid" id="section1">
     <div  class="container">
         <h1>Section 3</h1>
         <div class="row">
             <div class="col-md-12">
                 <div class="titulo4">Alimentos</div>
                 <div class="row">
+                    <div class="col-md-6" style="margin-left: 50px">
+                        <div class="instruccion-morado">
+                            <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
+                            <ol class="texto-modal-tip" id="descripcion-tip">
+                                <li>Compra tu alimento</li>
+                                <li>Haz click en ella</li>
+                                <li>Aprende</li>
+                            </ol>
+                        </div>
+                        <div style="float: left;margin-left: 50px;clear: left">
+                            <div class="triangulo-morado"></div>
+                        </div>
+                        <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
                     <div class="col-md-7 col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
-                        foreach($alimentos as $alimento){
-                            ?>
-                            <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $alimento->nombre?>" src="<?php echo base_url().$alimento->link?>" class="borde img-circle fondoalimento rotate center-block alimentos" data-toggle="modal" data-target="#myModal">
-                            </div>
-                            <?php
+                        if($misalimentos!=null) {
+                            $misalimentos_limpio = $this->mis_funciones->limpiaTuAlimento($misalimentos);
+                            foreach ($alimentos as $alimento) {
+                                if (in_array($alimento->id, $misalimentos_limpio)) {
+                                    ?>
+                                    <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
+                                        <img id="<?php echo $alimento->id ?>"
+                                             title="<?php echo $alimento->nombre ?>"
+                                             src="<?php echo base_url() . $alimento->link ?>"
+                                             class="img-circle tamano fondofruta rotate center-block alimento borde"
+                                             data-toggle="modal" data-target="#myModal">
+                                    </div>
+                                <?php } else {
+                                    ?>
+                                    <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
+                                        <img id="<?php echo $alimento->id ?>"
+                                             title="<?php echo $alimento->nombre ?>"
+                                             src="<?php echo base_url() . $alimento->link ?>"
+                                             class="img-circle tamano fondofruta rotate center-block gris borde"
+                                             data-toggle="" data-target="">
+                                    </div>
+                                <?php }
+                            }
                         }
-                        ?>
+                        else{
+                            foreach ($alimentos as $alimento) {
+                                ?>
+                                <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
+                                    <img id="<?php echo $alimento->id ?>"
+                                         title="<?php echo $alimento->nombre ?>"
+                                         src="<?php echo base_url() . $alimento->link ?>"
+                                         class="img-circle tamano fondofruta rotate center-block gris borde"
+                                         data-toggle="" data-target="">
+                                </div>
+                            <?php }
+                        }?>
                     </div>
                     <div class="col-md-5 col-sm-12 col-xs-12">
                         <div class="bubble verde">
                             <a title="gogo" href="#">
-                                <h2 id="explica3">Elige un Alimento</h2>
+                                <h2 id="explica">Elige un Alimento</h2>
                                 <h3 id="descripcion">Te enseñare sobre el</h3>
                             </a>
                         </div>
@@ -58,9 +97,26 @@
         </div>
     </div>
 </div>
-<div class="container-fluid" id="section1">
+<div class="container-fluid" id="section2">
     <div class="container">
         <h1>Desafío alimentos</h1>
+        <div class="row">
+            <div class="col-md-6" style="margin-left: 50px">
+                <div class="instruccion-verde">
+                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
+                    <ol class="texto-modal-tip" id="descripcion-tip">
+                        <li>Responde y gana puntos</li>
+                        <li>Canjea por tus alimentos </li>
+                        <li>Demuestra todo lo que sabes</li>
+                    </ol>
+                </div>
+                <div style="float: left;margin-left: 50px;clear: left">
+                    <div class="triangulo-verde"></div>
+                </div>
+                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+            </div>
+        </div>
+        <br>
         <div class="row">
             <div class="col-md-7">
                 <div class="row">
@@ -72,8 +128,8 @@
             <div class="col-md-5">
                 <div class="bubble verde">
                     <a  href="#section2">
-                        <h2 id="explica">Anímate</h2>
-                        <h3 id="descripcion">Demuestra todo lo que sabes</h3>
+                        <h2 id="explicatest">Anímate</h2>
+                        <h3 id="descripciontest">Demuestra todo lo que sabes</h3>
                     </a>
                 </div>
                 <img width="200" height="359" src="<?php echo base_url().'public/images/student4.png'?>" class="center-block">
@@ -84,6 +140,23 @@
 <div class="container-fluid" id="tipsaludable">
     <div class="container">
         <h1>Tips saludables</h1>
+        <div class="row">
+            <div class="col-md-6" style="margin-left: 50px">
+                <div class="instruccion-naranjo">
+                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
+                    <ol class="texto-modal-tip" id="descripcion-tip">
+                        <li>Selecciona tu TIP y aprende un poco mas</li>
+                        <li>Son gratis :D</li>
+                        <li></li>
+                    </ol>
+                </div>
+                <div style="float: left;margin-left: 50px;clear: left">
+                    <div class="triangulo-naranjo"></div>
+                </div>
+                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+            </div>
+        </div>
+        <br>
         <div class="row">
             <div class="col-md-12">
                 <?php
@@ -104,27 +177,111 @@
 </div>
 <?php include "footer.php"?>
 <script>
-    /**
-     * Created by leon on 30-05-2016.
-     */
-    function guardaCuestTemp(ruta,valor){
-        $.post(ruta,{valor:valor},function(resp){
-            return resp;
-        })
-    }
-    var alimento="Elige un Alimento";
-    var desc="Te enseñare sobre el";
     $(document).ready(function(){
-        var alimentos=<?php echo json_encode($alimentos,JSON_PRETTY_PRINT)?>;//arreglo con todas los alimentos
+        /**
+         * Created by leon on 30-05-2016.
+         */
+        var puntos = <?php echo $puntaje->puntos?>;
+        var alimento="Elige un alimento";
+        var desc="Te enseñare sobre el";
+        var titulo, titulo2;
+        function guardaCuestTemp(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp){
+                return resp;
+            })
+        }
+        function guardaAlimento(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp){
+                return resp;
+            })
+        }
+        function guardaPuntaje(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp){
+                return resp;
+            })
+        }
+        function compra(){
+            if(puntos <50){
+                bootbox.alert({
+                    size: "small",
+                    title: "Puntos insuficientes",
+                    message: "Consigue mas puntos…",
+                    className: 'bb-alternate-modal',
+                    callback: function(){ /* your callback code */ }
+                })
+            }
+            else {
+                var id = $(this).attr("id");
+                var nombre = $(this).attr("title");
+                bootbox.confirm({
+                    size: 'small',
+                    buttons: {
+                        confirm: {
+                            label: 'Si',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'No',
+                            className: 'btn-danger'
+                        }
+                    },
+                    //mesaage:'<p class="text-center">Please wait while we do something...</p>',
+                    message: "<p class='text-center'>Seguro quieres comprar?.<br><p>" + nombre + " por 50 puntos<br>" + "Tus puntos actuales son: " + puntos,
+                    callback: function (result) {
+                        if (result) {
+                            puntos = puntos - 50;
+                            $("#puntaje").text(puntos);
+                            $("#" + id + ".gris").off();
+                            $("#" + id).removeClass("gris");//quita color gris de la imagen
+                            $("#" + id).off("click", compra);//quita evento compra
+                            guardaAlimento('<?php echo base_url()."aplicacion/guardaAlimentoUsuario"?>', id);
+                            guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>', puntos);
+                            //agrega clase fruta para ver en modal
+                            $("#" + id).addClass("alimento");
+                            $("#" + id + ".alimento").on("click", function () {
+                                titulo = $(this).attr("title");
+                                var link = $(this).attr("src");
+                                var i;
+                                for (i = 0; i < alimentos.length; i++) {
+                                    if (alimentos[i].nombre == titulo) {
+                                        $("#modal-descripcion").html(alimentos[i].descripcion);
+                                        $("#modal-title").text(titulo);
+                                        $("#modalimg").attr("src", link);
+                                        $("#modal-consumo").text(alimentos[i].consumo);
+                                        $("#modal-saludable").text(alimentos[i].saludable);
+                                        $("#modal-beneficios").html(alimentos[i].beneficios);
+                                        $("#modal-categoria").text(alimentos[i].categoria);
+                                    }
+                                }
+
+                            });
+                            $("#" + id + ".alimento").on("mouseenter", function () {
+                                var texto = $(this).attr("title");
+                                $("#explica").text(texto);
+                            });
+                            $("#" + id + ".alimento").on("mouseleave", function () {
+                                $("#explica").text(alimento);
+                                $("#descripcion").text(desc);
+                            });
+                            $("#" + id).attr("data-toggle", "modal");
+                            $("#" + id).attr("data-target", "#myModal");
+                        }
+                        else {
+                            //bootbox.alert("tus puntos: " + puntos);
+                        }
+                    }
+                });
+            }
+        }
+        var alimentos=<?php echo json_encode($alimentos,JSON_PRETTY_PRINT)?>;//arreglo con todas las frutas
         var tips=<?php echo json_encode($tipsAlimentos,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsFrutas
-        $(".alimentos").on({
+        $(".alimento").on({
             mouseenter:function(){
                 var texto=$(this).attr("title");
-                $("#explica3").text(texto);
-               // carga_ajax_alimento('<?php echo base_url()."aplicacion/respuesta_ajax_alimento"?>',texto,"aqui");
+                $("#explica").text(texto);
             },
             click:function(){
-                var titulo=$(this).attr("title");
+                titulo=$(this).attr("title");
                 var link=$(this).attr("src");
                 var i;
                 for(i=0;i<alimentos.length;i++){
@@ -140,16 +297,14 @@
                 }
             },
             mouseleave:function(){
-                $("#explica3").text(alimento);
+                $("#explica").text(alimento);
                 $("#descripcion").text(desc);
             }
         });
         $(".cuest").on({
             click:function(){
                 var cuestionario=$(this).attr("id");
-                console.log(cuestionario);
                 guardaCuestTemp('<?php echo base_url()."aplicacion/guardaCuestTemp"?>',cuestionario);
-                console.log("holi");
             }
         });
         $(".tip").on({
@@ -164,5 +319,22 @@
                 }
             }
         });
+        /*
+         Compra un alimento
+         */
+        $(".gris").on({
+            click:compra,
+            mouseenter:function(){
+                titulo2=$(this).attr("title");
+                $("#explica").text(titulo2);
+            },
+            mouseleave:function(){
+                $("#explica").text(alimento);
+                $("#descripcion").text(desc);
+            }
+        });
+        /*
+         fin compra fruta
+         */
     });
 </script>

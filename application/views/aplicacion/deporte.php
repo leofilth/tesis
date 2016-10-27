@@ -1,10 +1,4 @@
 <?php include "navs/nav_edufisica.php"?>
-<div class="container-fluid" style="background-color:#F44336;color:#fff;height:200px;">
-    <h1 class="titulo">Bienvenido a deporte</h1>
-    <h3>Aprenderas muchas cosas </h3>
-    <p>Scroll this page to see how the navbar behaves with data-spy="affix" and data-spy="scrollspy".</p>
-    <p>The navbar is attached to the top of the page after you have scrolled a specified amount of pixels, and the links in the navbar are automatically updated based on scroll position.</p>
-</div>
 <?php include "modal/modal_deporte.php" ?>
 <!-- Modal -->
 <div class="modal fade" id="modaltip" role="dialog">
@@ -34,16 +28,61 @@
                 <div class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
                     animate a superar el desafío Wambo Frutas!.</div>
                 <div class="row">
+                    <div class="col-md-6" style="margin-left: 50px">
+                        <div class="instruccion-morado">
+                            <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
+                            <ol class="texto-modal-tip" id="descripcion-tip">
+                                <li>Compra tu deporte</li>
+                                <li>Haz click en ella</li>
+                                <li>Aprende</li>
+                            </ol>
+                        </div>
+                        <div style="float: left;margin-left: 50px;clear: left">
+                            <div class="triangulo-morado"></div>
+                        </div>
+                        <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
                     <div class="col-md-7 col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
-                        foreach($deportes as $deporte){
-                            ?>
-                            <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                <img style="cursor: pointer;width: 64px;height: 64px;" title="<?php echo $deporte->nombre?>" src="<?php echo base_url().$deporte->link?>" class="img-circle fondofruta rotate center-block deporte borde" data-toggle="modal" data-target="#myModal">
-                            </div>
-                            <?php
+                        if($misdeportes!=null) {
+                            $misdeportes_limpio = $this->mis_funciones->limpiaTuDeporte($misdeportes);
+                            foreach ($deportes as $deporte) {
+                                if (in_array($deporte->id, $misdeportes_limpio)) {
+                                    ?>
+                                    <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
+                                        <img id="<?php echo $deporte->id ?>"
+                                             title="<?php echo $deporte->nombre ?>"
+                                             src="<?php echo base_url() . $deporte->link ?>"
+                                             class="img-circle tamano fondofruta rotate center-block deporte borde"
+                                             data-toggle="modal" data-target="#myModal">
+                                    </div>
+                                <?php } else {
+                                    ?>
+                                    <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
+                                        <img id="<?php echo $deporte->id ?>"
+                                             title="<?php echo $deporte->nombre ?>"
+                                             src="<?php echo base_url() . $deporte->link ?>"
+                                             class="img-circle tamano fondofruta rotate center-block gris borde"
+                                             data-toggle="" data-target="">
+                                    </div>
+                                <?php }
+                            }
                         }
-                        ?>
+                        else{
+                            foreach ($deportes as $deporte) {
+                                ?>
+                                <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
+                                    <img id="<?php echo $deporte->id ?>"
+                                         title="<?php echo $deporte->nombre ?>"
+                                         src="<?php echo base_url() . $deporte->link ?>"
+                                         class="img-circle tamano fondofruta rotate center-block gris borde"
+                                         data-toggle="" data-target="">
+                                </div>
+                            <?php }
+                        }?>
                     </div>
                     <div class="col-md-5 col-sm-12 col-xs-12">
                         <div class="bubble verde">
@@ -63,6 +102,23 @@
     <div class="container">
         <h1>Desafío Deporte</h1>
         <div class="row">
+            <div class="col-md-6" style="margin-left: 50px">
+                <div class="instruccion-verde">
+                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
+                    <ol class="texto-modal-tip" id="descripcion-tip">
+                        <li>Responde y gana puntos</li>
+                        <li>Canjea por tus deporte </li>
+                        <li>Demuestra todo lo que sabes</li>
+                    </ol>
+                </div>
+                <div style="float: left;margin-left: 50px;clear: left">
+                    <div class="triangulo-verde"></div>
+                </div>
+                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+            </div>
+        </div>
+        <br>
+        <div class="row">
             <div class="col-md-7">
                 <div class="row">
                     <?php include "tests/testdeporte.php"?>
@@ -73,8 +129,8 @@
             <div class="col-md-5">
                 <div class="bubble verde">
                     <a  href="#section2">
-                        <h2 id="explica">Anímate</h2>
-                        <h3 id="descripcion">Demuestra todo lo que sabes</h3>
+                        <h2 id="explicatest">Anímate</h2>
+                        <h3 id="descripciontest">Demuestra todo lo que sabes</h3>
                     </a>
                 </div>
                 <img width="200" height="359" src="<?php echo base_url().'public/images/student2.png'?>" class="center-block">
@@ -85,6 +141,23 @@
 <div class="container-fluid" id="tipsaludable">
     <div class="container">
         <h1>Tips saludables</h1>
+        <div class="row">
+            <div class="col-md-6" style="margin-left: 50px">
+                <div class="instruccion-naranjo">
+                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
+                    <ol class="texto-modal-tip" id="descripcion-tip">
+                        <li>Selecciona tu TIP y aprende un poco mas</li>
+                        <li>Son gratis :D</li>
+                        <li></li>
+                    </ol>
+                </div>
+                <div style="float: left;margin-left: 50px;clear: left">
+                    <div class="triangulo-naranjo"></div>
+                </div>
+                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+            </div>
+        </div>
+        <br>
         <div class="row">
             <div class="col-md-12">
                 <?php
@@ -105,26 +178,111 @@
 </div>
 <?php include "footer.php"?>
 <script>
-    /**
-     * Created by leon on 30-05-2016.
-     */
-    function guardaCuestTemp(ruta,valor){
-        $.post(ruta,{valor:valor},function(resp){
-            return resp;
-        })
-    }
-    var deporte="Elige un Deporte";
-    var desc="Te enseñare sobre el";
     $(document).ready(function(){
-        var deportes=<?php echo json_encode($deportes,JSON_PRETTY_PRINT)?>;//arreglo con todas las frutas
-        var tips=<?php echo json_encode($tipsDeportes,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsFrutas
+        /**
+         * Created by leon on 30-05-2016.
+         */
+        var puntos = <?php echo $puntaje->puntos?>;
+        var deporte="Elige un Deporte o actividad";
+        var desc="Te enseñare sobre ella";
+        var titulo, titulo2;
+        function guardaCuestTemp(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp){
+                return resp;
+            })
+        }
+        function guardaDeporte(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp){
+                return resp;
+            })
+        }
+        function guardaPuntaje(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp){
+                return resp;
+            })
+        }
+        function compra(){
+            if(puntos <50){
+                bootbox.alert({
+                    size: "small",
+                    title: "Puntos insuficientes",
+                    message: "Consigue mas puntos…",
+                    className: 'bb-alternate-modal',
+                    callback: function(){ /* your callback code */ }
+                })
+            }
+            else {
+                var id = $(this).attr("id");
+                var nombre = $(this).attr("title");
+                bootbox.confirm({
+                    size: 'small',
+                    buttons: {
+                        confirm: {
+                            label: 'Si',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'No',
+                            className: 'btn-danger'
+                        }
+                    },
+                    //mesaage:'<p class="text-center">Please wait while we do something...</p>',
+                    message: "<p class='text-center'>Seguro quieres comprar?.<br><p>" + nombre + " por 50 puntos<br>" + "Tus puntos actuales son: " + puntos,
+                    callback: function (result) {
+                        if (result) {
+                            puntos = puntos - 50;
+                            $("#puntaje").text(puntos);
+                            $("#" + id + ".gris").off();
+                            $("#" + id).removeClass("gris");//quita color gris de la imagen
+                            $("#" + id).off("click", compra);//quita evento compra
+                            guardaDeporte('<?php echo base_url()."aplicacion/guardaDeporteUsuario"?>', id);
+                            guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>', puntos);
+                            //agrega clase fruta para ver en modal
+                            $("#" + id).addClass("deporte");
+                            $("#" + id + ".deporte").on("click", function () {
+                                titulo = $(this).attr("title");
+                                var link = $(this).attr("src");
+                                var i;
+                                for (i = 0; i < deportes.length; i++) {
+                                    if (deportes[i].nombre == titulo) {
+                                        $("#modal-descripcion").html(deportes[i].descripcion);
+                                        $("#modal-title").text(titulo);
+                                        $("#modalimg").attr("src", link);
+                                        $("#modal-frecuencia").text(deportes[i].frecuencia);
+                                        $("#modal-saludable").text(deportes[i].saludable);
+                                        $("#modal-beneficios").html(deportes[i].beneficios);
+                                        $("#modal-categoria").text(deportes[i].categoria);
+                                    }
+                                }
+
+                            });
+                            $("#" + id + ".deporte").on("mouseenter", function () {
+                                var texto = $(this).attr("title");
+                                $("#explica").text(texto);
+                            });
+                            $("#" + id + ".deporte").on("mouseleave", function () {
+                                $("#explica").text(fruta);
+                                $("#descripcion").text(desc);
+                            });
+                            $("#" + id).attr("data-toggle", "modal");
+                            $("#" + id).attr("data-target", "#myModal");
+                        }
+                        else {
+                            //bootbox.alert("tus puntos: " + puntos);
+                        }
+                    }
+                });
+            }
+        }
+        var deportes=<?php echo json_encode($deportes,JSON_PRETTY_PRINT)?>;//arreglo con todas las deportes
+        var tips=<?php echo json_encode($tipsDeportes,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsDeportes
         $(".deporte").on({
             mouseenter:function(){
                 var texto=$(this).attr("title");
                 $("#explica").text(texto);
             },
             click:function(){
-                var titulo=$(this).attr("title");
+                titulo=$(this).attr("title");
                 var link=$(this).attr("src");
                 var i;
                 for(i=0;i<deportes.length;i++){
@@ -132,7 +290,7 @@
                         $("#modal-descripcion").html(deportes[i].descripcion);
                         $("#modal-title").text(titulo);
                         $("#modalimg").attr("src",link);
-                        $("#modal-frecuencia").text(deportes[i].frecuencia);
+                        $("#modal-consumo").text(deportes[i].consumo);
                         $("#modal-saludable").text(deportes[i].saludable);
                         $("#modal-beneficios").html(deportes[i].beneficios);
                         $("#modal-categoria").text(deportes[i].categoria);
@@ -162,5 +320,22 @@
                 }
             }
         });
+        /*
+         Compra un deporte
+         */
+        $(".gris").on({
+            click:compra,
+            mouseenter:function(){
+                titulo2=$(this).attr("title");
+                $("#explica").text(titulo2);
+            },
+            mouseleave:function(){
+                $("#explica").text(deporte);
+                $("#descripcion").text(desc);
+            }
+        });
+        /*
+         fin compra fruta
+         */
     });
 </script>

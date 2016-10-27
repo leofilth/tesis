@@ -49,6 +49,22 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label tituloform">Sexo </label>
+                            <input type="radio" name="sexo" value="masculino"> Masculino<br>
+                            <label class="errorform"><?php echo form_error('sexo'); ?></label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label tituloform">Sexo </label>
+                            <input type="radio" name="sexo" value="femenino"> Femenino<br>
+                            <label class="errorform"><?php echo form_error('sexo'); ?></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="control-label tituloform">Ciudad </label>

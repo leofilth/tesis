@@ -1,32 +1,60 @@
 <?php include "navs/nav_cuenta.php"?>
 <section class="container-fluid bg-im3">
     <section class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="modaltip" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body" style="background-color: #673AB7">
+                        <div>
+                            <div class="margen-modal">
+                                <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Selecciona tu Avatar</h4>
+                                <div class="row">
+                                <?php
+                                if($datos->sexo == "masculino"){
+                                    foreach($avatar_mas as $avatar){?>
+                                        <div class="col-md-2 col-sm-2 col-xs-2">
+                                            <img class="img-circle avatar" title="<?php echo $avatar->nombre?>" width="80px" height="80px" src="<?php echo base_url().$avatar->link?>">
+                                        </div>
+                                    <?php }?>
+                                <?php }else{
+                                foreach($avatar_fem as $avatar){
+                                ?>
+                                    <div class="col-md-2 col-sm-2 col-xs-2">
+                                        <img class="img-circle avatar" title="<?php echo $avatar->nombre?>" width="80px" height="80px" src="<?php echo base_url().$avatar->link?>">
+                                    </div>
+                                <?php }}?>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="guardaAvatar" type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <header class="titulo1 text-center">Modifica tu Perfil</header>
         <div class="row">
             <div class="col-md-6 col-md-offset-3 cuadradosombra">
-                <img width="200px" height="200px"  class="img-circle center-block"
+                <img id="avatar-user" width="200px" height="200px"  class="img-circle center-block fondoavatar"
                      src="<?php
                      if($datos->avatar_name=="user")
                      {
-                         echo base_url()."public/images/user_avatar/user.jpg";
+                         if($datos->sexo=="masculino"){
+                             echo base_url()."public/images/user_avatar/user-mas.png";
+                         }else{
+                             echo base_url()."public/images/user_avatar/user-fem.png";
+                         }
                      }
                      else
                      {
-                         echo base_url()."public/images/user_avatar/".$datos->nick.".jpg";
+                         echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
                      }
                      ?>">
-                <?php $atributos=array('role'=>'form','class'=>'form-group','id'=>'miformulario','name'=>'form');
-                echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
-                ?>
                 <br>
                 <div class="cuadradosombra">
-                    <input type="file" class="center-block" name="archivo" id="file" required>
-                    <br>
-                    <button name="boton" id="boton" type="submit" class="btn btn-primary btn-md center-block">Actualizar foto</button>
+                    <button name="boton" id="muestramodal"  class="btn btn-primary btn-md center-block">Cambiar avatar</button>
                 </div>
-                <?php
-                echo form_close();
-                ?>
                 <br>
                 <br>
                 <div id="listo">
@@ -80,29 +108,42 @@
 </section>
 <?php include "footer.php"?>
 <script>
-    function modificaperfil(ruta,valor1,valor2,valor3,div){
-        $.post(ruta,{valor1:valor1,valor2:valor2,valor3:valor3},function(resp)
-        {
-            $("#"+div+"").html(resp);
-        });
-    }
     $(document).ready(function(){
+        var nombre,link;
+        function guardaAvatar(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp){
+                return resp;
+            })
+        }
+        function modificaperfil(ruta,valor1,valor2,valor3,div){
+            $.post(ruta,{valor1:valor1,valor2:valor2,valor3:valor3},function(resp)
+            {
+                $("#"+div+"").html(resp);
+            });
+        }
         $("#guardar").click(function(){
             var nombre=$("#nombre").val();
             var edad=$("#edad").val();
             var ciudad=$("#ciudad").val();
-           // var nick=$("#nick").val();
             modificaperfil('<?php echo base_url()."aplicacion/actualizaperfil"?>',nombre,edad,ciudad,"listo");
         });
-    });
-    $(function () {
-        $('#demo-form').parsley().on('field:validated', function() {
-            var ok = $('.parsley-error').length === 0;
-            $('.bs-callout-info').toggleClass('hidden', !ok);
-            $('.bs-callout-warning').toggleClass('hidden', ok);
-        })
-            .on('form:submit', function() {
-                return false; // Don't submit form for this demo
-            });
+        $(".avatar").click(function(){
+            $(".avatar").removeClass("selecciona");
+            nombre=$(this).attr("title");
+            link=$(this).attr("src");
+            $(this).addClass("selecciona");
+
+        });
+        $("#guardaAvatar").click(function(){
+            $("#avatar-user").attr("src",link);
+            $("#avatarNav").attr("src",link);
+            $("#avatarNav2").attr("src",link);
+            $(".avatar").removeClass("selecciona");
+            guardaAvatar('<?php echo base_url()."aplicacion/guardaAvatar"?>',nombre);
+        });
+        $("#muestramodal").click(function () {
+            $(".avatar").removeClass("selecciona");
+            $("#modaltip").modal();
+        });
     });
 </script>

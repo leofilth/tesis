@@ -14,7 +14,7 @@
                         <div id="noguardado" class="alert alert-danger text-center">
                             Este <strong>Cuestionario</strong> ya ha sido respondido.
                         </div>
-                        <a id='volver' class='btn  btn-cf-submit titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/verduras'?>'>Volver</a>
+                        <a id='volver' class='btn  btn-cf-submit titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/frutas'?>'>Volver</a>
                     </div>
                 </div>
             <?php }
@@ -26,87 +26,95 @@
 </div>
 <?php include "footer.php"?>
 <script>
-    /**
-     * $('input[name=Choose]').attr('checked',false); //limpia el input
-     */
-    function guardaCuestionario(ruta,valor1){
-        $.post(ruta,{valor1:valor1},function(resp)
-        {
-            return resp;
-        });
-    }
-    function guardaPuntaje(ruta,valor){
-        $.post(ruta,{valor:valor},function(resp){
-            return resp;
-        })
-    }
-    function guardaPuntajeLider(ruta,valor){
-        $.post(ruta,{valor:valor},function(resp){
-            return resp;
-        })
-    }
-    var texto="<?php echo $preguntasFruta[0]->idpregunta?>";
-    var preguntas=<?php echo json_encode($preguntasFruta,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
-    var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
-    var puntaje=0;//puntaje para este cuestionario
-    var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres
-    $("#verificacuestionario").on({
-        click:function(){
-            var i;
-            var j=0;
-            var cuestionario=preguntas[0].idpregunta;//obtengo el id del cuestionario seleccionado.
-            for(i=1;i<preguntas.length+1;i++){
-                //var aux='"'+(cuestionario+i).toString()+'"';
-                var aux=cuestionario+i;
-                /*Comprueba que se selecciona un input
-                 * */
-                if($('input:radio[name='+aux+']').is(':checked')) {
-                    if($('input:radio[name='+aux+']:checked').val()==preguntas[j].respcorrecta){
-                        //console.log(aux);
-                        j++;
-                        puntaje=puntaje+100;
-                        $("#correcto"+i).text("correcto");
-                        /*Posible feeedback al usuario, en la respuesta*/
+    $(document).ready(function() {
+        /**
+         * $('input[name=Choose]').attr('checked',false); //limpia el input
+         */
+        function guardaCuestionario(ruta,valor1){
+            $.post(ruta,{valor1:valor1},function(resp)
+            {
+                return resp;
+            });
+        }
+        function guardaPuntaje(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp){
+                return resp;
+            })
+        }
+        function guardaPuntajeLider(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp){
+                return resp;
+            })
+        }
+        var texto="<?php echo $preguntasFruta[0]->idpregunta?>";
+        var preguntas=<?php echo json_encode($preguntasFruta,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
+        var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
+        var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres
+        $("#verificacuestionario").on({
+            click:function(){
+                var i;
+                var j=0;
+                var puntaje=0;//puntaje para este cuestionario
+                var respondido=false;
+                var cuestionario=preguntas[0].idpregunta;//obtengo el id del cuestionario seleccionado.
+                for(i=1;i<preguntas.length+1;i++){
+                    //var aux='"'+(cuestionario+i).toString()+'"';
+                    var aux=cuestionario+i;
+                    /*Comprueba que se selecciona un input
+                     * */
+                    if($('input:radio[name='+aux+']').is(':checked')) {
+                        if($('input:radio[name='+aux+']:checked').val()==preguntas[j].respcorrecta){
+                            //console.log(aux);
+                            j++;
+                            puntaje=puntaje+100;
+                            $("#correcto"+i).text("correcto");
+                            /*Posible feeedback al usuario, en la respuesta*/
+                            respondido=true;
+                        }
+                        else{
+                            $("#correcto"+i).text("incorrecto");
+                            respondido=true;
+                        }
+                    } else {
+                        $("#correcto"+i).text("Seleccione una opción");
+                        respondido=false;
                     }
-                    else{
-                        $("#correcto"+i).text("incorrecto");
-                    }
-                } else {
-                    $("#correcto"+i).text("Seleccione una opción");
+                }
+                if(respondido){
+                    $("#puntaje").text(puntaje);
+                    //$('"#'+cuestionario+'"').removeClass("hidden");
+                    var cuestionario="<?php echo $cuestionario->cuesttemp?>";
+                    guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestFrut"?>',cuestionario);
+                    $("#guardar").append("<a id='volver' class='btn  btn-info titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/frutas'?>'>Volver</a>");
+                    $("#verificacuestionario").addClass("hidden");
+                    var temp1=puntaje+puntosBD;
+                    var temp2=puntaje+puntajeLider;
+                    guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>',temp1);
+                    guardaPuntajeLider('<?php echo base_url()."aplicacion/guardaPuntajeLider"?>',temp2);
+                    //$("#noguardado").removeClass("alert-danger");
+                    //$("#noguardado").addClass("alert-info");
+                    //$("#noguardado").text("Puntaje Guardado!");
+                    temp1=0;
+                    temp2=0;
+                    //$("#guardarPuntos").addClass("hidden");
+                    $("#volver").removeClass("hidden");
+                    //$("#guardarPuntos").removeClass("hidden");
                 }
             }
-            $("#puntaje").text(puntaje);
-            //$('"#'+cuestionario+'"').removeClass("hidden");
-            var cuestionario="<?php echo $cuestionario->cuesttemp?>";
-            guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestFrut"?>',cuestionario);
-            $("#guardar").append("<a id='volver' class='btn  hidden btn-cf-submit titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/frutas'?>'>Volver</a>");
-            $("#verificacuestionario").addClass("hidden");
-            var temp1=puntaje+puntosBD;
-            var temp2=puntaje+puntajeLider;
-            guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>',temp1);
-            guardaPuntajeLider('<?php echo base_url()."aplicacion/guardaPuntajeLider"?>',temp2);
-            $("#noguardado").removeClass("alert-danger");
-            $("#noguardado").addClass("alert-info");
-            $("#noguardado").text("Puntaje Guardado!");
-            temp1=0;
-            temp2=0;
-            //$("#guardarPuntos").addClass("hidden");
-            $("#volver").removeClass("hidden");
-            //$("#guardarPuntos").removeClass("hidden");
-        }
-    });
+        });
 
-    /*$("#guardarPuntos").on({
-     click: function () {
-     var temp1=puntaje+puntosBD;
-     var temp2=puntaje+puntajeLider;
-     guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>',temp1);
-     guardaPuntajeLider('<?php echo base_url()."aplicacion/guardaPuntajeLider"?>',temp2);
-     $("#noguardado").text("Puntaje Guardado!");
-     temp1=0;
-     temp2=0;
-     $("#guardarPuntos").addClass("hidden");
-     $("#volver").removeClass("hidden");
-     }
-     });*/
+        /*$("#guardarPuntos").on({
+         click: function () {
+         var temp1=puntaje+puntosBD;
+         var temp2=puntaje+puntajeLider;
+         guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>',temp1);
+         guardaPuntajeLider('<?php echo base_url()."aplicacion/guardaPuntajeLider"?>',temp2);
+         $("#noguardado").text("Puntaje Guardado!");
+         temp1=0;
+         temp2=0;
+         $("#guardarPuntos").addClass("hidden");
+         $("#volver").removeClass("hidden");
+         }
+         });*/
+        })
 </script>
