@@ -22,13 +22,11 @@
 </div>
 <div class="container-fluid" id="section1">
     <div  class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="titulo1">El poder del deporte</h1>
-                <div class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
-                    animate a superar el desafío Wambo Frutas!.</div>
+        <h1 class="titulo1">El poder del deporte</h1>
+        <div class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
+            animate a superar el desafío Wambo Frutas!.</div>
                 <div class="row">
-                    <div class="col-md-6" style="margin-left: 50px">
+                    <div class="col-md-8 col-sm-8">
                         <div class="instruccion-morado">
                             <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
                             <ol class="texto-modal-tip" id="descripcion-tip">
@@ -40,12 +38,31 @@
                         <div style="float: left;margin-left: 50px;clear: left">
                             <div class="triangulo-morado"></div>
                         </div>
-                        <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                        <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <img width="150px" height="150px"  class="img-circle center-block fondoavatar"
+                             src="<?php
+                             if($datos->avatar_name=="user")
+                             {
+                                 if($datos->sexo=="masculino"){
+                                     echo base_url()."public/images/user_avatar/user-mas.png";
+                                 }else{
+                                     echo base_url()."public/images/user_avatar/user-fem.png";
+                                 }
+                             }
+                             else
+                             {
+                                 echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
+                             }
+                             ?>">
+                        <p class="text-center"><span class="puntaje-seccion puntos"><?php echo $puntaje->puntos?></span></p>
                     </div>
                 </div>
-                <br>
+    </div>
+    <div class="container">
                 <div class="row">
-                    <div class="col-md-7 col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
+                    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
                         if($misdeportes!=null) {
                             $misdeportes_limpio = $this->mis_funciones->limpiaTuDeporte($misdeportes);
@@ -84,25 +101,14 @@
                             <?php }
                         }?>
                     </div>
-                    <div class="col-md-5 col-sm-12 col-xs-12">
-                        <div class="bubble verde">
-                            <a  href="#section1">
-                                <h2 id="explica">Elige un deporte</h2>
-                                <h3 id="descripcion">Te enseñare sobre el</h3>
-                            </a>
-                        </div>
-                        <img width="200" height="359" src="<?php echo base_url().'public/images/student2.png'?>" class="center-block">
-                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 </div>
 <div class="container-fluid" id="section2">
     <div class="container">
         <h1>Desafío Deporte</h1>
         <div class="row">
-            <div class="col-md-6" style="margin-left: 50px">
+            <div class="col-md-8 col-sm-8">
                 <div class="instruccion-verde">
                     <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
                     <ol class="texto-modal-tip" id="descripcion-tip">
@@ -114,26 +120,36 @@
                 <div style="float: left;margin-left: 50px;clear: left">
                     <div class="triangulo-verde"></div>
                 </div>
-                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <img width="150px" height="150px"  class="img-circle center-block fondoavatar"
+                     src="<?php
+                     if($datos->avatar_name=="user")
+                     {
+                         if($datos->sexo=="masculino"){
+                             echo base_url()."public/images/user_avatar/user-mas.png";
+                         }else{
+                             echo base_url()."public/images/user_avatar/user-fem.png";
+                         }
+                     }
+                     else
+                     {
+                         echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
+                     }
+                     ?>">
+                <p class="text-center"><span class="puntaje-seccion puntos"><?php echo $puntaje->puntos?></span></p>
             </div>
         </div>
-        <br>
+    </div>
+    <div class="container">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="row">
                     <?php include "tests/testdeporte.php"?>
                 </div>
                 <div id="cuestionario">
                 </div>
-            </div>
-            <div class="col-md-5">
-                <div class="bubble verde">
-                    <a  href="#section2">
-                        <h2 id="explicatest">Anímate</h2>
-                        <h3 id="descripciontest">Demuestra todo lo que sabes</h3>
-                    </a>
-                </div>
-                <img width="200" height="359" src="<?php echo base_url().'public/images/student2.png'?>" class="center-block">
             </div>
         </div>
     </div>
@@ -142,7 +158,7 @@
     <div class="container">
         <h1>Tips saludables</h1>
         <div class="row">
-            <div class="col-md-6" style="margin-left: 50px">
+            <div class="col-md-8">
                 <div class="instruccion-naranjo">
                     <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
                     <ol class="texto-modal-tip" id="descripcion-tip">
@@ -154,10 +170,11 @@
                 <div style="float: left;margin-left: 50px;clear: left">
                     <div class="triangulo-naranjo"></div>
                 </div>
-                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
             </div>
         </div>
-        <br>
+    </div>
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <?php
@@ -231,7 +248,7 @@
                     callback: function (result) {
                         if (result) {
                             puntos = puntos - 50;
-                            $("#puntaje").text(puntos);
+                            $(".puntos").text(puntos);
                             $("#" + id + ".gris").off();
                             $("#" + id).removeClass("gris");//quita color gris de la imagen
                             $("#" + id).off("click", compra);//quita evento compra

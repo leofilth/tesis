@@ -54,6 +54,15 @@ class Aplicacion extends CI_Controller {
 					'nick_fk'=>$this->input->post("nick",true),
 					'receta'=>"receta"
 				);
+				$tutorial=array(
+					'nick_fk'=>$this->input->post("nick",true),
+					'cuenta'=>'1',
+					'seccion_fruta'=>'1',
+					'seccion_verdura'=>'1',
+					'seccion_deporte'=>'1',
+					'seccion_alimento'=>'1',
+					'seccion_receta'=>'1'
+				);
 				$nick=$this->input->post("nick",true);
 				$consulta=$this->usuarios_model->verifica_nick($nick);
 				if($consulta){
@@ -72,6 +81,7 @@ class Aplicacion extends CI_Controller {
 						$this->usuarios_model->agregarEnLider($lider);//agrega puntaje en tabla lideres
 						$this->usuarios_model->agregaUserCuestTemp($UserTempCuest);//agrega cuestionario temporal
 						$this->usuarios_model->agregaUserRecetaTemp($UserTempReceta);
+						$this->usuarios_model->agregaTutorial($tutorial);
 						redirect(base_url().'aplicacion/sesion',301);
 					}
 					else{
@@ -129,7 +139,8 @@ class Aplicacion extends CI_Controller {
 				$num_tip=rand(1,$maximo);//numero aleatorio de tips
 				$tip=$this->usuarios_model->getTips($num_tip);
 				$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
-				$this->layout->view('cuenta', compact("datos","tip","puntaje"));
+				$tutorial=$this->usuarios_model->getTutorialUsuario($datos->nick);
+				$this->layout->view('cuenta', compact("datos","tip","puntaje","tutorial"));
 			} else {
 				redirect(base_url() . 'aplicacion', 301);
 			}
@@ -177,6 +188,13 @@ class Aplicacion extends CI_Controller {
 			'avatar_name_fk'=>$avatar
 		);
 		$this->usuarios_model->guardaAvatar($aGuardar,$aGuardar2,$this->session_id);
+	}
+	public function guardaEstadoTutorial(){
+		$estado=$this->input->post("valor",true);
+		$aGuardar=array(
+			'cuenta'=>$estado
+		);
+		$this->usuarios_model->guardaEstadoTutorial($aGuardar,$this->session_id);
 	}
 	public function actualizaperfil(){
 		$this->layout->setLayout('template_ajax');

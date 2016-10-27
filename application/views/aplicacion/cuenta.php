@@ -1,7 +1,9 @@
 <?php include "navs/nav_cuenta.php" ?>
     <div class="container-fluid bg-im3"style="padding-bottom: 100px">
         <div class="container">
-            <!-- Modal -->
+            <!-- Modal
+            Tutorial Wambo
+            -->
             <div class="modal fade" id="modaltip" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
@@ -9,7 +11,7 @@
                         <div class="modal-body" style="background-color: #673AB7">
                             <div class="tip-modal">
                                 <div class="margen-modal">
-                                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Modal Header</h4>
+                                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Así funciona Wambo</h4>
                                     <p class="texto-modal-tip" id="descripcion-tip"></p>
                                 </div>
                             </div>
@@ -178,12 +180,20 @@
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
-        var mostrar=true;
+        function guardaEstadoTutorial(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp){
+                return resp;
+            })
+        }
+        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
+        var mostrar=tutorial.cuenta;
         $("#mostrarmodal").click(function(){
-            mostrar=false;
+            mostrar=0;
+            //guarda en bd
+            guardaEstadoTutorial('<?php echo base_url()."aplicacion/guardaEstadoTutorial"?>',mostrar);
         });
         $(window).load(function(){
-            if(mostrar){
+            if(mostrar==1){
                 $('#modaltip').modal('show');
             }
         });

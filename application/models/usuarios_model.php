@@ -63,6 +63,10 @@ class usuarios_model extends CI_Model
         return true;
 
     }
+    public function guardaEstadoTutorial($datos=array(),$nick){
+        $this->db->where('nick_fk',$nick);
+        $this->db->update('tutorial',$datos);
+    }
     public function getAvatarMas(){
         $query=$this->db
             ->select("nombre,link")
@@ -370,6 +374,18 @@ class usuarios_model extends CI_Model
     }
     public function agregarEnLider($datos=array()){
         $this->db->insert("lideres",$datos);
+        return true;
+    }
+    public function getTutorialUsuario($nick){
+        $query=$this->db
+            ->select("cuenta,seccion_fruta,seccion_deporte,seccion_verdura,seccion_alimento,seccion_receta")
+            ->from("tutorial")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->row();
+    }
+    public function agregaTutorial($datos=array()){
+        $this->db->insert("tutorial",$datos);
         return true;
     }
     public function getPuntaje($nick){
