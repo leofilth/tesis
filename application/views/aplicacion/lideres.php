@@ -15,8 +15,8 @@
                     <tbody class="tbody">
                     <?php $numero=1;foreach($lideres as $lider){?>
                         <tr class="text-center">
-                            <td class=""><p class="titulo4"><?php echo $numero;?></p></td>
-                            <td class="titulo4"><?php echo $lider->nick_fk?><img width="64px" height="64px"  class="img-circle center-block"
+                            <td class=""><p class="tituloNickLider"><?php echo $numero;?></p></td>
+                            <td class="tituloNickLider"><?php echo $lider->nick_fk?><img width="64px" height="64px"  class="img-circle center-block fondoavatar"
                                                                                  src="<?php
                                                                                  if($lider->avatar_name_fk=="user")
                                                                                  {
@@ -32,7 +32,7 @@
                                                                                  }
                                                                                  ?>">
                             </td>
-                            <td class="titulo4"><?php echo $lider->puntaje?></td>
+                            <td class="tituloNickLider"><?php echo $lider->puntaje?></td>
                         </tr>
                     <?php $numero++;
                     if($numero==11){break;}}?>

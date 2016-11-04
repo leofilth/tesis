@@ -14,14 +14,14 @@
                                 <?php
                                 if($datos->sexo == "masculino"){
                                     foreach($avatar_mas as $avatar){?>
-                                        <div class="col-md-2 col-sm-2 col-xs-2">
+                                        <div class="col-md-2 col-sm-2 col-xs-3">
                                             <img class="img-circle avatar" title="<?php echo $avatar->nombre?>" width="80px" height="80px" src="<?php echo base_url().$avatar->link?>">
                                         </div>
                                     <?php }?>
                                 <?php }else{
                                 foreach($avatar_fem as $avatar){
                                 ?>
-                                    <div class="col-md-2 col-sm-2 col-xs-2">
+                                    <div class="col-md-2 col-sm-2 col-xs-3">
                                         <img class="img-circle avatar" title="<?php echo $avatar->nombre?>" width="80px" height="80px" src="<?php echo base_url().$avatar->link?>">
                                     </div>
                                 <?php }}?>
@@ -52,57 +52,56 @@
                      }
                      ?>">
                 <br>
-                <div class="cuadradosombra">
                     <button name="boton" id="muestramodal"  class="btn btn-primary btn-md center-block">Cambiar avatar</button>
-                </div>
                 <br>
                 <br>
                 <div id="listo">
                 </div>
-                <form class="form-horizontal cuadradosombra">
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <label class="control-label">Nombre:</label>
-                            </div>
-                            <div class="col-md-10">
-                                <input class="form-control" id="nombre" type="text" value="<?php echo $datos->nombre?>" required/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <label class="control-label">Ciudad:</label>
-                            </div>
-                            <div class="col-md-10">
-                                <input class="form-control" id="ciudad" type="text" value="<?php echo $datos->ciudad?>" required/>
+                <div class="col-md-8 col-md-offset-2">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="control-label">Nombre:</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input class="form-control" id="nombre" type="text" value="<?php echo $datos->nombre?>" required/>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <label class="control-label">Edad:</label>
-                            </div>
-                            <div class="col-md-10">
-                                <input class="form-control" id="edad" type="number" value="<?php echo $datos->edad?>" required/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <label class="control-label">Nick:</label>
-                            </div>
-                            <div class="col-md-10">
-                                <input style="cursor: not-allowed" class="form-control" id="nick" type="text" value="<?php echo $datos->nick?>" readonly/>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="control-label">Ciudad:</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input class="form-control" id="ciudad" type="text" value="<?php echo $datos->ciudad?>" required/>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
-                <br>
-                <button id="guardar" class="btn btn-primary center-block">Guardar</button>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="control-label">Edad:</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input class="form-control" id="edad" type="number" value="<?php echo $datos->edad?>" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="control-label">Nick:</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input style="cursor: not-allowed" class="form-control" id="nick" type="text" value="<?php echo $datos->nick?>" readonly/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <button id="guardar" class="btn btn-primary center-block">Guardar</button>
+                </div>
         </div>
     </section>
 </section>

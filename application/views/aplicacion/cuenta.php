@@ -12,7 +12,12 @@
                             <div class="tip-modal">
                                 <div class="margen-modal">
                                     <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Así funciona Wambo</h4>
-                                    <p class="texto-modal-tip" id="descripcion-tip"></p>
+                                    <ol class="texto-modal-tip" id="descripcion-tip">
+                                        <li type="disc">Elije tu sección</li>
+                                        <li type="disc">Supera los desafíos y gana monedas</li>
+                                        <li type="disc">Canjea tus monedas por alimentos y deportes</li>
+                                        <li type="disc">Aprende y obten tu certificado Wambo</li>
+                                    </ol>
                                 </div>
                             </div>
                             <div class="triangulo"></div>
@@ -43,7 +48,6 @@
                              echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
                          }
                          ?>">
-                    <p class="text-center"><span class="puntaje"><?php echo $puntaje->puntos?></span></p>
                 </div>
                 <div class="col-md-6">
                     <?php if($datos->sexo == "masculino"){?>

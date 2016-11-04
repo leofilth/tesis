@@ -100,6 +100,9 @@ css cuenta
 .fondoavatar{
     background-color: #297FB8;
 }
+.fondocoins{
+    padding: 15px;
+}
 .avatar{
     cursor: pointer;
 }
@@ -240,6 +243,26 @@ css cuenta
     text-align: center;
     text-transform: uppercase;
 }
+.tituloSection {
+    font-family: "finger paint";
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 56px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.numerocuest {
+    font-family: "finger paint";
+    color: #008ad1;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 56px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
 .titulo2 {
      font-family: "finger paint";
      color: #89b730;
@@ -268,12 +291,13 @@ css cuenta
     font-size: 25px;
     line-height: 45px;
     padding: 20px;
-    box-shadow: 0 4px 0 0 #DF7A00;
+    box-shadow: 0 4px 0 0 #ce9912;
     color: #ffffff;
     width: 50px;
     text-align: center;
     border-radius: 100%;
-    background-color:#EC774B;
+    background-color:#f0c41b;
+    font-family: "finger paint";
 }
 .titulo3 {
     color: #f68a26;
@@ -286,6 +310,15 @@ css cuenta
 }
 
 .titulo4 {
+    font-family:"Finger Paint";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #ffffff;
+}
+.tituloNickLider {
     font-family:"Finger Paint";
     font-size: 20px;
     font-weight: 400;
@@ -319,8 +352,8 @@ css cuenta
     text-transform: uppercase;
 }
 .errorform{
-    color: orangered;
-    font-family: "finger paint";
+    color: #E25956;
+    font-family: "Montserrat", sans-serif;
 
 }
 .btn-cf-submit {
@@ -364,7 +397,7 @@ css cuenta
      -moz-background-size: cover;
      -o-background-size: cover;
      background-size: cover;
-    padding-top: 25px;
+    padding-top: 70px;
     padding-bottom: 100px;
 }
 .bg-im2 {
@@ -543,6 +576,13 @@ a:link, a:visited {
     padding-right: 15px;
     padding-top: 10px;
 }
+.cuadradosombracuest{
+    /*box-shadow: 0 4px 0 0 #f1f1f1;*/
+    background-color: rgba(249,249,249,0.5);
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
 .obligatorio{
     color: red;
     font-family: "Montserrat", sans-serif;
@@ -574,13 +614,55 @@ css de barra nav
     background-color: transparent;
     color: #F68A26;
 }
-.nav-link-reg{
+.nav-link-inicio{
     background-color: #74CEE4;
     font-family: 'finger paint';
+    font-size: 20px;
 }
-.nav-link-ses{
+.nav-link-lider{
+    background-color: #6FC191;
+    font-family: 'finger paint';
+    font-size: 20px;
+}
+.nav-link-ayuda{
+    background-color: #E16C6C;
+    font-family: 'finger paint';
+    font-size: 20px;
+}
+.nav-link-registro{
+    background-color: #6FC191;
+    font-family: 'finger paint';
+    font-size: 16px;
+}
+.nav-link-sesion{
     background-color: #008AD1;
     font-family: 'finger paint';
+    font-size: 16px;
+}
+.nav-link-acercade{
+    background-color: #E16C6C;
+    font-family: 'finger paint';
+    font-size: 16px;
+}
+.nav-link-contacto{
+    background-color: #EDBF47;
+    font-family: 'finger paint';
+    font-size: 16px;
+}
+.nav-link-cuenta{
+    background-color: #008AD1;
+    font-family: 'finger paint';
+    font-size: 20px;
+}
+.nav-link-desafio{
+    background-color: #EDBF47;
+    font-family: 'finger paint';
+    font-size: 20px;
+}
+.nav-link-tip{
+    background-color: #C389CE;
+    font-family: 'finger paint';
+    font-size: 20px;
 }
 .li-nav{
     padding: 5px 20px 5px 20px;
@@ -612,8 +694,15 @@ css de barra nav
     padding-top: 5px;
     border-radius: 0;
 }
+.navtrans{
+    background-color: transparent;
+    position: absolute;
+}
 #navcolor{
     background: #6ab78a none repeat scroll 0 0;
+}
+#navcolor-noticia{
+    background: #2472a5 none repeat scroll 0 0;
 }
 #navcuenta{
     background: #D1EEEC none repeat scroll 0 0;
@@ -725,6 +814,11 @@ css de barra nav
     .carousel{height: 350px}
     .carousel-inner >.item >img{height: 350px}
     .carousel-inner >.item{height: 350px}
+}
+@media (max-width: 930px){
+    .li-nav {
+        padding: 5px 10px !important;
+    }
 }
 .carousel-fade .carousel-inner .item {
     opacity: 0;
@@ -951,6 +1045,42 @@ css para cuestionario cuando se completa
     position: absolute;
     width: 0;
 }
+.instruccion-rojo{
+    box-shadow: 0 4px 0 0 #db5b43;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    /*min-width: 300px;*/
+    border-radius: 5px;
+    background-color:  #EC644B;
+    float: left;
+}
+.triangulo-rojo{
+    border-color: #db5b43 transparent transparent;
+    border-style: solid;
+    border-width: 15px 15px 0;
+    height: 0;
+    position: absolute;
+    width: 0;
+}
+.instruccion-azul{
+    box-shadow: 0 4px 0 0 #3c7ac9;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    /*min-width: 300px;*/
+    border-radius: 5px;
+    background-color:  #4183D7;
+    float: left;
+}
+.triangulo-azul{
+    border-color: #3c7ac9 transparent transparent;
+    border-style: solid;
+    border-width: 15px 15px 0;
+    height: 0;
+    position: absolute;
+    width: 0;
+}
 .gris {
     -webkit-filter: grayscale(50%); /* Chrome, Safari, Opera */
     filter: grayscale(100%);
@@ -1094,7 +1224,7 @@ css para cuestionario cuando se completa
 .preg-cuest{
     font-family: "montserrat";
     font-size: 15px;
-    color: black;
+    color: #008AD1;
 }
 .hecho{
     position: absolute;
@@ -1141,4 +1271,7 @@ frutas
 }
 .selecciona{
     background-color: yellow;
+}
+#container-tip{
+    margin-top: 30px;
 }

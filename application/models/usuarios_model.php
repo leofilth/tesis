@@ -378,7 +378,7 @@ class usuarios_model extends CI_Model
     }
     public function getTutorialUsuario($nick){
         $query=$this->db
-            ->select("cuenta,seccion_fruta,seccion_deporte,seccion_verdura,seccion_alimento,seccion_receta")
+            ->select("cuenta,seccion_fruta,seccion_deporte,seccion_verdura,seccion_alimento,seccion_cuest")
             ->from("tutorial")
             ->where(array("nick_fk"=>$nick))
             ->get();

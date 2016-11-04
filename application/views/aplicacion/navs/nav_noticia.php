@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" id="navcolor-noticia">
     <div class="container-fluid">
         <div class="navbar-header">
             <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
@@ -11,10 +11,10 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="nav-link-ses li-nav"><a href="<?php echo base_url()."aplicacion/cuenta"?>">Inicio</a></li>
+                <li class="nav-link-inicio li-nav"><a href="<?php echo base_url()."aplicacion/cuenta"?>">Inicio</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown nav-link-ses li-nav"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><img height="24px"width="24px" src="<?php
+                <li class="dropdown nav-link-cuenta li-nav"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><img height="24px"width="24px" src="<?php
                         if($datos->avatar_name=="user")
                         {
                             if($datos->sexo=="masculino"){
@@ -28,7 +28,7 @@
                             echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
                         }
                         ?>"  class="img-circle"><?php echo $datos->nick?><span class="caret"></span></a>
-                    <ul class="dropdown-menu nav-link-ses dropmenu">
+                    <ul class="dropdown-menu nav-link-cuenta dropmenu">
                         <li>
                             <div class="row" style="padding-bottom: 5px">
                                 <div class="col-md-5">

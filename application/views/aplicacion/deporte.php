@@ -20,6 +20,57 @@
         </div>
     </div>
 </div>
+<!-- Modal
+            Tutorial Wambo
+            -->
+<div class="modal fade" id="tutorial" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body" style="background-color: #673AB7">
+                <div class="tip-modal">
+                    <div class="margen-modal">
+                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?></h4>
+                        <h2 class="texto-modal-tip">Asi funciona Wambo Deportes</h2>
+                        <div class="texto-modal-tip" id="descripcion-tip">
+                            <div class="col-md-9">
+                                <span class="glyphicon glyphicon-ok"></span> Obten monedas superando los desafíos Wambo Deportes
+                            </div>
+                            <div class="col-md-3">
+                                <img class="center-block" width="50px" height="50px" src="<?php echo base_url()."public/images/icons/coins.png"?>">
+                            </div>
+                            <div class="col-md-9">
+                                <span class="glyphicon glyphicon-ok"></span> Este es un desafío no completado
+                            </div>
+                            <div class="col-md-3">
+                                <img  class="center-block" width="50px" height="50px" src="<?php echo base_url()."public/images/icons/test/test.png"?>">
+                            </div>
+                            <div class="col-md-9">
+                                <span class="glyphicon glyphicon-ok"></span>  Este es un desafío completado
+                            </div>
+                            <div class="col-md-3">
+                                <img class="center-block" width="50px" height="50px" src="<?php echo base_url()."public/images/icons/test/testHecho.png"?>">
+                            </div>
+                            <div class="col-md-9">
+                                <span class="glyphicon glyphicon-ok"></span> Al comprar tu deporte esta se desbloquea cambiando de color
+                            </div>
+                            <div class="col-md-3">
+                                <img class="gris center-block" width="50px" height="50px" src="<?php echo base_url()."public/images/icons/deporte/football.png"?>"><img class="center-block" width="50px" height="50px" src="<?php echo base_url()."public/images/icons/deporte/football.png"?>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="triangulo"></div>
+                <br>
+                <img class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                <div style="margin-top: 100px">
+                    <button id="mostrarmodal" type="button" class="btn btn-info" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
+                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid" id="section1">
     <div  class="container">
         <h1 class="titulo1">El poder del deporte</h1>
@@ -41,20 +92,8 @@
                         <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <img width="150px" height="150px"  class="img-circle center-block fondoavatar"
-                             src="<?php
-                             if($datos->avatar_name=="user")
-                             {
-                                 if($datos->sexo=="masculino"){
-                                     echo base_url()."public/images/user_avatar/user-mas.png";
-                                 }else{
-                                     echo base_url()."public/images/user_avatar/user-fem.png";
-                                 }
-                             }
-                             else
-                             {
-                                 echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
-                             }
+                        <img width="150px" height="150px"  class="center-block fondocoins"
+                             src="<?php echo base_url()."public/images/icons/coins.png";
                              ?>">
                         <p class="text-center"><span class="puntaje-seccion puntos"><?php echo $puntaje->puntos?></span></p>
                     </div>
@@ -123,20 +162,8 @@
                 <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
             </div>
             <div class="col-md-4 col-sm-4">
-                <img width="150px" height="150px"  class="img-circle center-block fondoavatar"
-                     src="<?php
-                     if($datos->avatar_name=="user")
-                     {
-                         if($datos->sexo=="masculino"){
-                             echo base_url()."public/images/user_avatar/user-mas.png";
-                         }else{
-                             echo base_url()."public/images/user_avatar/user-fem.png";
-                         }
-                     }
-                     else
-                     {
-                         echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
-                     }
+                <img width="150px" height="150px"  class="center-block fondocoins"
+                     src="<?php echo base_url()."public/images/icons/coins.png";
                      ?>">
                 <p class="text-center"><span class="puntaje-seccion puntos"><?php echo $puntaje->puntos?></span></p>
             </div>
@@ -174,7 +201,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" id="container-tip">
         <div class="row">
             <div class="col-md-12">
                 <?php
@@ -203,6 +230,23 @@
         var deporte="Elige un Deporte o actividad";
         var desc="Te enseñare sobre ella";
         var titulo, titulo2;
+        function guardaEstadoTutorial(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp){
+                return resp;
+            })
+        }
+        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
+        var mostrar=tutorial.seccion_deporte;
+        $("#mostrarmodal").click(function(){
+            mostrar=0;
+            //guarda en bd
+            guardaEstadoTutorial('<?php echo base_url()."aplicacion/guardaEstadoTutorialDeporte"?>',mostrar);
+        });
+        $(window).load(function(){
+            if(mostrar==1){
+                $('#tutorial').modal('show');
+            }
+        });
         function guardaCuestTemp(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
