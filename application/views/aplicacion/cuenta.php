@@ -11,9 +11,9 @@
                         <div class="modal-body" style="background-color: #673AB7">
                             <div class="tip-modal">
                                 <div class="margen-modal">
-                                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Así funciona Wambo</h4>
+                                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?>, así funciona Wambo</h4>
                                     <ol class="texto-modal-tip" id="descripcion-tip">
-                                        <li type="disc">Elije tu sección</li>
+                                        <li type="disc">Elije tu sección: Frutas, Verduras, Deporte y Alimentos</li>
                                         <li type="disc">Supera los desafíos y gana monedas</li>
                                         <li type="disc">Canjea tus monedas por alimentos y deportes</li>
                                         <li type="disc">Aprende y obten tu certificado Wambo</li>

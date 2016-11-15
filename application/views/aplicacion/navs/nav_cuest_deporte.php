@@ -11,7 +11,7 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="nav-link-inicio li-nav"><a href="<?php echo base_url()."aplicacion/cuenta"?>">Inicio</a></li>
+                <li class="nav-link-inicio li-nav"><a href="<?php echo base_url()."aplicacion/deporte#section2"?>">Deportes</a></li>
                 <li class="nav-link-ayuda li-nav" data-toggle="modal" data-target="#modaltip"><a href="#">Ayuda</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

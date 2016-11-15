@@ -1,4 +1,4 @@
-<?php include "navs/nav_cuest.php"?>
+<?php include "navs/nav_cuest_fruta.php" ?>
 <section class="container-fluid bg-im3">
     <div class="container">
         <header class="titulo1 text-center">Bienvenido a Cuestionarios</header>
@@ -61,6 +61,7 @@
                 for(i=1;i<preguntas.length+1;i++){
                     if($('input:radio[name='+cuestionario+i+']').is(':checked')) {
                         $("#correcto"+i).text("Listo!");
+                        $("#muestrarespuesta"+i).removeClass("hidden");
                     }
                     else{
                         $("#correcto"+i).text("Selecciona una opción");
@@ -103,7 +104,7 @@
                     //$('"#'+cuestionario+'"').removeClass("hidden");
                     var cuestionario="<?php echo $cuestionario->cuesttemp?>";
                     guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestFrut"?>',cuestionario);
-                    $("#guardar").append("<a id='volver' class='btn  btn-info titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/frutas#section2'?>'>Volver</a>");
+                    $("#guardar").append("<a id='volver' class='btn  btn-info titulo4 center-block zoom' role='button' href='<?php echo base_url().'aplicacion/frutas#section2'?>'>Volver</a>");
                     $("#verificacuestionario").addClass("hidden");
                     var temp1=puntaje+puntosBD;
                     var temp2=puntaje+puntajeLider;

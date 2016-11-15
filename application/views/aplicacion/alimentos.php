@@ -28,42 +28,25 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body" style="background-color: #673AB7">
-                <div class="tip-modal">
+                <div class="tip-modal" id="instrumodal" style="cursor: pointer">
                     <div class="margen-modal">
                         <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?></h4>
                         <h2 class="texto-modal-tip">Asi funciona Wambo Alimentos</h2>
                         <div class="texto-modal-tip" id="descripcion-tip">
-                            <div class="col-md-9">
-                                <span class="glyphicon glyphicon-ok"></span> Obten monedas superando los desafíos Wambo Alimentos
+                            <div class="col-md-9" id="textoIns">
+                                <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para siguiente ayuda
                             </div>
-                            <div class="col-md-3">
-                                <img class="center-block" width="50px" height="50px" src="<?php echo base_url()."public/images/icons/coins.png"?>">
-                            </div>
-                            <div class="col-md-9">
-                                <span class="glyphicon glyphicon-ok"></span> Este es un desafío no completado
-                            </div>
-                            <div class="col-md-3">
-                                <img  class="center-block" width="50px" height="50px" src="<?php echo base_url()."public/images/icons/test/test.png"?>">
-                            </div>
-                            <div class="col-md-9">
-                                <span class="glyphicon glyphicon-ok"></span> Este es un desafío completado
-                            </div>
-                            <div class="col-md-3">
-                                <img class="center-block" width="50px" height="50px" src="<?php echo base_url()."public/images/icons/test/testHecho.png"?>">
-                            </div>
-                            <div class="col-md-9">
-                                <span class="glyphicon glyphicon-ok"></span> Al comprar tu alimento este se desbloquea cambiando de color
-                            </div>
-                            <div class="col-md-3">
-                                <img class="gris center-block" width="50px" height="50px" src="<?php echo base_url()."public/images/icons/food/donuts.png"?>"><img class="center-block" width="50px" height="50px" src="<?php echo base_url()."public/images/icons/food/donuts.png"?>">
+                            <div class="col-md-3" id="fotoIns">
+                                <img class="center-block tamano100" src="<?php echo base_url()."public/images/icons/customer-service.png"?>">
                             </div>
                         </div>
                     </div>
+                    <img class="icon-click" src="<?php echo base_url()."public/images/icons/click.png"?>">
                 </div>
                 <div class="triangulo"></div>
                 <br>
                 <img class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student4.png'?>">
-                <div style="margin-top: 100px">
+                <div style="margin-top: 55px">
                     <button id="mostrarmodal" type="button" class="btn btn-info" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
                     <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
                 </div>
@@ -186,8 +169,8 @@
                     <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
                     <ol class="texto-modal-tip" id="descripcion-tip">
                         <li>Selecciona tu TIP y aprende un poco mas</li>
-                        <li>Son gratis :D</li>
-                        <li></li>
+                        <li>Son gratis</li>
+                        <li>Consulta cuando quieras</li>
                     </ol>
                 </div>
                 <div style="float: left;margin-left: 50px;clear: left">
@@ -394,5 +377,37 @@
         /*
          fin compra fruta
          */
+        /**
+         * Instrucciones
+         * @type {*[]}
+         */
+        var instrucciones=[
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
+                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Alimentos",
+                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
+                "imagen":"<img  class='center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
+                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu alimento este se desbloquea cambiando de color",
+                "imagen":"<img class='gris center-block tamano100' src='<?php echo base_url().'public/images/icons/food/donuts.png'?>'><img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/food/donuts.png'?>'>"}
+        ];
+        var contador=1;
+        $("#instrumodal").on({
+            click:function(){
+                if(contador==5){
+                    $("#textoIns").html(instrucciones[0].titulo);
+                    $("#fotoIns").html(instrucciones[0].imagen);
+                    contador=1;
+                }
+                else{
+
+                    $("#textoIns").html(instrucciones[contador].titulo);
+                    $("#fotoIns").html(instrucciones[contador].imagen);
+                    contador++;
+                }
+            }
+        });
     });
 </script>

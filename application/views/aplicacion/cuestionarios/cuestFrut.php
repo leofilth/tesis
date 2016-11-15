@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="col-md-6" style="margin-left: 50px">
+    <div class="col-md-8 col-sm-12 col-xs-12">
         <div class="instruccion-naranjo">
             <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
             <ol class="texto-modal-tip" id="descripcion-tip">
@@ -71,7 +71,7 @@
                 <button  name="boton" id="verificacuestionario" class="btn  btn-info titulo4 center-block zoom">
                     Enviar Respuestas
                 </button>
-                <div class="col-md-12" id="guardar">
+                <div class="col-md-6 col-md-offset-3" id="guardar">
                 </div>
             </div>
         </div>

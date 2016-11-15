@@ -1,4 +1,4 @@
-<?php include "navs/nav_cuest.php"?>
+<?php include "navs/nav_cuest_deporte.php" ?>
 <section class="container-fluid bg-im3">
     <div class="container">
         <header class="titulo1 text-center">Bienvenido a Cuestionarios</header>

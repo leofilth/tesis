@@ -1,4 +1,4 @@
-<?php include "navs/nav_cuest.php"?>
+<?php include "navs/nav_cuest_verdura.php" ?>
 <section class="container-fluid bg-im3">
     <div class="container">
         <header class="titulo1 text-center">Bienvenido a Cuestionarios</header>
@@ -61,6 +61,7 @@
                 for(i=1;i<preguntas.length+1;i++){
                     if($('input:radio[name='+cuestionario+i+']').is(':checked')) {
                         $("#correcto"+i).text("Listo!");
+                        $("#muestrarespuesta"+i).removeClass("hidden");
                     }
                     else{
                         $("#correcto"+i).text("Selecciona una opción");
