@@ -633,6 +633,11 @@ css de barra nav
     font-family: 'finger paint';
     font-size: 16px;
 }
+.nav-link-certificado{
+    background-color: #EDBF47;
+    font-family: 'finger paint';
+    font-size: 20px;
+}
 .nav-link-sesion{
     background-color: #008AD1;
     font-family: 'finger paint';
@@ -816,7 +821,7 @@ css de barra nav
 }
 @media (max-width: 930px){
     .li-nav {
-        padding: 5px 10px !important;
+        padding: 5px 5px !important;
     }
 }
 .carousel-fade .carousel-inner .item {
@@ -1130,6 +1135,12 @@ css para cuestionario cuando se completa
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
 }
+
+@media screen and (max-width: 768px){
+    .titulo-tip {
+        font-size: 17px;
+    }
+}
 .tip-naranjo{
     box-shadow: 0 4px 0 0 #DF764E;
     border-radius: 5px;
@@ -1205,7 +1216,7 @@ css para cuestionario cuando se completa
 }
 .texto-modal-tip{
     font-family: "montserrat";
-    font-size: 15px;
+    font-size: 17px;
     color: white;
 }
 .titulo-modal-tip{
@@ -1282,10 +1293,19 @@ frutas
      width: 100px;
      height: 100px;
  }
-
+.tamano32{
+    width: 32px;
+    height: 32px;
+}
 @media screen and (max-width:768px) {
     .tamano100{
         width: 64px;
         height: 64px;
     }
+}
+.compra{
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    color: #673AB7;
+
 }

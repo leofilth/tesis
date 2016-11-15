@@ -60,7 +60,7 @@
         <div class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
             animate a superar el desafío Wambo Frutas!.</div>
         <div class="row">
-                    <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="col-md-8 col-sm-8 col-xs-12">
                         <div class="instruccion-morado">
                             <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
                             <ol class="texto-modal-tip" id="descripcion-tip">
@@ -74,13 +74,13 @@
                         </div>
                         <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                     </div>
-                    <div class="col-md-4  col-sm-12 col-xs-12">
+                    <div class="col-md-4  col-sm-4 col-xs-12">
                         <img width="150px" height="150px"  class="center-block fondocoins"
                              src="<?php echo base_url()."public/images/icons/coins.png";
                              ?>">
                         <p class="text-center"><span class="puntaje-seccion puntos"><?php echo $puntaje->puntos?></span></p>
                     </div>
-                </div>
+        </div>
     </div>
     <div class="container">
         <div class="row">
@@ -284,8 +284,7 @@
                             className: 'btn-danger'
                         }
                     },
-                    //mesaage:'<p class="text-center">Please wait while we do something...</p>',
-                    message: "<p class='titulo2'>¿Comprar "+"<strong>"+nombre+"</strong>"+" por 50 puntos?</p><br>"+"<p class='titulo2'>Tus puntos actuales son: "+"<strong>"+puntos+"</strong></p>",
+                    message: "<p class='compra'>¿Comprar "+"<strong>"+nombre+"</strong>"+" por 50 <img class='tamano32' src='<?php echo base_url().'public/images/icons/coin.png'?>'> ?</p><br>"+"<p class='compra'>Tus puntos actuales son: "+"<strong>"+puntos+"</strong> <img class='tamano32' src='<?php echo base_url().'public/images/icons/coins.png'?>'></p>",
                     callback:function(result) {
                         if (result) {
                             puntos = puntos - 50;

@@ -259,7 +259,7 @@
                 var id = $(this).attr("id");
                 var nombre = $(this).attr("title");
                 bootbox.confirm({
-                    size: 'small',
+                    size: 'medium',
                     buttons: {
                         confirm: {
                             label: 'Si',
@@ -271,7 +271,7 @@
                         }
                     },
                     //mesaage:'<p class="text-center">Please wait while we do something...</p>',
-                    message: "<p class='text-center'>Seguro quieres comprar?.<br><p>" + nombre + " por 50 puntos<br>" + "Tus puntos actuales son: " + puntos,
+                    message: "<p class='compra'>¿Comprar "+"<strong>"+nombre+"</strong>"+" por 50 <img class='tamano32' src='<?php echo base_url().'public/images/icons/coin.png'?>'> ?</p><br>"+"<p class='compra'>Tus puntos actuales son: "+"<strong>"+puntos+"</strong> <img class='tamano32' src='<?php echo base_url().'public/images/icons/coins.png'?>'></p>",
                     callback: function (result) {
                         if (result) {
                             puntos = puntos - 50;

@@ -14,6 +14,7 @@
                 <li class="nav-link-inicio li-nav"><a href="<?php echo base_url()."aplicacion/cuenta"?>">Inicio</a></li>
                 <li class="nav-link-lider li-nav"><a href="<?php echo base_url()."aplicacion/lideres"?>">Lideres</a></li>
                 <li class="nav-link-ayuda li-nav" data-toggle="modal" data-target="#modaltip"><a href="#">Ayuda</a></li>
+                <li class="nav-link-certificado li-nav"><a href="<?php echo base_url()."aplicacion/certificado"?>">Mi certificado</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown nav-link-cuenta li-nav"><a class="dropdown-toggle" data-toggle="dropdown" href="#">

@@ -205,7 +205,7 @@
         $("#fruta").on({
             mouseenter:function(){
                 $("#portadafruta").addClass("borde");
-                $("#tfrut").css("color","#EC774B");
+                $("#tfrut").css("color","#82C250");
             },
             mouseleave:function(){
                 $("#portadafruta").removeClass("borde");
@@ -215,7 +215,7 @@
         $("#verdura").on({
             mouseenter:function(){
                 $("#portadaverdura").addClass("borde");
-                $("#tverd").css("color","#EC774B");
+                $("#tverd").css("color","#82C250");
             },
             mouseleave:function(){
                 $("#portadaverdura").removeClass("borde");
@@ -225,7 +225,7 @@
         $("#alimento").on({
             mouseenter:function(){
                 $("#portadaalimento").addClass("borde");
-                $("#tali").css("color","#EC774B");
+                $("#tali").css("color","#82C250");
             },
             mouseleave:function(){
                 $("#portadaalimento").removeClass("borde");
@@ -235,7 +235,7 @@
         $("#receta").on({
             mouseenter:function(){
                 $("#portadareceta").addClass("borde");
-                $("#trec").css("color","#EC774B");
+                $("#trec").css("color","#82C250");
             },
             mouseleave:function(){
                 $("#portadareceta").removeClass("borde");
@@ -245,7 +245,7 @@
         $("#deporte").on({
             mouseenter:function(){
                 $("#portadadeporte").addClass("borde");
-                $("#tdep").css("color","#EC774B");
+                $("#tdep").css("color","#82C250");
             },
             mouseleave:function(){
                 $("#portadadeporte").removeClass("borde");

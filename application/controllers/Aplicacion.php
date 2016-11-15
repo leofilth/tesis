@@ -145,6 +145,14 @@ class Aplicacion extends CI_Controller {
 				redirect(base_url() . 'aplicacion', 301);
 			}
 	}
+	public function certificado(){
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$this->layout->view('certificado', compact("datos"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
 	/*
 	 * Perfil usuario
 	 */
