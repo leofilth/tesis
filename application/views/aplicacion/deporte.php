@@ -116,7 +116,7 @@
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
                                         <figure>
                                             <img id="<?php echo $deporte->id ?>"
-                                                 title=""
+                                                 title="<?php echo $deporte->nombre ?>"
                                                  src="<?php echo base_url() . $deporte->link ?>"
                                                  alt="<?php echo $deporte->nombre ?>"
                                                  class="img-circle tamano fondofruta rotate center-block gris borde"
