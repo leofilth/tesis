@@ -10,11 +10,14 @@ if($cuestRespondidos!=null) {
                 <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
                 <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
                 <a href="#<?php echo $cuestionario ?>">
-                        <img
-                             class="cuestionario center-block borde img-circle zoom tamano-cuest"
-                             id="<?php echo $cuestionario ?>"
-                             name="<?php echo $cuestionario ?>"
-                             src="<?php echo base_url() . "public/images/icons/test/testHecho.png" ?>"/>
+                    <figure>
+                        <img class="cuestionario center-block borde img-circle zoom tamano-cuest"
+                            id="<?php echo $cuestionario ?>"
+                            alt="<?php echo $cuestionario ?>"
+                            name="<?php echo $cuestionario ?>"
+                            src="<?php echo base_url() . "public/images/icons/test/testHecho.png" ?>"
+                            />
+                    </figure>
                 </a>
             </div>
         <?php }
@@ -23,10 +26,13 @@ if($cuestRespondidos!=null) {
                 <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
                 <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
                         <a href="<?php echo base_url() . "aplicacion/cuestionariofrut"?>">
-                            <img
-                                class="cuestionario center-block img-circle borde zoom cuest tamano-cuest"
-                                id="<?php echo $cuestionario ?>" name="<?php echo $cuestionario ?>"
-                                src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
+                            <figure>
+                                <img class="cuestionario center-block img-circle borde zoom cuest tamano-cuest"
+                                    id="<?php echo $cuestionario ?>"
+                                     alt="<?php echo $cuestionario ?>"
+                                    name="<?php echo $cuestionario ?>"
+                                    src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
+                            </figure>
                         </a>
             </div>
         <?php } ?>
@@ -40,10 +46,14 @@ else{?>
             <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
             <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
             <a href="<?php echo base_url() . "aplicacion/cuestionariofrut"?>">
-                <img
-                    class="cuestionario center-block img-circle borde zoom cuest tamano-cuest"
-                    id="<?php echo $cuestionario ?>" name="<?php echo $cuestionario ?>"
-                    src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/></a>
+                <figure>
+                    <img class="cuestionario center-block img-circle borde zoom cuest tamano-cuest"
+                        id="<?php echo $cuestionario ?>"
+                         name="<?php echo $cuestionario ?>"
+                         alt="<?php echo $cuestionario ?>"
+                        src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
+                </figure>
+            </a>
         </div>
         <?php
         $i++;

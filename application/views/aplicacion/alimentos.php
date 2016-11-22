@@ -14,7 +14,9 @@
                 </div>
                 <div class="triangulo"></div>
                 <br>
-                <img class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                <figure>
+                    <img class="img-circle" alt="estudiante4" width="20%" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                </figure>
                 <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
             </div>
         </div>
@@ -37,15 +39,21 @@
                                 <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para siguiente ayuda
                             </div>
                             <div class="col-md-3" id="fotoIns">
-                                <img class="center-block tamano100" src="<?php echo base_url()."public/images/icons/customer-service.png"?>">
+                                <figure>
+                                    <img class="center-block tamano100" alt="ayuda" src="<?php echo base_url()."public/images/icons/customer-service.png"?>">
+                                </figure>
                             </div>
                         </div>
                     </div>
-                    <img class="icon-click" src="<?php echo base_url()."public/images/icons/click.png"?>">
+                    <figure>
+                        <img class="icon-click" alt="click" src="<?php echo base_url()."public/images/icons/click.png"?>">
+                    </figure>
                 </div>
                 <div class="triangulo"></div>
                 <br>
-                <img class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                <figure>
+                    <img class="img-circle" alt="estudiante4" width="20%" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                </figure>
                 <div style="margin-top: 55px">
                     <button id="mostrarmodal" type="button" class="btn btn-info" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
                     <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
@@ -54,28 +62,32 @@
         </div>
     </div>
 </div>
-<div class="container-fluid" id="section1">
+<section class="container-fluid" id="section1">
     <div  class="container">
-        <h1 class="tituloSection">Alimentos Wambo</h1>
+        <header class="tituloSection">Alimentos Wambo</header>
         <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-12">
                         <div class="instruccion-morado">
                             <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
                             <ol class="texto-modal-tip" id="descripcion-tip">
                                 <li>Compra tu alimento</li>
-                                <li>Haz click en ella</li>
+                                <li>Haz click en el</li>
                                 <li>Aprende</li>
                             </ol>
                         </div>
                         <div style="float: left;margin-left: 50px;clear: left">
                             <div class="triangulo-morado"></div>
                         </div>
-                        <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                        <figure>
+                            <img class="img-circle pull-left" alt="estudiante4" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                        </figure>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                        <img width="150px" height="150px"  class="center-block fondocoins"
-                             src="<?php echo base_url()."public/images/icons/coins.png";
-                             ?>">
+                        <figure>
+                            <img width="150px" height="150px"  class="center-block fondocoins"
+                                 alt="coins" src="<?php echo base_url()."public/images/icons/coins.png";
+                                 ?>">
+                        </figure>
                         <p class="text-center"><span class="puntaje-seccion puntos"><?php echo $puntaje->puntos?></span></p>
                     </div>
             </div>
@@ -90,20 +102,26 @@
                                 if (in_array($alimento->id, $misalimentos_limpio)) {
                                     ?>
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                        <img id="<?php echo $alimento->id ?>"
-                                             title="<?php echo $alimento->nombre ?>"
-                                             src="<?php echo base_url() . $alimento->link ?>"
-                                             class="img-circle tamano fondofruta rotate center-block alimento borde"
-                                             data-toggle="modal" data-target="#myModal">
+                                        <figure>
+                                            <img id="<?php echo $alimento->id ?>"
+                                                 title="<?php echo $alimento->nombre ?>"
+                                                 src="<?php echo base_url() . $alimento->link ?>"
+                                                 alt="<?php echo $alimento->nombre ?>"
+                                                 class="img-circle tamano fondofruta rotate center-block alimento borde"
+                                                 data-toggle="modal" data-target="#myModal">
+                                        </figure>
                                     </div>
                                 <?php } else {
                                     ?>
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                        <img id="<?php echo $alimento->id ?>"
-                                             title="<?php echo $alimento->nombre ?>"
-                                             src="<?php echo base_url() . $alimento->link ?>"
-                                             class="img-circle tamano fondofruta rotate center-block gris borde"
-                                             data-toggle="" data-target="">
+                                        <figure>
+                                            <img id="<?php echo $alimento->id ?>"
+                                                 title="<?php echo $alimento->nombre ?>"
+                                                 src="<?php echo base_url() . $alimento->link ?>"
+                                                 alt="<?php echo $alimento->nombre ?>"
+                                                 class="img-circle tamano fondofruta rotate center-block gris borde"
+                                                 data-toggle="" data-target="">
+                                        </figure>
                                     </div>
                                 <?php }
                             }
@@ -112,21 +130,24 @@
                             foreach ($alimentos as $alimento) {
                                 ?>
                                 <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                    <img id="<?php echo $alimento->id ?>"
-                                         title="<?php echo $alimento->nombre ?>"
-                                         src="<?php echo base_url() . $alimento->link ?>"
-                                         class="img-circle tamano fondofruta rotate center-block gris borde"
-                                         data-toggle="" data-target="">
+                                    <figure>
+                                        <img id="<?php echo $alimento->id ?>"
+                                             title="<?php echo $alimento->nombre ?>"
+                                             src="<?php echo base_url() . $alimento->link ?>"
+                                             alt="<?php echo $alimento->nombre ?>"
+                                             class="img-circle tamano fondofruta rotate center-block gris borde"
+                                             data-toggle="" data-target="">
+                                    </figure>
                                 </div>
                             <?php }
                         }?>
                     </div>
                 </div>
     </div>
-</div>
-<div class="container-fluid" id="section2">
+</section>
+<section class="container-fluid" id="section2">
     <div class="container">
-        <h1 class="tituloSection">Desafíos Wambo alimentos</h1>
+        <header class="tituloSection">Desafíos Wambo alimentos</header>
         <div class="row">
             <div class="col-md-8 col-sm-8">
                 <div class="instruccion-verde">
@@ -140,13 +161,9 @@
                 <div style="float: left;margin-left: 50px;clear: left">
                     <div class="triangulo-verde"></div>
                 </div>
-                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
-            </div>
-            <div class="col-md-4 col-sm-4">
-                <img width="150px" height="150px"  class="center-block fondocoins"
-                     src="<?php echo base_url()."public/images/icons/coins.png";
-                     ?>">
-                <p class="text-center"><span class="puntaje-seccion puntos"><?php echo $puntaje->puntos?></span></p>
+                <figure>
+                    <img class="img-circle pull-left" alt="estudiante4" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                </figure>
             </div>
         </div>
     </div>
@@ -159,10 +176,10 @@
             </div>
         </div>
     </div>
-</div>
-<div class="container-fluid" id="tipsaludable">
+</section>
+<section class="container-fluid" id="tipsaludable">
     <div class="container">
-        <h1 class="tituloSection">Tips Wambo Alimentos</h1>
+        <header class="tituloSection">Tips Wambo Alimentos</header>
         <div class="row">
             <div class="col-md-8 col-sm-8">
                 <div class="instruccion-naranjo">
@@ -176,7 +193,9 @@
                 <div style="float: left;margin-left: 50px;clear: left">
                     <div class="triangulo-naranjo"></div>
                 </div>
-                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                <figure>
+                    <img class="img-circle pull-left" alt="estudiante4" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                </figure>
             </div>
         </div>
     </div>
@@ -198,7 +217,7 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 <?php include "footer.php"?>
 <script>
     $(document).ready(function(){

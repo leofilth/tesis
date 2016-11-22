@@ -141,10 +141,10 @@ css cuenta
     padding: 5%;
 }
 .btn-cuenta{
-    box-shadow: 0 4px 0 0 #C389CE;
+    box-shadow: 0 4px 0 0 #5c34a3;
     font-size: 17px;
     padding: 10px 20px;
-    background-color: #C389CE;
+    background-color: #673AB7;
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
@@ -155,6 +155,7 @@ css cuenta
     box-shadow: 0 0 0 0 transparent !important;
     margin-bottom: -4px;
     margin-top: 4px;
+    color: white;
 }
 .titulo-fruta{
     font-family: "pacifico";
@@ -819,7 +820,7 @@ css de barra nav
     .carousel-inner >.item >img{height: 350px}
     .carousel-inner >.item{height: 350px}
 }
-@media (max-width: 930px){
+@media (max-width: 980px){
     .li-nav {
         padding: 5px 5px !important;
     }
@@ -1288,7 +1289,7 @@ frutas
 .icon-click{
     width: 64px;
     height: 64px;
-    margin-left: 25px;
+    float: right;
 }.tamano100{
      width: 100px;
      height: 100px;

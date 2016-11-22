@@ -9,16 +9,19 @@
                     <!-- Modal content-->
                     <div class="modal-content">
                         <div class="modal-body" style="background-color: #673AB7">
-                            <div class="tip-modal">
+                            <div class="tip-modal" id="instrumodal" style="cursor: pointer">
                                 <div class="margen-modal">
-                                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?>, así funciona Wambo</h4>
-                                    <ol class="texto-modal-tip" id="descripcion-tip">
-                                        <li type="disc">Elije tu sección: Frutas, Verduras, Deporte y Alimentos</li>
-                                        <li type="disc">Supera los desafíos y gana monedas</li>
-                                        <li type="disc">Canjea tus monedas por alimentos y deportes</li>
-                                        <li type="disc">Aprende y obten tu certificado Wambo</li>
-                                    </ol>
+                                    <div class="texto-modal-tip" id="descripcion-tip">
+                                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?>, así funciona Wambo</h4>
+                                        <div class="col-md-9" id="textoIns">
+                                            <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para siguiente ayuda
+                                        </div>
+                                        <div class="col-md-3" id="fotoIns">
+                                            <img class="center-block tamano100"  src="<?php echo base_url()."public/images/icons/customer-service.png"?>">
+                                        </div>
+                                    </div>
                                 </div>
+                                <img class="icon-click" src="<?php echo base_url()."public/images/icons/click.png"?>">
                             </div>
                             <div class="triangulo"></div>
                             <br>
@@ -131,6 +134,24 @@
                             <a href="<?php echo base_url()."aplicacion/alimentos"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
+                    <div id="deporte" class="col-md-4 col-sm-6">
+                        <div class="text-center  borde deportecuenta">
+                            <img id="portadadeporte" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
+                            <div class="maintitulo">
+                                <h3 id="tdep">
+                                    Actividad física
+                                    <div class="progress barra">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                                            40%
+                                        </div>
+                                    </div>
+                                </h3>
+                            </div>
+                            <p class="descp-tarjeta">Todo sobre la actividad física!</p>
+                            <a href="<?php echo base_url()."aplicacion/deporte"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                        </div>
+                    </div>
                     <div id="receta" class="col-md-4 col-sm-6">
                         <div class="text-center  borde recetacuenta">
                             <img id="portadareceta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada4.jpg"?>">
@@ -149,24 +170,6 @@
                             <a href="<?php echo base_url()."aplicacion/receta"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
-                    <div id="deporte" class="col-md-4 col-sm-6">
-                        <div class="text-center  borde deportecuenta">
-                            <img id="portadadeporte" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
-                            <div class="maintitulo">
-                                <h3 id="tdep">
-                                    Actividad física
-                                    <div class="progress barra">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                             aria-valuemin="0" aria-valuemax="100" style="width:30%">
-                                            40%
-                                        </div>
-                                    </div>
-                                </h3>
-                            </div>
-                            <p class="descp-tarjeta">Tdoo sobre la actividad física!</p>
-                            <a href="<?php echo base_url()."aplicacion/deporte"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
-                        </div>
-                    </div>
                     <div id="fruta" class="col-md-4 col-sm-6">
                         <div class=" text-center  borde noticiacuenta">
                             <img id="portadafruta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
@@ -176,6 +179,20 @@
                             <p class="descp-tarjeta">Super noticias saludables</p>
                             <a href="<?php echo base_url()."aplicacion/noticias"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div id="fruta" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                    <div class=" text-center  borde noticiacuenta">
+                        <img id="portadafruta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
+                        <div class="maintitulo">
+                            <h3 id="tfrut">Mi certificado</h3>
+                        </div>
+                        <p class="descp-tarjeta">Tu certificado Wambo!</p>
+                        <a href="<?php echo base_url()."aplicacion/certificado"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
                     </div>
                 </div>
             </div>
@@ -205,7 +222,7 @@
         $("#fruta").on({
             mouseenter:function(){
                 $("#portadafruta").addClass("borde");
-                $("#tfrut").css("color","#82C250");
+                $("#tfrut").css("color","#673AB7");
             },
             mouseleave:function(){
                 $("#portadafruta").removeClass("borde");
@@ -215,7 +232,7 @@
         $("#verdura").on({
             mouseenter:function(){
                 $("#portadaverdura").addClass("borde");
-                $("#tverd").css("color","#82C250");
+                $("#tverd").css("color","#673AB7");
             },
             mouseleave:function(){
                 $("#portadaverdura").removeClass("borde");
@@ -225,7 +242,7 @@
         $("#alimento").on({
             mouseenter:function(){
                 $("#portadaalimento").addClass("borde");
-                $("#tali").css("color","#82C250");
+                $("#tali").css("color","#673AB7");
             },
             mouseleave:function(){
                 $("#portadaalimento").removeClass("borde");
@@ -235,7 +252,7 @@
         $("#receta").on({
             mouseenter:function(){
                 $("#portadareceta").addClass("borde");
-                $("#trec").css("color","#82C250");
+                $("#trec").css("color","#673AB7");
             },
             mouseleave:function(){
                 $("#portadareceta").removeClass("borde");
@@ -245,11 +262,43 @@
         $("#deporte").on({
             mouseenter:function(){
                 $("#portadadeporte").addClass("borde");
-                $("#tdep").css("color","#82C250");
+                $("#tdep").css("color","#673AB7");
             },
             mouseleave:function(){
                 $("#portadadeporte").removeClass("borde");
                 $("#tdep").css("color","white");
+            }
+        });
+        /**
+         * Instrucciones
+         * @type {*[]}
+         */
+        var instrucciones=[
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
+                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas, Verduras, Deporte y Alimentos",
+                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Supera los desafíos y gana monedas",
+                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Canjea tus monedas por alimentos y deportes",
+                "imagen":"<img  class='center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Aprende y obten tu certificado Wambo",
+                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"}
+            ];
+        var contador=1;
+        $("#instrumodal").on({
+            click:function(){
+                if(contador==5){
+                    $("#textoIns").html(instrucciones[0].titulo);
+                    $("#fotoIns").html(instrucciones[0].imagen);
+                    contador=1;
+                }
+                else{
+
+                    $("#textoIns").html(instrucciones[contador].titulo);
+                    $("#fotoIns").html(instrucciones[contador].imagen);
+                    contador++;
+                }
             }
         });
     });

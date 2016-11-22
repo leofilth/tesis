@@ -14,7 +14,9 @@
                 </div>
                 <div class="triangulo"></div>
                 <br>
-                <img class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                <figure>
+                    <img class="img-circle" alt="estudiante1" width="20%" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                </figure>
                 <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
             </div>
         </div>
@@ -30,22 +32,28 @@
             <div class="modal-body" style="background-color: #673AB7">
                 <div class="tip-modal" id="instrumodal" style="cursor: pointer">
                     <div class="margen-modal">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?></h4>
+                        <header id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?></header>
                         <h2 class="texto-modal-tip">Asi funciona Wambo Frutas</h2>
                         <div class="texto-modal-tip" id="descripcion-tip">
                                 <div class="col-md-9" id="textoIns">
                                     <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para siguiente ayuda
                                 </div>
                                 <div class="col-md-3" id="fotoIns">
-                                    <img class="center-block tamano100"  src="<?php echo base_url()."public/images/icons/customer-service.png"?>">
+                                    <figure>
+                                        <img class="center-block tamano100" alt="iconoayuda" src="<?php echo base_url()."public/images/icons/customer-service.png"?>">
+                                    </figure>
                                 </div>
                         </div>
                     </div>
-                    <img class="icon-click" src="<?php echo base_url()."public/images/icons/click.png"?>">
+                    <figure>
+                        <img class="icon-click" alt="iconoclick" src="<?php echo base_url()."public/images/icons/click.png"?>">
+                    </figure>
                 </div>
                 <div class="triangulo"></div>
                 <br>
-                <img class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                <figure>
+                    <img class="img-circle" alt="estudiante2" width="20%" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                </figure>
                 <div style="margin-top: 55px">
                     <button id="mostrarmodal" type="button" class="btn btn-info" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
                     <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
@@ -54,11 +62,12 @@
         </div>
     </div>
 </div>
-<div class="container-fluid" id="section1">
+<section class="container-fluid" id="section1">
     <div  class="container">
-        <h1 class="tituloSection">frutas Wambo</h1>
-        <div class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
-            animate a superar el desafío Wambo Frutas!.</div>
+        <header class="tituloSection">frutas Wambo</header>
+        <p class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
+            animate a superar el desafío Wambo Frutas!.
+        </p>
         <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-12">
                         <div class="instruccion-morado">
@@ -72,12 +81,16 @@
                         <div style="float: left;margin-left: 50px;clear: left">
                             <div class="triangulo-morado"></div>
                         </div>
-                        <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                        <figure>
+                            <img class="img-circle pull-left" alt="estudiante1" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                        </figure>
                     </div>
                     <div class="col-md-4  col-sm-4 col-xs-12">
-                        <img width="150px" height="150px"  class="center-block fondocoins"
-                             src="<?php echo base_url()."public/images/icons/coins.png";
-                             ?>">
+                        <figure>
+                            <img width="150px" height="150px"  alt="monedas" class="center-block fondocoins"
+                                 src="<?php echo base_url()."public/images/icons/coins.png";
+                                 ?>">
+                        </figure>
                         <p class="text-center"><span class="puntaje-seccion puntos"><?php echo $puntaje->puntos?></span></p>
                     </div>
         </div>
@@ -92,20 +105,26 @@
                                 if (in_array($fruta->id, $misfrutas_limpio)) {
                                     ?>
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                        <img id="<?php echo $fruta->id ?>"
-                                             title="<?php echo $fruta->nombre ?>"
-                                             src="<?php echo base_url() . $fruta->link ?>"
-                                             class="img-circle tamano fondofruta rotate center-block fruta borde"
-                                             data-toggle="modal" data-target="#myModal">
+                                        <figure>
+                                            <img id="<?php echo $fruta->id ?>"
+                                                 title="<?php echo $fruta->nombre ?>"
+                                                 src="<?php echo base_url() . $fruta->link ?>"
+                                                 alt="<?php echo $fruta->nombre ?>"
+                                                 class="img-circle tamano fondofruta rotate center-block fruta borde"
+                                                 data-toggle="modal" data-target="#myModal">
+                                        </figure>
                                     </div>
                                 <?php } else {
                                     ?>
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                        <img id="<?php echo $fruta->id ?>"
-                                             title="<?php echo $fruta->nombre ?>"
-                                             src="<?php echo base_url() . $fruta->link ?>"
-                                             class="img-circle tamano fondofruta rotate center-block gris borde"
-                                             data-toggle="" data-target="">
+                                        <figure>
+                                            <img id="<?php echo $fruta->id ?>"
+                                                 title="<?php echo $fruta->nombre ?>"
+                                                 alt="<?php echo $fruta->nombre ?>"
+                                                 src="<?php echo base_url() . $fruta->link ?>"
+                                                 class="img-circle tamano fondofruta rotate center-block gris borde"
+                                                 data-toggle="" data-target="">
+                                        </figure>
                                     </div>
                                 <?php }
                             }
@@ -114,21 +133,24 @@
                         foreach ($frutas as $fruta) {
                             ?>
                             <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                <img id="<?php echo $fruta->id ?>"
-                                     title="<?php echo $fruta->nombre ?>"
-                                     src="<?php echo base_url() . $fruta->link ?>"
-                                     class="img-circle tamano fondofruta rotate center-block gris borde"
-                                     data-toggle="" data-target="">
+                                <figure>
+                                    <img id="<?php echo $fruta->id ?>"
+                                         title="<?php echo $fruta->nombre ?>"
+                                         src="<?php echo base_url() . $fruta->link ?>"
+                                         alt="<?php echo $fruta->nombre ?>"
+                                         class="img-circle tamano fondofruta rotate center-block gris borde"
+                                         data-toggle="" data-target="">
+                                </figure>
                             </div>
                         <?php }
                         }?>
             </div>
         </div>
     </div>
-</div>
-<div class="container-fluid" id="section2">
+</section>
+<section class="container-fluid" id="section2">
     <div class="container">
-        <h1 class="tituloSection">Desafio Wambo Frutas</h1>
+        <header class="tituloSection">Desafio Wambo Frutas</header>
         <div class="row">
             <div class="col-md-8 col-sm-8">
                 <div class="instruccion-verde">
@@ -142,13 +164,9 @@
                 <div style="float: left;margin-left: 50px;clear: left">
                     <div class="triangulo-verde"></div>
                 </div>
-                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
-            </div>
-            <div class="col-md-4 col-sm-4">
-                <img width="150px" height="150px"  class="center-block fondocoins"
-                     src="<?php echo base_url()."public/images/icons/coins.png";
-                     ?>">
-                <p class="text-center"><span class="puntaje-seccion puntos"><?php echo $puntaje->puntos?></span></p>
+                <figure>
+                    <img class="img-circle pull-left" alt="estudiante1" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                </figure>
             </div>
         </div>
     </div>
@@ -161,10 +179,10 @@
             </div>
         </div>
     </div>
-</div>
-<div class="container-fluid" id="tipsaludable">
+</section>
+<section class="container-fluid" id="tipsaludable">
     <div class="container">
-        <h1 class="tituloSection">Tips Wambo Frutas</h1>
+        <header class="tituloSection">Tips Wambo Frutas</header>
         <div class="row">
             <div class="col-md-8">
                 <div class="instruccion-naranjo">
@@ -178,7 +196,9 @@
                 <div style="float: left;margin-left: 50px;clear: left">
                     <div class="triangulo-naranjo"></div>
                 </div>
-                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                <figure>
+                    <img class="img-circle pull-left" alt="estudiante1" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                </figure>
             </div>
         </div>
     </div>
@@ -200,7 +220,7 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 <?php include "footer.php"?>
 <script>
     $(document).ready(function(){
@@ -264,7 +284,7 @@
                 bootbox.alert({
                     size: "small",
                     title: "Puntos insuficientes",
-                    message: "Consigue mas puntos…",
+                    message: "<p class='compra'>Consigue más monedas…</p>",
                     className: 'bb-alternate-modal',
                     callback: function(){ /* your callback code */ }
                 })

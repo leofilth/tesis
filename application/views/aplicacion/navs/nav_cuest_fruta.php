@@ -11,43 +11,53 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="nav-link-inicio li-nav"><a href="<?php echo base_url()."aplicacion/frutas#section2"?>">Frutas</a></li>
-                <li class="nav-link-ayuda li-nav" data-toggle="modal" data-target="#modaltip"><a href="#">Ayuda</a></li>
+                <li class="nav-link-inicio li-nav">
+                    <a href="<?php echo base_url()."aplicacion/frutas#section2"?>">Frutas</a>
+                </li>
+                <li class="nav-link-ayuda li-nav" data-toggle="modal" data-target="#modaltip">
+                    <a href="#">Ayuda</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown nav-link-cuenta li-nav"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <img id="avatarNav" height="24px"width="24px" src="<?php
-                        if($datos->avatar_name=="user")
-                        {
-                            if($datos->sexo=="masculino"){
-                                echo base_url()."public/images/user_avatar/user-mas.png";
-                            }else{
-                                echo base_url()."public/images/user_avatar/user-fem.png";
+                <li class="dropdown nav-link-cuenta li-nav">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <figure>
+                            <img id="avatarNav" height="24px"width="24px" src="<?php
+                            if($datos->avatar_name=="user")
+                            {
+                                if($datos->sexo=="masculino"){
+                                    echo base_url()."public/images/user_avatar/user-mas.png";
+                                }else{
+                                    echo base_url()."public/images/user_avatar/user-fem.png";
+                                }
                             }
-                        }
-                        else
-                        {
-                            echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
-                        }
-                        ?>"  class="img-circle"><?php echo $datos->nick?><span class="caret"></span></a>
+                            else
+                            {
+                                echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
+                            }
+                            ?>"  alt="avatar" class="img-circle"><?php echo $datos->nick?><span class="caret"></span>
+                        </figure>
+                    </a>
                     <ul class="dropdown-menu nav-link-cuenta dropmenu">
                         <li>
                             <div class="row" style="padding-bottom: 5px">
                                 <div class="col-md-5">
-                                    <img id="avatarNav2" height="64px"width="64px" src="<?php
-                                    if($datos->avatar_name=="user")
-                                    {
-                                        if($datos->sexo=="masculino"){
-                                            echo base_url()."public/images/user_avatar/user-mas.png";
-                                        }else{
-                                            echo base_url()."public/images/user_avatar/user-fem.png";
+                                    <figure>
+                                        <img id="avatarNav2" height="64px"width="64px" src="<?php
+                                        if($datos->avatar_name=="user")
+                                        {
+                                            if($datos->sexo=="masculino"){
+                                                echo base_url()."public/images/user_avatar/user-mas.png";
+                                            }else{
+                                                echo base_url()."public/images/user_avatar/user-fem.png";
+                                            }
                                         }
-                                    }
-                                    else
-                                    {
-                                        echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
-                                    }
-                                    ?>"  class="img-circle center-block">
+                                        else
+                                        {
+                                            echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
+                                        }
+                                        ?>"  alt="avatar" class="img-circle center-block">
+                                    </figure>
                                 </div>
                                 <div class="col-md-7">
                                     <p class="text-center puntos"><?php echo $puntaje->puntos." puntos"?></p>

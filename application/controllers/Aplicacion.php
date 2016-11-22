@@ -148,7 +148,8 @@ class Aplicacion extends CI_Controller {
 	public function certificado(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$this->layout->view('certificado', compact("datos"));
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$this->layout->view('certificado', compact("datos","puntaje"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
