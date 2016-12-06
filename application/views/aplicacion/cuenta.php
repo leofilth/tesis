@@ -1,5 +1,5 @@
 <?php include "navs/nav_cuenta.php" ?>
-    <div class="container-fluid bg-im3"style="padding-bottom: 100px">
+    <div class="container-fluid bg-im3"style="padding-bottom: 100px;padding-top: 80px">
         <div class="container">
             <!-- Modal
             Tutorial Wambo
@@ -82,7 +82,7 @@
                 <div class="col-md-12">
                     <div id="fruta" class="col-md-4 col-sm-6">
                         <div class=" text-center borde frutacuenta">
-                            <img id="portadafruta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
+                            <img id="portadafruta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada1.png"?>">
                             <div class="maintitulo">
                                 <h3 id="tfrut">
                                     Frutas
@@ -100,7 +100,7 @@
                     </div>
                     <div id="verdura" class="col-md-4 col-sm-6">
                         <div class=" text-center borde  verduracuenta">
-                            <img id="portadaverdura" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
+                            <img id="portadaverdura" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada2.png"?>">
                             <div class="maintitulo">
                                 <h3 id="tverd">
                                     Verduras
@@ -118,7 +118,7 @@
                     </div>
                     <div id="alimento" class="col-md-4 col-sm-6">
                         <div class="text-center borde  alimentocuenta">
-                            <img id="portadaalimento" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada5.png"?>">
+                            <img id="portadaalimento" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada5.png"?>">
                             <div class="maintitulo">
                                 <h3 id="tali">
                                     Alimentos
@@ -136,7 +136,7 @@
                     </div>
                     <div id="deporte" class="col-md-4 col-sm-6">
                         <div class="text-center  borde deportecuenta">
-                            <img id="portadadeporte" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
+                            <img id="portadadeporte" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada3.png"?>">
                             <div class="maintitulo">
                                 <h3 id="tdep">
                                     Actividad física
@@ -154,7 +154,7 @@
                     </div>
                     <div id="receta" class="col-md-4 col-sm-6">
                         <div class="text-center  borde recetacuenta">
-                            <img id="portadareceta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada4.jpg"?>">
+                            <img id="portadareceta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada4.jpg"?>">
                             <div class="maintitulo">
                                 <h3 id="trec">
                                     Mis recetas
@@ -172,7 +172,7 @@
                     </div>
                     <div id="fruta" class="col-md-4 col-sm-6">
                         <div class=" text-center  borde noticiacuenta">
-                            <img id="portadafruta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
+                            <img id="portadafruta"  class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada1.png"?>">
                             <div class="maintitulo">
                                 <h3 id="tfrut">Noticias</h3>
                             </div>
@@ -187,7 +187,7 @@
             <div class="row">
                 <div id="fruta" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
                     <div class=" text-center  borde noticiacuenta">
-                        <img id="portadafruta" width="200" height="200" class="img-circle center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
+                        <img id="portadafruta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada1.png"?>">
                         <div class="maintitulo">
                             <h3 id="tfrut">Mi certificado</h3>
                         </div>

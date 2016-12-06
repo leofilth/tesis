@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" id="navcolor-noticia">
+<nav class="navbar navbar-default navtrans navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">

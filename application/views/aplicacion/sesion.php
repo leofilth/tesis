@@ -1,5 +1,5 @@
 <?php include "navs/nav.php" ?>
-<div class="container-fluid bg-im">
+<div class="container-fluid bg-im padingtop">
     <div class="titulo1">Inicia tu sesión</div>
     <div class="row">
         <div class="col-md-5 col-md-offset-1">

@@ -19,7 +19,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid" id="tipsaludable">
+<div class="container-fluid padingtop" id="tipsaludable">
     <div class="container">
         <h1>Super Noticias</h1>
         <div class="row">

@@ -1,5 +1,5 @@
 <?php include "navs/nav_cuest_fruta.php" ?>
-<section class="container-fluid bg-im3">
+<section class="container-fluid bg-im3 padingtop">
     <div class="container">
         <header class="titulo1 text-center">Bienvenido a Cuestionarios</header>
         <?php if($cuestRespondidos == null){?>

@@ -1,5 +1,5 @@
 <?php include "navs/nav_cuenta.php"?>
-<section class="container-fluid bg-im3">
+<section class="container-fluid bg-im3 padingtop">
     <section class="container">
         <!-- Modal -->
         <div class="modal fade" id="modaltip" role="dialog">

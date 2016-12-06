@@ -58,51 +58,56 @@
     </a>
 </div>
 <div class="container-fluid bg-im">
-    <header style="padding-bottom: 50px;padding-top: 25px;width: auto">
-        <h1 class="text-center titulo-portada cc-text" id="explicativo">Mira todo lo que ofrece Wambo</h1>
-    </header>
     <div class="container">
-        <div class="row featurette">
-            <div class="col-md-7 fondo-portada1">
+        <div class="row">
+            <div class="col-md-7 col-sm-7 col-xs-12 fondo-portada1">
                 <h2 class="featurette-heading">Frutas Poderosas. <span class="text-muted">Todos su secretos al descubierto</span></h2>
                 <p class="lead">¿Cuáles comer? ¿A qué hora? ¿Cuánto debo consumir?</p>
                 <p class="lead">Esta y muchas más preguntas serán respondidas conmigo</p>
             </div>
-            <div class="col-md-5">
-                <img height="400px" width="400px"style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
+            <div class="col-md-5 col-sm-5 col-xs-12">
+                <figure>
+                    <img height="400px" width="400px"style="border-radius: 5px" alt="portada1" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
+                </figure>
             </div>
         </div>
         <hr class="featurette-divider">
-        <div class="row featurette">
-            <div class="col-md-7 col-md-push-5 fondo-portada2">
+        <div class="row">
+            <div class="col-md-7 col-sm-7 col-sm-push-5 col-md-push-5 fondo-portada2">
                 <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
-            <div class="col-md-5 col-md-pull-7">
-                <img height="400px" width="400px" style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
+            <div class="col-md-5 col-sm-5 col-sm-pull-7 col-md-pull-7">
+                <figure>
+                    <img height="400px" width="400px" style="border-radius: 5px" alt="portada2" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
+                </figure>
             </div>
         </div>
         <hr class="featurette-divider">
-        <div class="row featurette">
-            <div class="col-md-7 fondo-portada3">
+        <div class="row">
+            <div class="col-md-7 col-sm-7 fondo-portada3">
                 <h2 class="featurette-heading">¿Quieres ser más fuerte, más rapido?<span class="text-muted">Conmigo sabrás cómo !</span></h2>
                 <p class="lead">Aprenderás la importancia del ejercicio y sus beneficios.</p>
             </div>
-            <div class="col-md-5">
-                <img height="400px" width="400px"style="border-radius: 5px" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
+            <div class="col-md-5 col-sm-5">
+                <figure>
+                    <img height="400px" width="400px"style="border-radius: 5px" alt="portada3" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
+                </figure>
             </div>
         </div>
-        <hr class="featurette-divider">
-        <div class="row featurette">
-            <div class="col-md-7 col-md-push-5 fondo-portada4">
+        <!--<hr class="featurette-divider">
+        <div class="row">
+            <div class="col-md-7 col-md-push-5 col-sm-7 col-sm-push-5 fondo-portada4">
                 <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
-            <div class="col-md-5 col-md-pull-7">
-                <img height="400px" width="400px"style="border-radius: 5px" class="img-responsive center-block img-overlay" src="<?php echo base_url()."public/images/portada4.jpg"?>">
+            <div class="col-md-5 col-md-pull-7 col-sm-5 col-sm-pull-7">
+                <figure>
+                    <img height="400px" width="400px"style="border-radius: 5px" alt="portada4" class="img-responsive center-block img-overlay" src="<?php echo base_url()."public/images/portada4.jpg"?>">
+                </figure>
             </div>
         </div>
-        <hr class="featurette-divider">
+        <hr class="featurette-divider">-->
     </div>
 </div>
 <?php include "footer.php"?>

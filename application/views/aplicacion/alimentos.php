@@ -62,7 +62,7 @@
         </div>
     </div>
 </div>
-<section class="container-fluid" id="section1">
+<section class="container-fluid padingtop" id="section1">
     <div  class="container">
         <header class="tituloSection">Alimentos Wambo</header>
         <div class="row">

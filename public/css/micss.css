@@ -392,7 +392,7 @@ css cuenta
     line-height: 22px;
 }
 .bg-im {
-    background: url("http://localhost:8080/tesis/public/images/paisaje.jpg") no-repeat center center fixed;
+    background: url("http://146.83.216.208/public/images/paisaje.jpg") no-repeat center center fixed;
      -webkit-background-size: cover;
      -moz-background-size: cover;
      -o-background-size: cover;
@@ -401,7 +401,7 @@ css cuenta
     padding-bottom: 100px;
 }
 .bg-im2 {
-    background: url("http://localhost:8080/tesis/public/images/Middle_texture.jpg") no-repeat center center fixed;
+    background: url("http://146.83.216.208/public/images/Middle_texture.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -410,16 +410,14 @@ css cuenta
     padding-bottom: 100px;
 }
 .bg-im3 {
-    background: url("http://localhost:8080/tesis/public/images/aprender.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
+    background: url("http://146.83.216.208/public/images/aprender.jpg") no-repeat center center fixed;
+    /*-webkit-background-size: cover;
     -moz-background-size: cover;
-    -o-background-size: cover;
+    -o-background-size: cover;*/
     background-size: cover;
-    padding-top: 50px;
-    padding-bottom: 100px;
 }
 .bg-im4 {
-    background: url("http://localhost:8080/tesis/public/images/education-package-powerpoint-backgrounds.jpg") no-repeat center center fixed;
+    background: url("http://146.83.216.208/public/images/education-package-powerpoint-backgrounds.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -709,21 +707,54 @@ css de barra nav
 #navcolor-noticia{
     background: #2472a5 none repeat scroll 0 0;
 }
-#navcuenta{
-    background: #D1EEEC none repeat scroll 0 0;
-}
 .navbar-right {
     margin-right: 0;
 }
 /**/
 /**css de carousel**/
 .carousel {
-    height: 900px;
+    /*height: 900px;
     /*margin-bottom: 60px;*/
+}
+@media screen and (max-width: 980px){
+    .carousel-caption {
+        z-index: 10;
+        padding-bottom: 20% !important;
+    }
+    /*altura del carousel
+    .carousel{
+        height: 680px !important;
+    }
+    /*texto del carousel
+    .carousel-caption{
+        padding-bottom: 200px !important;
+    }
+    /*slide del carousel
+     .item{
+        height: 680px !important;
+    }*/
+}
+@media screen and (max-width: 800px){
+    .carousel-caption {
+        z-index: 10;
+        padding-bottom: 10% !important;
+    }
+    /*altura del carousel
+    .carousel{
+        height: 680px !important;
+    }
+    /*texto del carousel
+    .carousel-caption{
+        padding-bottom: 200px !important;
+    }
+    /*slide del carousel
+     .item{
+        height: 680px !important;
+    }*/
 }
 .carousel-caption {
     z-index: 10;
-    padding-bottom: 500px;
+    padding-bottom: 30%;
 }
 .carousel-caption p{
     font-size: 21px;
@@ -776,16 +807,22 @@ css de barra nav
 }
 .carousel .item {
     background-color: #777;
-    height: 900px;
+    /*height: 900px;*/
 }
-.carousel-inner > .item > img {
-
-    left: 0;
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    /*left: 0;
     min-width: 100%;
     position: absolute;
     top: 0;
-    /*margin: auto;
+    margin: auto;
     min-width: 100%;*/
+}
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
 }
 .carousel-control:focus, .carousel-control:hover {
     color: #fff;
@@ -810,20 +847,10 @@ css de barra nav
     background-color: #f4511e;
 }
 @media (max-width: 768px) {
-    .carousel-caption p {
-        font-size: 15px;
-        line-height: 1.4;
-        margin-bottom: 20px;
-    }
-    .carousel-caption{padding-bottom: 50px}
+    /*.carousel-caption{padding-bottom: 50px}
     .carousel{height: 350px}
     .carousel-inner >.item >img{height: 350px}
-    .carousel-inner >.item{height: 350px}
-}
-@media (max-width: 980px){
-    .li-nav {
-        padding: 5px 5px !important;
-    }
+    .carousel-inner >.item{height: 350px}*/
 }
 .carousel-fade .carousel-inner .item {
     opacity: 0;
@@ -859,7 +886,7 @@ Fin Css Carousel
 
 /*
 *CSS Galeria
-*/
+
 @media screen and (max-width: 768px) {
     .altura{
         height: 180px !important;
@@ -869,7 +896,7 @@ Fin Css Carousel
     .altura{
         height: 120px !important;
     }
-}
+}*/
 .altura{
     height: 250px;
 }
@@ -1136,12 +1163,6 @@ css para cuestionario cuando se completa
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
 }
-
-@media screen and (max-width: 768px){
-    .titulo-tip {
-        font-size: 17px;
-    }
-}
 .tip-naranjo{
     box-shadow: 0 4px 0 0 #DF764E;
     border-radius: 5px;
@@ -1309,4 +1330,120 @@ frutas
     font-size: 20px;
     color: #673AB7;
 
+}
+.padingtop{
+    padding-top: 80px;
+}
+/*
+tamaño imagen seccion
+*/
+.img-seccion{
+    width: 200px;height: 200px;
+}
+@media screen and (max-width: 1280px){
+    .img-seccion{
+        width: 200px;height: 200px;
+    }
+}
+@media screen and (max-width: 980px){
+    .img-seccion{
+        width: 160px;height: 160px;
+    }
+    .fondo-portada1{
+        margin-top: 30px;
+    }
+    .fondo-portada1 h2{
+        font-size: 30px;
+    }
+    .fondo-portada1 p{
+        font-size: 17px;
+    }
+    .fondo-portada2{
+        margin-top: 30px;
+    }
+    .fondo-portada2 h2{
+        font-size: 30px;
+    }
+    .fondo-portada2 p{
+        font-size: 17px;
+    }
+    .fondo-portada3{
+        margin-top: 30px;
+    }
+    .fondo-portada3 h2{
+        font-size: 30px;
+    }
+    .fondo-portada3 p{
+        font-size: 17px;
+    }
+    .fondo-portada4{
+        margin-top: 30px;
+    }
+    .fondo-portada4 h2{
+        font-size: 30px;
+    }
+    .fondo-portada4 p{
+        font-size: 17px;
+    }
+    .li-nav {
+        padding: 5px 5px !important;
+    }
+}
+@media screen and (max-width: 768px){
+    .img-seccion{
+        width: 140px;height: 140px;
+    }
+    .navbar-collapse{
+        background-color: rgb(103,58,183);
+    }
+    .li-nav{
+        border-radius: 0;
+    }
+    .navbar-right {
+        margin-right: inherit;
+    }
+    .navbar-default .navbar-nav > li {
+        margin-left: 0;
+    }
+    .navbar-toggle {
+        background-color: rgb(103,58,183);
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: rgb(246,138,38);
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+    }
+    .titulo-tip {
+        font-size: 17px;
+    }
+    .carousel-caption p {
+        font-size: 15px;
+        line-height: 1.4;
+        margin-bottom: 20px;
+    }
+    .fondo-portada1{
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+    .fondo-portada2{
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+    .fondo-portada3{
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+    .fondo-portada4{
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+    .featurette-divider{
+        margin: 10px 0;
+    }
+}
+@media screen and (max-width: 360px){
+    .img-seccion{
+        width: 100px;height: 100px;
+    }
 }

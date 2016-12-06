@@ -62,7 +62,7 @@
         </div>
     </div>
 </div>
-<section class="container-fluid" id="section1">
+<section class="container-fluid padingtop" id="section1">
     <div  class="container">
         <header class="tituloSection">Deportes Wambo</header>
         <div class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo

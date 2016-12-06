@@ -1,5 +1,5 @@
 <?php include "navs/nav.php" ?>
-<div class="container-fluid bg-im" xmlns="http://www.w3.org/1999/html">
+<div class="container-fluid bg-im padingtop" xmlns="http://www.w3.org/1999/html">
     <div class="titulo1">Registro de usuarios</div>
         <div class="row">
             <div class="col-md-5 col-md-offset-1">
@@ -52,14 +52,14 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label tituloform">Sexo </label>
-                            <input type="radio" name="sexo" value="masculino"> Masculino<br>
+                            <input class="tituloform" type="radio" name="sexo" value="masculino"> Masculino<br>
                             <label class="errorform"><?php echo form_error('sexo'); ?></label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label tituloform">Sexo </label>
-                            <input type="radio" name="sexo" value="femenino"> Femenino<br>
+                            <input class="tituloform" type="radio" name="sexo" value="femenino"> Femenino<br>
                             <label class="errorform"><?php echo form_error('sexo'); ?></label>
                         </div>
                     </div>

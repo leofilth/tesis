@@ -1,5 +1,5 @@
 <?php include "navs/nav_cuenta.php" ?>
-<div class="container-fluid bg-im3"style="padding-bottom: 100px">
+<div class="container-fluid bg-im3 padingtop"style="padding-bottom: 100px">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
