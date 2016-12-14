@@ -46,7 +46,6 @@
                 return resp;
             })
         }
-        var texto="<?php echo $preguntasFruta[0]->idpregunta?>";
         var preguntas=<?php echo json_encode($preguntasFruta,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
         var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
         var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres

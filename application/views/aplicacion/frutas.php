@@ -35,10 +35,10 @@
                         <header id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?></header>
                         <h2 class="texto-modal-tip">Asi funciona Wambo Frutas</h2>
                         <div class="texto-modal-tip" id="descripcion-tip">
-                                <div class="col-md-9" id="textoIns">
+                                <div class="col-md-8" id="textoIns">
                                     <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para siguiente ayuda
                                 </div>
-                                <div class="col-md-3" id="fotoIns">
+                                <div class="col-md-4 margenins" id="fotoIns">
                                     <figure>
                                         <img class="center-block tamano100" alt="iconoayuda" src="<?php echo base_url()."public/images/icons/customer-service.png"?>">
                                     </figure>
@@ -52,7 +52,7 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-circle" alt="estudiante2" width="20%" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                    <img class="img-circle icon-inst" alt="estudiante2" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                 </figure>
                 <div style="margin-top: 55px">
                     <button id="mostrarmodal" type="button" class="btn btn-info" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
@@ -82,7 +82,7 @@
                             <div class="triangulo-morado"></div>
                         </div>
                         <figure>
-                            <img class="img-circle pull-left" alt="estudiante1" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                            <img class="img-circle pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                         </figure>
                     </div>
                     <div class="col-md-4  col-sm-4 col-xs-12">
@@ -165,7 +165,7 @@
                     <div class="triangulo-verde"></div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left" alt="estudiante1" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                    <img class="img-circle pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
             </div>
         </div>
@@ -197,7 +197,7 @@
                     <div class="triangulo-naranjo"></div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left" alt="estudiante1" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                    <img class="img-circle pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
             </div>
         </div>
@@ -210,7 +210,7 @@
                 $colores=array("verde","rosado","celeste","naranjo","rojo");
                 foreach ($tipsFrutas as $tipfruta){
                     ?>
-                    <div class="col-md-3 col-xs-6 col-sm-4" style="height: 160px">
+                    <div class="col-md-3 col-xs-6 col-sm-4 alturatip">
                         <div class="tip-<?php echo $colores[$i]?> tip zoom borde" title="<?php echo $tipfruta->nombre?>" data-toggle="modal" data-target="#modaltip">
                             <div><h1 class="titulo-tip"><?php echo $tipfruta->nombre?></h1></div><div><i class="glyphicon glyphicon-apple hoja"></i></div>
                         </div>
@@ -231,6 +231,7 @@
         var fruta="Elige una Fruta";
         var desc="Te enseñare sobre ella";
         var titulo, titulo2;
+        var avance=<?php echo $avance->avance_fruta?>;
         function guardaEstadoTutorial(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -248,6 +249,11 @@
                 $('#tutorial').modal('show');
             }
         });
+        function actualizaAvance(ruta,valor1,valor2){
+            $.post(ruta,{valor1:valor1,valor2:valor2},function(resp){
+                return resp;
+            })
+        }
         function guardaCuestTemp(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -314,6 +320,8 @@
                             $("#"+id).off("click",compra);//quita evento compra
                             guardaFruta('<?php echo base_url()."aplicacion/guardaFrutaUsuario"?>',id);
                             guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>',puntos);
+                            avance++;
+                            actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"fruta");
                             //agrega clase fruta para ver en modal
                             $("#"+id).addClass("fruta");
                             $("#"+id+".fruta").on("click",function(){

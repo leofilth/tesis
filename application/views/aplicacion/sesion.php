@@ -1,12 +1,12 @@
 <?php include "navs/nav.php" ?>
-<div class="container-fluid bg-im padingtop">
-    <div class="titulo1">Inicia tu sesión</div>
+<section class="container-fluid bg-im padingtop">
+    <header class="titulo1">Inicia tu sesión</header>
     <div class="row">
         <div class="col-md-5 col-md-offset-1">
-            <?php $atributos=array('role'=>'form','class'=>'form-group cuadradosombra','id'=>'form','name'=>'form');
+            <?php $atributos=array('class'=>'form-group cuadradosombra','id'=>'form','name'=>'form');
             echo form_open(null,$atributos);//utulizar siempre null, recomendado?>
             <h1 class="titulo2">Ingresa tus datos</h1>
-            <h4 style="color: orangered;font-family: 'finger paint'"><?php if($this->session->flashdata('ControllerMessage')!='')
+            <h4 class="errorform"><?php if($this->session->flashdata('ControllerMessage')!='')
                 {
                     echo " <span class='glyphicon glyphicon-info-sign'></span> ".$this->session->flashdata('ControllerMessage');
                 }
@@ -34,8 +34,10 @@
                     <h3>Momento de aprender</h3>
                 </a>
             </div>
-            <img class="img-responsive center-block" src="<?php echo base_url()."public/images/iniciar_sesion.png"?>">
+            <figure>
+                <img class="img-responsive center-block" alt="iniciasesion" src="<?php echo base_url()."public/images/iniciar_sesion.png"?>">
+            </figure>
         </div>
     </div>
-</div>
+</section>
 <?php include "footer.php"?>

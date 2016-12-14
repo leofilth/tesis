@@ -7,7 +7,7 @@ if($cuestRespondidos!=null) {
     foreach ($aux as $cuestionario) {?>
         <?php if (in_array($cuestionario, $limpio)) { ?>
             <div class="col-md-6">
-                <h3 class="titulo4 text-center">Test <?php echo $i ?></h3>
+                <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
                 <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
                 <a href="#<?php echo $cuestionario ?>">
                     <figure>
@@ -22,7 +22,7 @@ if($cuestRespondidos!=null) {
         <?php }
         else { ?>
             <div class="col-md-6">
-                <h3 class="titulo4 text-center">Test <?php echo $i ?></h3>
+                <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
                 <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
                 <a href="<?php echo base_url() . "aplicacion/cuestionarioali"?>">
                     <figure>
@@ -41,7 +41,7 @@ if($cuestRespondidos!=null) {
 else{?>
     <?php foreach($aux as $cuestionario) {?>
         <div class="col-md-6">
-            <h3 class="titulo4 text-center">Test <?php echo $i ?></h3>
+            <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
             <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
             <a href="<?php echo base_url() . "aplicacion/cuestionarioali"?>">
                 <figure>

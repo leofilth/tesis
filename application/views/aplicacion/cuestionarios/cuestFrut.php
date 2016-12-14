@@ -11,7 +11,7 @@
         <div style="float: left;margin-left: 50px;clear: left">
             <div class="triangulo-naranjo"></div>
         </div>
-        <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+        <img class="img-circle pull-left icon-inst" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
     </div>
 </div>
 <div class="container cuadradosombracuest">
@@ -62,7 +62,7 @@
     <div class="container">
         <div class="titulo1">
             Puntaje: <span id="puntaje"></span>
-            <img width="64px" height="64px" src="<?php echo base_url()."public/images/icons/coins.png"; ?>">
+            <img class="fondocoins" src="<?php echo base_url()."public/images/icons/coins.png"; ?>">
         </div>
         <br>
         <br>

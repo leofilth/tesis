@@ -9,7 +9,9 @@
     </ol>
     <div role="listbox" class="carousel-inner">
         <div class="item">
-            <img alt="First slide" src="<?php echo base_url()."public/images/fondo2.png"?>">
+            <figure>
+                <img alt="First slide" src="<?php echo base_url()."public/images/fondo2.png"?>">
+            </figure>
             <div class="container">
                 <div class="carousel-caption">
                     <div class="cc-text">
@@ -23,7 +25,9 @@
             </div>
         </div>
         <div class="item active">
-            <img alt="Second slide" src="<?php echo base_url()."public/images/fondo.png"?>" class="second-slide">
+            <figure>
+                <img alt="Second slide" src="<?php echo base_url()."public/images/fondo.png"?>" class="second-slide">
+            </figure>
             <div class="container">
                 <div class="carousel-caption">
                     <div class="cc-text">
@@ -57,7 +61,7 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<div class="container-fluid bg-im">
+<section class="container-fluid bg-im">
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-sm-7 col-xs-12 fondo-portada1">
@@ -109,5 +113,5 @@
         </div>
         <hr class="featurette-divider">-->
     </div>
-</div>
+</section>
 <?php include "footer.php"?>

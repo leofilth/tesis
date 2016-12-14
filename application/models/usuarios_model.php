@@ -502,4 +502,65 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
+    /**
+     * fin
+     */
+    /**
+     * anvance
+     */
+    public function getAvance($nick){
+        $query=$this->db
+            ->select("avance_fruta,avance_verdura,avance_alimento,avance_deporte,
+                    avance_cuest_fruta,avance_cuest_verdura,avance_cuest_deporte,avance_cuest_alimento")
+            ->from("avance")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->row();
+    }
+    public function actualizaAvance($datos=array(),$nick)
+    {
+        $this->db->where('nick_fk',$nick);
+        $this->db->update('avance',$datos);
+        return true;
+    }
+    public function getTotalFrutas(){
+        return $this->db->count_all_results('frutas');
+    }
+    /*
+     * obtiene todas las filas distintas
+     */
+    public function getTotalCuestFruta(){
+        //return $this->db->count_all_results('preguntasfruta');
+        $this->db->select('idpregunta');
+        $this->db->distinct();
+        $query = $this->db->get('preguntasfruta');
+        return count($query->result());
+    }
+    public function getTotalVerduras(){
+    return $this->db->count_all_results('verduras');
+}
+    public function getTotalCuestVerdura(){
+        $this->db->select('idpregunta');
+        $this->db->distinct();
+        $query = $this->db->get('preguntasverdura');
+        return count($query->result());
+    }
+    public function getTotalDeportes(){
+    return $this->db->count_all_results('deportes');
+}
+    public function getTotalCuestDeporte(){
+        $this->db->select('idpregunta');
+        $this->db->distinct();
+        $query = $this->db->get('preguntasdeporte');
+        return count($query->result());
+    }
+    public function getTotalAlimentos(){
+        return $this->db->count_all_results('food');
+    }
+    public function getTotalCuestAlimento(){
+        $this->db->select('idpregunta');
+        $this->db->distinct();
+        $query = $this->db->get('preguntasalimento');
+        return count($query->result());
+    }
 }

@@ -35,10 +35,10 @@
                         <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?></h4>
                         <h2 class="texto-modal-tip">Asi funciona Wambo Alimentos</h2>
                         <div class="texto-modal-tip" id="descripcion-tip">
-                            <div class="col-md-9" id="textoIns">
+                            <div class="col-md-8" id="textoIns">
                                 <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para siguiente ayuda
                             </div>
-                            <div class="col-md-3" id="fotoIns">
+                            <div class="col-md-4 margenins" id="fotoIns">
                                 <figure>
                                     <img class="center-block tamano100" alt="ayuda" src="<?php echo base_url()."public/images/icons/customer-service.png"?>">
                                 </figure>
@@ -52,7 +52,7 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-circle" alt="estudiante4" width="20%" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                    <img class="img-circle icon-inst" alt="estudiante4" src="<?php echo base_url().'public/images/modal/student4.png'?>">
                 </figure>
                 <div style="margin-top: 55px">
                     <button id="mostrarmodal" type="button" class="btn btn-info" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
@@ -66,7 +66,7 @@
     <div  class="container">
         <header class="tituloSection">Alimentos Wambo</header>
         <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="col-md-8 col-sm-8 col-xs-12 ">
                         <div class="instruccion-morado">
                             <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
                             <ol class="texto-modal-tip" id="descripcion-tip">
@@ -79,12 +79,12 @@
                             <div class="triangulo-morado"></div>
                         </div>
                         <figure>
-                            <img class="img-circle pull-left" alt="estudiante4" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                            <img class="img-circle pull-left icon-inst" alt="estudiante4" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
                         </figure>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <figure>
-                            <img width="150px" height="150px"  class="center-block fondocoins"
+                            <img class="center-block fondocoins"
                                  alt="coins" src="<?php echo base_url()."public/images/icons/coins.png";
                                  ?>">
                         </figure>
@@ -162,7 +162,7 @@
                     <div class="triangulo-verde"></div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left" alt="estudiante4" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                    <img class="img-circle pull-left icon-inst" alt="estudiante4"style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
                 </figure>
             </div>
         </div>
@@ -194,7 +194,7 @@
                     <div class="triangulo-naranjo"></div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left" alt="estudiante4" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                    <img class="img-circle pull-left icon-inst" alt="estudiante4" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
                 </figure>
             </div>
         </div>
@@ -207,7 +207,7 @@
                 $colores=array("verde","rosado","celeste","naranjo","rojo");
                 foreach ($tipsAlimentos as $tipalimento){
                     ?>
-                    <div class="col-md-3 col-xs-6 col-sm-4" style="height: 160px">
+                    <div class="col-md-3 col-xs-6 col-sm-4 alturatip">
                         <div class="tip-<?php echo $colores[$i]?> tip zoom borde" title="<?php echo $tipalimento->nombre?>" data-toggle="modal" data-target="#modaltip">
                             <div><h1 class="titulo-tip"><?php echo $tipalimento->nombre?></h1></div><div><i class="glyphicon glyphicon-tint hoja"></i></div>
                         </div>
@@ -410,7 +410,7 @@
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
                 "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu alimento este se desbloquea cambiando de color",
-                "imagen":"<img class='gris center-block tamano100' src='<?php echo base_url().'public/images/icons/food/donuts.png'?>'><img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/food/donuts.png'?>'>"}
+                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/tutoali.png'?>'>"}
         ];
         var contador=1;
         $("#instrumodal").on({

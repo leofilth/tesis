@@ -13,10 +13,10 @@
                                 <div class="margen-modal">
                                     <div class="texto-modal-tip" id="descripcion-tip">
                                         <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?>, así funciona Wambo</h4>
-                                        <div class="col-md-9" id="textoIns">
+                                        <div class="col-md-12" id="textoIns">
                                             <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para siguiente ayuda
                                         </div>
-                                        <div class="col-md-3" id="fotoIns">
+                                        <div class="col-md-12" id="fotoIns">
                                             <img class="center-block tamano100"  src="<?php echo base_url()."public/images/icons/customer-service.png"?>">
                                         </div>
                                     </div>
@@ -25,8 +25,8 @@
                             </div>
                             <div class="triangulo"></div>
                             <br>
-                            <img class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student2.png'?>">
-                            <div style="margin-top: 100px">
+                            <img class="img-circle icon-inst" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                            <div style="margin-top: 60px">
                                 <button id="mostrarmodal" type="button" class="btn btn-info" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
                                 <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
                             </div>
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <h3 class="titulo1 text-center">Selecciona que quieres aprender</h3>
+        <h3 class="titulo1 text-center">Selecciona que quieres aprender<?php echo $totalCuestFruta?></h3>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -88,8 +88,8 @@
                                     Frutas
                                     <div class="progress barra">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                             aria-valuemin="0" aria-valuemax="100" style="width:34%">
-                                            40%
+                                             aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_fruta+$avance->avance_cuest_fruta)*100)/($totalFrutas+$totalCuestFruta))?>%">
+                                            <?php echo round((($avance->avance_fruta+$avance->avance_cuest_fruta)*100)/($totalFrutas+$totalCuestFruta))?>%
                                         </div>
                                     </div>
                                 </h3>
@@ -277,13 +277,13 @@
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
                 "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas, Verduras, Deporte y Alimentos",
-                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
+                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/tuto1.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Supera los desafíos y gana monedas",
-                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
+                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/tuto2.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Canjea tus monedas por alimentos y deportes",
-                "imagen":"<img  class='center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
+                "imagen":"<img  class='center-block tamano100' src='<?php echo base_url().'public/images/tuto3.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Aprende y obten tu certificado Wambo",
-                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"}
+                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/tuto4.png'?>'>"}
             ];
         var contador=1;
         $("#instrumodal").on({

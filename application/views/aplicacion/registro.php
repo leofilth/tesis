@@ -1,9 +1,9 @@
 <?php include "navs/nav.php" ?>
-<div class="container-fluid bg-im padingtop" xmlns="http://www.w3.org/1999/html">
-    <div class="titulo1">Registro de usuarios</div>
+<section class="container-fluid bg-im padingtop">
+    <header class="titulo1">Registro de usuarios</header>
         <div class="row">
             <div class="col-md-5 col-md-offset-1">
-                <?php $atributos=array('role'=>'form','class'=>'form-group cuadradosombra','id'=>'form','name'=>'form');
+                <?php $atributos=array('class'=>'form-group cuadradosombra','id'=>'form','name'=>'form');
                 echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
                 ?>
                 <div class="row">
@@ -52,14 +52,14 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label tituloform">Sexo </label>
-                            <input class="tituloform" type="radio" name="sexo" value="masculino"> Masculino<br>
+                            <input class="tituloform" type="radio" name="sexo" value="masculino"> <span class="tituloform">Masculino</span><br>
                             <label class="errorform"><?php echo form_error('sexo'); ?></label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label tituloform">Sexo </label>
-                            <input class="tituloform" type="radio" name="sexo" value="femenino"> Femenino<br>
+                            <input class="tituloform" type="radio" name="sexo" value="femenino"> <span class="tituloform">Femenino</span><br>
                             <label class="errorform"><?php echo form_error('sexo'); ?></label>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <h4 style="color: orangered;font-family: 'finger paint'"><?php if($this->session->flashdata('ErrorNick')!='')
+                            <h4 class="errorform"><?php if($this->session->flashdata('ErrorNick')!='')
                                 {
                                     echo " <span class='glyphicon glyphicon-info-sign'></span> ".$this->session->flashdata('ErrorNick');
                                 }
@@ -135,11 +135,11 @@
                             <span class="glyphicon glyphicon-save"></span> Registrarme
                         </button>
                         <br>
-                        <?php
-                        echo form_close();
-                        ?>
                     </div>
                 </div>
+                <?php
+                echo form_close();
+                ?>
             </div>
             <div class="col-md-4 col-md-offset-1">
                 <div class="row">
@@ -161,9 +161,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <img class="img-responsive center-block" src="<?php echo base_url()?>public/images/iniciar_sesion.png">
+                    <figure>
+                        <img class="img-responsive center-block" alt="registro" src="<?php echo base_url()?>public/images/iniciar_sesion.png">
+                    </figure>
                 </div>
             </div>
         </div>
-</div>
+</section>
 <?php include "footer.php"?>

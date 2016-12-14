@@ -101,7 +101,8 @@ css cuenta
     background-color: #297FB8;
 }
 .fondocoins{
-    padding: 15px;
+    height: 120px;
+    width: 120px;
 }
 .avatar{
     cursor: pointer;
@@ -1188,8 +1189,13 @@ css para cuestionario cuando se completa
     cursor: pointer;
 }
 .tip{
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 22px;
+    /*padding-bottom: 10px;*/
+    /*margin-bottom: 20px;*/
+    height: 140px;
+}
+.alturatip{
+    height: 150px;
 }
 .hoja{
     font-size: 30px;
@@ -1294,11 +1300,12 @@ frutas
 */
 .tamano{
     cursor: pointer;
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
 }
 .tamano-cuest{
-    width: 40%;
+    width: 120px;
+    height: 120px;
     cursor: pointer;
 }
 .selecciona{
@@ -1312,18 +1319,12 @@ frutas
     height: 64px;
     float: right;
 }.tamano100{
-     width: 100px;
-     height: 100px;
+     width: auto;
+     height: 120px;
  }
 .tamano32{
     width: 32px;
     height: 32px;
-}
-@media screen and (max-width:768px) {
-    .tamano100{
-        width: 64px;
-        height: 64px;
-    }
 }
 .compra{
     font-family: "Montserrat", sans-serif;
@@ -1334,11 +1335,24 @@ frutas
 .padingtop{
     padding-top: 80px;
 }
+#fotoIns{
+    margin-top: 10px;
+}
+.margenins{
+    left: -20px;
+}
+.alturanoticia{
+    height: auto;
+}
 /*
 tamaño imagen seccion
 */
 .img-seccion{
     width: 200px;height: 200px;
+}
+.icon-inst{
+    height: 120px;
+    width: 120px;
 }
 @media screen and (max-width: 1280px){
     .img-seccion{
@@ -1390,6 +1404,21 @@ tamaño imagen seccion
     }
 }
 @media screen and (max-width: 768px){
+    .tamano100{
+        width: auto;
+        height: 64px;
+    }
+    .bg-im3 {
+        background: url("http://146.83.216.208/public/images/aprender360.png") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .tamano{
+        width: 100px;
+        height: 100px;
+    }
     .img-seccion{
         width: 140px;height: 140px;
     }
@@ -1443,7 +1472,53 @@ tamaño imagen seccion
     }
 }
 @media screen and (max-width: 360px){
+    .margenins{
+        left: 0 !important;
+    }
+    .bg-im3 {
+        background: url("http://146.83.216.208/public/images/aprender360.png") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
     .img-seccion{
         width: 100px;height: 100px;
+    }
+    .tamano{
+        width: 64px;
+        height: 64px;
+    }
+    .tamano-cuest{
+        width: 64px;
+        height: 64px;
+    }
+    .icon-inst{
+        width: 80px;
+        height: 80px;
+    }
+    .fondocoins{
+        width: 64px;
+        height: 64px;
+    }
+    .puntaje-seccion{
+        font-size: 15px;
+        padding: 10px;
+    }
+    .titulo-tip {
+        font-size: 17px;
+        padding: 0;
+    }
+    .tip {
+        padding-bottom: 0;
+        /*padding-top: 10px;*/
+        margin-bottom: 20px;
+        height: 110px;
+    }
+    .alturatip{
+        height: 120px;
+    }
+    .titulo-modal-tip {
+        font-size: 17px;
     }
 }

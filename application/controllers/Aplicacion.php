@@ -140,7 +140,18 @@ class Aplicacion extends CI_Controller {
 				$tip=$this->usuarios_model->getTips($num_tip);
 				$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 				$tutorial=$this->usuarios_model->getTutorialUsuario($datos->nick);
-				$this->layout->view('cuenta', compact("datos","tip","puntaje","tutorial"));
+				$avance=$this->usuarios_model->getAvance($datos->nick);
+				$totalFrutas=$this->usuarios_model->getTotalFrutas();
+				$totalCuestFruta=$this->usuarios_model->getTotalCuestFruta();
+				$totalVerduras=$this->usuarios_model->getTotalVerduras();
+				$totalCuestVerdura=$this->usuarios_model->getTotalCuestVerdura();
+				$totalDeportes=$this->usuarios_model->getTotalDeportes();
+				$totalCuestDeporte=$this->usuarios_model->getTotalCuestDeporte();
+				$totalAlimentos=$this->usuarios_model->getTotalAlimentos();
+				$totalCuestAlimento=$this->usuarios_model->getTotalCuestAlimento();
+				$this->layout->view('cuenta', compact("datos","tip","puntaje","tutorial","avance",
+					"totalFrutas","totalCuestFruta","totalVerduras","totalCuestVerdura","totalDeportes","totalCuestDeporte",
+					"totalAlimentos","totalCuestAlimento"));
 			} else {
 				redirect(base_url() . 'aplicacion', 301);
 			}
@@ -250,6 +261,18 @@ class Aplicacion extends CI_Controller {
 		$this->usuarios_model->actualizaperfil($aGuardar,$datos->nick);
 		$this->layout->view("actualizaperfil");
 	}
+	public function actualizaAvance(){
+		$this->layout->setLayout('template_ajax');
+		$dato=$this->input->post("valor1",true);
+		$tipo=$this->input->post("valor2",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		if($tipo=="fruta"){
+			$aGuardar=array(
+				'avance_fruta'=>$dato,
+			);
+			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
+		}
+	}
 	/*
 	 * Fin
 	 */
@@ -307,7 +330,9 @@ class Aplicacion extends CI_Controller {
 			$tipsFrutas=$this->usuarios_model->getTipFrutas();
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$tutorial=$this->usuarios_model->getTutorialUsuario($datos->nick);
-			$this->layout->view('frutas', compact("datos","tutorial","frutas","cuestionarios","cuestRespondidos","tipsFrutas","misfrutas","puntaje"));
+			$avance=$this->usuarios_model->getAvance($datos->nick);
+			$this->layout->view('frutas', compact("datos","tutorial","frutas","cuestionarios","cuestRespondidos",
+				"tipsFrutas","misfrutas","puntaje","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}

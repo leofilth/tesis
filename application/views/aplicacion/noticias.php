@@ -19,11 +19,11 @@
         </div>
     </div>
 </div>
-<div class="container-fluid padingtop" id="tipsaludable">
+<section class="container-fluid padingtop bg-im3" id="tipsaludable">
     <div class="container">
-        <h1>Super Noticias</h1>
+        <header class="titulo1">Super Noticias</header>
         <div class="row">
-            <div class="col-md-6" style="margin-left: 50px">
+            <div class="col-md-8">
                 <div class="instruccion-naranjo">
                     <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
                     <ol class="texto-modal-tip" id="descripcion-tip">
@@ -35,7 +35,7 @@
                 <div style="float: left;margin-left: 50px;clear: left">
                     <div class="triangulo-naranjo"></div>
                 </div>
-                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                <img class="img-circle pull-left icon-inst"  style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
             </div>
         </div>
         <br>
@@ -48,18 +48,11 @@
                 foreach ($noticias as $noticia){
                     ?>
                     <div class="col-md-4 col-xs-12 col-sm-6">
-                        <div class="tip-<?php echo $colores[$i]?> zoom borde">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img style="margin-top: 30px" class="img-circle center-block" width="90px" height="90px" src="<?php echo base_url().$noticia->foto?>">
-                                </div>
-                                <div class="col-md-8 center-block text-center">
-                                    <h3>
+                        <div class="tip-<?php echo $colores[$i]?> zoom borde noticia alturanoticia" title="<?php echo $noticia->titulo?>" data-toggle="modal" data-target="#modaltip">
+                            <h3 class="titulo-tip text-center">
                                         <?php echo $noticia->titulo?>
-                                    </h3>
-                                    <a class="noticia btn btn-primary" title="<?php echo $noticia->titulo?>" data-toggle="modal" data-target="#modaltip">Leer mas</a>
-                                </div>
-                            </div>
+                            </h3>
+                            <img class="img-circle center-block" width="90px" height="90px" src="<?php echo base_url().$noticia->foto?>">
                         </div>
                     </div>
                     <?php $i++;
@@ -67,7 +60,7 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
