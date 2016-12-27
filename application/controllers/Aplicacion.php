@@ -13,6 +13,8 @@ class Aplicacion extends CI_Controller {
 		$this->layout->js(array(base_url()."public/js/bootstrap-filestyle.min.js"));//borrar a futuro
 		$this->layout->js(array(base_url()."public/js/miJS.js"));
 		$this->layout->js(array(base_url()."public/js/bootbox.js"));
+		$this->layout->js(array(base_url()."public/js/howler.js"));
+		$this->layout->js(array(base_url()."public/js/sonidos.js"));
 	}
 	public function index()
 	{
@@ -63,6 +65,17 @@ class Aplicacion extends CI_Controller {
 					'seccion_alimento'=>'1',
 					'seccion_cuest'=>'1'
 				);
+				$avance=array(
+					'nick_fk'=>$this->input->post("nick",true),
+					'avance_fruta'=>'0',
+					'avance_verdura'=>'0',
+					'avance_deporte'=>'0',
+					'avance_alimento'=>'0',
+					'avance_cuest_alimento'=>'0',
+					'avance_cuest_deporte'=>'0',
+					'avance_cuest_fruta'=>'0',
+					'avance_cuest_verdura'=>'0'
+				);
 				$nick=$this->input->post("nick",true);
 				$consulta=$this->usuarios_model->verifica_nick($nick);
 				if($consulta){
@@ -82,6 +95,7 @@ class Aplicacion extends CI_Controller {
 						$this->usuarios_model->agregaUserCuestTemp($UserTempCuest);//agrega cuestionario temporal
 						$this->usuarios_model->agregaUserRecetaTemp($UserTempReceta);
 						$this->usuarios_model->agregaTutorial($tutorial);
+						$this->usuarios_model->agregaAvance($avance);
 						redirect(base_url().'aplicacion/sesion',301);
 					}
 					else{
@@ -130,6 +144,17 @@ class Aplicacion extends CI_Controller {
 			}
 		}
 		$this->layout->view('sesion');
+	}
+	public function diploma(){
+		$this->load->library('Cpdf');
+		$this->load->library('Cezpdf');
+		$this->load->library('backgroundpdf');
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$this->layout->view('diploma', compact("datos"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
 	}
 	public function cuenta()
 	{
@@ -272,6 +297,48 @@ class Aplicacion extends CI_Controller {
 			);
 			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
 		}
+		if($tipo=="verdura"){
+			$aGuardar=array(
+				'avance_verdura'=>$dato,
+			);
+			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
+		}
+		if($tipo=="deporte"){
+			$aGuardar=array(
+				'avance_deporte'=>$dato,
+			);
+			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
+		}
+		if($tipo=="alimento"){
+			$aGuardar=array(
+				'avance_alimento'=>$dato,
+			);
+			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
+		}
+		if($tipo=="cuestFruta"){
+			$aGuardar=array(
+				'avance_cuest_fruta'=>$dato,
+			);
+			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
+		}
+		if($tipo=="cuestVerdura"){
+			$aGuardar=array(
+				'avance_cuest_verdura'=>$dato,
+			);
+			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
+		}
+		if($tipo=="cuestAlimento"){
+			$aGuardar=array(
+				'avance_cuest_alimento'=>$dato,
+			);
+			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
+		}
+		if($tipo=="cuestDeporte"){
+			$aGuardar=array(
+				'avance_cuest_deporte'=>$dato,
+			);
+			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
+		}
 	}
 	/*
 	 * Fin
@@ -305,7 +372,9 @@ class Aplicacion extends CI_Controller {
 			$tipsDeportes=$this->usuarios_model->getTipDeportes();
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$tutorial=$this->usuarios_model->getTutorialUsuario($datos->nick);
-			$this->layout->view('deporte', compact("datos","tutorial","deportes","cuestionarios","cuestRespondidos","tipsDeportes","puntaje","misdeportes"));
+			$avance=$this->usuarios_model->getAvance($datos->nick);
+			$this->layout->view('deporte', compact("datos","tutorial","deportes","cuestionarios","cuestRespondidos"
+				,"tipsDeportes","puntaje","misdeportes","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -357,7 +426,9 @@ class Aplicacion extends CI_Controller {
 			$tipsVerduras=$this->usuarios_model->getTipVerduras();
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$tutorial=$this->usuarios_model->getTutorialUsuario($datos->nick);
-			$this->layout->view('verduras', compact("datos","tutorial","verduras","cuestionarios","cuestRespondidos","tipsVerduras","misverduras","puntaje"));
+			$avance=$this->usuarios_model->getAvance($datos->nick);
+			$this->layout->view('verduras', compact("datos","tutorial","verduras","cuestionarios","cuestRespondidos"
+				,"tipsVerduras","misverduras","puntaje","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -382,7 +453,9 @@ class Aplicacion extends CI_Controller {
 			$tipsAlimentos=$this->usuarios_model->getTipAlimentos();
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$tutorial=$this->usuarios_model->getTutorialUsuario($datos->nick);
-			$this->layout->view('alimentos', compact("datos","tutorial","alimentos","cuestionarios","cuestRespondidos","tipsAlimentos","misalimentos","puntaje"));
+			$avance=$this->usuarios_model->getAvance($datos->nick);
+			$this->layout->view('alimentos', compact("datos","tutorial","alimentos","cuestionarios","cuestRespondidos"
+				,"tipsAlimentos","misalimentos","puntaje","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -550,13 +623,14 @@ class Aplicacion extends CI_Controller {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
+			$avance=$this->usuarios_model->getAvance($datos->nick);
 			//$identificador=$this->uri->segment(3);
 			//$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
 			$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
 			$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($cuestionario->cuesttemp);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponVerd($datos->nick);
 			$this->layout->view("cuestionarioVerd",compact("datos","identificador","preguntasVerdura","cuestionario",
-				"puntaje","puntajeLider","cuestRespondidos"));
+				"puntaje","puntajeLider","cuestRespondidos","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -567,13 +641,14 @@ class Aplicacion extends CI_Controller {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
+			$avance=$this->usuarios_model->getAvance($datos->nick);
 			//$identificador=$this->uri->segment(3);
 			//$cuestionario="cuestionario".$identificador;//cuestionario3, que esta en BD con id
 			$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
 			$preguntasFruta=$this->usuarios_model->getPreguntasFruta($cuestionario->cuesttemp);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponFrut($datos->nick);
 			$this->layout->view("cuestionarioFrut",compact("datos","identificador","preguntasFruta","cuestionario",
-				"puntaje","puntajeLider","cuestRespondidos"));
+				"puntaje","puntajeLider","cuestRespondidos","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -584,11 +659,12 @@ class Aplicacion extends CI_Controller {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
+			$avance=$this->usuarios_model->getAvance($datos->nick);
 			$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
 			$preguntasDeporte=$this->usuarios_model->getPreguntasDeporte($cuestionario->cuesttemp);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponDep($datos->nick);
 			$this->layout->view("cuestionarioDep",compact("datos","identificador","preguntasDeporte","cuestionario",
-				"puntaje","puntajeLider","cuestRespondidos"));
+				"puntaje","puntajeLider","cuestRespondidos","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -599,13 +675,14 @@ class Aplicacion extends CI_Controller {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
+			$avance=$this->usuarios_model->getAvance($datos->nick);
 			//$identificador=$this->uri->segment(3);
 			//$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
 			$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
 			$preguntasAlimento=$this->usuarios_model->getPreguntasAlimento($cuestionario->cuesttemp);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponAli($datos->nick);
 			$this->layout->view("cuestionarioAli",compact("datos","identificador","preguntasAlimento","cuestionario",
-				"puntaje","puntajeLider","cuestRespondidos"));
+				"puntaje","puntajeLider","cuestRespondidos","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}

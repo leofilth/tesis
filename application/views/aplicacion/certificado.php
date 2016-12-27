@@ -27,6 +27,7 @@
                 <?php }?>
             </div>
         </div>
+        <a href="<?php echo base_url()."aplicacion/diploma"?>">Obtener</a>
     </div>
 </div>
 <?php include "footer.php"?>

@@ -1403,25 +1403,7 @@ tamaño imagen seccion
         padding: 5px 5px !important;
     }
 }
-@media screen and (max-width: 768px){
-    .tamano100{
-        width: auto;
-        height: 64px;
-    }
-    .bg-im3 {
-        background: url("http://146.83.216.208/public/images/aprender360.png") no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-    .tamano{
-        width: 100px;
-        height: 100px;
-    }
-    .img-seccion{
-        width: 140px;height: 140px;
-    }
+@media screen and  (max-width: 767px){
     .navbar-collapse{
         background-color: rgb(103,58,183);
     }
@@ -1445,6 +1427,32 @@ tamaño imagen seccion
     }
     .titulo-tip {
         font-size: 17px;
+    }
+}
+@media screen and (max-width: 768px){
+    .li-nav a{
+        font-size: 16px;
+    }
+    .li-nav {
+        padding: 5px 5px !important;
+    }
+    .tamano100{
+        width: auto;
+        height: 64px;
+    }
+    .bg-im3 {
+        background: url("http://146.83.216.208/public/images/aprender360.png") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .tamano{
+        width: 100px;
+        height: 100px;
+    }
+    .img-seccion{
+        width: 140px;height: 140px;
     }
     .carousel-caption p {
         font-size: 15px;

@@ -85,11 +85,11 @@
                             <img class="img-circle pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                         </figure>
                     </div>
-                    <div class="col-md-4  col-sm-4 col-xs-12">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
                         <figure>
-                            <img width="150px" height="150px"  alt="monedas" class="center-block fondocoins"
-                                 src="<?php echo base_url()."public/images/icons/coins.png";
-                                 ?>">
+                            <img class="center-block fondocoins"
+                                 alt="coins" src="<?php echo base_url()."public/images/icons/coins.png";
+                            ?>">
                         </figure>
                         <p class="text-center"><span class="puntaje-seccion puntos"><?php echo $puntaje->puntos?></span></p>
                     </div>

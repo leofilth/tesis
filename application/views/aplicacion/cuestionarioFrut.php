@@ -30,6 +30,11 @@
         /**
          * $('input[name=Choose]').attr('checked',false); //limpia el input
          */
+        function actualizaAvance(ruta,valor1,valor2){
+            $.post(ruta,{valor1:valor1,valor2:valor2},function(resp){
+                return resp;
+            })
+        }
         function guardaCuestionario(ruta,valor1){
             $.post(ruta,{valor1:valor1},function(resp)
             {
@@ -49,6 +54,7 @@
         var preguntas=<?php echo json_encode($preguntasFruta,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
         var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
         var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres
+        var avance=<?php echo $avance->avance_cuest_fruta?>;
         $("#verificacuestionario").on({
             click:function(){
                 var i;
@@ -103,6 +109,8 @@
                     //$('"#'+cuestionario+'"').removeClass("hidden");
                     var cuestionario="<?php echo $cuestionario->cuesttemp?>";
                     guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestFrut"?>',cuestionario);
+                    avance++;
+                    actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"cuestFruta");
                     $("#guardar").append("<a id='volver' class='btn  btn-info titulo4 center-block zoom' role='button' href='<?php echo base_url().'aplicacion/frutas#section2'?>'>Volver</a>");
                     $("#verificacuestionario").addClass("hidden");
                     var temp1=puntaje+puntosBD;

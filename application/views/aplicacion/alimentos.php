@@ -228,6 +228,7 @@
         var alimento="Elige un alimento";
         var desc="Te enseñare sobre el";
         var titulo, titulo2;
+        var avance=<?php echo $avance->avance_alimento?>;
         function guardaEstadoTutorial(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -245,6 +246,11 @@
                 $('#tutorial').modal('show');
             }
         });
+        function actualizaAvance(ruta,valor1,valor2){
+            $.post(ruta,{valor1:valor1,valor2:valor2},function(resp){
+                return resp;
+            })
+        }
         function guardaCuestTemp(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -296,6 +302,8 @@
                             $("#" + id).off("click", compra);//quita evento compra
                             guardaAlimento('<?php echo base_url()."aplicacion/guardaAlimentoUsuario"?>', id);
                             guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>', puntos);
+                            avance++;
+                            actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"alimento");
                             //agrega clase fruta para ver en modal
                             $("#" + id).addClass("alimento");
                             $("#" + id + ".alimento").on("click", function () {

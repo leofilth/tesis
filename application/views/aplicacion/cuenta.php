@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <h3 class="titulo1 text-center">Selecciona que quieres aprender<?php echo $totalCuestFruta?></h3>
+        <h3 class="titulo1 text-center">Selecciona que quieres aprender</h3>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -94,7 +94,7 @@
                                     </div>
                                 </h3>
                             </div>
-                            <p class="descp-tarjeta">Todo sobre frutas</p>
+                            <!--<p class="descp-tarjeta">Todo sobre frutas</p>-->
                             <a href="<?php echo base_url()."aplicacion/frutas"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
@@ -106,13 +106,13 @@
                                     Verduras
                                     <div class="progress barra">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                             aria-valuemin="0" aria-valuemax="100" style="width:64%">
-                                            40%
+                                             aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_verdura+$avance->avance_cuest_verdura)*100)/($totalVerduras+$totalCuestVerdura))?>%">
+                                            <?php echo round((($avance->avance_verdura+$avance->avance_cuest_verdura)*100)/($totalVerduras+$totalCuestVerdura))?>%
                                         </div>
                                     </div>
                                 </h3>
                             </div>
-                            <p class="descp-tarjeta">Todo sobre las verduras</p>
+                            <!--<p class="descp-tarjeta">Todo sobre las verduras</p>-->
                             <a href="<?php echo base_url()."aplicacion/verduras"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
@@ -124,13 +124,13 @@
                                     Alimentos
                                     <div class="progress barra">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                             aria-valuemin="0" aria-valuemax="100" style="width:18%">
-                                            40%
+                                             aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_alimento+$avance->avance_cuest_alimento)*100)/($totalAlimentos+$totalCuestAlimento))?>%">
+                                            <?php echo round((($avance->avance_alimento+$avance->avance_cuest_alimento)*100)/($totalAlimentos+$totalCuestAlimento))?>%
                                         </div>
                                     </div>
                                 </h3>
                             </div>
-                            <p class="descp-tarjeta">Todo sobre los alimentos</p>
+                            <!--<p class="descp-tarjeta">Todo sobre los alimentos</p>-->
                             <a href="<?php echo base_url()."aplicacion/alimentos"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
@@ -139,16 +139,16 @@
                             <img id="portadadeporte" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada3.png"?>">
                             <div class="maintitulo">
                                 <h3 id="tdep">
-                                    Actividad física
+                                    Ed. Física
                                     <div class="progress barra">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                             aria-valuemin="0" aria-valuemax="100" style="width:30%">
-                                            40%
+                                             aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_deporte+$avance->avance_cuest_deporte)*100)/($totalDeportes+$totalCuestDeporte))?>%">
+                                            <?php echo round((($avance->avance_deporte+$avance->avance_cuest_deporte)*100)/($totalDeportes+$totalCuestDeporte))?>%
                                         </div>
                                     </div>
                                 </h3>
                             </div>
-                            <p class="descp-tarjeta">Todo sobre la actividad física!</p>
+                            <!--<p class="descp-tarjeta">Todo sobre la actividad física!</p>-->
                             <a href="<?php echo base_url()."aplicacion/deporte"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
@@ -166,7 +166,7 @@
                                     </div>
                                 </h3>
                             </div>
-                            <p class="descp-tarjeta">Ricas y saludables recetas</p>
+                            <!--<p class="descp-tarjeta">Ricas y saludables recetas</p>-->
                             <a href="<?php echo base_url()."aplicacion/receta"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                             <div class="maintitulo">
                                 <h3 id="tfrut">Noticias</h3>
                             </div>
-                            <p class="descp-tarjeta">Super noticias saludables</p>
+                            <!--<p class="descp-tarjeta">Super noticias saludables</p>-->
                             <a href="<?php echo base_url()."aplicacion/noticias"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
                         </div>
                     </div>
@@ -191,7 +191,7 @@
                         <div class="maintitulo">
                             <h3 id="tfrut">Mi certificado</h3>
                         </div>
-                        <p class="descp-tarjeta">Tu certificado Wambo!</p>
+                        <!--<p class="descp-tarjeta">Tu certificado Wambo!</p>-->
                         <a href="<?php echo base_url()."aplicacion/certificado"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
                     </div>
                 </div>
@@ -201,99 +201,109 @@
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
-        function guardaEstadoTutorial(ruta,valor){
-            $.post(ruta,{valor:valor},function(resp){
+        function guardaEstadoTutorial(ruta, valor) {
+            $.post(ruta, {valor: valor}, function (resp) {
                 return resp;
             })
         }
-        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
-        var mostrar=tutorial.cuenta;
-        $("#mostrarmodal").click(function(){
-            mostrar=0;
+        var tutorial =<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
+        var mostrar = tutorial.cuenta;
+        $("#mostrarmodal").click(function () {
+            mostrar = 0;
             //guarda en bd
-            guardaEstadoTutorial('<?php echo base_url()."aplicacion/guardaEstadoTutorial"?>',mostrar);
+            guardaEstadoTutorial('<?php echo base_url()."aplicacion/guardaEstadoTutorial"?>', mostrar);
         });
-        $(window).load(function(){
-            if(mostrar==1){
+        $(window).load(function () {
+            if (mostrar == 1) {
                 $('#modaltip').modal('show');
             }
         });
 
         $("#fruta").on({
-            mouseenter:function(){
+            mouseenter: function () {
                 $("#portadafruta").addClass("borde");
-                $("#tfrut").css("color","#673AB7");
+                $("#tfrut").css("color", "#673AB7");
             },
-            mouseleave:function(){
+            mouseleave: function () {
                 $("#portadafruta").removeClass("borde");
-                $("#tfrut").css("color","white");
+                $("#tfrut").css("color", "white");
             }
         });
         $("#verdura").on({
-            mouseenter:function(){
+            mouseenter: function () {
                 $("#portadaverdura").addClass("borde");
-                $("#tverd").css("color","#673AB7");
+                $("#tverd").css("color", "#673AB7");
             },
-            mouseleave:function(){
+            mouseleave: function () {
                 $("#portadaverdura").removeClass("borde");
-                $("#tverd").css("color","white");
+                $("#tverd").css("color", "white");
             }
         });
         $("#alimento").on({
-            mouseenter:function(){
+            mouseenter: function () {
                 $("#portadaalimento").addClass("borde");
-                $("#tali").css("color","#673AB7");
+                $("#tali").css("color", "#673AB7");
             },
-            mouseleave:function(){
+            mouseleave: function () {
                 $("#portadaalimento").removeClass("borde");
-                $("#tali").css("color","white");
+                $("#tali").css("color", "white");
             }
         });
         $("#receta").on({
-            mouseenter:function(){
+            mouseenter: function () {
                 $("#portadareceta").addClass("borde");
-                $("#trec").css("color","#673AB7");
+                $("#trec").css("color", "#673AB7");
             },
-            mouseleave:function(){
+            mouseleave: function () {
                 $("#portadareceta").removeClass("borde");
-                $("#trec").css("color","white");
+                $("#trec").css("color", "white");
             }
         });
         $("#deporte").on({
-            mouseenter:function(){
+            mouseenter: function () {
                 $("#portadadeporte").addClass("borde");
-                $("#tdep").css("color","#673AB7");
+                $("#tdep").css("color", "#673AB7");
             },
-            mouseleave:function(){
+            mouseleave: function () {
                 $("#portadadeporte").removeClass("borde");
-                $("#tdep").css("color","white");
+                $("#tdep").css("color", "white");
             }
         });
         /**
          * Instrucciones
          * @type {*[]}
          */
-        var instrucciones=[
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
-                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas, Verduras, Deporte y Alimentos",
-                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/tuto1.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Supera los desafíos y gana monedas",
-                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/tuto2.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Canjea tus monedas por alimentos y deportes",
-                "imagen":"<img  class='center-block tamano100' src='<?php echo base_url().'public/images/tuto3.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Aprende y obten tu certificado Wambo",
-                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/tuto4.png'?>'>"}
-            ];
-        var contador=1;
+        var instrucciones = [
+            {
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
+                "imagen": "<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"
+            },
+            {
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas, Verduras, Deporte y Alimentos",
+                "imagen": "<img class='center-block tamano100' src='<?php echo base_url().'public/images/tuto1.png'?>'>"
+            },
+            {
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Supera los desafíos y gana monedas",
+                "imagen": "<img class='center-block tamano100' src='<?php echo base_url().'public/images/tuto2.png'?>'>"
+            },
+            {
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Canjea tus monedas por alimentos y deportes",
+                "imagen": "<img  class='center-block tamano100' src='<?php echo base_url().'public/images/tuto3.png'?>'>"
+            },
+            {
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Aprende y obten tu certificado Wambo",
+                "imagen": "<img class='center-block tamano100' src='<?php echo base_url().'public/images/tuto4.png'?>'>"
+            }
+        ];
+        var contador = 1;
         $("#instrumodal").on({
-            click:function(){
-                if(contador==5){
+            click: function () {
+                if (contador == 5) {
                     $("#textoIns").html(instrucciones[0].titulo);
                     $("#fotoIns").html(instrucciones[0].imagen);
-                    contador=1;
+                    contador = 1;
                 }
-                else{
+                else {
 
                     $("#textoIns").html(instrucciones[contador].titulo);
                     $("#fotoIns").html(instrucciones[contador].imagen);

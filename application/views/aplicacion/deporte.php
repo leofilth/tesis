@@ -82,11 +82,11 @@
                         </div>
                         <img class="img-circle pull-left icon-inst" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                     </div>
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
                         <figure>
-                            <img width="150px" height="150px"  alt="coins" class="center-block fondocoins"
-                                 src="<?php echo base_url()."public/images/icons/coins.png";
-                                 ?>">
+                            <img class="center-block fondocoins"
+                                 alt="coins" src="<?php echo base_url()."public/images/icons/coins.png";
+                            ?>">
                         </figure>
                         <p class="text-center"><span class="puntaje-seccion puntos"><?php echo $puntaje->puntos?></span></p>
                     </div>
@@ -230,6 +230,7 @@
         var deporte="Elige un Deporte o actividad";
         var desc="Te enseñare sobre ella";
         var titulo, titulo2;
+        var avance=<?php echo $avance->avance_deporte?>;
         function guardaEstadoTutorial(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -247,6 +248,11 @@
                 $('#tutorial').modal('show');
             }
         });
+        function actualizaAvance(ruta,valor1,valor2){
+            $.post(ruta,{valor1:valor1,valor2:valor2},function(resp){
+                return resp;
+            })
+        }
         function guardaCuestTemp(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -298,6 +304,8 @@
                             $("#" + id).off("click", compra);//quita evento compra
                             guardaDeporte('<?php echo base_url()."aplicacion/guardaDeporteUsuario"?>', id);
                             guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>', puntos);
+                            avance++;
+                            actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"deporte");
                             //agrega clase fruta para ver en modal
                             $("#" + id).addClass("deporte");
                             $("#" + id + ".deporte").on("click", function () {
