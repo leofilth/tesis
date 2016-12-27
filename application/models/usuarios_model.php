@@ -388,6 +388,10 @@ class usuarios_model extends CI_Model
         $this->db->insert("tutorial",$datos);
         return true;
     }
+    public function agregaAvance($datos=array()){
+        $this->db->insert("avance",$datos);
+        return true;
+    }
     public function getPuntaje($nick){
         $query=$this->db
             ->select("puntos")
@@ -537,8 +541,8 @@ class usuarios_model extends CI_Model
         return count($query->result());
     }
     public function getTotalVerduras(){
-    return $this->db->count_all_results('verduras');
-}
+        return $this->db->count_all_results('verduras');
+    }
     public function getTotalCuestVerdura(){
         $this->db->select('idpregunta');
         $this->db->distinct();
@@ -546,8 +550,8 @@ class usuarios_model extends CI_Model
         return count($query->result());
     }
     public function getTotalDeportes(){
-    return $this->db->count_all_results('deportes');
-}
+        return $this->db->count_all_results('deportes');
+    }
     public function getTotalCuestDeporte(){
         $this->db->select('idpregunta');
         $this->db->distinct();

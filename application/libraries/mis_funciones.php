@@ -100,10 +100,10 @@ class mis_funciones {
     }
     function limpiaTuFruta($var)
     {
+        $format = array();
         if ($var != null) {
             $aux = $var[0]->id_fruta_fk;
             $i = 0;
-            $format = array();
             $format[0] = $aux;
             foreach ($var as $val) {
                 if ($val->id_fruta_fk != $aux) {
@@ -112,15 +112,15 @@ class mis_funciones {
                     $format[$i] = $val->id_fruta_fk;
                 }
             }
-            return $format;
         }
+        return $format;
     }
     function limpiaTuAlimento($var)
     {
+        $format = array();
         if ($var != null) {
             $aux = $var[0]->id_alimento_fk;
             $i = 0;
-            $format = array();
             $format[0] = $aux;
             foreach ($var as $val) {
                 if ($val->id_alimento_fk != $aux) {
@@ -129,15 +129,15 @@ class mis_funciones {
                     $format[$i] = $val->id_alimento_fk;
                 }
             }
-            return $format;
         }
+        return $format;
     }
     function limpiaTuVerdura($var)
     {
+        $format = array();
         if ($var != null) {
             $aux = $var[0]->id_verdura_fk;
             $i = 0;
-            $format = array();
             $format[0] = $aux;
             foreach ($var as $val) {
                 if ($val->id_verdura_fk != $aux) {
@@ -146,15 +146,15 @@ class mis_funciones {
                     $format[$i] = $val->id_verdura_fk;
                 }
             }
-            return $format;
         }
+        return $format;
     }
     function limpiaTuDeporte($var)
     {
+        $format = array();
         if ($var != null) {
             $aux = $var[0]->id_deporte_fk;
             $i = 0;
-            $format = array();
             $format[0] = $aux;
             foreach ($var as $val) {
                 if ($val->id_deporte_fk != $aux) {
@@ -163,7 +163,7 @@ class mis_funciones {
                     $format[$i] = $val->id_deporte_fk;
                 }
             }
-            return $format;
         }
+        return $format;
     }
 }
