@@ -10,6 +10,7 @@ class Aplicacion extends CI_Controller {
 		$this->layout->setLayout('template');
 		$this->session_id=$this->session->userdata('login');
 		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/animate.css"));
 		$this->layout->js(array(base_url()."public/js/bootstrap-filestyle.min.js"));//borrar a futuro
 		$this->layout->js(array(base_url()."public/js/miJS.js"));
 		$this->layout->js(array(base_url()."public/js/bootbox.js"));
@@ -76,6 +77,13 @@ class Aplicacion extends CI_Controller {
 					'avance_cuest_fruta'=>'0',
 					'avance_cuest_verdura'=>'0'
 				);
+				$estado_diploma=array(
+					'nick_fk'=>$this->input->post("nick",true),
+					'valor_fruta'=>'0',
+					'valor_verdura'=>'0',
+					'valor_deporte'=>'0',
+					'valor_alimento'=>'0',
+				);
 				$nick=$this->input->post("nick",true);
 				$consulta=$this->usuarios_model->verifica_nick($nick);
 				if($consulta){
@@ -96,6 +104,7 @@ class Aplicacion extends CI_Controller {
 						$this->usuarios_model->agregaUserRecetaTemp($UserTempReceta);
 						$this->usuarios_model->agregaTutorial($tutorial);
 						$this->usuarios_model->agregaAvance($avance);
+						$this->usuarios_model->agregaEstadoDiploma($estado_diploma);
 						redirect(base_url().'aplicacion/sesion',301);
 					}
 					else{
@@ -145,6 +154,36 @@ class Aplicacion extends CI_Controller {
 		}
 		$this->layout->view('sesion');
 	}
+	public function guardaSeccionCompleta(){
+		$tipo=$this->input->post("valor",true);
+		switch($tipo){
+			case "fruta":
+				$aGuardar=array(
+					'valor_fruta'=>1
+				);
+				$this->usuarios_model->guardaSeccionCompleta($aGuardar,$this->session_id);
+				break;
+			case "verdura":
+				$aGuardar=array(
+					'valor_verdura'=>1
+				);
+				$this->usuarios_model->guardaSeccionCompleta($aGuardar,$this->session_id);
+				break;
+			case "deporte":
+				$aGuardar=array(
+					'valor_deporte'=>1
+				);
+				$this->usuarios_model->guardaSeccionCompleta($aGuardar,$this->session_id);
+				break;
+			case "alimento":
+				$aGuardar=array(
+					'valor_alimento'=>1
+				);
+				$this->usuarios_model->guardaSeccionCompleta($aGuardar,$this->session_id);
+				break;
+		}
+
+	}
 	public function diploma(){
 		$this->load->library('Cpdf');
 		$this->load->library('Cezpdf');
@@ -174,9 +213,13 @@ class Aplicacion extends CI_Controller {
 				$totalCuestDeporte=$this->usuarios_model->getTotalCuestDeporte();
 				$totalAlimentos=$this->usuarios_model->getTotalAlimentos();
 				$totalCuestAlimento=$this->usuarios_model->getTotalCuestAlimento();
+				/*
+				 * obtener estado_diploma
+				 */
+				$estadoDiploma=$this->usuarios_model->getEstadoDiploma($datos->nick);
 				$this->layout->view('cuenta', compact("datos","tip","puntaje","tutorial","avance",
 					"totalFrutas","totalCuestFruta","totalVerduras","totalCuestVerdura","totalDeportes","totalCuestDeporte",
-					"totalAlimentos","totalCuestAlimento"));
+					"totalAlimentos","totalCuestAlimento","estadoDiploma"));
 			} else {
 				redirect(base_url() . 'aplicacion', 301);
 			}
@@ -185,7 +228,8 @@ class Aplicacion extends CI_Controller {
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
-			$this->layout->view('certificado', compact("datos","puntaje"));
+			$estadoDiploma=$this->usuarios_model->getEstadoDiploma($datos->nick);
+			$this->layout->view('certificado', compact("datos","puntaje","estadoDiploma"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}

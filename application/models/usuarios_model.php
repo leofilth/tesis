@@ -392,6 +392,10 @@ class usuarios_model extends CI_Model
         $this->db->insert("avance",$datos);
         return true;
     }
+    public function agregaEstadoDiploma($datos=array()){
+        $this->db->insert("estado_diploma",$datos);
+        return true;
+    }
     public function getPuntaje($nick){
         $query=$this->db
             ->select("puntos")
@@ -521,6 +525,14 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->row();
     }
+    public function getEstadoDiploma($nick){
+        $query=$this->db
+            ->select("valor_fruta,valor_verdura,valor_deporte,valor_alimento")
+            ->from("estado_diploma")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->row();
+    }
     public function actualizaAvance($datos=array(),$nick)
     {
         $this->db->where('nick_fk',$nick);
@@ -566,5 +578,13 @@ class usuarios_model extends CI_Model
         $this->db->distinct();
         $query = $this->db->get('preguntasalimento');
         return count($query->result());
+    }
+    /**
+     * actualiza estado de seccion completa
+     */
+    public function guardaSeccionCompleta($datos=array(),$nick){
+        $this->db->where('nick_fk',$nick);
+        $this->db->update('estado_diploma',$datos);
+        return true;
     }
 }

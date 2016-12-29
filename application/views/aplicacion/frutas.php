@@ -1,7 +1,7 @@
 <?php include "navs/nav_frutas.php"?>
 <?php include "modal/modal_fruta.php" ?>
-<!-- Modal -->
-<div class="modal fade" id="modaltip" role="dialog">
+<!-- Modal Tip-->
+<div class="modal animated zoomInDown" id="modaltip" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
@@ -17,7 +17,7 @@
                 <figure>
                     <img class="img-circle" alt="estudiante1" width="20%" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
-                <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
+                <button id="cierramodal" type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
 <!-- Modal
             Tutorial Wambo
             -->
-<div class="modal fade" id="tutorial" role="dialog">
+<div class="modal animated fadeInDown" id="tutorial" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
@@ -62,7 +62,7 @@
         </div>
     </div>
 </div>
-<section class="container-fluid padingtop" id="section1">
+<section class="container-fluid padingtop animated fadeIn" id="section1">
     <div  class="container">
         <header class="tituloSection">frutas Wambo</header>
         <p class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
@@ -70,32 +70,40 @@
         </p>
         <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-12">
-                        <div class="instruccion-morado">
-                            <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
-                            <ol class="texto-modal-tip" id="descripcion-tip">
-                                <li>Compra tu fruta</li>
-                                <li>Haz click en ella</li>
-                                <li>Aprende</li>
-                            </ol>
-                        </div>
-                        <div style="float: left;margin-left: 50px;clear: left">
-                            <div class="triangulo-morado"></div>
+                        <div class="instruefecto">
+                            <div class="instruccion-morado">
+                                <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
+                                <ol class="texto-modal-tip" id="descripcion-tip">
+                                    <li>Compra tu fruta</li>
+                                    <li>Haz click en ella</li>
+                                    <li>Aprende</li>
+                                </ol>
+                            </div>
+                            <div style="float: left;margin-left: 50px;clear: left">
+                                <div class="triangulo-morado"></div>
+                            </div>
                         </div>
                         <figure>
                             <img class="img-circle pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                         </figure>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                        <figure>
-                            <img class="center-block fondocoins"
-                                 alt="coins" src="<?php echo base_url()."public/images/icons/coins.png";
-                            ?>">
-                        </figure>
-                        <p class="text-center"><span class="puntaje-seccion puntos"><?php echo $puntaje->puntos?></span></p>
+                        <div class="animated infinite bounce">
+                            <figure>
+                                <img class="center-block fondocoins"
+                                     alt="coins" src="<?php echo base_url()."public/images/icons/coins.png";
+                                ?>">
+                            </figure>
+                            <p class="text-center">
+                                <span class="puntaje-seccion puntos">
+                                    <?php echo $puntaje->puntos?>
+                                </span>
+                            </p>
+                        </div>
                     </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container animated fadeIn">
         <div class="row">
             <div class="col-md-8 col-md-offset-2  col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
@@ -148,21 +156,23 @@
         </div>
     </div>
 </section>
-<section class="container-fluid" id="section2">
+<section class="container-fluid animated fadeIn" id="section2">
     <div class="container">
         <header class="tituloSection">Desafio Wambo Frutas</header>
         <div class="row">
             <div class="col-md-8 col-sm-8">
-                <div class="instruccion-verde">
-                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
-                    <ol class="texto-modal-tip" id="descripcion-tip">
-                        <li>Responde y gana puntos</li>
-                        <li>Canjea por tus frutas </li>
-                        <li>Demuestra todo lo que sabes</li>
-                    </ol>
-                </div>
-                <div style="float: left;margin-left: 50px;clear: left">
-                    <div class="triangulo-verde"></div>
+                <div class="instruefecto">
+                    <div class="instruccion-verde">
+                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
+                        <ol class="texto-modal-tip" id="descripcion-tip">
+                            <li>Responde y gana puntos</li>
+                            <li>Canjea por tus frutas </li>
+                            <li>Demuestra todo lo que sabes</li>
+                        </ol>
+                    </div>
+                    <div style="float: left;margin-left: 50px;clear: left">
+                        <div class="triangulo-verde"></div>
+                    </div>
                 </div>
                 <figure>
                     <img class="img-circle pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
@@ -185,16 +195,18 @@
         <header class="tituloSection">Tips Wambo Frutas</header>
         <div class="row">
             <div class="col-md-8">
-                <div class="instruccion-naranjo">
-                    <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
-                    <ol class="texto-modal-tip" id="descripcion-tip">
-                        <li>Selecciona tu TIP y aprende un poco más</li>
-                        <li>Son gratis</li>
-                        <li>Consulta cuando quieras</li>
-                    </ol>
-                </div>
-                <div style="float: left;margin-left: 50px;clear: left">
-                    <div class="triangulo-naranjo"></div>
+                <div class="instruefecto">
+                    <div class="instruccion-naranjo">
+                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
+                        <ol class="texto-modal-tip" id="descripcion-tip">
+                            <li>Selecciona tu TIP y aprende un poco más</li>
+                            <li>Son gratis</li>
+                            <li>Consulta cuando quieras</li>
+                        </ol>
+                    </div>
+                    <div style="float: left;margin-left: 50px;clear: left">
+                        <div class="triangulo-naranjo"></div>
+                    </div>
                 </div>
                 <figure>
                     <img class="img-circle pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
@@ -211,7 +223,7 @@
                 foreach ($tipsFrutas as $tipfruta){
                     ?>
                     <div class="col-md-3 col-xs-6 col-sm-4 alturatip">
-                        <div class="tip-<?php echo $colores[$i]?> tip zoom borde" title="<?php echo $tipfruta->nombre?>" data-toggle="modal" data-target="#modaltip">
+                        <div class="tip-<?php echo $colores[$i]?> tip animated infinite pulse borde" title="<?php echo $tipfruta->nombre?>" data-toggle="modal" data-target="#modaltip">
                             <div><h1 class="titulo-tip"><?php echo $tipfruta->nombre?></h1></div><div><i class="glyphicon glyphicon-apple hoja"></i></div>
                         </div>
                     </div>
@@ -438,6 +450,22 @@
                     $("#fotoIns").html(instrucciones[contador].imagen);
                     contador++;
                 }
+            }
+        });
+        $(".icon-inst").on({
+            mouseenter: function(){
+                $(this).addClass("animated jello");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated jello");
+            }
+        });
+        $(".instruefecto").on({
+            mouseenter: function(){
+                $(this).addClass("animated bounce");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated bounce");
             }
         });
     });
