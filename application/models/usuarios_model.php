@@ -317,7 +317,8 @@ class usuarios_model extends CI_Model
     public function getPreguntasFruta($id){
         //consulta a dos tablas
         $query=$this->db
-            ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta")
+            ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta,
+            d.feedback")
             ->from("preguntasfruta as d")
             ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->where(array('d.idpregunta' => $id))
@@ -327,7 +328,8 @@ class usuarios_model extends CI_Model
     public function getPreguntasVerdura($id){
         //consulta a dos tablas
         $query=$this->db
-            ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta")
+            ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta,
+            d.feedback")
             ->from("preguntasverdura as d")
             ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->where(array('d.idpregunta' => $id))
@@ -337,7 +339,8 @@ class usuarios_model extends CI_Model
     public function getPreguntasAlimento($id){
         //consulta a dos tablas
         $query=$this->db
-            ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta")
+            ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta,
+            d.feedback")
             ->from("preguntasalimento as d")
             ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->where(array('d.idpregunta' => $id))
@@ -347,7 +350,8 @@ class usuarios_model extends CI_Model
     public function getPreguntasDeporte($id){
         //consulta a dos tablas
         $query=$this->db
-            ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta")
+            ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta,
+            d.feedback")
             ->from("preguntasdeporte as d")
             ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->where(array('d.idpregunta' => $id))

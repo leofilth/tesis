@@ -1,38 +1,38 @@
-<?php include "navs/nav_cuenta.php"?>
-<section class="container-fluid bg-im3 padingtop">
-    <section class="container">
-        <!-- Modal -->
-        <div class="modal fade" id="modaltip" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-body" style="background-color: #673AB7">
-                        <div>
-                            <div class="margen-modal">
-                                <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Selecciona tu Avatar</h4>
-                                <div class="row">
-                                <?php
-                                if($datos->sexo == "masculino"){
-                                    foreach($avatar_mas as $avatar){?>
-                                        <div class="col-md-2 col-sm-2 col-xs-3">
-                                            <img class="img-circle avatar" title="<?php echo $avatar->nombre?>" width="80px" height="80px" src="<?php echo base_url().$avatar->link?>">
-                                        </div>
-                                    <?php }?>
-                                <?php }else{
+<?php include "navs/nav_modperfil.php"?>
+<!-- Modal -->
+<div class="modal animated tada" id="modaltip" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body" style="background-color: #673AB7">
+                <div>
+                    <div class="margen-modal">
+                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip animated infinite pulse">Selecciona tu Avatar</h4>
+                        <div class="row">
+                            <?php
+                            if($datos->sexo == "masculino"){
+                                foreach($avatar_mas as $avatar){?>
+                                    <div class="col-md-2 col-sm-2 col-xs-3">
+                                        <img class="img-circle avatar" title="<?php echo $avatar->nombre?>" width="80px" height="80px" src="<?php echo base_url().$avatar->link?>">
+                                    </div>
+                                <?php }?>
+                            <?php }else{
                                 foreach($avatar_fem as $avatar){
-                                ?>
+                                    ?>
                                     <div class="col-md-2 col-sm-2 col-xs-3">
                                         <img class="img-circle avatar" title="<?php echo $avatar->nombre?>" width="80px" height="80px" src="<?php echo base_url().$avatar->link?>">
                                     </div>
                                 <?php }}?>
-                                </div>
-                            </div>
                         </div>
-                        <button id="guardaAvatar" type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Guardar</button>
                     </div>
                 </div>
+                <button id="guardaAvatar" type="button" class="btn btn-info animated infinite pulse" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Guardar</button>
             </div>
         </div>
+    </div>
+</div>
+<section class="container-fluid bg-im3 padingtop animated fadeInUp">
+    <div class="container">
         <header class="titulo1 text-center">Modifica tu Perfil</header>
         <div class="row">
             <div class="col-md-6 col-md-offset-3 cuadradosombra">
@@ -52,7 +52,9 @@
                      }
                      ?>">
                 <br>
-                    <button name="boton" id="muestramodal"  class="btn btn-primary btn-md center-block">Cambiar avatar</button>
+                    <button name="boton" id="muestramodal"  class="btn btn-primary btn-md center-block animated infinite pulse">
+                        Cambiar avatar
+                    </button>
                 <br>
                 <br>
                 <div id="listo">
@@ -103,7 +105,9 @@
                     <button id="guardar" class="btn btn-primary center-block">Guardar</button>
                 </div>
         </div>
-    </section>
+    </div>
+        <br>
+        <br>
 </section>
 <?php include "footer.php"?>
 <script>
@@ -127,7 +131,7 @@
             modificaperfil('<?php echo base_url()."aplicacion/actualizaperfil"?>',nombre,edad,ciudad,"listo");
         });
         $(".avatar").click(function(){
-            $(".avatar").removeClass("selecciona");
+            $(".avatar").removeClass("selecciona");//quita el circulo amarillo de todos los avatar
             nombre=$(this).attr("title");
             link=$(this).attr("src");
             $(this).addClass("selecciona");
@@ -143,6 +147,18 @@
         $("#muestramodal").click(function () {
             $(".avatar").removeClass("selecciona");
             $("#modaltip").modal();
+        });
+        $("#avatar-user").on({
+            mouseenter: function(){
+                $(this).addClass(" animated rubberBand");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated rubberBand");
+            },
+            click:function(){
+                $(this).toggleClass("animated flip");
+                //$(this).removeClass("swing");
+            }
         });
     });
 </script>

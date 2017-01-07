@@ -84,19 +84,19 @@
                         if ($('input:radio[name=' + aux + ']').is(':checked')) {
                             if ($('input:radio[name=' + aux + ']:checked').val() == preguntas[j].respcorrecta) {
                                 //console.log(aux);
-                                j++;
                                 puntaje = puntaje + 100;
                                 $("#correcto" + i).html("Correcto! <span class='glyphicon glyphicon-ok'></span>");
                                 /*Posible feeedback al usuario, en la respuesta*/
-                                $("#feedback" + i).text("feedback");
-                                $("#monedas" + i).html("<span class='titulo1'>+100</span> <img width='64px' height='64px'   src='<?php echo base_url().'public/images/icons/coin.png';?>'>");
-                                $("#muestrarespuesta" + i).removeClass("hidden");
+                                $("#feedback" + i).text(preguntas[j].feedback);
+                                j++;
+                                $("#monedas" + i).html("<div class='animated tada'><span class='titulo1'>+100</span> <img width='64px' height='64px'   src='<?php echo base_url().'public/images/icons/coin.png';?>'></div>");
                                 respondido = true;
                             }
                             else {
                                 $("#correcto" + i).html("Incorrecto <span class='glyphicon glyphicon-remove'></span>");
-                                $("#muestrarespuesta" + i).removeClass("hidden");
                                 respondido = true;
+                                $("#feedback" + i).text(preguntas[j].feedback);
+                                j++;
                             }
                         } else {
                             $("#correcto" + i).text("Selecciona una opción");
@@ -107,6 +107,8 @@
                 }
                 if(respondido){
                     $("#puntaje").text(puntaje);
+                    $(".infocuest").removeClass("animated infinite pulse");
+                    $("#puntajeCuest").addClass("animated infinite pulse");
                     //$('"#'+cuestionario+'"').removeClass("hidden");
                     var cuestionario="<?php echo $cuestionario->cuesttemp?>";
                     guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestDep"?>',cuestionario);
@@ -127,6 +129,14 @@
                     $("#volver").removeClass("hidden");
                     //$("#guardarPuntos").removeClass("hidden");
                 }
+            }
+        });
+        $(".icon-inst").on({
+            mouseenter: function(){
+                $(this).addClass("animated jello");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated jello");
             }
         });
     })

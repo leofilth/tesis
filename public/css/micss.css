@@ -43,17 +43,19 @@
     margin: 80px 0;
 }
 .featurette-heading {
-    font-size:50px;
+    font-size:40px;
     letter-spacing: -1px;
     line-height: 1;
     color:white;
     text-align: center;
+    font-family: "Montserrat", sans-serif;
 }
 .lead{
     font-weight: 300;
     line-height: 1.4;
     margin-bottom: 20px;
     text-align: center;
+    font-family: "Montserrat", sans-serif;
 }
 /**
 css vida sana
@@ -354,6 +356,11 @@ css cuenta
 }
 .errorform{
     color: #E25956;
+    font-family: "Montserrat", sans-serif;
+
+}
+.okform{
+    color: #008ad1;
     font-family: "Montserrat", sans-serif;
 
 }
@@ -1369,6 +1376,16 @@ tamaño imagen seccion
     font-size: 25px;
     font-family: "finger paint";
     color: #673AB7;
+}
+#imagenUsuario{
+    cursor: pointer;
+}
+#descripcion-tip{
+    text-align: justify;
+}
+.img-portada{
+    width:auto;
+    /*border-radius: 5px;*/
 }
 @media screen and (max-width: 1280px){
     .img-seccion{

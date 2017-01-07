@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <img width="200px" height="200px"  class="img-circle center-block fondoavatar"
+                <img id="imagenUsuario" width="200px" height="200px"  class="img-circle center-block fondoavatar"
                      src="<?php
                      if($datos->avatar_name=="user")
                      {
@@ -20,7 +20,7 @@
                      ?>">
             </div>
             <div class="col-md-6">
-                    <h1 class="titulo1">Hola <?php echo $datos->nick?></h1>
+                    <h1 class="titulo1 animated jello">Hola <?php echo $datos->nick?></h1>
             </div>
         </div>
     </div>
@@ -35,6 +35,7 @@
                         <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Consejo</h4>
                         <ol class="texto-modal-tip" id="descripcion-tip">
                             <li>Completa cada sección para desbloquear tu diploma Wambo</li>
+                            <li>Al llegar a 100% podrás descargarlo</li>
                         </ol>
                     </div>
                     <div style="float: left;margin-left: 50px;clear: left">
@@ -49,7 +50,7 @@
     </div>
     <br>
     <br>
-    <div class="container">
+    <div class="container animated tada">
         <!-- Progreso a diploma-->
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-6">
@@ -59,7 +60,7 @@
                     </figure>
                 <?php }else{?>
                     <figure>
-                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada1.png"?>">
+                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada1m.png"?>">
                     </figure>
                 <?php }?>
             </div>
@@ -70,7 +71,7 @@
                     </figure>
                 <?php }else{?>
                     <figure>
-                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada2.png"?>">
+                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada2m.png"?>">
                     </figure>
                 <?php }?>
             </div>
@@ -81,7 +82,7 @@
                     </figure>
                 <?php }else{?>
                     <figure>
-                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada3.png"?>">
+                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada3m.png"?>">
                     </figure>
                 <?php }?>
             </div>
@@ -92,7 +93,7 @@
                     </figure>
                 <?php }else{?>
                     <figure>
-                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada5.png"?>">
+                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada5m.png"?>">
                     </figure>
                 <?php }?>
             </div>
@@ -148,5 +149,22 @@
 </div>
 <?php include "footer.php"?>
 <script>
-
+    $(document).ready(function() {
+        $("#imagenUsuario").on({
+            mouseenter: function () {
+                $(this).addClass(" animated rubberBand");
+            },
+            mouseleave: function () {
+                $(this).removeClass("animated rubberBand");
+            }
+        });
+        $(".efecto").on({
+            mouseenter: function(){
+                $(this).addClass("animated jello");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated jello");
+            }
+        });
+    });
 </script>

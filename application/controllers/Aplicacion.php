@@ -154,6 +154,12 @@ class Aplicacion extends CI_Controller {
 		}
 		$this->layout->view('sesion');
 	}
+	public function acercade(){
+		$this->layout->view("acercade");
+	}
+	public function contacto(){
+		$this->layout->view("contacto");
+	}
 	public function guardaSeccionCompleta(){
 		$tipo=$this->input->post("valor",true);
 		switch($tipo){
@@ -190,7 +196,8 @@ class Aplicacion extends CI_Controller {
 		$this->load->library('backgroundpdf');
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$this->layout->view('diploma', compact("datos"));
+			$estadoDiploma=$this->usuarios_model->getEstadoDiploma($datos->nick);
+			$this->layout->view('diploma', compact("datos","estadoDiploma"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}

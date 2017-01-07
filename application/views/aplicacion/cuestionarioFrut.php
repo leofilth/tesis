@@ -83,19 +83,19 @@
                         if ($('input:radio[name=' + aux + ']').is(':checked')) {
                             if ($('input:radio[name=' + aux + ']:checked').val() == preguntas[j].respcorrecta) {
                                 //console.log(aux);
-                                j++;
                                 puntaje = puntaje + 100;
                                 $("#correcto" + i).html("Correcto! <span class='glyphicon glyphicon-ok'></span>");
                                 /*Posible feeedback al usuario, en la respuesta*/
-                                $("#feedback" + i).text("feedback");
-                                $("#monedas" + i).html("<span class='titulo1'>+100</span> <img width='64px' height='64px'   src='<?php echo base_url().'public/images/icons/coin.png';?>'>");
-                                $("#muestrarespuesta" + i).removeClass("hidden");
+                                $("#feedback" + i).text(preguntas[j].feedback);
+                                j++;
+                                $("#monedas" + i).html("<div class='animated tada'><span class='titulo1'>+100</span> <img width='64px' height='64px'   src='<?php echo base_url().'public/images/icons/coin.png';?>'></div>");
                                 respondido = true;
                             }
                             else {
                                 $("#correcto" + i).html("Incorrecto <span class='glyphicon glyphicon-remove'></span>");
-                                $("#muestrarespuesta" + i).removeClass("hidden");
                                 respondido = true;
+                                $("#feedback" + i).text(preguntas[j].feedback);
+                                j++;
                             }
                         } else {
                             $("#correcto" + i).text("Selecciona una opción");
@@ -106,7 +106,8 @@
                 }
                 if(respondido){
                     $("#puntaje").text(puntaje);
-                    //$('"#'+cuestionario+'"').removeClass("hidden");
+                    $(".infocuest").removeClass("animated infinite pulse");
+                    $("#puntajeCuest").addClass("animated infinite pulse");
                     var cuestionario="<?php echo $cuestionario->cuesttemp?>";
                     guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestFrut"?>',cuestionario);
                     avance++;
@@ -117,15 +118,20 @@
                     var temp2=puntaje+puntajeLider;
                     guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>',temp1);
                     guardaPuntajeLider('<?php echo base_url()."aplicacion/guardaPuntajeLider"?>',temp2);
-                    //$("#noguardado").removeClass("alert-danger");
-                    //$("#noguardado").addClass("alert-info");
-                    //$("#noguardado").text("Puntaje Guardado!");
                     temp1=0;
                     temp2=0;
                     //$("#guardarPuntos").addClass("hidden");
                     $("#volver").removeClass("hidden");
                     //$("#guardarPuntos").removeClass("hidden");
                 }
+            }
+        });
+        $(".icon-inst").on({
+            mouseenter: function(){
+                $(this).addClass("animated jello");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated jello");
             }
         });
         })

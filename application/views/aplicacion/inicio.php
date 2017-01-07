@@ -71,19 +71,20 @@
             </div>
             <div class="col-md-5 col-sm-5 col-xs-12">
                 <figure>
-                    <img height="400px" width="400px"style="border-radius: 5px" alt="portada1" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada1.png"?>">
+                    <img alt="portada1" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portada1m.png"?>">
                 </figure>
             </div>
         </div>
         <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-7 col-sm-7 col-sm-push-5 col-md-push-5 fondo-portada2">
-                <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <h2 class="featurette-heading">Verduras Mágicas <span class="text-muted">Todo sobre ellas.</span></h2>
+                <p class="lead">¿Cuáles comer? ¿A qué hora? ¿Cuánto debo consumir?</p>
+                <p class="lead">Conmigo aprenderás sus beneficios y por que comerlas.</p>
             </div>
             <div class="col-md-5 col-sm-5 col-sm-pull-7 col-md-pull-7">
                 <figure>
-                    <img height="400px" width="400px" style="border-radius: 5px" alt="portada2" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada2.png"?>">
+                    <img alt="portada2" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portada2m.png"?>">
                 </figure>
             </div>
         </div>
@@ -91,27 +92,71 @@
         <div class="row">
             <div class="col-md-7 col-sm-7 fondo-portada3">
                 <h2 class="featurette-heading">¿Quieres ser más fuerte, más rapido?<span class="text-muted">Conmigo sabrás cómo !</span></h2>
-                <p class="lead">Aprenderás la importancia del ejercicio y sus beneficios.</p>
+                <p class="lead">Conocerás muchos deportes y aprenderás la importancia del ejercicio y sus beneficios.</p>
             </div>
             <div class="col-md-5 col-sm-5">
                 <figure>
-                    <img height="400px" width="400px"style="border-radius: 5px" alt="portada3" class="img-responsive center-block" src="<?php echo base_url()."public/images/portada3.png"?>">
+                    <img alt="portada3" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portada3m.png"?>">
                 </figure>
             </div>
         </div>
-        <!--<hr class="featurette-divider">
+        <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-7 col-md-push-5 col-sm-7 col-sm-push-5 fondo-portada4">
-                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <h2 class="featurette-heading">Obtén tu Diploma Wambo! <span class="text-muted">Completa los desafios y gana</span></h2>
+                <p class="lead">Gana en Wambo y coloca tu diploma para que todos lo vean!</p>
             </div>
             <div class="col-md-5 col-md-pull-7 col-sm-5 col-sm-pull-7">
                 <figure>
-                    <img height="400px" width="400px"style="border-radius: 5px" alt="portada4" class="img-responsive center-block img-overlay" src="<?php echo base_url()."public/images/portada4.jpg"?>">
+                    <img  alt="portada4" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portada7.png"?>">
                 </figure>
             </div>
         </div>
-        <hr class="featurette-divider">-->
+        <hr class="featurette-divider">
     </div>
 </section>
 <?php include "footer.php"?>
+<script>
+    $(document).ready(function() {
+        $(".img-portada").on({
+            mouseenter: function(){
+                $(this).addClass("animated rubberBand");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated rubberBand");
+            }
+        });
+        $(".fondo-portada1").on({
+            mouseenter: function(){
+                $(this).addClass("animated pulse");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated pulse");
+            }
+        });
+        $(".fondo-portada2").on({
+            mouseenter: function(){
+                $(this).addClass("animated pulse");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated pulse");
+            }
+        });
+        $(".fondo-portada3").on({
+            mouseenter: function(){
+                $(this).addClass("animated pulse");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated pulse");
+            }
+        });
+        $(".fondo-portada4").on({
+            mouseenter: function(){
+                $(this).addClass("animated pulse");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated pulse");
+            }
+        });
+    });
+</script>

@@ -17,7 +17,7 @@
                 <figure>
                     <img class="img-circle" alt="estudiante1" width="20%" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
-                <button id="cierramodal" type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
+                <button  type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <figure>
-                        <img class="icon-click" alt="iconoclick" src="<?php echo base_url()."public/images/icons/click.png"?>">
+                        <img class="animated infinite flash icon-click" alt="iconoclick" src="<?php echo base_url()."public/images/icons/click.png"?>">
                     </figure>
                 </div>
                 <div class="triangulo"></div>
@@ -62,7 +62,7 @@
         </div>
     </div>
 </div>
-<section class="container-fluid padingtop animated fadeIn" id="section1">
+<section class="container-fluid padingtop" id="section1">
     <div  class="container">
         <header class="tituloSection">frutas Wambo</header>
         <p class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
@@ -103,7 +103,7 @@
                     </div>
         </div>
     </div>
-    <div class="container animated fadeIn">
+    <div class="container animated rubberBand">
         <div class="row">
             <div class="col-md-8 col-md-offset-2  col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
@@ -189,6 +189,9 @@
             </div>
         </div>
     </div>
+    <div class="padingtop">
+        <a href="#section1"><img class="animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>"></a>
+    </div>
 </section>
 <section class="container-fluid" id="tipsaludable">
     <div class="container">
@@ -231,6 +234,9 @@
                     if($i==5){$i=0;}}?>
             </div>
         </div>
+    </div>
+    <div class="padingtop">
+        <a href="#section1"><img class="animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>"></a>
     </div>
 </section>
 <?php include "footer.php"?>
@@ -426,15 +432,15 @@
          */
         var instrucciones=[
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Click en siguiente para ayuda",
-                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Frutas",
-                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
-                "imagen":"<img  class='center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
+                "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
-                "imagen":"<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu fruta esta se desbloquea cambiando de color",
-            "imagen":"<img class='gris center-block tamano100' src='<?php echo base_url().'public/images/icons/frutas/manzana.png'?>'><img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/frutas/manzana.png'?>'>"}
+            "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutofruta.png'?>'>"}
         ];
         var contador=1;
         $("#instrumodal").on({
@@ -466,6 +472,14 @@
             },
             mouseleave:function(){
                 $(this).removeClass("animated bounce");
+            }
+        });
+        $(".efecto").on({
+            mouseenter: function(){
+                $(this).addClass("animated jello");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated jello");
             }
         });
     });

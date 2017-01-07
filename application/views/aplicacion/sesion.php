@@ -2,13 +2,13 @@
 <section class="container-fluid bg-im padingtop">
     <header class="titulo1">Inicia tu sesión</header>
     <div class="row">
-        <div class="col-md-5 col-md-offset-1">
+        <div class="col-md-5 col-md-offset-1 animated rubberBand">
             <?php $atributos=array('class'=>'form-group cuadradosombra','id'=>'form','name'=>'form');
             echo form_open(null,$atributos);//utulizar siempre null, recomendado?>
             <h1 class="titulo2">Ingresa tus datos</h1>
-            <h4 class="errorform"><?php if($this->session->flashdata('ControllerMessage')!='')
+            <h4 class="okform"><?php if($this->session->flashdata('ControllerMessage')!='')
                 {
-                    echo " <span class='glyphicon glyphicon-info-sign'></span> ".$this->session->flashdata('ControllerMessage');
+                    echo " <span class='glyphicon glyphicon-ok'></span> ".$this->session->flashdata('ControllerMessage');
                 }
                 ?>
             </h4>
@@ -27,7 +27,7 @@
             </div>
             <?php echo form_close(); ?>
         </div>
-        <div class="col-md-4 col-md-offset-1 text-center">
+        <div class="col-md-4 col-md-offset-1 text-center animated bounceInUp">
             <div class="bubble verde">
                 <a title="gogo" href="#">
                     <h2>Vamos!</h2>

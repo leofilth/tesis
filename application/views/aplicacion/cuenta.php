@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <img class="icon-click" src="<?php echo base_url()."public/images/icons/click.png"?>">
+                    <img class="icon-click animated infinite flash" src="<?php echo base_url()."public/images/icons/click.png"?>">
                 </div>
                 <div class="triangulo"></div>
                 <br>
@@ -32,7 +32,7 @@
         </div>
     </div>
 </div>
-    <div class="container-fluid animated fadeIn bg-im3"style="padding-bottom: 100px;padding-top: 80px">
+    <section class="container-fluid bg-im3"style="padding-bottom: 100px;padding-top: 80px">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -64,7 +64,7 @@
                         <div class="cuadradotarjeta4 animated infinite pulse tipmain">
                             <div class="row">
                                 <div class="col-md-4 col-xs-4">
-                                    <img width="70" height="70" class="zoom center-block" src="<?php echo base_url()."public/images/icons/bulb.png"?>">
+                                    <img width="70" height="70" class="zoom center-block animated flash" src="<?php echo base_url()."public/images/icons/bulb.png"?>">
                                 </div>
                                 <div class="col-md-8 col-xs-8">
                                     <p class="descp-tarjeta text-center">¿Sabías qué?</p>
@@ -77,7 +77,7 @@
             </div>
         </div>
         <h3 class="titulo1 text-center">Selecciona que quieres aprender</h3>
-        <div class="container">
+        <div class="container animated bounceIn">
             <div class="row">
                 <div class="col-md-12">
                     <div id="fruta" class="col-md-4 col-sm-6">
@@ -88,7 +88,7 @@
                             </figure>
                             <?php }else{?>
                                 <figure>
-                                    <img id="portadafruta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada1.png"?>">
+                                    <img id="portadafruta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada1m.png"?>">
                                 </figure>
                             <?php }?>
                             <div class="maintitulo">
@@ -115,7 +115,7 @@
                                 </figure>
                             <?php }else{?>
                                 <figure>
-                                    <img id="portadaverdura" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada2.png"?>">
+                                    <img id="portadaverdura" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada2m.png"?>">
                                 </figure>
                             <?php }?>
                             <div class="maintitulo">
@@ -142,7 +142,7 @@
                                 </figure>
                             <?php }else{?>
                                 <figure>
-                                    <img id="portadaalimento" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada5.png"?>">
+                                    <img id="portadaalimento" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada5m.png"?>">
                                 </figure>
                             <?php }?>
                             <div class="maintitulo">
@@ -170,7 +170,7 @@
                                 </figure>
                             <?php }else{?>
                                 <figure>
-                                    <img id="portadadeporte" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada3.png"?>">
+                                    <img id="portadadeporte" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada3m.png"?>">
                                 </figure>
                             <?php }?>
                             <div class="maintitulo">
@@ -189,7 +189,16 @@
                             <a href="<?php echo base_url()."aplicacion/deporte"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
-                    <div id="receta" class="col-md-4 col-sm-6">
+                    <div id="micertificado" class="col-md-4  col-sm-6">
+                        <div class=" text-center  borde noticiacuenta">
+                            <img id="portadacertificado" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada7.png"?>">
+                            <div class="maintitulo">
+                                <h3 id="tcert">Mi Diploma</h3>
+                            </div>
+                            <a href="<?php echo base_url()."aplicacion/certificado"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
+                        </div>
+                    </div>
+                    <!--<div id="receta" class="col-md-4 col-sm-6">
                         <div class="text-center  borde recetacuenta">
                             <img id="portadareceta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada4.jpg"?>">
                             <div class="maintitulo">
@@ -199,12 +208,12 @@
                             </div>
                             <a href="<?php echo base_url()."aplicacion/receta"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
-                    </div>
-                    <div id="fruta" class="col-md-4 col-sm-6">
+                    </div>-->
+                    <div id="noticias" class="col-md-4 col-sm-6">
                         <div class=" text-center  borde noticiacuenta">
-                            <img id="portadafruta"  class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada1.png"?>">
+                            <img id="portadanoticia"  class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada6m.png"?>">
                             <div class="maintitulo">
-                                <h3 id="tfrut">Noticias</h3>
+                                <h3 id="tnot">Noticias</h3>
                             </div>
                             <a href="<?php echo base_url()."aplicacion/noticias"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
                         </div>
@@ -212,7 +221,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <!--<div class="container">
             <div class="row">
                 <div id="fruta" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
                     <div class=" text-center  borde noticiacuenta">
@@ -220,13 +229,12 @@
                         <div class="maintitulo">
                             <h3 id="tfrut">Mi certificado</h3>
                         </div>
-                        <!--<p class="descp-tarjeta">Tu certificado Wambo!</p>-->
                         <a href="<?php echo base_url()."aplicacion/certificado"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div>-->
+    </section>
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
@@ -286,31 +294,31 @@
 
         $("#fruta").on({
             mouseenter: function () {
-                $("#portadafruta").addClass("borde");
+                $("#portadafruta").addClass("borde animated pulse");
                 $("#tfrut").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadafruta").removeClass("borde");
+                $("#portadafruta").removeClass("borde animated pulse");
                 $("#tfrut").css("color", "white");
             }
         });
         $("#verdura").on({
             mouseenter: function () {
-                $("#portadaverdura").addClass("borde");
+                $("#portadaverdura").addClass("borde animated pulse");
                 $("#tverd").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadaverdura").removeClass("borde");
+                $("#portadaverdura").removeClass("borde animated pulse");
                 $("#tverd").css("color", "white");
             }
         });
         $("#alimento").on({
             mouseenter: function () {
-                $("#portadaalimento").addClass("borde");
+                $("#portadaalimento").addClass("borde animated pulse");
                 $("#tali").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadaalimento").removeClass("borde");
+                $("#portadaalimento").removeClass("borde animated pulse");
                 $("#tali").css("color", "white");
             }
         });
@@ -326,12 +334,32 @@
         });
         $("#deporte").on({
             mouseenter: function () {
-                $("#portadadeporte").addClass("borde");
+                $("#portadadeporte").addClass("borde animated pulse");
                 $("#tdep").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadadeporte").removeClass("borde");
+                $("#portadadeporte").removeClass("borde animated pulse");
                 $("#tdep").css("color", "white");
+            }
+        });
+        $("#micertificado").on({
+            mouseenter: function () {
+                $("#portadacertificado").addClass("borde animated pulse");
+                $("#tcert").css("color", "#673AB7");
+            },
+            mouseleave: function () {
+                $("#portadacertificado").removeClass("borde animated pulse");
+                $("#tcert").css("color", "white");
+            }
+        });
+        $("#noticias").on({
+            mouseenter: function () {
+                $("#portadanoticia").addClass("borde animated pulse");
+                $("#tnot").css("color", "#673AB7");
+            },
+            mouseleave: function () {
+                $("#portadanoticia").removeClass("borde animated pulse");
+                $("#tnot").css("color", "white");
             }
         });
         /**
@@ -341,23 +369,23 @@
         var instrucciones = [
             {
                 "titulo": "<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
-                "imagen": "<img class='center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"
+                "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"
             },
             {
                 "titulo": "<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas, Verduras, Deporte y Alimentos",
-                "imagen": "<img class='center-block tamano100' src='<?php echo base_url().'public/images/tuto1.png'?>'>"
+                "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto1.png'?>'>"
             },
             {
                 "titulo": "<span class='glyphicon glyphicon-ok'></span> Supera los desafíos y gana monedas",
-                "imagen": "<img class='center-block tamano100' src='<?php echo base_url().'public/images/tuto2.png'?>'>"
+                "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto2.png'?>'>"
             },
             {
                 "titulo": "<span class='glyphicon glyphicon-ok'></span> Canjea tus monedas por alimentos y deportes",
-                "imagen": "<img  class='center-block tamano100' src='<?php echo base_url().'public/images/tuto3.png'?>'>"
+                "imagen": "<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto3.png'?>'>"
             },
             {
                 "titulo": "<span class='glyphicon glyphicon-ok'></span> Aprende y obten tu certificado Wambo",
-                "imagen": "<img class='center-block tamano100' src='<?php echo base_url().'public/images/tuto4.png'?>'>"
+                "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto4.png'?>'>"
             }
         ];
         var contador = 1;
@@ -378,10 +406,22 @@
         });
         $("#imagenUsuario").on({
             mouseenter: function(){
-                    $(this).addClass("flip");
+                    $(this).addClass("rubberBand");
                 },
             mouseleave:function(){
-                $(this).removeClass("flip");
+                $(this).removeClass("rubberBand");
+            },
+            click:function(){
+                $(this).toggleClass("flip");
+                //$(this).removeClass("swing");
+            }
+        });
+        $(".efecto").on({
+            mouseenter: function(){
+                $(this).addClass("animated jello");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated jello");
             }
         });
     });

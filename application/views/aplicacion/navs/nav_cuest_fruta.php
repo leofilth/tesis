@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navtrans navbar-fixed-top">
+<nav class="navbar navbar-default navtrans navbar-fixed-top animated slideInDown">
     <div class="container-fluid">
         <div class="navbar-header">
             <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
@@ -38,7 +38,7 @@
                             ?>"  alt="avatar" class="img-circle"><?php echo $datos->nick?><span class="caret"></span>
                         </figure>
                     </a>
-                    <ul class="dropdown-menu nav-link-cuenta dropmenu">
+                    <ul class="dropdown-menu nav-link-cuenta dropmenu animated rubberBand">
                         <li>
                             <div class="row" style="padding-bottom: 5px">
                                 <div class="col-md-5">
@@ -69,10 +69,10 @@
                         <li>
                             <div class="row">
                                 <div class="col-md-6 center-block text-center">
-                                    <a class="btn btn-primary" href="<?php echo base_url()."aplicacion/modificaperfil"?>">Modificar Perfil</a>
+                                    <a class="btn btn-warning" href="<?php echo base_url()."aplicacion/modificaperfil"?>">Modificar Perfil</a>
                                 </div>
                                 <div class="col-md-6 center-block text-center">
-                                    <a class="btn btn-primary" href="<?php echo base_url()."aplicacion/cerrarsesion"?>">Cerrar Sesión</a></li>
+                                    <a class="btn btn-danger" href="<?php echo base_url()."aplicacion/cerrarsesion"?>">Cerrar Sesión</a></li>
                                 </div>
                             </div>
                     </ul>
