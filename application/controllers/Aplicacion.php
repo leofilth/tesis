@@ -4,18 +4,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Aplicacion extends CI_Controller {
 
 	private $session_id;
+	private $cuest_id;
 	public function __construct()
 	{
 		parent:: __construct();
 		$this->layout->setLayout('template');
 		$this->session_id=$this->session->userdata('login');
+		$this->cuest_id=$this->session->userdata('cuestionario');
 		$this->layout->css(array(base_url()."public/css/micss.css"));
 		$this->layout->css(array(base_url()."public/css/animate.css"));
 		$this->layout->js(array(base_url()."public/js/bootstrap-filestyle.min.js"));//borrar a futuro
 		$this->layout->js(array(base_url()."public/js/miJS.js"));
 		$this->layout->js(array(base_url()."public/js/bootbox.js"));
-		$this->layout->js(array(base_url()."public/js/howler.js"));
-		$this->layout->js(array(base_url()."public/js/sonidos.js"));
 	}
 	public function index()
 	{
@@ -143,6 +143,7 @@ class Aplicacion extends CI_Controller {
 				if ($datos == 1) {
 					$this->session->set_userdata("sesionsita");//crea una sesion de codeigniter
 					$this->session->set_userdata('login', $this->input->post('nick', true));
+					$this->session->set_userdata('cuestionario','cuest');
 					//$session_id=$this->session->userdata("login");
 					redirect(base_url() . 'aplicacion/cuenta', 301);
 
@@ -191,13 +192,46 @@ class Aplicacion extends CI_Controller {
 
 	}
 	public function diploma(){
-		$this->load->library('Cpdf');
-		$this->load->library('Cezpdf');
-		$this->load->library('backgroundpdf');
 		if (!empty($this->session_id)) {
+			$this->load->library('fpdf_gen');
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$estadoDiploma=$this->usuarios_model->getEstadoDiploma($datos->nick);
-			$this->layout->view('diploma', compact("datos","estadoDiploma"));
+			if($estadoDiploma->valor_fruta==1 and $estadoDiploma->valor_verdura==1
+				and $estadoDiploma->valor_alimento==1 and $estadoDiploma->valor_deporte==1){
+				/*
+             * Crea el pdf para el usuario
+             */
+				$this->fpdf->SetFont('Arial','I',32);
+				$this->fpdf->Image('public/images/diplomaV2.jpg',0,0,297,0);
+				$this->fpdf->setY(105);
+				$ancho=$this->fpdf->GetPageWidth();
+				$this->fpdf->setX(($ancho-20)/2);
+				$nombre=$datos->nombre;
+				//$this->fpdf->Write(5,"Monica Carrasco Santibañez");
+				$this->fpdf->Cell(20,10,'Leonardo Concha Mella',0,0,'C');
+				echo $this->fpdf->Output('Diploma_'.$nombre.'.pdf','D');
+				/*
+                 * Fin crea pdf usuario
+                 */
+			}else{
+				/*
+             * Crea el pdf example para el usuario
+             */
+				$this->fpdf->SetFont('Arial','I',32);
+				$this->fpdf->Image('public/images/diplomaExample.jpg',0,0,297,0);
+				$this->fpdf->setY(105);
+				$ancho=$this->fpdf->GetPageWidth();
+				$this->fpdf->setX(($ancho-20)/2);
+				$nombre=$datos->nombre;
+				//$this->fpdf->Write(5,"Monica Carrasco Santibañez");
+				$this->fpdf->Cell(20,10,'Leonardo Concha Mella',0,0,'C');
+				echo $this->fpdf->Output('Diploma_'.$nombre.'.pdf','D');
+				/*
+                 * Fin crea pdf usuario
+                 */
+			}
+			;
+			//$this->layout->view('diploma', compact("datos","estadoDiploma"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -660,12 +694,13 @@ class Aplicacion extends CI_Controller {
 	 */
 	public function guardaCuestTemp(){
 		$cuestionarioId=$this->input->post("valor",true);
-		$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+		$this->session->set_userdata('cuestionario',$cuestionarioId);
+		/*$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 		$aGuardar=array(
 			'cuesttemp'=>$cuestionarioId
 		);
 		//guarda en bd el cuest temporal;
-		$this->usuarios_model->guardaCuestTemp($aGuardar,$datos->nick);
+		$this->usuarios_model->guardaCuestTemp($aGuardar,$datos->nick);*/
 
 	}
 	public function cuestionarioVerd(){
@@ -677,8 +712,8 @@ class Aplicacion extends CI_Controller {
 			$avance=$this->usuarios_model->getAvance($datos->nick);
 			//$identificador=$this->uri->segment(3);
 			//$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
-			$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
-			$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($cuestionario->cuesttemp);
+			$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
+			$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponVerd($datos->nick);
 			$this->layout->view("cuestionarioVerd",compact("datos","identificador","preguntasVerdura","cuestionario",
 				"puntaje","puntajeLider","cuestRespondidos","avance"));
@@ -695,8 +730,10 @@ class Aplicacion extends CI_Controller {
 			$avance=$this->usuarios_model->getAvance($datos->nick);
 			//$identificador=$this->uri->segment(3);
 			//$cuestionario="cuestionario".$identificador;//cuestionario3, que esta en BD con id
-			$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
-			$preguntasFruta=$this->usuarios_model->getPreguntasFruta($cuestionario->cuesttemp);
+			//Aqui obtengo valor de la variable global
+			//$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
+			$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
+			$preguntasFruta=$this->usuarios_model->getPreguntasFruta($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponFrut($datos->nick);
 			$this->layout->view("cuestionarioFrut",compact("datos","identificador","preguntasFruta","cuestionario",
 				"puntaje","puntajeLider","cuestRespondidos","avance"));
@@ -711,8 +748,8 @@ class Aplicacion extends CI_Controller {
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
 			$avance=$this->usuarios_model->getAvance($datos->nick);
-			$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
-			$preguntasDeporte=$this->usuarios_model->getPreguntasDeporte($cuestionario->cuesttemp);
+			$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
+			$preguntasDeporte=$this->usuarios_model->getPreguntasDeporte($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponDep($datos->nick);
 			$this->layout->view("cuestionarioDep",compact("datos","identificador","preguntasDeporte","cuestionario",
 				"puntaje","puntajeLider","cuestRespondidos","avance"));
@@ -729,8 +766,8 @@ class Aplicacion extends CI_Controller {
 			$avance=$this->usuarios_model->getAvance($datos->nick);
 			//$identificador=$this->uri->segment(3);
 			//$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
-			$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
-			$preguntasAlimento=$this->usuarios_model->getPreguntasAlimento($cuestionario->cuesttemp);
+			$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
+			$preguntasAlimento=$this->usuarios_model->getPreguntasAlimento($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponAli($datos->nick);
 			$this->layout->view("cuestionarioAli",compact("datos","identificador","preguntasAlimento","cuestionario",
 				"puntaje","puntajeLider","cuestRespondidos","avance"));

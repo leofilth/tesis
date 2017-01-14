@@ -17,7 +17,7 @@
                 <figure>
                     <img class="img-circle" width="20%" alt="estudiante3" src="<?php echo base_url().'public/images/modal/student3.png'?>">
                 </figure>
-                <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -55,8 +55,8 @@
                     <img class="img-circle icon-inst" alt="estudiante3" src="<?php echo base_url().'public/images/modal/student3.png'?>">
                 </figure>
                 <div style="margin-top: 55px">
-                    <button id="mostrarmodal" type="button" class="btn btn-info" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
-                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
+                    <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
+                    <button type="button" class="btn btn-primary" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
                 </div>
             </div>
         </div>
@@ -189,7 +189,7 @@
         </div>
     </div>
     <div class="padingtop">
-        <a href="#section1"><img class="animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>"></a>
+        <img class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
     </div>
 </section>
 <section class="container-fluid" id="tipsaludable">
@@ -235,7 +235,7 @@
         </div>
     </div>
     <div class="padingtop">
-        <a href="#section1"><img class="animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>"></a>
+        <img class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
     </div>
 </section>
 <?php include "footer.php"?>
@@ -479,6 +479,19 @@
             mouseleave:function() {
                 $(this).removeClass("animated jello");
             }
+        });
+        $('.ir-arriba').click(function(){
+            $('body, html').animate({
+                scrollTop: '0px'
+            },1000 );
+        });
+        $('#tips').click(function(){
+            $('body, html').animate({
+                scrollTop: $('#tipsaludable').position().top}, 'slow');
+        });
+        $('#desafio').click(function(){
+            $('body, html').animate({
+                scrollTop: $('#section2').position().top}, 'slow');
         });
     });
 </script>

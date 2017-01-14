@@ -8,7 +8,7 @@
         else {?>
             <?php
             $cuestResp=$this->mis_funciones->limpiaSiete($cuestRespondidos);
-            if(in_array($cuestionario->cuesttemp,$cuestResp)){?>
+            if(in_array($cuestionario,$cuestResp)){?>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <div id="noguardado" class="alert alert-danger text-center">
@@ -110,7 +110,7 @@
                     $(".infocuest").removeClass("animated infinite pulse");
                     $("#puntajeCuest").addClass("animated infinite pulse");
                     //$('"#'+cuestionario+'"').removeClass("hidden");
-                    var cuestionario="<?php echo $cuestionario->cuesttemp?>";
+                    var cuestionario="<?php echo $cuestionario?>";
                     guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestDep"?>',cuestionario);
                     avance++;
                     actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"cuestDeporte");

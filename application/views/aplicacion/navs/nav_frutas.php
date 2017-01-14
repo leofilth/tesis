@@ -12,8 +12,8 @@
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
                 <li class="nav-link-inicio li-nav efecto"><a href="<?php echo base_url()."aplicacion/cuenta"?>">Inicio</a></li>
-                <li class="nav-link-desafio li-nav efecto"><a href="#section2">Desafio</a></li>
-                <li class="nav-link-tip li-nav efecto"><a href="#tipsaludable">Tips</a></li>
+                <li id="desafio" class="nav-link-desafio li-nav efecto"><a href="#">Desafio</a></li>
+                <li id="tips" class="nav-link-tip li-nav efecto"><a href="#">Tips</a></li>
                 <li class="nav-link-ayuda li-nav efecto" data-toggle="modal" data-target="#tutorial"><a href="#">Ayuda</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
