@@ -9,7 +9,7 @@ if($cuestRespondidos!=null) {
             <div class="col-md-4 col-sm-6 col-xs-6">
                 <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
                 <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
-                <a href="#<?php echo $cuestionario ?>">
+
                     <figure>
                         <img class="cuestionario center-block borde img-circle zoom tamano-cuest"
                             id="<?php echo $cuestionario ?>"
@@ -18,14 +18,14 @@ if($cuestRespondidos!=null) {
                             src="<?php echo base_url() . "public/images/icons/test/testHecho.png" ?>"
                             />
                     </figure>
-                </a>
+
             </div>
         <?php }
         else { ?>
             <div class="col-md-4 col-sm-6 col-xs-6">
                 <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
                 <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
-                        <a href="<?php echo base_url() . "aplicacion/cuestionariofrut"?>">
+                        <a href="<?php echo base_url() . "aplicacion/cuestionariofrut/".$numero?>">
                             <figure>
                                 <img class="cuestionario center-block img-circle borde zoom cuest tamano-cuest"
                                     id="<?php echo $cuestionario ?>"
@@ -35,8 +35,7 @@ if($cuestRespondidos!=null) {
                             </figure>
                         </a>
             </div>
-        <?php } ?>
-        <?php
+        <?php }
         $i++;
     }
 }
@@ -45,7 +44,7 @@ else{?>
         <div class="col-md-4 col-sm-6 col-xs-6">
             <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
             <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
-            <a href="<?php echo base_url() . "aplicacion/cuestionariofrut"?>">
+            <a href="<?php echo base_url() . "aplicacion/cuestionariofrut/".$numero?>">
                 <figure>
                     <img class="cuestionario center-block img-circle borde zoom cuest tamano-cuest"
                         id="<?php echo $cuestionario ?>"

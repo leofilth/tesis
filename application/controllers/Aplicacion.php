@@ -10,7 +10,7 @@ class Aplicacion extends CI_Controller {
 		parent:: __construct();
 		$this->layout->setLayout('template');
 		$this->session_id=$this->session->userdata('login');
-		$this->cuest_id=$this->session->userdata('cuestionario');
+		//$this->cuest_id=$this->session->userdata('cuestionario');//variable de sesion
 		$this->layout->css(array(base_url()."public/css/micss.css"));
 		$this->layout->css(array(base_url()."public/css/animate.css"));
 		$this->layout->js(array(base_url()."public/js/bootstrap-filestyle.min.js"));//borrar a futuro
@@ -692,27 +692,28 @@ class Aplicacion extends CI_Controller {
 	/*
 	 * Cuestionario por url
 	 */
-	public function guardaCuestTemp(){
+	/*public function guardaCuestTemp(){
 		$cuestionarioId=$this->input->post("valor",true);
 		$this->session->set_userdata('cuestionario',$cuestionarioId);
-		/*$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+		$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 		$aGuardar=array(
 			'cuesttemp'=>$cuestionarioId
 		);
 		//guarda en bd el cuest temporal;
-		$this->usuarios_model->guardaCuestTemp($aGuardar,$datos->nick);*/
+		$this->usuarios_model->guardaCuestTemp($aGuardar,$datos->nick);
 
-	}
-	public function cuestionarioVerd(){
+	}*/
+	public function cuestionarioVerd($id){
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
 			$avance=$this->usuarios_model->getAvance($datos->nick);
-			//$identificador=$this->uri->segment(3);
+			$identificador=$this->uri->segment(3);
+			$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
 			//$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
-			$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
+			//$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
 			$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponVerd($datos->nick);
 			$this->layout->view("cuestionarioVerd",compact("datos","identificador","preguntasVerdura","cuestionario",
@@ -721,18 +722,18 @@ class Aplicacion extends CI_Controller {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
-	public function cuestionarioFrut(){
+	public function cuestionarioFrut($id){
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
 			$avance=$this->usuarios_model->getAvance($datos->nick);
-			//$identificador=$this->uri->segment(3);
-			//$cuestionario="cuestionario".$identificador;//cuestionario3, que esta en BD con id
+			$identificador=$this->uri->segment(3);
+			$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
 			//Aqui obtengo valor de la variable global
 			//$cuestionario=$this->usuarios_model->getCuestTemp($datos->nick);
-			$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
+			//$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
 			$preguntasFruta=$this->usuarios_model->getPreguntasFruta($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponFrut($datos->nick);
 			$this->layout->view("cuestionarioFrut",compact("datos","identificador","preguntasFruta","cuestionario",
@@ -741,14 +742,16 @@ class Aplicacion extends CI_Controller {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
-	public function cuestionarioDep(){
+	public function cuestionarioDep($id){
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
 			$avance=$this->usuarios_model->getAvance($datos->nick);
-			$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
+			$identificador=$this->uri->segment(3);
+			$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
+			//$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
 			$preguntasDeporte=$this->usuarios_model->getPreguntasDeporte($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponDep($datos->nick);
 			$this->layout->view("cuestionarioDep",compact("datos","identificador","preguntasDeporte","cuestionario",
@@ -757,16 +760,17 @@ class Aplicacion extends CI_Controller {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
-	public function cuestionarioAli(){
+	public function cuestionarioAli($id){
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
 			$avance=$this->usuarios_model->getAvance($datos->nick);
-			//$identificador=$this->uri->segment(3);
 			//$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
-			$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
+			//$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
+			$identificador=$this->uri->segment(3);
+			$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
 			$preguntasAlimento=$this->usuarios_model->getPreguntasAlimento($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponAli($datos->nick);
 			$this->layout->view("cuestionarioAli",compact("datos","identificador","preguntasAlimento","cuestionario",

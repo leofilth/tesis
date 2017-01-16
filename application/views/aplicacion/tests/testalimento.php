@@ -9,7 +9,7 @@ if($cuestRespondidos!=null) {
             <div class="col-md-6">
                 <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
                 <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
-                <a href="#<?php echo $cuestionario ?>">
+
                     <figure>
                         <img class="cuestionario img-circle borde center-block tamano-cuest"
                              id="<?php echo $cuestionario ?>"
@@ -17,14 +17,14 @@ if($cuestRespondidos!=null) {
                              alt="<?php echo $cuestionario."hecho" ?>"
                              src="<?php echo base_url() . "public/images/icons/test/testHecho.png" ?>"/>
                     </figure>
-                </a>
+
             </div>
         <?php }
         else { ?>
             <div class="col-md-6">
                 <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
                 <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
-                <a href="<?php echo base_url() . "aplicacion/cuestionarioali"?>">
+                <a href="<?php echo base_url() . "aplicacion/cuestionarioali/".$numero?>">
                     <figure>
                         <img class="cuestionario center-block zoom  img-circle borde cuest tamano-cuest"
                             id="<?php echo $cuestionario ?>" name="<?php echo $cuestionario ?>"
@@ -43,7 +43,7 @@ else{?>
         <div class="col-md-6">
             <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
             <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
-            <a href="<?php echo base_url() . "aplicacion/cuestionarioali"?>">
+            <a href="<?php echo base_url() . "aplicacion/cuestionarioali/".$numero?>">
                 <figure>
                     <img class="cuestionario center-block zoom img-circle borde  cuest tamano-cuest"
                          id="<?php echo $cuestionario ?>" name="<?php echo $cuestionario ?>"

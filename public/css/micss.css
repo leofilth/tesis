@@ -1381,7 +1381,7 @@ tamaño imagen seccion
     cursor: pointer;
 }
 #descripcion-tip{
-    text-align: justify;
+    text-align: left;
 }
 .img-portada{
     width:auto;
@@ -1389,6 +1389,18 @@ tamaño imagen seccion
 }
 #fotonoticia{
     border-radius: 5px;
+}
+/* Tooltip */
+.tool + .tooltip > .tooltip-inner {
+    background-color: #EC774B;
+    color: #FFFFFF;
+    border: 1px solid #EC774B;
+    padding: 15px;
+    font-size: 20px;
+    font-family: "finger paint";
+}
+.tool + .tooltip.top > .tooltip-arrow {
+    border-top: 5px solid #EC774B;
 }
 @media screen and (max-width: 1280px){
     .img-seccion{

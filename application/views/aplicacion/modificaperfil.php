@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-                <button id="guardaAvatar" type="button" class="btn btn-primary animated infinite pulse" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Guardar</button>
+                <button id="guardaAvatar" type="button" class="btn btn-info animated infinite pulse" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Guardar</button>
             </div>
         </div>
     </div>

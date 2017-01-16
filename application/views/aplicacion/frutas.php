@@ -56,7 +56,7 @@
                 </figure>
                 <div style="margin-top: 55px">
                     <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
-                    <button type="button" class="btn btn-primary" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
+                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
                 </div>
             </div>
         </div>
@@ -113,19 +113,20 @@
                                 if (in_array($fruta->id, $misfrutas_limpio)) {
                                     ?>
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                        <figure>
+                                        <figure  class="tool" data-toggle="tooltip" title="<?php echo $fruta->nombre ?>">
                                             <img id="<?php echo $fruta->id ?>"
                                                  title="<?php echo $fruta->nombre ?>"
                                                  src="<?php echo base_url() . $fruta->link ?>"
                                                  alt="<?php echo $fruta->nombre ?>"
                                                  class="img-circle tamano fondofruta rotate center-block fruta borde"
-                                                 data-toggle="modal" data-target="#myModal">
+                                                 data-toggle="modal" data-target="#myModal"
+                                                >
                                         </figure>
                                     </div>
                                 <?php } else {
                                     ?>
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                        <figure>
+                                        <figure class="tool" data-toggle="tooltip" title="<?php echo $fruta->nombre ?>">
                                             <img id="<?php echo $fruta->id ?>"
                                                  title="<?php echo $fruta->nombre ?>"
                                                  alt="<?php echo $fruta->nombre ?>"
@@ -141,7 +142,7 @@
                         foreach ($frutas as $fruta) {
                             ?>
                             <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                <figure>
+                                <figure class="tool" data-toggle="tooltip" title="<?php echo $fruta->nombre ?>">
                                     <img id="<?php echo $fruta->id ?>"
                                          title="<?php echo $fruta->nombre ?>"
                                          src="<?php echo base_url() . $fruta->link ?>"
@@ -272,11 +273,11 @@
                 return resp;
             })
         }
-        function guardaCuestTemp(ruta,valor){
+        /*function guardaCuestTemp(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
             })
-        }
+        }*/
         function guardaFruta(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -390,12 +391,12 @@
                 $("#descripcion").text(desc);
             }
         });
-        $(".cuest").on({
+        /*$(".cuest").on({
             click:function(){
                 var cuestionario=$(this).attr("id");
                 guardaCuestTemp('<?php echo base_url()."aplicacion/guardaCuestTemp"?>',cuestionario);
             }
-        });
+        });*/
         $(".tip").on({
             click:function(){
                 var titulo=$(this).attr("title");
@@ -495,5 +496,6 @@
             $('body, html').animate({
                 scrollTop: $('#section2').position().top}, 'slow');
         });
+        $('[data-toggle="tooltip"]').tooltip();
     });
 </script>

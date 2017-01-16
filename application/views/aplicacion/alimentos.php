@@ -110,7 +110,7 @@
                                 if (in_array($alimento->id, $misalimentos_limpio)) {
                                     ?>
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                        <figure>
+                                        <figure class="tool" data-toggle="tooltip" title="<?php echo $alimento->nombre ?>">
                                             <img id="<?php echo $alimento->id ?>"
                                                  title="<?php echo $alimento->nombre ?>"
                                                  src="<?php echo base_url() . $alimento->link ?>"
@@ -122,7 +122,7 @@
                                 <?php } else {
                                     ?>
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                        <figure>
+                                        <figure class="tool" data-toggle="tooltip" title="<?php echo $alimento->nombre ?>">
                                             <img id="<?php echo $alimento->id ?>"
                                                  title="<?php echo $alimento->nombre ?>"
                                                  src="<?php echo base_url() . $alimento->link ?>"
@@ -138,7 +138,7 @@
                             foreach ($alimentos as $alimento) {
                                 ?>
                                 <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                    <figure>
+                                    <figure class="tool" data-toggle="tooltip" title="<?php echo $alimento->nombre ?>">
                                         <img id="<?php echo $alimento->id ?>"
                                              title="<?php echo $alimento->nombre ?>"
                                              src="<?php echo base_url() . $alimento->link ?>"
@@ -269,11 +269,11 @@
                 return resp;
             })
         }
-        function guardaCuestTemp(ruta,valor){
+        /*function guardaCuestTemp(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
             })
-        }
+        }*/
         function guardaAlimento(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -387,12 +387,12 @@
                 $("#descripcion").text(desc);
             }
         });
-        $(".cuest").on({
+        /*$(".cuest").on({
             click:function(){
                 var cuestionario=$(this).attr("id");
                 guardaCuestTemp('<?php echo base_url()."aplicacion/guardaCuestTemp"?>',cuestionario);
             }
-        });
+        });*/
         $(".tip").on({
             click:function(){
                 var titulo=$(this).attr("title");
@@ -491,5 +491,6 @@
             $('body, html').animate({
                 scrollTop: $('#section2').position().top}, 'slow');
         });
+        $('[data-toggle="tooltip"]').tooltip();
     });
 </script>

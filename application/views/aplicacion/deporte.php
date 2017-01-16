@@ -56,7 +56,7 @@
                 </figure>
                 <div style="margin-top: 55px">
                     <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
-                    <button type="button" class="btn btn-primary" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
+                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@
                                 if (in_array($deporte->id, $misdeportes_limpio)) {
                                     ?>
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                        <figure>
+                                        <figure class="tool" data-toggle="tooltip" title="<?php echo $deporte->nombre ?>">
                                             <img id="<?php echo $deporte->id ?>"
                                                  title="<?php echo $deporte->nombre ?>"
                                                  alt="<?php echo $deporte->nombre ?>"
@@ -122,7 +122,7 @@
                                 <?php } else {
                                     ?>
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                        <figure>
+                                        <figure class="tool" data-toggle="tooltip" title="<?php echo $deporte->nombre ?>">
                                             <img id="<?php echo $deporte->id ?>"
                                                  title="<?php echo $deporte->nombre ?>"
                                                  src="<?php echo base_url() . $deporte->link ?>"
@@ -138,7 +138,7 @@
                             foreach ($deportes as $deporte) {
                                 ?>
                                 <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                    <figure>
+                                    <figure class="tool" data-toggle="tooltip" title="<?php echo $deporte->nombre ?>">
                                         <img id="<?php echo $deporte->id ?>"
                                              title="<?php echo $deporte->nombre ?>"
                                              src="<?php echo base_url() . $deporte->link ?>"
@@ -271,11 +271,11 @@
                 return resp;
             })
         }
-        function guardaCuestTemp(ruta,valor){
+        /*function guardaCuestTemp(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
             })
-        }
+        }*/
         function guardaDeporte(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -389,12 +389,12 @@
                 $("#descripcion").text(desc);
             }
         });
-        $(".cuest").on({
+        /*$(".cuest").on({
             click:function(){
                 var cuestionario=$(this).attr("id");
                 guardaCuestTemp('<?php echo base_url()."aplicacion/guardaCuestTemp"?>',cuestionario);
             }
-        });
+        });*/
         $(".tip").on({
             click:function(){
                 var titulo=$(this).attr("title");
@@ -493,5 +493,6 @@
             $('body, html').animate({
                 scrollTop: $('#section2').position().top}, 'slow');
         });
+        $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
