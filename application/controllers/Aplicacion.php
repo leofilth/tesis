@@ -84,6 +84,10 @@ class Aplicacion extends CI_Controller {
 					'valor_deporte'=>'0',
 					'valor_alimento'=>'0',
 				);
+				$desafio_diario=array(
+					'nick_fk'=>$this->input->post("nick",true),
+					'fecha_cuest'=>"0000-00-00"
+				);
 				$nick=$this->input->post("nick",true);
 				$consulta=$this->usuarios_model->verifica_nick($nick);
 				if($consulta){
@@ -105,6 +109,7 @@ class Aplicacion extends CI_Controller {
 						$this->usuarios_model->agregaTutorial($tutorial);
 						$this->usuarios_model->agregaAvance($avance);
 						$this->usuarios_model->agregaEstadoDiploma($estado_diploma);
+						$this->usuarios_model->guardaEstadoDesafioDiario($desafio_diario);
 						redirect(base_url().'aplicacion/sesion',301);
 					}
 					else{
@@ -160,6 +165,82 @@ class Aplicacion extends CI_Controller {
 	}
 	public function contacto(){
 		$this->layout->view("contacto");
+	}
+	public function desafioDiario(){
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$desafioDatos=$this->usuarios_model->getEstadoDesafioDiario($this->session_id);
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
+			$preguntasFruta=$this->usuarios_model->getPreguntasFrutaDesafioDiario();
+			$preguntasVerdura=$this->usuarios_model->getPreguntasVerduraDesafioDiario();
+			$preguntasDeporte=$this->usuarios_model->getPreguntasDeporteDesafioDiario();
+			$preguntasAlimento=$this->usuarios_model->getPreguntasAlimentoDesafioDiario();
+			$preguntasDesafio=array();
+			$fecha_actual=date("Y-m-d");
+			$largoPregFruta=count($preguntasFruta);
+			$largoPregVerdura=count($preguntasVerdura);
+			$largoPregDeporte=count($preguntasDeporte);
+			$largoPregAlimento=count($preguntasAlimento);
+			/*
+			 * random de 1 a largo de array para cada array
+			 * */
+			$x=0;
+			$w=0;
+			$y=0;
+			$z=0;
+			$valoresf=array();
+			$valoresv=array();
+			$valoresd=array();
+			$valoresa=array();
+			while ($x<2) {//numero de preguntas que obtendra, aqui 2
+				$num_aleatorio = rand(0,$largoPregFruta-1);
+				if (!in_array($num_aleatorio,$valoresf)) {
+					array_push($valoresf,$num_aleatorio);
+					array_push($preguntasDesafio,$preguntasFruta[$num_aleatorio]);
+					$x++;
+				}
+			}
+			while ($y<2) {//numero de preguntas que obtendra, aqui 2
+				$num_aleatorio = rand(0,$largoPregVerdura-1);
+				if (!in_array($num_aleatorio,$valoresv)) {
+					array_push($valoresv,$num_aleatorio);
+					array_push($preguntasDesafio,$preguntasVerdura[$num_aleatorio]);
+					$y++;
+				}
+			}
+			while ($z<2) {//numero de preguntas que obtendra, aqui 2
+				$num_aleatorio = rand(0,$largoPregDeporte-1);
+				if (!in_array($num_aleatorio,$valoresd)) {
+					array_push($valoresd,$num_aleatorio);
+					array_push($preguntasDesafio,$preguntasDeporte[$num_aleatorio]);
+					$z++;
+				}
+			}
+			while ($w<2) {//numero de preguntas que obtendra, aqui 2
+				$num_aleatorio = rand(0,$largoPregAlimento-1);
+				if (!in_array($num_aleatorio,$valoresa)) {
+					array_push($valoresa,$num_aleatorio);
+					array_push($preguntasDesafio,$preguntasAlimento[$num_aleatorio]);
+					$w++;
+				}
+			}
+			/*
+			 * poner preguntas en preguntasDesafio
+			 */
+			$this->layout->view("desafiodiario",compact("datos","preguntasDesafio",
+				"fecha_actual","puntaje","puntajeLider","preguntasFruta","preguntasDeporte","preguntasAlimento",
+				"preguntasVerdura","desafioDatos"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	public function guardaFechaDesafioDiario(){
+		$fecha=$this->input->post("valor",true);
+		$aGuardar=array(
+			'fecha_cuest'=>$fecha
+		);
+		$this->usuarios_model->actualizaEstadoDesafioDiario($this->session_id,$aGuardar);
 	}
 	public function guardaSeccionCompleta(){
 		$tipo=$this->input->post("valor",true);
@@ -477,7 +558,8 @@ class Aplicacion extends CI_Controller {
 	public function frutas(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$frutas=$this->usuarios_model->getFrutas();
+			/*si es masculino o femenino*/
+			$frutas=$this->usuarios_model->getFrutas($datos->sexo);
 			$misfrutas=$this->usuarios_model->getFrutaUsuario($datos->nick);
 			$cuestionarios=$this->usuarios_model->getCuestionariosFruta();
 			$cuestRespondidos=$this->usuarios_model->getCuestResponFrut($datos->nick);
@@ -615,80 +697,6 @@ class Aplicacion extends CI_Controller {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
-	/**
-	 * Inicio Funciones AJAX para iconos
-	 * */
-	public function respuesta_ajax_fruta(){
-		$this->layout->setLayout('template_ajax');
-		$id=$this->input->post("valor1",true);
-		$dataAjax=$this->usuarios_model->getFrutaId($id);
-		$this->layout->view("respuesta_ajax_fruta",compact("dataAjax"));
-	}
-	public function respuesta_ajax_verdura(){
-		$this->layout->setLayout('template_ajax');
-		$id=$this->input->post("valor1",true);
-		$dataAjax=$this->usuarios_model->getVerduraId($id);
-		$this->layout->view("respuesta_ajax_verdura",compact("dataAjax"));
-	}
-	public function respuesta_ajax_alimento(){
-		$this->layout->setLayout('template_ajax');
-		$id=$this->input->post("valor1",true);
-		$dataAjax=$this->usuarios_model->getAlimentoId($id);
-		$this->layout->view("respuesta_ajax_alimento",compact("dataAjax"));
-	}
-	/**
-	 * Termino funciones AJAX para iconos
-	 */
-	/**
-	 * Galeria
-	 */
-	public function galeria(){
-		if ($this->input->post()) {
-			//if ($this->form_validation->run("aplicacion/galeria"))//va a form_validation y obtiene las reglas
-			{
-				//proceso la imagen
-				$error = null;
-				//$nombrefoto=$this->input->post("titulo",true);
-				//$nombrefotoFormateado=str_replace(" ","_",$nombrefoto);
-				//valido la foto
-				$config['upload_path'] = './public/images/galeria';
-				$config['allowed_types'] = 'jpg|png';
-				$config['overwrite'] = false;
-				$config['encrypt_name'] = true;
-				//$config['file_name'] = $nombrefotoFormateado;
-				$this->load->library('upload', $config);
-				if ($this->upload->do_upload('archivo')) {
-					$ima = $this->upload->data();
-					$file_name = $ima["file_name"];
-					//guardar en base de datos
-					$foto = array
-					(
-						'descripcion' => $this->input->post("descripcion", true),
-						'dueño' => $this->session_id,
-						'link' => "public/images/galeria/" . $file_name
-
-					);
-					$this->usuarios_model->agregarFoto($foto);
-					redirect(base_url() . 'aplicacion/galeria', 'refresh');
-				} else {
-					$error = array('error' => $this->upload->display_errors());
-					$this->session->set_flashdata('ControllerMessage', $error["error"]);
-				}
-			}
-		}
-		if (!empty($this->session_id)) {
-			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$fotos = $this->usuarios_model->getFotos();
-			$this->layout->view("galeria", compact("datos", "fotos"));
-		} else {
-			redirect(base_url() . 'aplicacion', 301);
-		}
-	}
-	/**
-	 * Fin Galeria
-	 */
-
-
 	/*
 	 * Cuestionario por url
 	 */

@@ -36,7 +36,7 @@
                         <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
                         <ol class="texto-modal-tip" id="descripcion-tip">
                             <li>Haz click en la noticia que te interese</li>
-                            <li>Leela e informate</li>
+                            <li>Leela e infórmate</li>
                             <li>Comparte lo aprendido con tus amigos</li>
                         </ol>
                     </div>

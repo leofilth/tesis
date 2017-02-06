@@ -114,10 +114,9 @@
                         <span id="avanceFruta"> <?php
                             $suma=$estadoDiploma->valor_fruta+$estadoDiploma->valor_verdura+$estadoDiploma->valor_alimento
                                 +$estadoDiploma->valor_deporte;
-                            echo (($suma*100)/4);
+                            echo (($suma*100)/4)."%";
                             ?>
                         </span>
-                        %
                     </div>
                 </div>
             </div>

@@ -308,8 +308,8 @@
             if(puntos <50){
                 bootbox.alert({
                     size: "small",
-                    title: "Puntos insuficientes",
-                    message: "<p class='compra'>Consigue más monedas…</p>",
+                    title: "Monedas insuficientes",
+                    message: "<p class='compra'>Consigue monedas superando los desafíos Wambo</p>",
                     className: 'bb-alternate-modal',
                     callback: function(){ /* your callback code */ }
                 })
@@ -329,7 +329,7 @@
                             className: 'btn-danger'
                         }
                     },
-                    message: "<p class='compra'>¿Comprar "+"<strong>"+nombre+"</strong>"+" por 50 <img class='tamano32' src='<?php echo base_url().'public/images/icons/coin.png'?>'> ?</p><br>"+"<p class='compra'>Tus puntos actuales son: "+"<strong>"+puntos+"</strong> <img class='tamano32' src='<?php echo base_url().'public/images/icons/coins.png'?>'></p>",
+                    message: "<p class='compra text-center'>¿Comprar "+"<strong>"+nombre+"</strong>"+" por 50 <img class='tamano32' src='<?php echo base_url().'public/images/icons/coin.png'?>'> ?</p><br>"+"<p class='compra text-center'>Monedas disponibles: "+"<strong>"+puntos+"</strong> <img class='tamano32' src='<?php echo base_url().'public/images/icons/coins.png'?>'></p>",
                     callback:function(result) {
                         if (result) {
                             puntos = puntos - 50;
@@ -496,6 +496,9 @@
             $('body, html').animate({
                 scrollTop: $('#section2').position().top}, 'slow');
         });
+        /**
+         * Tooltip para las frutas
+         */
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>

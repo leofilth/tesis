@@ -72,7 +72,7 @@ css vida sana
 }
 .glyfy{
     color: #673AB7;
-    font-size: 20px;
+    font-size: 25px;
 }
 .affix {
     top:0;
@@ -126,6 +126,9 @@ css cuenta
 }
 .noticiacuenta{
     background-color: #82C250;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+}
+.desafiocuenta{
+    background-color: #F7CA18;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
 }
 .barra{
     margin-top: 5px;
@@ -1362,11 +1365,11 @@ tamaño imagen seccion
     width: 120px;
 }
 .progress{
-    height: 25px;
+    height: 30px;/*alto de barra de progreso*/
 }
 .progress-bar{
-    padding-top: 1px;
-    font-size: 15px;
+    padding-top: 4px;
+    font-size: 20px;
 }
 #barraDiploma{
     height: 50px;
@@ -1389,6 +1392,21 @@ tamaño imagen seccion
 }
 #fotonoticia{
     border-radius: 5px;
+}
+#avanceFruta{
+    color: #673AB7;
+}
+#avanceDeporte{
+    color: #673AB7;
+}
+#avanceVerdura{
+    color: #673AB7;
+}
+#avanceAlimento{
+    color: #673AB7;
+}
+.margenInicioSesion{
+    margin-top: 50px;
 }
 /* Tooltip */
 .tool + .tooltip > .tooltip-inner {

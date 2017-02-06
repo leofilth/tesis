@@ -288,8 +288,8 @@
             if(puntos <50){
                 bootbox.alert({
                     size: "small",
-                    title: "Puntos insuficientes",
-                    message: "Consigue mas puntos…",
+                    title: "Monedas insuficientes",
+                    message: "<p class='compra'>Consigue monedas superando los desafíos Wambo</p>",
                     className: 'bb-alternate-modal',
                     callback: function(){ /* your callback code */ }
                 })
@@ -310,7 +310,7 @@
                         }
                     },
                     //mesaage:'<p class="text-center">Please wait while we do something...</p>',
-                    message: "<p class='compra'>¿Comprar "+"<strong>"+nombre+"</strong>"+" por 50 <img class='tamano32' src='<?php echo base_url().'public/images/icons/coin.png'?>'> ?</p><br>"+"<p class='compra'>Tus puntos actuales son: "+"<strong>"+puntos+"</strong> <img class='tamano32' src='<?php echo base_url().'public/images/icons/coins.png'?>'></p>",
+                    message: "<p class='compra text-center'>¿Comprar "+"<strong>"+nombre+"</strong>"+" por 50 <img class='tamano32' src='<?php echo base_url().'public/images/icons/coin.png'?>'> ?</p><br>"+"<p class='compra text-center'>Monedas disponibles: "+"<strong>"+puntos+"</strong> <img class='tamano32' src='<?php echo base_url().'public/images/icons/coins.png'?>'></p>",
                     callback: function (result) {
                         if (result) {
                             puntos = puntos - 50;

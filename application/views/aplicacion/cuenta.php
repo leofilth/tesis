@@ -98,8 +98,8 @@
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
                                              aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_fruta+$avance->avance_cuest_fruta)*100)/($totalFrutas+$totalCuestFruta))?>%">
                                             <span id="avanceFruta">
-                                                <?php echo round((($avance->avance_fruta+$avance->avance_cuest_fruta)*100)/($totalFrutas+$totalCuestFruta))?>
-                                            </span>%
+                                                <?php echo round((($avance->avance_fruta+$avance->avance_cuest_fruta)*100)/($totalFrutas+$totalCuestFruta))."%"?>
+                                            </span>
                                         </div>
                                     </div>
                                 </h3>
@@ -125,8 +125,8 @@
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
                                              aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_verdura+$avance->avance_cuest_verdura)*100)/($totalVerduras+$totalCuestVerdura))?>%">
                                             <span id="avanceVerdura">
-                                                <?php echo round((($avance->avance_verdura+$avance->avance_cuest_verdura)*100)/($totalVerduras+$totalCuestVerdura))?>
-                                            </span>%
+                                                <?php echo round((($avance->avance_verdura+$avance->avance_cuest_verdura)*100)/($totalVerduras+$totalCuestVerdura))."%"?>
+                                            </span>
                                         </div>
                                     </div>
                                 </h3>
@@ -152,8 +152,8 @@
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
                                              aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_alimento+$avance->avance_cuest_alimento)*100)/($totalAlimentos+$totalCuestAlimento))?>%">
                                             <span id="avanceAlimento">
-                                                <?php echo round((($avance->avance_alimento+$avance->avance_cuest_alimento)*100)/($totalAlimentos+$totalCuestAlimento))?>
-                                            </span>%
+                                                <?php echo round((($avance->avance_alimento+$avance->avance_cuest_alimento)*100)/($totalAlimentos+$totalCuestAlimento))."%"?>
+                                            </span>
                                         </div>
                                     </div>
                                 </h3>
@@ -180,8 +180,8 @@
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
                                              aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_deporte+$avance->avance_cuest_deporte)*100)/($totalDeportes+$totalCuestDeporte))?>%">
                                             <span id="avanceDeporte">
-                                               <?php echo round((($avance->avance_deporte+$avance->avance_cuest_deporte)*100)/($totalDeportes+$totalCuestDeporte))?>
-                                            </span>%
+                                               <?php echo round((($avance->avance_deporte+$avance->avance_cuest_deporte)*100)/($totalDeportes+$totalCuestDeporte))."%"?>
+                                            </span>
                                         </div>
                                     </div>
                                 </h3>
@@ -221,19 +221,19 @@
                 </div>
             </div>
         </div>
-        <!--<div class="container">
+        <div class="container animated tada">
             <div class="row">
-                <div id="fruta" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-                    <div class=" text-center  borde noticiacuenta">
-                        <img id="portadafruta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada1.png"?>">
+                <div id="desafio" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                    <div class=" text-center  borde desafiocuenta">
+                        <img id="portadadesafio" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/icons/star.png"?>">
                         <div class="maintitulo">
-                            <h3 id="tfrut">Mi certificado</h3>
+                            <h3 id="tdes">Desafío Diario</h3>
                         </div>
-                        <a href="<?php echo base_url()."aplicacion/certificado"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
+                        <a href="<?php echo base_url()."aplicacion/desafiodiario"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
                     </div>
                 </div>
             </div>
-        </div>-->
+        </div>
     </section>
 <?php include "footer.php"?>
 <script>
@@ -360,6 +360,16 @@
             mouseleave: function () {
                 $("#portadanoticia").removeClass("borde animated pulse");
                 $("#tnot").css("color", "white");
+            }
+        });
+        $("#desafio").on({
+            mouseenter: function () {
+                $("#portadadesafio").addClass("borde animated pulse");
+                $("#tdes").css("color", "#673AB7");
+            },
+            mouseleave: function () {
+                $("#portadadesafio").removeClass("borde animated pulse");
+                $("#tdes").css("color", "white");
             }
         });
         /**

@@ -14,7 +14,7 @@
             </figure>
             <div class="container">
                 <div class="carousel-caption">
-                    <div class="cc-text">
+                    <div class="cc-text animated bounceInDown">
                         <h1>¿En qué consiste?</h1>
                         <p>Wambo es una aplicación que te enseñará sobre la importancia de la educación física
                         y la vida saludable.</p>
@@ -30,11 +30,11 @@
             </figure>
             <div class="container">
                 <div class="carousel-caption">
-                    <div class="cc-text">
+                    <div class="cc-text animated bounceInUp">
                         <h1>¿Qué aprenderás?</h1>
                         <p>Aprenderás sobre alimentación saludable y sus beneficios.</p>
                         <p>Aprenderás sobre la actividad física, la importancia de realizar deporte, consejos y mucho más.</p>
-                        <p><a role="button" href="#explicativo" class="btn btn-lg btn-primary">Leer más</a></p>
+                        <p><a id="leermas" role="button" href="#" class="animated infinite pulse btn btn-lg btn-primary">Leer más</a></p>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
     </a>
 </div>
 <section class="container-fluid bg-im">
-    <div class="container">
+    <div class="container" id="explicativo">
         <div class="row">
             <div class="col-md-7 col-sm-7 col-xs-12 fondo-portada1">
                 <h2 class="featurette-heading">Frutas Poderosas. <span class="text-muted">Todos su secretos al descubierto</span></h2>
@@ -113,6 +113,9 @@
             </div>
         </div>
         <hr class="featurette-divider">
+        <div>
+            <img class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+        </div>
     </div>
 </section>
 <?php include "footer.php"?>
@@ -157,6 +160,15 @@
             mouseleave:function(){
                 $(this).removeClass("animated pulse");
             }
+        });
+        $('#leermas').click(function(){
+            $('body, html').animate({
+                scrollTop: $('#explicativo').position().top}, 'slow');
+        });
+        $('.ir-arriba').click(function(){
+            $('body, html').animate({
+                scrollTop: '0px'
+            },1000 );
         });
     });
 </script>

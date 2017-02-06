@@ -74,12 +74,20 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
-    public function getFrutas(){
-        $query=$this->db
-            ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo")
-            ->from("frutas")
-            ->get();
-        return $query->result();
+    public function getFrutas($sexo){
+        if($sexo=="masculino"){
+            $query=$this->db
+                ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo_boy as consumo")
+                ->from("frutas")
+                ->get();
+            return $query->result();
+        }else{
+            $query=$this->db
+                ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo_girl as consumo")
+                ->from("frutas")
+                ->get();
+            return $query->result();
+        }
     }
     public function getFrutaUsuario($nick){
         $query=$this->db
@@ -314,6 +322,56 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
+    /*Obtiene preguntas para desafio diario
+    */
+    public function getPreguntasFrutaDesafioDiario(){
+        $query=$this->db
+            ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
+            ->from("preguntasfruta")
+            ->get();
+        return $query->result();
+    }
+    public function getPreguntasVerduraDesafioDiario(){
+        $query=$this->db
+            ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
+            ->from("preguntasverdura")
+            ->get();
+        return $query->result();
+    }
+    public function getPreguntasAlimentoDesafioDiario(){
+        $query=$this->db
+            ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
+            ->from("preguntasalimento")
+            ->get();
+        return $query->result();
+    }
+    public function getPreguntasDeporteDesafioDiario(){
+        $query=$this->db
+            ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
+            ->from("preguntasdeporte")
+            ->get();
+        return $query->result();
+    }
+    public function getEstadoDesafioDiario($nick){
+        $query=$this->db
+            ->select("nick_fk,fecha_cuest")
+            ->from("desafio_diario")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->row();
+    }
+    public function actualizaEstadoDesafioDiario($nick,$datos=array()){
+        $this->db->where('nick_fk',$nick);
+        $this->db->update('desafio_diario',$datos);
+        return true;
+    }
+    public function guardaEstadoDesafioDiario($datos=array()){
+        $this->db->insert("desafio_diario",$datos);
+        return true;
+    }
+    /*
+     * Fin Obtiene preguntas desafio diario
+     */
     public function getPreguntasFruta($id){
         //consulta a dos tablas
         $query=$this->db

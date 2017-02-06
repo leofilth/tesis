@@ -6,7 +6,7 @@ if($cuestRespondidos!=null) {
     $limpio = $this->mis_funciones->limpiaSiete($cuestRespondidos);
     foreach ($aux as $cuestionario) {?>
         <?php if (in_array($cuestionario, $limpio)) { ?>
-            <div class="col-md-6">
+            <div class="col-md-3 col-sm-3 col-xs-4">
                 <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
                 <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
 
@@ -22,7 +22,7 @@ if($cuestRespondidos!=null) {
             </div>
         <?php }
         else { ?>
-            <div class="col-md-6">
+            <div class="col-md-3 col-sm-3 col-xs-4">
                 <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
                 <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
                 <a href="<?php echo base_url() . "aplicacion/cuestionariodep/".$numero?>">
@@ -42,7 +42,7 @@ if($cuestRespondidos!=null) {
 }
 else{?>
     <?php foreach($aux as $cuestionario) {?>
-        <div class="col-md-6">
+        <div class="col-md-3 col-sm-3 col-xs-4">
             <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
             <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
             <a href="<?php echo base_url() . "aplicacion/cuestionariodep/".$numero?>">
