@@ -1,4 +1,38 @@
-<?php include "navs/nav_cuenta.php" ?>
+<?php include "navs/nav_desafiodiario.php" ?>
+<!-- Modal
+            ayuda desafio diario
+            -->
+<div class="modal animated zoomIn" id="modaltip" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body" style="background-color: #673AB7">
+                <div class="tip-modal" id="instrumodal" style="cursor: pointer">
+                    <div class="margen-modal">
+                        <div class="texto-modal-tip" id="descripcion-tip">
+                            <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?> este es tu Desafío diario</h4>
+                            <div class="col-md-12" id="textoIns">
+                                <p><span class="glyphicon glyphicon-ok"></span> Cada día podrás desafiar tus conocimientos.</p>
+                                <p><span class="glyphicon glyphicon-ok"></span> Obten más monedas.</p>
+                                <p><span class="glyphicon glyphicon-ok"></span> Se el primero en el ranking Wambo!</p>
+                            </div>
+                            <div class="col-md-12" id="fotoIns">
+                                <img class="center-block tamano100"  src="<?php echo base_url()."public/images/icons/star2.png"?>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="triangulo"></div>
+                <br>
+                <img class="img-circle icon-inst" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                <div style="margin-top: 60px">
+                    <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
+                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid bg-im3 padingtop"style="padding-bottom: 100px">
     <div class="container">
         <div class="row">
@@ -33,8 +67,9 @@
                     <div class="instruccion-naranjo">
                         <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Consejo</h4>
                         <ol class="texto-modal-tip" id="descripcion-tip">
-                            <li>Este es tu desafio diario</li>
-                            <li>responde con cuidado</li>
+                            <li>Revisa cada respuesta</li>
+                            <li>Responde con cuidado</li>
+                            <li>Responde todas las preguntas</li>
                         </ol>
                     </div>
                     <div style="float: left;margin-left: 50px;clear: left">
@@ -49,7 +84,6 @@
     </div>
     <?php date_default_timezone_set('America/Argentina/Buenos_Aires');$fechaHoy=date("Y-m-d");
     if($desafioDatos->fecha_cuest != $fechaHoy){?>
-        <?php echo $fechaHoy?>
         <div class="container cuadradosombracuest">
             <?php
             //para hacer name con nombre unico usando el id de la bd
@@ -62,17 +96,17 @@
                             <ul style="list-style: none">
                                 <li>
                                     <div class="radio">
-                                        <label class="preg-cuest"><input name=<?php echo $pregunta->idpregunta.$num?> value="<?php echo $pregunta->respuesta1?>" type="radio"> <?php echo $pregunta->respuesta1?></label>
+                                        <label class="preg-cuest"><input class="inputcuest" name=<?php echo $pregunta->idpregunta.$num?> value="<?php echo $pregunta->respuesta1?>" type="radio"> <?php echo $pregunta->respuesta1?></label>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="radio">
-                                        <label class="preg-cuest"><input name=<?php echo $pregunta->idpregunta.$num?> value="<?php echo $pregunta->respuesta2?>" type="radio"> <?php echo $pregunta->respuesta2?></label>
+                                        <label class="preg-cuest"><input class="inputcuest" name=<?php echo $pregunta->idpregunta.$num?> value="<?php echo $pregunta->respuesta2?>" type="radio"> <?php echo $pregunta->respuesta2?></label>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="radio">
-                                        <label class="preg-cuest"><input name=<?php echo $pregunta->idpregunta.$num?> value="<?php echo $pregunta->respuesta3?>" type="radio"> <?php echo $pregunta->respuesta3?></label>
+                                        <label class="preg-cuest"><input class="inputcuest" name=<?php echo $pregunta->idpregunta.$num?> value="<?php echo $pregunta->respuesta3?>" type="radio"> <?php echo $pregunta->respuesta3?></label>
                                     </div>
                                 </li>
                             </ul>
@@ -81,14 +115,14 @@
                     </div>
                     <div  class="col-md-4">
                         <div id="muestrarespuesta<?php echo $num?>" class="animated infinite pulse infocuest">
-                            <div class="instruccion-morado">
+                            <div id="instruccion<?php echo $num?>" class="instruccion-morado">
                                 <h4 id="correcto<?php echo $num?>" class="modal-title titulo-modal-tip">
                                     Elige una opción
                                 </h4>
-                                <p id="feedback<?php echo $num?>"></p>
+                                <p id="feedback<?php echo $num?>" class="feedback"></p>
                             </div>
                             <div style="float: left;margin-left: 50px;clear: left">
-                                <div class="triangulo-morado"></div>
+                                <div id="flecha<?php echo $num?>" class="triangulo-morado"></div>
                             </div>
                         </div>
                         <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
@@ -145,13 +179,47 @@
                 return resp;
             })
         }
+        function guardaEstadoTutorial(ruta, valor) {
+            $.post(ruta, {valor: valor}, function (resp) {
+                return resp;
+            })
+        }
 
         var preguntas=<?php echo json_encode($preguntasDesafio,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
         var preguntasVerdura=<?php echo json_encode($preguntasVerdura,JSON_PRETTY_PRINT)?>;
         var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
         var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres
         var fechaActual="<?php echo $fecha_actual?>";
-        console.log(fechaActual);
+        var tutorial =<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
+        var mostrar = tutorial.desafio_diario;
+
+        $("#mostrarmodal").click(function () {
+            mostrar = 0;
+            //guarda en bd
+            guardaEstadoTutorial('<?php echo base_url()."aplicacion/guardaEstadoTutorialDesafioDiario"?>', mostrar);
+        });
+        $(window).load(function () {
+            if (mostrar == 1) {
+                $('#modaltip').modal('show');
+            }
+        });
+        $(".inputcuest").on({
+            click:function() {
+                var i,cuest;
+                for(i=1;i<preguntas.length+1;i++){
+                    cuest=preguntas[i-1].idpregunta;
+                    if($('input:radio[name='+cuest+i+']').is(':checked')) {
+                        console.log(1);
+                        $("#correcto"+i).text("Listo!");
+                        $("#muestrarespuesta"+i).removeClass("infinite pulse");
+                        $("#instruccion"+i).removeClass("instruccion-morado");
+                        $("#instruccion"+i).addClass("instruccion-naranjo");
+                        $("#flecha"+i).removeClass("triangulo-morado");
+                        $("#flecha"+i).addClass("triangulo-naranjo");
+                    }
+                }
+            }
+        });
         $("#verificacuestionario").on({
             click:function(){
                 var i,cuest;

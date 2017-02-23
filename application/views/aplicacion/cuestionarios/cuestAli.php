@@ -30,33 +30,33 @@
                     <ul style="list-style: none">
                         <li>
                             <div class="radio">
-                                <label class="preg-cuest"><input name=<?php echo $pregunta->idpregunta.$num?> value="<?php echo $pregunta->respuesta1?>" type="radio"> <?php echo $pregunta->respuesta1?></label>
+                                <label class="preg-cuest"><input class="inputcuest" name=<?php echo $pregunta->idpregunta.$num?> value="<?php echo $pregunta->respuesta1?>" type="radio"> <?php echo $pregunta->respuesta1?></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio">
-                                <label class="preg-cuest"><input name=<?php echo $pregunta->idpregunta.$num?> value="<?php echo $pregunta->respuesta2?>" type="radio"> <?php echo $pregunta->respuesta2?></label>
+                                <label class="preg-cuest"><input class="inputcuest" name=<?php echo $pregunta->idpregunta.$num?> value="<?php echo $pregunta->respuesta2?>" type="radio"> <?php echo $pregunta->respuesta2?></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio">
-                                <label class="preg-cuest"><input name=<?php echo $pregunta->idpregunta.$num?> value="<?php echo $pregunta->respuesta3?>" type="radio"> <?php echo $pregunta->respuesta3?></label>
+                                <label class="preg-cuest"><input class="inputcuest" name=<?php echo $pregunta->idpregunta.$num?> value="<?php echo $pregunta->respuesta3?>" type="radio"> <?php echo $pregunta->respuesta3?></label>
                             </div>
                         </li>
                     </ul>
                 </li>
                 <div id="monedas<?php echo $num?>"></div>
             </div>
-            <div id="muestrarespuesta<?php echo $num?>" class="col-md-4">
-                <div class="animated infinite pulse infocuest">
-                    <div class="instruccion-morado">
+            <div  class="col-md-4">
+                <div id="muestrarespuesta<?php echo $num?>" class="animated infinite pulse infocuest">
+                    <div id="instruccion<?php echo $num?>" class="instruccion-morado">
                         <h4 id="correcto<?php echo $num?>" class="modal-title titulo-modal-tip">
                             Elige una opción
                         </h4>
-                        <p id="feedback<?php echo $num?>"></p>
+                        <p id="feedback<?php echo $num?>" class="feedback"></p>
                     </div>
                     <div style="float: left;margin-left: 50px;clear: left">
-                        <div class="triangulo-morado"></div>
+                        <div id="flecha<?php echo $num?>" class="triangulo-morado"></div>
                     </div>
                 </div>
                 <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">

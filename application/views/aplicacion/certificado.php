@@ -1,4 +1,4 @@
-<?php include "navs/nav_cuenta.php" ?>
+<?php include "navs/nav_certificado.php" ?>
 <div class="container-fluid bg-im3 padingtop"style="padding-bottom: 100px">
     <div class="container">
         <div class="row">

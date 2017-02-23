@@ -64,7 +64,8 @@ class Aplicacion extends CI_Controller {
 					'seccion_verdura'=>'1',
 					'seccion_deporte'=>'1',
 					'seccion_alimento'=>'1',
-					'seccion_cuest'=>'1'
+					'seccion_cuest'=>'1',
+					'desafio_diario'=>'1'
 				);
 				$avance=array(
 					'nick_fk'=>$this->input->post("nick",true),
@@ -170,6 +171,7 @@ class Aplicacion extends CI_Controller {
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$desafioDatos=$this->usuarios_model->getEstadoDesafioDiario($this->session_id);
+			$tutorial=$this->usuarios_model->getTutorialUsuario($datos->nick);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
 			$preguntasFruta=$this->usuarios_model->getPreguntasFrutaDesafioDiario();
@@ -230,7 +232,7 @@ class Aplicacion extends CI_Controller {
 			 */
 			$this->layout->view("desafiodiario",compact("datos","preguntasDesafio",
 				"fecha_actual","puntaje","puntajeLider","preguntasFruta","preguntasDeporte","preguntasAlimento",
-				"preguntasVerdura","desafioDatos"));
+				"preguntasVerdura","desafioDatos","tutorial"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -405,6 +407,13 @@ class Aplicacion extends CI_Controller {
 		$estado=$this->input->post("valor",true);
 		$aGuardar=array(
 			'cuenta'=>$estado
+		);
+		$this->usuarios_model->guardaEstadoTutorial($aGuardar,$this->session_id);
+	}
+	public function guardaEstadoTutorialDesafioDiario(){
+		$estado=$this->input->post("valor",true);
+		$aGuardar=array(
+			'desafio_diario'=>$estado
 		);
 		$this->usuarios_model->guardaEstadoTutorial($aGuardar,$this->session_id);
 	}

@@ -1,5 +1,5 @@
 <?php include "navs/nav_cuest_alimento.php" ?>
-<section class="container-fluid bg-im3 padingtop">
+<section class="container-fluid bg-im3 padingtop padingbot">
     <div class="container">
         <header class="titulo1 text-center">Bienvenido a Cuestionarios</header>
         <?php if($cuestRespondidos == null){?>
@@ -56,6 +56,23 @@
         var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
         var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres
         var avance=<?php echo $avance->avance_cuest_alimento?>;
+        $(".inputcuest").on({
+            click:function() {
+                var i;
+                var cuestionario = preguntas[0].idpregunta;//obtengo el id del cuestionario seleccionado.
+                for (i = 1; i < preguntas.length + 1; i++) {
+                    if ($('input:radio[name=' + cuestionario + i + ']').is(':checked')) {
+                        $("#correcto" + i).text("Listo!");
+                        $("#muestrarespuesta" + i).removeClass("infinite pulse");
+                        $("#instruccion"+i).removeClass("instruccion-morado");
+                        $("#instruccion"+i).addClass("instruccion-naranjo");
+                        $("#flecha"+i).removeClass("triangulo-morado");
+                        $("#flecha"+i).addClass("triangulo-naranjo");
+                    }
+
+                }
+            }
+        });
         $("#verificacuestionario").on({
             click:function(){
                 var i;
@@ -67,11 +84,11 @@
                 for(i=1;i<preguntas.length+1;i++){
                     if($('input:radio[name='+cuestionario+i+']').is(':checked')) {
                         $("#correcto"+i).text("Listo!");
-                        $("#muestrarespuesta"+i).removeClass("hidden");
+                        $("#muestrarespuesta"+i).removeClass("infinite pulse");
                     }
                     else{
                         $("#correcto"+i).text("Selecciona una opción");
-                        $("#muestrarespuesta"+i).removeClass("hidden");
+                        //$("#muestrarespuesta"+i).removeClass("hidden");
                         listo=false;
                     }
                 }

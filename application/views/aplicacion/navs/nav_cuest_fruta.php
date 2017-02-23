@@ -12,10 +12,7 @@
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
                 <li class="nav-link-inicio li-nav">
-                    <a href="<?php echo base_url()."aplicacion/frutas#section2"?>">Frutas</a>
-                </li>
-                <li class="nav-link-ayuda li-nav" data-toggle="modal" data-target="#modaltip">
-                    <a href="#">Ayuda</a>
+                    <a href="<?php echo base_url()."aplicacion/frutas#section2"?>">Volver a Frutas</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

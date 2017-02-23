@@ -11,13 +11,11 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="nav-link-inicio li-nav">
-                    <a href="<?php echo base_url()."aplicacion/verduras#section2"?>">Volver a Verduras</a>
-                </li>
+                <li class="nav-link-inicio li-nav efecto"><a href="<?php echo base_url()."aplicacion/cuenta"?>">Inicio</a></li>
+                <li class="nav-link-lider li-nav efecto"><a href="<?php echo base_url()."aplicacion/lideres"?>">Lideres</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown nav-link-cuenta li-nav">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <li class="dropdown nav-link-cuenta li-nav"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <figure>
                             <img id="avatarNav" height="24px"width="24px" src="<?php
                             if($datos->avatar_name=="user")
@@ -32,9 +30,9 @@
                             {
                                 echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
                             }
-                            ?>"  class="img-circle"><?php echo $datos->nick?><span class="caret"></span>
+                            ?>"  alt="avatar" class="img-circle"><?php echo $datos->nick?><span class="caret"></span>
                         </figure>
-                    </a>
+                        </a>
                     <ul class="dropdown-menu nav-link-cuenta dropmenu animated rubberBand">
                         <li>
                             <div class="row" style="padding-bottom: 5px">

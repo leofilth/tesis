@@ -32,7 +32,7 @@
         </div>
     </div>
 </div>
-    <section class="container-fluid bg-im3"style="padding-bottom: 100px;padding-top: 80px">
+    <section class="container-fluid bg-im3 padingbot padingtop">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -225,7 +225,7 @@
             <div class="row">
                 <div id="desafio" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
                     <div class=" text-center  borde desafiocuenta">
-                        <img id="portadadesafio" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/icons/star.png"?>">
+                        <img id="portadadesafio" class="center-block img-seccion" src="<?php echo base_url()."public/images/icons/star.png"?>">
                         <div class="maintitulo">
                             <h3 id="tdes">Desafío Diario</h3>
                         </div>
@@ -364,11 +364,11 @@
         });
         $("#desafio").on({
             mouseenter: function () {
-                $("#portadadesafio").addClass("borde animated pulse");
+                $("#portadadesafio").addClass(" animated pulse");
                 $("#tdes").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadadesafio").removeClass("borde animated pulse");
+                $("#portadadesafio").removeClass("animated pulse");
                 $("#tdes").css("color", "white");
             }
         });
