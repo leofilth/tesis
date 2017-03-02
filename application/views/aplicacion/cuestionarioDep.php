@@ -11,10 +11,18 @@
             if(in_array($cuestionario,$cuestResp)){?>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <div id="noguardado" class="alert alert-danger text-center">
-                            Este <strong>Cuestionario</strong> ya ha sido respondido.
+                        <div class="instruefecto animated infinite pulse">
+                            <div class="instruccion-morado">
+                                <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Este cuestionario ya ha sido respondido.</h4>
+                            </div>
+                            <div style="float: left;margin-left: 45%;clear: left">
+                                <div class="triangulo-morado"></div>
+                            </div>
                         </div>
-                        <a id='volver' class='btn  btn-cf-submit titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/deporte'?>'>Volver</a>
+                        <figure>
+                            <img class="img-responsive center-block" alt="estudiante1"  src="<?php echo base_url().'public/images/modal/sesion2.png'?>">
+                        </figure>
+                        <a id='volver' class='btn  btn-cuest titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/deporte'?>'>Volver</a>
                     </div>
                 </div>
             <?php }
@@ -132,7 +140,7 @@
                     guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestDep"?>',cuestionario);
                     avance++;
                     actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"cuestDeporte");
-                    $("#guardar").append("<a id='volver' class='btn  btn-info titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/deporte#section2'?>'>Volver</a>");
+                    $("#guardar").append("<a id='volver' class='btn  btn-cuest titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/deporte#section2'?>'>Volver</a>");
                     $("#verificacuestionario").addClass("hidden");
                     var temp1=puntaje+puntosBD;
                     var temp2=puntaje+puntajeLider;

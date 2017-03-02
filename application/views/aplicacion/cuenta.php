@@ -32,7 +32,7 @@
         </div>
     </div>
 </div>
-    <section class="container-fluid bg-im3 padingbot padingtop">
+<section class="container-fluid bg-im3 padingbot padingtop">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -234,7 +234,7 @@
                 </div>
             </div>
         </div>
-    </section>
+</section>
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {

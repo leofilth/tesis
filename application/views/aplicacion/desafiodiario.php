@@ -140,7 +140,7 @@
                 <br>
                 <div class="row">
                     <div class="col-md-12">
-                        <button  name="boton" id="verificacuestionario" class="btn  btn-info titulo4 center-block zoom">
+                        <button  name="boton" id="verificacuestionario" class="btn  btn-cuest titulo4 center-block zoom">
                             Enviar Respuestas
                         </button>
                         <div class="col-md-6 col-md-offset-3" id="guardar">
@@ -152,11 +152,21 @@
     <?php }else{?>
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <div id="noguardado" class="alert alert-danger text-center">
-                    Tu <strong>Desafío Diario</strong> ya ha sido respondido.
-                    Vuelve mañana :D
+                <div class="instruefecto animated infinite pulse">
+                    <div class="instruccion-morado">
+                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">
+                            Tu <strong>Desafío Diario</strong> ya ha sido respondido.
+                            Vuelve mañana.
+                        </h4>
+                    </div>
+                    <div style="float: left;margin-left: 45%;clear: left">
+                        <div class="triangulo-morado"></div>
+                    </div>
                 </div>
-                <a id='volver' class='btn  btn-cf-submit titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/cuenta'?>'>Volver</a>
+                <figure>
+                    <img class="img-responsive center-block" alt="estudiante1"  src="<?php echo base_url().'public/images/modal/sesion2.png'?>">
+                </figure>
+                <a id='volver' class='btn  btn-cuest titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/cuenta'?>'>Volver</a>
             </div>
         </div>
     <?php }?>

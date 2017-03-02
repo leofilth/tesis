@@ -11,7 +11,7 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="nav-link-inicio li-nav efecto"><a href="<?php echo base_url()."aplicacion/cuenta"?>">Inicio</a></li>
+                <li class="nav-link-inicio li-nav efecto"><a href="<?php echo base_url()."aplicacion/cuenta"?>">Volver a Inicio</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown nav-link-cuenta li-nav"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><img height="24px"width="24px" src="<?php

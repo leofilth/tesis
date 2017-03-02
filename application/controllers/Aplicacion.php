@@ -87,7 +87,7 @@ class Aplicacion extends CI_Controller {
 				);
 				$desafio_diario=array(
 					'nick_fk'=>$this->input->post("nick",true),
-					'fecha_cuest'=>"0000-00-00"
+					'fecha_cuest'=>"2012-12-12"
 				);
 				$nick=$this->input->post("nick",true);
 				$consulta=$this->usuarios_model->verifica_nick($nick);

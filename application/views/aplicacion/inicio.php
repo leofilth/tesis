@@ -118,7 +118,7 @@
         </div>
     </div>
 </section>
-<?php include "footer.php"?>
+<?php include "footerinicio.php"?>
 <script>
     $(document).ready(function() {
         $(".img-portada").on({

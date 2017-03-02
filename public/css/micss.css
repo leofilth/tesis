@@ -384,6 +384,22 @@ css cuenta
     background: #008ad1 none repeat scroll 0 0;
     color: #fff;
 }
+.btn-cuest {
+    background: #008ad1 none repeat scroll 0 0;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-family: "Finger Paint";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    padding: 13px 20px;
+    text-decoration: none;
+    transition: all 0.3s ease-out 0s;
+}
+.btn-cuest:hover {
+    color: #fff;
+}
 .footer {
     background: #495052 none repeat scroll 0 0;
     padding-bottom: 80px;
