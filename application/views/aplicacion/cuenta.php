@@ -84,16 +84,16 @@
                         <div class=" text-center borde frutacuenta">
                             <?php if($estadoDiploma->valor_fruta==1){?>
                             <figure>
-                                <img id="portadafruta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada1medalla.png"?>">
+                                <img id="portadafruta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadafrutaverduracompleta.png"?>">
                             </figure>
                             <?php }else{?>
                                 <figure>
-                                    <img id="portadafruta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada1m.png"?>">
+                                    <img id="portadafruta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadafrutaverdura.png"?>">
                                 </figure>
                             <?php }?>
                             <div class="maintitulo">
                                 <h3 id="tfrut">
-                                    Frutas
+                                    Frutas y Verduras
                                     <div class="progress barra">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
                                              aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_fruta+$avance->avance_cuest_fruta)*100)/($totalFrutas+$totalCuestFruta))?>%">
@@ -104,50 +104,50 @@
                                     </div>
                                 </h3>
                             </div>
-                            <a href="<?php echo base_url()."aplicacion/frutas"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                            <a href="<?php echo base_url()."aplicacion/frutasverduras"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
                     <div id="verdura" class="col-md-4 col-sm-6">
                         <div class=" text-center borde  verduracuenta">
-                            <?php if($estadoDiploma->valor_verdura==1){?>
+                            <?php if($estadoDiploma->valor_cereal==1){?>
                                 <figure>
-                                    <img id="portadaverdura" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada2medalla.png"?>">
+                                    <img id="portadacereal" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadacerealcompleta.png"?>">
                                 </figure>
                             <?php }else{?>
                                 <figure>
-                                    <img id="portadaverdura" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada2m.png"?>">
+                                    <img id="portadacereal" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadacereal.png"?>">
                                 </figure>
                             <?php }?>
                             <div class="maintitulo">
                                 <h3 id="tverd">
-                                    Verduras
+                                    Cereales
                                     <div class="progress barra">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                             aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_verdura+$avance->avance_cuest_verdura)*100)/($totalVerduras+$totalCuestVerdura))?>%">
+                                             aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_cereal+$avance->avance_cuest_cereal)*100)/($totalCereales+$totalCuestCereal))?>%">
                                             <span id="avanceVerdura">
-                                                <?php echo round((($avance->avance_verdura+$avance->avance_cuest_verdura)*100)/($totalVerduras+$totalCuestVerdura))."%"?>
+                                                <?php echo round((($avance->avance_cereal+$avance->avance_cuest_cereal)*100)/($totalCereales+$totalCuestCereal))."%"?>
                                             </span>
                                         </div>
                                     </div>
                                 </h3>
                             </div>
-                            <a href="<?php echo base_url()."aplicacion/verduras"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                            <a href="<?php echo base_url()."aplicacion/cereales"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
                     <div id="alimento" class="col-md-4 col-sm-6">
                         <div class="text-center borde  alimentocuenta">
                             <?php if($estadoDiploma->valor_alimento==1){?>
                                 <figure>
-                                    <img id="portadaalimento" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada5medalla.png"?>">
+                                    <img id="portadaalimento" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadacarnehuevocompleta.png"?>">
                                 </figure>
                             <?php }else{?>
                                 <figure>
-                                    <img id="portadaalimento" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada5m.png"?>">
+                                    <img id="portadaalimento" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadacarnehuevo.png"?>">
                                 </figure>
                             <?php }?>
                             <div class="maintitulo">
                                 <h3 id="tali">
-                                    Alimentos
+                                    Carne, Lacteos, Huevos y Legumbres
                                     <div class="progress barra">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
                                              aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_alimento+$avance->avance_cuest_alimento)*100)/($totalAlimentos+$totalCuestAlimento))?>%">
@@ -166,16 +166,16 @@
                         <div class="text-center  borde deportecuenta">
                             <?php if($estadoDiploma->valor_deporte==1){?>
                                 <figure>
-                                    <img id="portadadeporte" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada3medalla.png"?>">
+                                    <img id="portadadeporte" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadadeportecompleta.png"?>">
                                 </figure>
                             <?php }else{?>
                                 <figure>
-                                    <img id="portadadeporte" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada3m.png"?>">
+                                    <img id="portadadeporte" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
                                 </figure>
                             <?php }?>
                             <div class="maintitulo">
                                 <h3 id="tdep">
-                                    Ed. Física
+                                    Ejercicio y Deportes
                                     <div class="progress barra">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
                                              aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_deporte+$avance->avance_cuest_deporte)*100)/($totalDeportes+$totalCuestDeporte))?>%">
@@ -252,7 +252,7 @@
             })
         }
         var avanceFruta=$("#avanceFruta").text();
-        var avanceVerdura=$("#avanceVerdura").text();
+        var avanceCereal=$("#avanceCereal").text();
         var avanceAlimento=$("#avanceAlimento").text();
         var avanceDeporte=$("#avanceDeporte").text();
         var tutorial =<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
@@ -266,9 +266,9 @@
                 guardaSeccionCompletada('<?php echo base_url()."aplicacion/guardaSeccionCompleta"?>', "fruta");
             }
         }
-        if(avanceVerdura==100){
-            if(estadoDiploma.valor_verdura!=1){
-                guardaSeccionCompletada('<?php echo base_url()."aplicacion/guardaSeccionCompleta"?>',"verdura");
+        if(avanceCereal==100){
+            if(estadoDiploma.valor_cereal!=1){
+                guardaSeccionCompletada('<?php echo base_url()."aplicacion/guardaSeccionCompleta"?>',"cereal");
             }
         }
         if(avanceDeporte==100){
@@ -382,7 +382,7 @@
                 "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"
             },
             {
-                "titulo": "<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas, Verduras, Deporte y Alimentos",
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas y Verduras, Cereales, Ejercicio y deportes, aceites y grasas,carnes, lácteos, huevos y legumbres",
                 "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto1.png'?>'>"
             },
             {

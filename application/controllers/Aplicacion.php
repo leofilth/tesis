@@ -49,14 +49,14 @@ class Aplicacion extends CI_Controller {
 					'sexo'=>$this->input->post("sexo",true),
 					'avatar_name_fk'=>"user"
 				);
-				$UserTempCuest=array(
+				/*$UserTempCuest=array(
 					'nick_fk'=>$this->input->post("nick",true),
 					'cuesttemp'=>"cuestionario"
 				);
 				$UserTempReceta=array(
 					'nick_fk'=>$this->input->post("nick",true),
 					'receta'=>"receta"
-				);
+				);*/
 				$tutorial=array(
 					'nick_fk'=>$this->input->post("nick",true),
 					'cuenta'=>'1',
@@ -65,7 +65,8 @@ class Aplicacion extends CI_Controller {
 					'seccion_deporte'=>'1',
 					'seccion_alimento'=>'1',
 					'seccion_cuest'=>'1',
-					'desafio_diario'=>'1'
+					'desafio_diario'=>'1',
+					'desafio_cereal'=>'1'
 				);
 				$avance=array(
 					'nick_fk'=>$this->input->post("nick",true),
@@ -76,7 +77,9 @@ class Aplicacion extends CI_Controller {
 					'avance_cuest_alimento'=>'0',
 					'avance_cuest_deporte'=>'0',
 					'avance_cuest_fruta'=>'0',
-					'avance_cuest_verdura'=>'0'
+					'avance_cuest_verdura'=>'0',
+					'avance_cuest_cereal'=>'0',
+					'avance_cereal'=>'0'
 				);
 				$estado_diploma=array(
 					'nick_fk'=>$this->input->post("nick",true),
@@ -84,6 +87,7 @@ class Aplicacion extends CI_Controller {
 					'valor_verdura'=>'0',
 					'valor_deporte'=>'0',
 					'valor_alimento'=>'0',
+					'valor_cereal'=>'0'
 				);
 				$desafio_diario=array(
 					'nick_fk'=>$this->input->post("nick",true),
@@ -105,8 +109,8 @@ class Aplicacion extends CI_Controller {
 						$this->session->set_flashdata('ControllerMessage','Registro guardado');
 						$this->usuarios_model->agregarEnPuntos($jugador);//agrega usuario en tabla puntos para guardar su puntaje
 						$this->usuarios_model->agregarEnLider($lider);//agrega puntaje en tabla lideres
-						$this->usuarios_model->agregaUserCuestTemp($UserTempCuest);//agrega cuestionario temporal
-						$this->usuarios_model->agregaUserRecetaTemp($UserTempReceta);
+						//$this->usuarios_model->agregaUserCuestTemp($UserTempCuest);//agrega cuestionario temporal
+						//$this->usuarios_model->agregaUserRecetaTemp($UserTempReceta);
 						$this->usuarios_model->agregaTutorial($tutorial);
 						$this->usuarios_model->agregaAvance($avance);
 						$this->usuarios_model->agregaEstadoDiploma($estado_diploma);
@@ -178,12 +182,14 @@ class Aplicacion extends CI_Controller {
 			$preguntasVerdura=$this->usuarios_model->getPreguntasVerduraDesafioDiario();
 			$preguntasDeporte=$this->usuarios_model->getPreguntasDeporteDesafioDiario();
 			$preguntasAlimento=$this->usuarios_model->getPreguntasAlimentoDesafioDiario();
+			$preguntasCereal=$this->usuarios_model->getPreguntasCerealDesafioDiario();
 			$preguntasDesafio=array();
 			$fecha_actual=date("Y-m-d");
 			$largoPregFruta=count($preguntasFruta);
 			$largoPregVerdura=count($preguntasVerdura);
 			$largoPregDeporte=count($preguntasDeporte);
 			$largoPregAlimento=count($preguntasAlimento);
+			$largoPregCereal=count($preguntasCereal);
 			/*
 			 * random de 1 a largo de array para cada array
 			 * */
@@ -191,10 +197,12 @@ class Aplicacion extends CI_Controller {
 			$w=0;
 			$y=0;
 			$z=0;
+			$c=0;
 			$valoresf=array();
 			$valoresv=array();
 			$valoresd=array();
 			$valoresa=array();
+			$valoresc=array();
 			while ($x<2) {//numero de preguntas que obtendra, aqui 2
 				$num_aleatorio = rand(0,$largoPregFruta-1);
 				if (!in_array($num_aleatorio,$valoresf)) {
@@ -227,12 +235,20 @@ class Aplicacion extends CI_Controller {
 					$w++;
 				}
 			}
+			while ($c<2) {//numero de preguntas que obtendra, aqui 2
+				$num_aleatorio = rand(0,$largoPregCereal-1);
+				if (!in_array($num_aleatorio,$valoresc)) {
+					array_push($valoresc,$num_aleatorio);
+					array_push($preguntasDesafio,$preguntasCereal[$num_aleatorio]);
+					$c++;
+				}
+			}
 			/*
 			 * poner preguntas en preguntasDesafio
 			 */
 			$this->layout->view("desafiodiario",compact("datos","preguntasDesafio",
 				"fecha_actual","puntaje","puntajeLider","preguntasFruta","preguntasDeporte","preguntasAlimento",
-				"preguntasVerdura","desafioDatos","tutorial"));
+				"preguntasVerdura","preguntasCereal","desafioDatos","tutorial"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -271,6 +287,12 @@ class Aplicacion extends CI_Controller {
 				);
 				$this->usuarios_model->guardaSeccionCompleta($aGuardar,$this->session_id);
 				break;
+			case "cereal":
+				$aGuardar=array(
+					'valor_cereal'=>1
+				);
+				$this->usuarios_model->guardaSeccionCompleta($aGuardar,$this->session_id);
+				break;
 		}
 
 	}
@@ -280,7 +302,8 @@ class Aplicacion extends CI_Controller {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$estadoDiploma=$this->usuarios_model->getEstadoDiploma($datos->nick);
 			if($estadoDiploma->valor_fruta==1 and $estadoDiploma->valor_verdura==1
-				and $estadoDiploma->valor_alimento==1 and $estadoDiploma->valor_deporte==1){
+				and $estadoDiploma->valor_alimento==1 and $estadoDiploma->valor_deporte==1
+			and $estadoDiploma->valor_cereal==1){
 				/*
              * Crea el pdf para el usuario
              */
@@ -337,13 +360,15 @@ class Aplicacion extends CI_Controller {
 				$totalCuestDeporte=$this->usuarios_model->getTotalCuestDeporte();
 				$totalAlimentos=$this->usuarios_model->getTotalAlimentos();
 				$totalCuestAlimento=$this->usuarios_model->getTotalCuestAlimento();
+				$totalCereales=$this->usuarios_model->getTotalCereales();
+				$totalCuestCereal=$this->usuarios_model->getTotalCuestCereal();
 				/*
 				 * obtener estado_diploma
 				 */
 				$estadoDiploma=$this->usuarios_model->getEstadoDiploma($datos->nick);
 				$this->layout->view('cuenta', compact("datos","tip","puntaje","tutorial","avance",
 					"totalFrutas","totalCuestFruta","totalVerduras","totalCuestVerdura","totalDeportes","totalCuestDeporte",
-					"totalAlimentos","totalCuestAlimento","estadoDiploma"));
+					"totalAlimentos","totalCuestAlimento","estadoDiploma","totalCereales","totalCuestCereal"));
 			} else {
 				redirect(base_url() . 'aplicacion', 301);
 			}
@@ -445,6 +470,13 @@ class Aplicacion extends CI_Controller {
 		);
 		$this->usuarios_model->guardaEstadoTutorial($aGuardar,$this->session_id);
 	}
+	public function guardaEstadoTutorialCereal(){
+		$estado=$this->input->post("valor",true);
+		$aGuardar=array(
+			'seccion_cereal'=>$estado
+		);
+		$this->usuarios_model->guardaEstadoTutorial($aGuardar,$this->session_id);
+	}
 	public function actualizaperfil(){
 		$this->layout->setLayout('template_ajax');
 		$nombre=$this->input->post("valor1",true);
@@ -490,6 +522,12 @@ class Aplicacion extends CI_Controller {
 			);
 			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
 		}
+		if($tipo=="cereal"){
+			$aGuardar=array(
+				'avance_cereal'=>$dato,
+			);
+			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
+		}
 		if($tipo=="cuestFruta"){
 			$aGuardar=array(
 				'avance_cuest_fruta'=>$dato,
@@ -511,6 +549,12 @@ class Aplicacion extends CI_Controller {
 		if($tipo=="cuestDeporte"){
 			$aGuardar=array(
 				'avance_cuest_deporte'=>$dato,
+			);
+			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
+		}
+		if($tipo=="cuestCereal"){
+			$aGuardar=array(
+				'avance_cuest_cereal'=>$dato,
 			);
 			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
 		}
@@ -564,7 +608,7 @@ class Aplicacion extends CI_Controller {
 		);
 		$this->usuarios_model->guardaDeporteUsuario($aGuardar);
 	}
-	public function frutas(){
+	public function frutasverduras(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			/*si es masculino o femenino*/
@@ -576,7 +620,7 @@ class Aplicacion extends CI_Controller {
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$tutorial=$this->usuarios_model->getTutorialUsuario($datos->nick);
 			$avance=$this->usuarios_model->getAvance($datos->nick);
-			$this->layout->view('frutas', compact("datos","tutorial","frutas","cuestionarios","cuestRespondidos",
+			$this->layout->view('frutasverduras', compact("datos","tutorial","frutas","cuestionarios","cuestRespondidos",
 				"tipsFrutas","misfrutas","puntaje","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
@@ -645,6 +689,33 @@ class Aplicacion extends CI_Controller {
 			'id_alimento_fk'=>$idalimento
 		);
 		$this->usuarios_model->guardaAlimentoUsuario($aGuardar);
+	}
+	public function cereales(){
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$cereales=$this->usuarios_model->getCereales();
+			$miscereales=$this->usuarios_model->getCerealUsuario($datos->nick);
+			$cuestionarios=$this->usuarios_model->getCuestionariosCereal();
+			$cuestRespondidos=$this->usuarios_model->getCuestResponCer($datos->nick);
+			$tipsCereales=$this->usuarios_model->getTipCereales();
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$tutorial=$this->usuarios_model->getTutorialUsuario($datos->nick);
+			$avance=$this->usuarios_model->getAvance($datos->nick);
+			$this->layout->view('cereales', compact("datos","tutorial","cereales","cuestionarios","cuestRespondidos"
+				,"tipsCereales","miscereales","puntaje","avance"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	public function guardaCerealUsuario(){
+		$idcereal=$this->input->post("valor",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'nick_fk'=>$nick,
+			'id_cereal_fk'=>$idcereal
+		);
+		$this->usuarios_model->guardaCerealUsuario($aGuardar);
 	}
 
 	/**
@@ -739,7 +810,7 @@ class Aplicacion extends CI_Controller {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
-	public function cuestionarioFrut($id){
+	public function cuestionarioFrutaVerdura($id){
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
@@ -753,7 +824,7 @@ class Aplicacion extends CI_Controller {
 			//$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
 			$preguntasFruta=$this->usuarios_model->getPreguntasFruta($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponFrut($datos->nick);
-			$this->layout->view("cuestionarioFrut",compact("datos","identificador","preguntasFruta","cuestionario",
+			$this->layout->view("cuestionarioFrutaVerdura",compact("datos","identificador","preguntasFruta","cuestionario",
 				"puntaje","puntajeLider","cuestRespondidos","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
@@ -791,6 +862,25 @@ class Aplicacion extends CI_Controller {
 			$preguntasAlimento=$this->usuarios_model->getPreguntasAlimento($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponAli($datos->nick);
 			$this->layout->view("cuestionarioAli",compact("datos","identificador","preguntasAlimento","cuestionario",
+				"puntaje","puntajeLider","cuestRespondidos","avance"));
+		} else {
+			redirect(base_url() . 'aplicacion', 301);
+		}
+	}
+	public function cuestionarioCer($id){
+
+		if (!empty($this->session_id)) {
+			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
+			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
+			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
+			$avance=$this->usuarios_model->getAvance($datos->nick);
+			//$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
+			//$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
+			$identificador=$this->uri->segment(3);
+			$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
+			$preguntasCereal=$this->usuarios_model->getPreguntasCereal($cuestionario);
+			$cuestRespondidos=$this->usuarios_model->getCuestResponCer($datos->nick);
+			$this->layout->view("cuestionarioCer",compact("datos","identificador","preguntasCereal","cuestionario",
 				"puntaje","puntajeLider","cuestRespondidos","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
@@ -835,6 +925,16 @@ class Aplicacion extends CI_Controller {
 			'cuest_id_deporte'=>$cuestionarioId
 		);
 		$this->usuarios_model->guardaCuestRespDepo($aGuardar);
+	}
+	public function guardaCuestCer(){
+		$cuestionarioId=$this->input->post("valor1",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'nick_fk'=>$nick,
+			'cuest_id_cereal'=>$cuestionarioId
+		);
+		$this->usuarios_model->guardaCuestRespCer($aGuardar);
 	}
 	public function guardaPuntaje(){
 		$puntos=$this->input->post("valor",true);

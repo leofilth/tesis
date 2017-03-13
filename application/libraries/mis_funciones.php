@@ -98,6 +98,20 @@ class mis_funciones {
         }
         return $format;
     }
+    function limpiaOcho($var){
+        $aux=$var[0]->cuest_id_cereal;
+        $i=0;
+        $format=array();
+        $format[0]=$aux;
+        foreach($var as $val){
+            if($val->cuest_id_cereal!=$aux){
+                $i++;
+                $aux=$val->cuest_id_cereal;
+                $format[$i]=$val->cuest_id_cereal;
+            }
+        }
+        return $format;
+    }
     function limpiaTuFruta($var)
     {
         $format = array();
@@ -161,6 +175,23 @@ class mis_funciones {
                     $i++;
                     $aux = $val->id_deporte_fk;
                     $format[$i] = $val->id_deporte_fk;
+                }
+            }
+        }
+        return $format;
+    }
+    function limpiaTuCereal($var)
+    {
+        $format = array();
+        if ($var != null) {
+            $aux = $var[0]->id_cereal_fk;
+            $i = 0;
+            $format[0] = $aux;
+            foreach ($var as $val) {
+                if ($val->id_cereal_fk != $aux) {
+                    $i++;
+                    $aux = $val->id_cereal_fk;
+                    $format[$i] = $val->id_cereal_fk;
                 }
             }
         }

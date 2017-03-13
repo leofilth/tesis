@@ -102,7 +102,7 @@
     </div>
     <div class="container animated fadeIn">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
                         if($misdeportes!=null) {
                             $misdeportes_limpio = $this->mis_funciones->limpiaTuDeporte($misdeportes);

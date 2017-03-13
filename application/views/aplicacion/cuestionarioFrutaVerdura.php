@@ -1,9 +1,9 @@
-<?php include "navs/nav_cuest_fruta.php" ?>
+<?php include "navs/nav_cuest_fruta_verdura.php" ?>
 <section class="container-fluid bg-im3 padingtop padingbot">
     <div class="container">
         <header class="titulo1 text-center">Bienvenido a Cuestionarios</header>
         <?php if($cuestRespondidos == null){?>
-            <?php include "cuestionarios/cuestFrut.php"?>
+            <?php include "cuestionarios/cuestFrutaVerdura.php"?>
         <?php }
         else {?>
             <?php
@@ -27,7 +27,7 @@
                 </div>
             <?php }
             else {?>
-                <?php include "cuestionarios/cuestFrut.php"?>
+                <?php include "cuestionarios/cuestFrutaVerdura.php"?>
             <?php }
          }?>
     </div>
@@ -137,7 +137,7 @@
                     guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestFrut"?>',cuestionario);
                     avance++;
                     actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"cuestFruta");
-                    $("#guardar").append("<a id='volver' class='btn  btn-cuest titulo4 center-block zoom' role='button' href='<?php echo base_url().'aplicacion/frutas#section2'?>'>Volver</a>");
+                    $("#guardar").append("<a id='volver' class='btn  btn-cuest titulo4 center-block zoom' role='button' href='<?php echo base_url().'aplicacion/frutasverduras#section2'?>'>Volver</a>");
                     $("#verificacuestionario").addClass("hidden");
                     var temp1=puntaje+puntosBD;
                     var temp2=puntaje+puntajeLider;

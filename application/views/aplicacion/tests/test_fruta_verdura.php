@@ -25,7 +25,7 @@ if($cuestRespondidos!=null) {
             <div class="col-md-3 col-sm-3 col-xs-4">
                 <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
                 <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
-                        <a href="<?php echo base_url() . "aplicacion/cuestionariofrut/".$numero?>">
+                        <a href="<?php echo base_url() . "aplicacion/cuestionariofrutaverdura/".$numero?>">
                             <figure>
                                 <img class="cuestionario center-block img-circle borde zoom cuest tamano-cuest"
                                     id="<?php echo $cuestionario ?>"
@@ -44,7 +44,7 @@ else{?>
         <div class="col-md-3 col-sm-3 col-xs-4">
             <h3 class="titulo4 text-center">Desafío <?php echo $i ?></h3>
             <?php $numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
-            <a href="<?php echo base_url() . "aplicacion/cuestionariofrut/".$numero?>">
+            <a href="<?php echo base_url() . "aplicacion/cuestionariofrutaverdura/".$numero?>">
                 <figure>
                     <img class="cuestionario center-block img-circle borde zoom cuest tamano-cuest"
                         id="<?php echo $cuestionario ?>"

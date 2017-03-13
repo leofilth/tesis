@@ -19,7 +19,7 @@
             <input class="form-control" name="password" type="password" placeholder="Tu contraseña" required>
             <br>
             <br>
-            <button type="submit" name="boton" id="boton" class="btn  btn-cf-submit titulo4 center-block zoom">
+            <button type="submit" name="boton" id="boton" class="btn  btn-cuest titulo4 center-block zoom">
                 <span class="glyphicon glyphicon-log-in"></span>  Iniciar Sesión
             </button>
             <div class="sesion">

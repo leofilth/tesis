@@ -65,7 +65,7 @@
                 <?php }?>
             </div>
             <div class="col-md-3 col-sm-3 col-xs-6">
-                <?php if($estadoDiploma->valor_verdura==1){?>
+                <?php if($estadoDiploma->valor_cereal==1){?>
                     <figure>
                         <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada2medalla.png"?>">
                     </figure>

@@ -82,7 +82,9 @@
             </div>
         </div>
     </div>
-    <?php date_default_timezone_set('America/Argentina/Buenos_Aires');$fechaHoy=date("Y-m-d");
+    <?php date_default_timezone_set("Chile/Continental");
+    $fechaHoy=date("Y-m-d");
+    //echo "La hora en Chile es: " . date ("H:i",time()) . "<br />";
     if($desafioDatos->fecha_cuest != $fechaHoy){?>
         <div class="container cuadradosombracuest">
             <?php
