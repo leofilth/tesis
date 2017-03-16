@@ -110,26 +110,30 @@ css cuenta
     cursor: pointer;
 }
 .frutacuenta{
-    background-color: #6FC191;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+    background-color: #82C250;margin: 20px;border-radius: 10%;padding-top: 10px;padding-bottom: 10px;
 }
-.verduracuenta{
-    background-color: #74CEE4;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+.cerealcuenta{
+    background-color: #EDBF47;margin: 20px;border-radius: 10%;padding-top: 10px;padding-bottom: 10px;
 }
 .alimentocuenta{
-    background-color: #EDBF47;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+    background-color: #EDBF47;margin: 20px;border-radius: 10%;padding-top: 10px;padding-bottom: 10px;
 }
-.recetacuenta{
-    background-color: #E16C6C;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+.acgrasacuenta{
+    background-color: #E16C6C;margin: 20px;border-radius: 10%;padding-top: 10px;padding-bottom: 10px;
 }
 .deportecuenta{
-    background-color: #EC774B;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+    background-color: #74CEE4;margin: 20px;border-radius: 10%;padding-top: 10px;padding-bottom: 10px;
 }
 .noticiacuenta{
-    background-color: #82C250;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+    background-color: #EC774B;margin: 20px;border-radius: 10%;padding-top: 10px;padding-bottom: 10px;
 }
 .desafiocuenta{
-    background-color: #F7CA18;margin: 20px;border-radius: 5px;padding-top: 10px;padding-bottom: 10px;
+    background-color: #F7CA18;margin: 20px;border-radius: 10%;padding-top: 10px;padding-bottom: 10px;
 }
+.diplomacuenta{
+    background-color: #1abc9c;margin: 20px;border-radius: 10%;padding-top: 10px;padding-bottom: 10px;
+}
+
 .barra{
     margin-top: 5px;
     margin-bottom: 0;
@@ -140,11 +144,17 @@ css cuenta
 .maintitulo{
     background-color: #297FB8;
     width: 100%;
+    height: 90px;
+    margin-bottom: 5%;
 }
 .maintitulo h3{
     font-family: 'finger paint';
     color: white;
     padding: 5%;
+    font-size: 20px;
+}
+#tali{
+    font-size: 15px;
 }
 .btn-cuenta{
     box-shadow: 0 4px 0 0 #5c34a3;
@@ -298,7 +308,7 @@ css cuenta
     line-height: 45px;
     padding: 20px;
     box-shadow: 0 4px 0 0 #ce9912;
-    color: #000000;
+    color: #673AB7;
     width: 50px;
     text-align: center;
     border-radius: 100%;
@@ -1419,10 +1429,13 @@ tamaño imagen seccion
 #avanceDeporte{
     color: #673AB7;
 }
-#avanceVerdura{
+#avanceAcGrasa{
     color: #673AB7;
 }
 #avanceAlimento{
+    color: #673AB7;
+}
+#avanceCereal{
     color: #673AB7;
 }
 .margenInicioSesion{
@@ -1434,7 +1447,7 @@ tamaño imagen seccion
     font-size: 14px;
     text-align: center;
 }
-.textofooter{
+.textofooter p{
     font-family: "montserrat";
     font-size: 20px;
     color: white;
@@ -1443,6 +1456,9 @@ tamaño imagen seccion
 }
 .textofooter  a{
     color: white;
+}
+.img-border{
+    border-radius: 30%;
 }
 /* Tooltip */
 .tool + .tooltip > .tooltip-inner {
@@ -1456,8 +1472,14 @@ tamaño imagen seccion
 .tool + .tooltip.top > .tooltip-arrow {
     border-top: 5px solid #EC774B;
 }
-.divisor{
-
+#tcert{
+    padding-top: 12%;
+}
+#tnot{
+    padding-top: 12%;
+}
+#tdes{
+    padding-top: 12%;
 }
 @media screen and (max-width: 1280px){
     .img-seccion{
@@ -1465,6 +1487,10 @@ tamaño imagen seccion
     }
 }
 @media screen and (max-width: 980px){
+    .maintitulo h3{
+        padding: 5%;
+        font-size: 17px;
+    }
     .img-seccion{
         width: 160px;height: 160px;
     }
@@ -1535,6 +1561,9 @@ tamaño imagen seccion
     }
 }
 @media screen and (max-width: 768px){
+    .textofooter p{
+        font-size: 15px;
+    }
     .li-nav a{
         font-size: 16px;
     }
@@ -1545,13 +1574,13 @@ tamaño imagen seccion
         width: auto;
         height: 64px;
     }
-    .bg-im3 {
+    /*.bg-im3 {
         background: url("http://146.83.216.208/public/images/aprender360.png") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-    }
+    }*/
     .tamano{
         width: 100px;
         height: 100px;
@@ -1585,16 +1614,19 @@ tamaño imagen seccion
     }
 }
 @media screen and (max-width: 360px){
+    .textofooter p{
+        font-size: 13px;
+    }
     .margenins{
         left: 0 !important;
     }
-    .bg-im3 {
+    /*.bg-im3 {
         background: url("http://146.83.216.208/wambo/public/images/aprender360.png") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-    }
+    }*/
     .img-seccion{
         width: 100px;height: 100px;
     }

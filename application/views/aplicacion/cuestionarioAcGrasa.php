@@ -1,9 +1,9 @@
-<?php include "navs/nav_cuest_verdura.php" ?>
+<?php include "navs/nav_cuest_aceite_grasa.php" ?>
 <section class="container-fluid bg-im3 padingtop padingbot">
     <div class="container">
         <header class="titulo1 text-center">Bienvenido a Cuestionarios</header>
         <?php if($cuestRespondidos == null){?>
-            <?php include "cuestionarios/cuestVerd.php"?>
+            <?php include "cuestionarios/cuestAceiteGrasa.php"?>
         <?php }
         else {?>
             <?php
@@ -27,7 +27,7 @@
                 </div>
             <?php }
             else {?>
-                <?php include "cuestionarios/cuestVerd.php"?>
+                <?php include "cuestionarios/cuestAceiteGrasa.php"?>
             <?php }
         }?>
     </div>
@@ -59,10 +59,10 @@
                 return resp;
             })
         }
-        var preguntas=<?php echo json_encode($preguntasVerdura,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
+        var preguntas=<?php echo json_encode($preguntasAcGrasa,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
         var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
         var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres
-        var avance=<?php echo $avance->avance_cuest_verdura?>;
+        var avance=<?php echo $avance->avance_cuest_acgrasa?>;
         $(".inputcuest").on({
             click:function() {
                 var i;
@@ -134,10 +134,10 @@
                     $(".infocuest").removeClass("animated infinite pulse");
                     $("#puntajeCuest").addClass("animated infinite pulse");
                     var cuestionario="<?php echo $cuestionario?>";
-                    guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestVerd"?>',cuestionario);
+                    guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestAcGrasa"?>',cuestionario);
                     avance++;
-                    actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"cuestVerdura");
-                    $("#guardar").append("<a id='volver' class='btn  btn-cuest titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/verduras#section2'?>'>Volver</a>");
+                    actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"cuestAcGrasa");
+                    $("#guardar").append("<a id='volver' class='btn  btn-cuest titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/aceitegrasas#section2'?>'>Volver</a>");
                     $("#verificacuestionario").addClass("hidden");
                     var temp1=puntaje+puntosBD;
                     var temp2=puntaje+puntajeLider;

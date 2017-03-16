@@ -15,7 +15,7 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-circle" alt="estudiante1" width="20%" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                    <img class="img-border" alt="estudiante1" width="20%" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
                 <button  type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
             </div>
@@ -52,7 +52,7 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-circle icon-inst" alt="estudiante2" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                    <img class="img-border icon-inst" alt="estudiante2" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                 </figure>
                 <div style="margin-top: 55px">
                     <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <figure>
-                            <img class="img-circle pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                            <img class="img-border pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                         </figure>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
@@ -103,7 +103,7 @@
                     </div>
         </div>
     </div>
-    <div class="container animated rubberBand">
+    <div class="container animated flash">
         <div class="row">
             <div class="col-md-10 col-md-offset-1  col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
@@ -118,7 +118,7 @@
                                                  title="<?php echo $fruta->nombre ?>"
                                                  src="<?php echo base_url() . $fruta->link ?>"
                                                  alt="<?php echo $fruta->nombre ?>"
-                                                 class="img-circle tamano fondofruta rotate center-block fruta borde"
+                                                 class="img-border tamano fondofruta rotate center-block fruta borde"
                                                  data-toggle="modal" data-target="#myModal"
                                                 >
                                         </figure>
@@ -131,7 +131,7 @@
                                                  title="<?php echo $fruta->nombre ?>"
                                                  alt="<?php echo $fruta->nombre ?>"
                                                  src="<?php echo base_url() . $fruta->link ?>"
-                                                 class="img-circle tamano fondofruta rotate center-block gris borde"
+                                                 class="img-border tamano fondofruta rotate center-block gris borde"
                                                  data-toggle="" data-target="">
                                         </figure>
                                     </div>
@@ -147,7 +147,7 @@
                                          title="<?php echo $fruta->nombre ?>"
                                          src="<?php echo base_url() . $fruta->link ?>"
                                          alt="<?php echo $fruta->nombre ?>"
-                                         class="img-circle tamano fondofruta rotate center-block gris borde"
+                                         class="img-border tamano fondofruta rotate center-block gris borde"
                                          data-toggle="" data-target="">
                                 </figure>
                             </div>
@@ -176,7 +176,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
             </div>
         </div>
@@ -213,7 +213,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
             </div>
         </div>
@@ -247,8 +247,6 @@
          * Created by leon on 30-05-2016.
          */
         var puntos = <?php echo $puntaje->puntos?>;
-        var fruta="Elige una Fruta";
-        var desc="Te enseñare sobre ella";
         var titulo, titulo2;
         var avance=<?php echo $avance->avance_fruta?>;
         function guardaEstadoTutorial(ruta,valor){
@@ -273,11 +271,6 @@
                 return resp;
             })
         }
-        /*function guardaCuestTemp(ruta,valor){
-            $.post(ruta,{valor:valor},function(resp){
-                return resp;
-            })
-        }*/
         function guardaFruta(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -360,14 +353,7 @@
                                 }
 
                             });
-                            $("#"+id+".fruta").on("mouseenter",function(){
-                                var texto=$(this).attr("title");
-                                $("#explica").text(texto);
-                            });
-                            $("#"+id+".fruta").on("mouseleave",function(){
-                                $("#explica").text(fruta);
-                                $("#descripcion").text(desc);
-                            });
+
                             $("#"+id).attr("data-toggle","modal");
                             $("#"+id).attr("data-target","#myModal");
                         }
@@ -381,22 +367,9 @@
         var frutas=<?php echo json_encode($frutas,JSON_PRETTY_PRINT)?>;//arreglo con todas las frutas
         var tips=<?php echo json_encode($tipsFrutas,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsFrutas
         $(".fruta").on({
-            mouseenter:function(){
-                var texto=$(this).attr("title");
-                $("#explica").text(texto);
-            },
-            click:cargaEnModal,
-            mouseleave:function(){
-                $("#explica").text(fruta);
-                $("#descripcion").text(desc);
-            }
+
+            click:cargaEnModal
         });
-        /*$(".cuest").on({
-            click:function(){
-                var cuestionario=$(this).attr("id");
-                guardaCuestTemp('<?php echo base_url()."aplicacion/guardaCuestTemp"?>',cuestionario);
-            }
-        });*/
         $(".tip").on({
             click:function(){
                 var titulo=$(this).attr("title");
@@ -414,15 +387,7 @@
         Compra una fruta y verdura
          */
         $(".gris").on({
-            click:compra,
-            mouseenter:function(){
-                titulo2=$(this).attr("title");
-                $("#explica").text(titulo2);
-            },
-            mouseleave:function(){
-                $("#explica").text(fruta);
-                $("#descripcion").text(desc);
-            }
+            click:compra
         });
         /**
         fin compra fruta y verdura

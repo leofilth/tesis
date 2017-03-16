@@ -22,7 +22,7 @@
     <?php
     //para hacer name con nombre unico usando el id de la bd
     $num=1;
-    foreach($preguntasAlimento as $pregunta){
+    foreach($preguntasAcGrasa as $pregunta){
         ?>
         <div class="row" style="margin-bottom: 15px">
             <div class="col-md-6 col-md-offset-1">

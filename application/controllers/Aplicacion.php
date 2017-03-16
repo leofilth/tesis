@@ -61,30 +61,30 @@ class Aplicacion extends CI_Controller {
 					'nick_fk'=>$this->input->post("nick",true),
 					'cuenta'=>'1',
 					'seccion_fruta'=>'1',
-					'seccion_verdura'=>'1',
+					'seccion_acgrasa'=>'1',
 					'seccion_deporte'=>'1',
 					'seccion_alimento'=>'1',
 					'seccion_cuest'=>'1',
 					'desafio_diario'=>'1',
-					'desafio_cereal'=>'1'
+					'seccion_cereal'=>'1'
 				);
 				$avance=array(
 					'nick_fk'=>$this->input->post("nick",true),
 					'avance_fruta'=>'0',
-					'avance_verdura'=>'0',
+					'avance_acgrasa'=>'0',
 					'avance_deporte'=>'0',
 					'avance_alimento'=>'0',
 					'avance_cuest_alimento'=>'0',
 					'avance_cuest_deporte'=>'0',
 					'avance_cuest_fruta'=>'0',
-					'avance_cuest_verdura'=>'0',
+					'avance_cuest_acgrasa'=>'0',
 					'avance_cuest_cereal'=>'0',
 					'avance_cereal'=>'0'
 				);
 				$estado_diploma=array(
 					'nick_fk'=>$this->input->post("nick",true),
 					'valor_fruta'=>'0',
-					'valor_verdura'=>'0',
+					'valor_acgrasa'=>'0',
 					'valor_deporte'=>'0',
 					'valor_alimento'=>'0',
 					'valor_cereal'=>'0'
@@ -179,14 +179,14 @@ class Aplicacion extends CI_Controller {
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
 			$preguntasFruta=$this->usuarios_model->getPreguntasFrutaDesafioDiario();
-			$preguntasVerdura=$this->usuarios_model->getPreguntasVerduraDesafioDiario();
+			$preguntasAcGrasa=$this->usuarios_model->getPreguntasAcGrasaDesafioDiario();
 			$preguntasDeporte=$this->usuarios_model->getPreguntasDeporteDesafioDiario();
 			$preguntasAlimento=$this->usuarios_model->getPreguntasAlimentoDesafioDiario();
 			$preguntasCereal=$this->usuarios_model->getPreguntasCerealDesafioDiario();
 			$preguntasDesafio=array();
 			$fecha_actual=date("Y-m-d");
 			$largoPregFruta=count($preguntasFruta);
-			$largoPregVerdura=count($preguntasVerdura);
+			$largoPregAcGrasa=count($preguntasAcGrasa);
 			$largoPregDeporte=count($preguntasDeporte);
 			$largoPregAlimento=count($preguntasAlimento);
 			$largoPregCereal=count($preguntasCereal);
@@ -199,7 +199,7 @@ class Aplicacion extends CI_Controller {
 			$z=0;
 			$c=0;
 			$valoresf=array();
-			$valoresv=array();
+			$valoresag=array();
 			$valoresd=array();
 			$valoresa=array();
 			$valoresc=array();
@@ -212,10 +212,10 @@ class Aplicacion extends CI_Controller {
 				}
 			}
 			while ($y<2) {//numero de preguntas que obtendra, aqui 2
-				$num_aleatorio = rand(0,$largoPregVerdura-1);
-				if (!in_array($num_aleatorio,$valoresv)) {
-					array_push($valoresv,$num_aleatorio);
-					array_push($preguntasDesafio,$preguntasVerdura[$num_aleatorio]);
+				$num_aleatorio = rand(0,$largoPregAcGrasa-1);
+				if (!in_array($num_aleatorio,$valoresag)) {
+					array_push($valoresag,$num_aleatorio);
+					array_push($preguntasDesafio,$preguntasAcGrasa[$num_aleatorio]);
 					$y++;
 				}
 			}
@@ -248,7 +248,7 @@ class Aplicacion extends CI_Controller {
 			 */
 			$this->layout->view("desafiodiario",compact("datos","preguntasDesafio",
 				"fecha_actual","puntaje","puntajeLider","preguntasFruta","preguntasDeporte","preguntasAlimento",
-				"preguntasVerdura","preguntasCereal","desafioDatos","tutorial"));
+				"preguntasAcGrasa","preguntasCereal","desafioDatos","tutorial"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -269,9 +269,9 @@ class Aplicacion extends CI_Controller {
 				);
 				$this->usuarios_model->guardaSeccionCompleta($aGuardar,$this->session_id);
 				break;
-			case "verdura":
+			case "acgrasa":
 				$aGuardar=array(
-					'valor_verdura'=>1
+					'valor_acgrasa'=>1
 				);
 				$this->usuarios_model->guardaSeccionCompleta($aGuardar,$this->session_id);
 				break;
@@ -301,7 +301,7 @@ class Aplicacion extends CI_Controller {
 			$this->load->library('fpdf_gen');
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$estadoDiploma=$this->usuarios_model->getEstadoDiploma($datos->nick);
-			if($estadoDiploma->valor_fruta==1 and $estadoDiploma->valor_verdura==1
+			if($estadoDiploma->valor_fruta==1 and $estadoDiploma->valor_acgrasa==1
 				and $estadoDiploma->valor_alimento==1 and $estadoDiploma->valor_deporte==1
 			and $estadoDiploma->valor_cereal==1){
 				/*
@@ -354,8 +354,8 @@ class Aplicacion extends CI_Controller {
 				$avance=$this->usuarios_model->getAvance($datos->nick);
 				$totalFrutas=$this->usuarios_model->getTotalFrutas();
 				$totalCuestFruta=$this->usuarios_model->getTotalCuestFruta();
-				$totalVerduras=$this->usuarios_model->getTotalVerduras();
-				$totalCuestVerdura=$this->usuarios_model->getTotalCuestVerdura();
+				$totalAcGrasa=$this->usuarios_model->getTotalAcGrasa();
+				$totalCuestAcGrasa=$this->usuarios_model->getTotalCuestAcGrasa();
 				$totalDeportes=$this->usuarios_model->getTotalDeportes();
 				$totalCuestDeporte=$this->usuarios_model->getTotalCuestDeporte();
 				$totalAlimentos=$this->usuarios_model->getTotalAlimentos();
@@ -367,7 +367,7 @@ class Aplicacion extends CI_Controller {
 				 */
 				$estadoDiploma=$this->usuarios_model->getEstadoDiploma($datos->nick);
 				$this->layout->view('cuenta', compact("datos","tip","puntaje","tutorial","avance",
-					"totalFrutas","totalCuestFruta","totalVerduras","totalCuestVerdura","totalDeportes","totalCuestDeporte",
+					"totalFrutas","totalCuestFruta","totalAcGrasa","totalCuestAcGrasa","totalDeportes","totalCuestDeporte",
 					"totalAlimentos","totalCuestAlimento","estadoDiploma","totalCereales","totalCuestCereal"));
 			} else {
 				redirect(base_url() . 'aplicacion', 301);
@@ -449,10 +449,10 @@ class Aplicacion extends CI_Controller {
 		);
 		$this->usuarios_model->guardaEstadoTutorial($aGuardar,$this->session_id);
 	}
-	public function guardaEstadoTutorialVerdura(){
+	public function guardaEstadoTutorialAcGrasa(){
 		$estado=$this->input->post("valor",true);
 		$aGuardar=array(
-			'seccion_verdura'=>$estado
+			'seccion_acgrasa'=>$estado
 		);
 		$this->usuarios_model->guardaEstadoTutorial($aGuardar,$this->session_id);
 	}
@@ -504,9 +504,9 @@ class Aplicacion extends CI_Controller {
 			);
 			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
 		}
-		if($tipo=="verdura"){
+		if($tipo=="acgrasa"){
 			$aGuardar=array(
-				'avance_verdura'=>$dato,
+				'avance_acgrasa'=>$dato,
 			);
 			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
 		}
@@ -534,9 +534,9 @@ class Aplicacion extends CI_Controller {
 			);
 			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
 		}
-		if($tipo=="cuestVerdura"){
+		if($tipo=="cuestAcGrasa"){
 			$aGuardar=array(
-				'avance_cuest_verdura'=>$dato,
+				'avance_cuest_acgrasa'=>$dato,
 			);
 			$this->usuarios_model->actualizaAvance($aGuardar,$datos->nick);
 		}
@@ -636,32 +636,32 @@ class Aplicacion extends CI_Controller {
 		);
 		$this->usuarios_model->guardaFrutaUsuario($aGuardar);
 	}
-	public function verduras(){
+	public function aceiteGrasas(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$verduras=$this->usuarios_model->getVerduras();
-			$misverduras=$this->usuarios_model->getVerduraUsuario($datos->nick);
-			$cuestionarios=$this->usuarios_model->getCuestionariosVerdura();
-			$cuestRespondidos=$this->usuarios_model->getCuestResponVerd($datos->nick);
-			$tipsVerduras=$this->usuarios_model->getTipVerduras();
+			$acGrasas=$this->usuarios_model->getAcGrasas();
+			$misAcGrasas=$this->usuarios_model->getAcGrasaUsuario($datos->nick);
+			$cuestionarios=$this->usuarios_model->getCuestionariosAcGrasa();
+			$cuestRespondidos=$this->usuarios_model->getCuestResponAcGrasa($datos->nick);
+			$tipsAcGrasas=$this->usuarios_model->getTipAcGrasa();
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$tutorial=$this->usuarios_model->getTutorialUsuario($datos->nick);
 			$avance=$this->usuarios_model->getAvance($datos->nick);
-			$this->layout->view('verduras', compact("datos","tutorial","verduras","cuestionarios","cuestRespondidos"
-				,"tipsVerduras","misverduras","puntaje","avance"));
+			$this->layout->view('aceitegrasas', compact("datos","tutorial","acGrasas","cuestionarios","cuestRespondidos"
+				,"tipsAcGrasas","misAcGrasas","puntaje","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
-	public function guardaVerduraUsuario(){
-		$idverdura=$this->input->post("valor",true);
+	public function guardaAcGrasaUsuario(){
+		$idAcGrasa=$this->input->post("valor",true);
 		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
 		$nick=$datos->nick;
 		$aGuardar=array(
 			'nick_fk'=>$nick,
-			'id_verdura_fk'=>$idverdura
+			'id_acgrasa_fk'=>$idAcGrasa
 		);
-		$this->usuarios_model->guardaVerduraUsuario($aGuardar);
+		$this->usuarios_model->guardaAcGrasaUsuario($aGuardar);
 	}
 	public function alimentos(){
 		if (!empty($this->session_id)) {
@@ -791,7 +791,7 @@ class Aplicacion extends CI_Controller {
 		$this->usuarios_model->guardaCuestTemp($aGuardar,$datos->nick);
 
 	}*/
-	public function cuestionarioVerd($id){
+	public function cuestionarioAcGrasa($id){
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
@@ -802,9 +802,9 @@ class Aplicacion extends CI_Controller {
 			$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
 			//$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
 			//$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
-			$preguntasVerdura=$this->usuarios_model->getPreguntasVerdura($cuestionario);
-			$cuestRespondidos=$this->usuarios_model->getCuestResponVerd($datos->nick);
-			$this->layout->view("cuestionarioVerd",compact("datos","identificador","preguntasVerdura","cuestionario",
+			$preguntasAcGrasa=$this->usuarios_model->getPreguntasAcGrasa($cuestionario);
+			$cuestRespondidos=$this->usuarios_model->getCuestResponAcGrasa($datos->nick);
+			$this->layout->view("cuestionarioAcgrasa",compact("datos","identificador","preguntasAcGrasa","cuestionario",
 				"puntaje","puntajeLider","cuestRespondidos","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
@@ -886,15 +886,15 @@ class Aplicacion extends CI_Controller {
 			redirect(base_url() . 'aplicacion', 301);
 		}
 	}
-	public function guardaCuestVerd(){
+	public function guardaCuestAcGrasa(){
 		$cuestionarioId=$this->input->post("valor1",true);
 		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
 		$nick=$datos->nick;
 		$aGuardar=array(
 			'nick_fk'=>$nick,
-			'cuest_id_verdura'=>$cuestionarioId
+			'cuest_id_acgrasa'=>$cuestionarioId
 		);
-		$this->usuarios_model->guardaCuestRespVerd($aGuardar);
+		$this->usuarios_model->guardaCuestRespAcGrasa($aGuardar);
 	}
 	public function guardaCuestFrut(){
 		$cuestionarioId=$this->input->post("valor1",true);

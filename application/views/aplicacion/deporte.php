@@ -15,7 +15,7 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-circle" alt="estudiante2" width="20%" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                    <img class="img-border" alt="estudiante2" width="20%" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                 </figure>
                 <button type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
             </div>
@@ -52,7 +52,7 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-circle icon-inst" alt="estudiante2" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                    <img class="img-border icon-inst" alt="estudiante2" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                 </figure>
                 <div style="margin-top: 55px">
                     <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
@@ -82,7 +82,7 @@
                                 <div class="triangulo-morado"></div>
                             </div>
                         </div>
-                        <img class="img-circle pull-left icon-inst" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                        <img class="img-border pull-left icon-inst" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="animated infinite bounce">
@@ -100,7 +100,7 @@
                     </div>
                 </div>
     </div>
-    <div class="container animated fadeIn">
+    <div class="container animated flash">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
@@ -115,7 +115,7 @@
                                                  title="<?php echo $deporte->nombre ?>"
                                                  alt="<?php echo $deporte->nombre ?>"
                                                  src="<?php echo base_url() . $deporte->link ?>"
-                                                 class="img-circle tamano fondofruta rotate center-block deporte borde"
+                                                 class="img-border tamano fondofruta rotate center-block deporte borde"
                                                  data-toggle="modal" data-target="#myModal">
                                         </figure>
                                     </div>
@@ -127,7 +127,7 @@
                                                  title="<?php echo $deporte->nombre ?>"
                                                  src="<?php echo base_url() . $deporte->link ?>"
                                                  alt="<?php echo $deporte->nombre ?>"
-                                                 class="img-circle tamano fondofruta rotate center-block gris borde"
+                                                 class="img-border tamano fondofruta rotate center-block gris borde"
                                                  data-toggle="" data-target="">
                                         </figure>
                                     </div>
@@ -143,7 +143,7 @@
                                              title="<?php echo $deporte->nombre ?>"
                                              src="<?php echo base_url() . $deporte->link ?>"
                                              alt="<?php echo $deporte->nombre ?>"
-                                             class="img-circle tamano fondofruta rotate center-block gris borde"
+                                             class="img-border tamano fondofruta rotate center-block gris borde"
                                              data-toggle="" data-target="">
                                     </figure>
                                 </div>
@@ -172,7 +172,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left icon-inst" alt="estudiante2" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante2" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                 </figure>
             </div>
         </div>
@@ -211,7 +211,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left icon-inst" alt="estudiante2" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante2" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                 </figure>
             </div>
         </div>
@@ -245,8 +245,6 @@
          * Created by leon on 30-05-2016.
          */
         var puntos = <?php echo $puntaje->puntos?>;
-        var deporte="Elige un Deporte o actividad";
-        var desc="Te enseñare sobre ella";
         var titulo, titulo2;
         var avance=<?php echo $avance->avance_deporte?>;
         function guardaEstadoTutorial(ruta,valor){
@@ -271,11 +269,6 @@
                 return resp;
             })
         }
-        /*function guardaCuestTemp(ruta,valor){
-            $.post(ruta,{valor:valor},function(resp){
-                return resp;
-            })
-        }*/
         function guardaDeporte(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -343,14 +336,6 @@
                                 }
 
                             });
-                            $("#" + id + ".deporte").on("mouseenter", function () {
-                                var texto = $(this).attr("title");
-                                $("#explica").text(texto);
-                            });
-                            $("#" + id + ".deporte").on("mouseleave", function () {
-                                $("#explica").text(fruta);
-                                $("#descripcion").text(desc);
-                            });
                             $("#" + id).attr("data-toggle", "modal");
                             $("#" + id).attr("data-target", "#myModal");
                         }
@@ -364,10 +349,6 @@
         var deportes=<?php echo json_encode($deportes,JSON_PRETTY_PRINT)?>;//arreglo con todas las deportes
         var tips=<?php echo json_encode($tipsDeportes,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsDeportes
         $(".deporte").on({
-            mouseenter:function(){
-                var texto=$(this).attr("title");
-                $("#explica").text(texto);
-            },
             click:function(){
                 titulo=$(this).attr("title");
                 var link=$(this).attr("src");
@@ -383,18 +364,8 @@
                         $("#modal-categoria").text(deportes[i].categoria);
                     }
                 }
-            },
-            mouseleave:function(){
-                $("#explica").text(deporte);
-                $("#descripcion").text(desc);
             }
         });
-        /*$(".cuest").on({
-            click:function(){
-                var cuestionario=$(this).attr("id");
-                guardaCuestTemp('<?php echo base_url()."aplicacion/guardaCuestTemp"?>',cuestionario);
-            }
-        });*/
         $(".tip").on({
             click:function(){
                 var titulo=$(this).attr("title");
@@ -411,15 +382,7 @@
          Compra un deporte
          */
         $(".gris").on({
-            click:compra,
-            mouseenter:function(){
-                titulo2=$(this).attr("title");
-                $("#explica").text(titulo2);
-            },
-            mouseleave:function(){
-                $("#explica").text(deporte);
-                $("#descripcion").text(desc);
-            }
+            click:compra
         });
         /*
          fin compra fruta

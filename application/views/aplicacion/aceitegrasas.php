@@ -1,5 +1,5 @@
-<?php include "navs/nav_verduras.php"?>
-<?php include "modal/modal_verdura.php" ?>
+<?php include "navs/nav_aceite_grasa.php" ?>
+<?php include "modal/modal_aceite_grasa.php" ?>
 <!-- Modal Tip-->
 <div class="modal animated zoomInDown" id="modaltip" role="dialog">
     <div class="modal-dialog">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <figure>
-                            <img class="img-circle pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                            <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
                         </figure>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
@@ -102,51 +102,51 @@
                 </div>
             </div>
         </div>
-    <div class="container animated fadeIn">
+    <div class="container animated flash">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
-                        if($misverduras!=null) {
-                            $misverduras_limpio = $this->mis_funciones->limpiaTuVerdura($misverduras);
-                            foreach ($verduras as $verdura) {
-                                if (in_array($verdura->id, $misverduras_limpio)) {
+                        if($misAcGrasas!=null) {
+                            $misAcGrasa_limpio = $this->mis_funciones->limpiaTuAcGrasa($misAcGrasas);
+                            foreach ($acGrasas as $aceiteGrasa) {
+                                if (in_array($aceiteGrasa->id, $misAcGrasa_limpio)) {
                                     ?>
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                        <figure class="tool" data-toggle="tooltip" title="<?php echo $verdura->nombre ?>">
-                                            <img id="<?php echo $verdura->id ?>"
-                                                 title="<?php echo $verdura->nombre ?>"
-                                                 src="<?php echo base_url() . $verdura->link ?>"
-                                                 class="img-circle tamano fondofruta rotate center-block verdura borde"
+                                        <figure class="tool" data-toggle="tooltip" title="<?php echo $aceiteGrasa->nombre ?>">
+                                            <img id="<?php echo $aceiteGrasa->id ?>"
+                                                 title="<?php echo $aceiteGrasa->nombre ?>"
+                                                 src="<?php echo base_url() . $aceiteGrasa->link ?>"
+                                                 class="img-border tamano fondofruta rotate center-block verdura borde"
                                                  data-toggle="modal" data-target="#myModal"
-                                                alt="<?php echo "imagen".$verdura->nombre ?>">
+                                                alt="<?php echo "imagen".$aceiteGrasa->nombre ?>">
                                         </figure>
                                     </div>
                                 <?php } else {
                                     ?>
                                     <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                       <figure class="tool" data-toggle="tooltip" title="<?php echo $verdura->nombre ?>">
-                                           <img id="<?php echo $verdura->id ?>"
-                                                title="<?php echo $verdura->nombre ?>"
-                                                src="<?php echo base_url() . $verdura->link ?>"
-                                                class="img-circle tamano fondofruta rotate center-block gris borde"
+                                       <figure class="tool" data-toggle="tooltip" title="<?php echo $aceiteGrasa->nombre ?>">
+                                           <img id="<?php echo $aceiteGrasa->id ?>"
+                                                title="<?php echo $aceiteGrasa->nombre ?>"
+                                                src="<?php echo base_url() . $aceiteGrasa->link ?>"
+                                                class="img-border tamano fondofruta rotate center-block gris borde"
                                                 data-toggle="" data-target=""
-                                               alt="<?php echo "imagen".$verdura->nombre ?>">
+                                               alt="<?php echo "imagen".$aceiteGrasa->nombre ?>">
                                        </figure>
                                     </div>
                                 <?php }
                             }
                         }
                         else{
-                            foreach ($verduras as $verdura) {
+                            foreach ($acGrasas as $aceiteGrasa) {
                                 ?>
                                 <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
-                                    <figure class="tool" data-toggle="tooltip" title="<?php echo $verdura->nombre ?>">
-                                        <img id="<?php echo $verdura->id ?>"
-                                             title="<?php echo $verdura->nombre ?>"
-                                             src="<?php echo base_url() . $verdura->link ?>"
-                                             class="img-circle tamano fondofruta rotate center-block gris borde"
+                                    <figure class="tool" data-toggle="tooltip" title="<?php echo $aceiteGrasa->nombre ?>">
+                                        <img id="<?php echo $aceiteGrasa->id ?>"
+                                             title="<?php echo $aceiteGrasa->nombre ?>"
+                                             src="<?php echo base_url() . $aceiteGrasa->link ?>"
+                                             class="img-border tamano fondofruta rotate center-block gris borde"
                                              data-toggle="" data-target=""
-                                            alt="<?php echo "imagen".$verdura->nombre ?>">
+                                            alt="<?php echo "imagen".$aceiteGrasa->nombre ?>">
                                     </figure>
                                 </div>
                             <?php }
@@ -174,7 +174,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
                 </figure>
             </div>
         </div>
@@ -183,7 +183,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="row">
-                <?php include "tests/testverdura.php"?>
+                <?php include "tests/test_aceite_grasa.php"?>
                 </div>
             </div>
         </div>
@@ -211,7 +211,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
                 </figure>
             </div>
         </div>
@@ -222,11 +222,11 @@
                 <?php
                 $i=0;
                 $colores=array("verde","rosado","celeste","naranjo","rojo");
-                foreach ($tipsVerduras as $tipverdura){
+                foreach ($tipsAcGrasas as $tipAcGrasa){
                     ?>
                     <div class="col-md-3 col-xs-6 col-sm-4 alturatip">
-                        <div class="tip-<?php echo $colores[$i]?> tip zoom animated infinite pulse borde" title="<?php echo $tipverdura->nombre?>" data-toggle="modal" data-target="#modaltip">
-                            <div><h1 class="titulo-tip"><?php echo $tipverdura->nombre?></h1></div><div><i class="glyphicon glyphicon-leaf hoja"></i></div>
+                        <div class="tip-<?php echo $colores[$i]?> tip zoom animated infinite pulse borde" title="<?php echo $tipAcGrasa->nombre?>" data-toggle="modal" data-target="#modaltip">
+                            <div><h1 class="titulo-tip"><?php echo $tipAcGrasa->nombre?></h1></div><div><i class="glyphicon glyphicon-leaf hoja"></i></div>
                         </div>
                     </div>
                     <?php $i++;
@@ -245,21 +245,19 @@
          * Created by leon on 30-05-2016.
          */
         var puntos = <?php echo $puntaje->puntos?>;
-        var verdura="Elige una Verdura";
-        var desc="Te enseñare sobre ella";
         var titulo, titulo2;
-        var avance=<?php echo $avance->avance_verdura?>;
+        var avance=<?php echo $avance->avance_acgrasa?>;
         function guardaEstadoTutorial(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
             })
         }
         var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
-        var mostrar=tutorial.seccion_verdura;
+        var mostrar=tutorial.seccion_acgrasa;
         $("#mostrarmodal").click(function(){
             mostrar=0;
             //guarda en bd
-            guardaEstadoTutorial('<?php echo base_url()."aplicacion/guardaEstadoTutorialVerdura"?>',mostrar);
+            guardaEstadoTutorial('<?php echo base_url()."aplicacion/guardaEstadoTutorialAcGrasa"?>',mostrar);
         });
         $(window).load(function(){
             if(mostrar==1){
@@ -271,12 +269,7 @@
                 return resp;
             })
         }
-        /*function guardaCuestTemp(ruta,valor){
-            $.post(ruta,{valor:valor},function(resp){
-                return resp;
-            })
-        }*/
-        function guardaVerdura(ruta,valor){
+        function guardaAcGrasa(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
             })
@@ -320,36 +313,28 @@
                             $("#" + id + ".gris").off();
                             $("#" + id).removeClass("gris");//quita color gris de la imagen
                             $("#" + id).off("click", compra);//quita evento compra
-                            guardaVerdura('<?php echo base_url()."aplicacion/guardaVerduraUsuario"?>', id);
+                            guardaAcGrasa('<?php echo base_url()."aplicacion/guardaAcGrasaUsuario"?>', id);
                             guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>', puntos);
                             avance++;
-                            actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"verdura");
+                            actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"acgrasa");
                             //agrega clase verdura para ver en modal
-                            $("#" + id).addClass("verdura");
-                            $("#" + id + ".verdura").on("click", function () {
+                            $("#" + id).addClass("acgrasa");
+                            $("#" + id + ".acgrasa").on("click", function () {
                                 titulo = $(this).attr("title");
                                 var link = $(this).attr("src");
                                 var i;
-                                for (i = 0; i < verduras.length; i++) {
-                                    if (verduras[i].nombre == titulo) {
-                                        $("#modal-descripcion").html(verduras[i].descripcion);
+                                for (i = 0; i < acgrasas.length; i++) {
+                                    if (acgrasas[i].nombre == titulo) {
+                                        $("#modal-descripcion").html(acgrasas[i].descripcion);
                                         $("#modal-title").text(titulo);
                                         $("#modalimg").attr("src", link);
-                                        $("#modal-consumo").text(verduras[i].consumo);
-                                        $("#modal-saludable").text(verduras[i].saludable);
-                                        $("#modal-beneficios").html(verduras[i].beneficios);
-                                        $("#modal-categoria").text(verduras[i].categoria);
+                                        $("#modal-consumo").text(acgrasas[i].consumo);
+                                        $("#modal-saludable").text(acgrasas[i].saludable);
+                                        $("#modal-beneficios").html(acgrasas[i].beneficios);
+                                        $("#modal-categoria").text(acgrasas[i].categoria);
                                     }
                                 }
 
-                            });
-                            $("#" + id + ".verdura").on("mouseenter", function () {
-                                var texto = $(this).attr("title");
-                                $("#explica").text(texto);
-                            });
-                            $("#" + id + ".verdura").on("mouseleave", function () {
-                                $("#explica").text(fruta);
-                                $("#descripcion").text(desc);
                             });
                             $("#" + id).attr("data-toggle", "modal");
                             $("#" + id).attr("data-target", "#myModal");
@@ -361,32 +346,25 @@
                 });
             }
         }
-        var verduras=<?php echo json_encode($verduras,JSON_PRETTY_PRINT)?>;//arreglo con todas las verduras
-        var tips=<?php echo json_encode($tipsVerduras,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsVerduras
-        $(".verdura").on({
-            mouseenter:function(){
-                var texto=$(this).attr("title");
-                $("#explica").text(texto);
-            },
+        var acgrasas=<?php echo json_encode($acGrasas,JSON_PRETTY_PRINT)?>;//arreglo con todas las verduras
+        var tips=<?php echo json_encode($tipsAcGrasas,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsVerduras
+        $(".acgrasa").on({
+
             click:function(){
                 titulo=$(this).attr("title");
                 var link=$(this).attr("src");
                 var i;
-                for(i=0;i<verduras.length;i++){
-                    if(verduras[i].nombre == titulo){
-                        $("#modal-descripcion").html(verduras[i].descripcion);
+                for(i=0;i<acgrasas.length;i++){
+                    if(acgrasas[i].nombre == titulo){
+                        $("#modal-descripcion").html(acgrasas[i].descripcion);
                         $("#modal-title").text(titulo);
                         $("#modalimg").attr("src",link);
-                        $("#modal-consumo").text(verduras[i].consumo);
-                        $("#modal-saludable").text(verduras[i].saludable);
-                        $("#modal-beneficios").html(verduras[i].beneficios);
-                        $("#modal-categoria").text(verduras[i].categoria);
+                        $("#modal-consumo").text(acgrasas[i].consumo);
+                        $("#modal-saludable").text(acgrasas[i].saludable);
+                        $("#modal-beneficios").html(acgrasas[i].beneficios);
+                        $("#modal-categoria").text(acgrasas[i].categoria);
                     }
                 }
-            },
-            mouseleave:function(){
-                $("#explica").text(verdura);
-                $("#descripcion").text(desc);
             }
         });
         /*$(".cuest").on({
@@ -411,15 +389,7 @@
          Compra una fruta
          */
         $(".gris").on({
-            click:compra,
-            mouseenter:function(){
-                titulo2=$(this).attr("title");
-                $("#explica").text(titulo2);
-            },
-            mouseleave:function(){
-                $("#explica").text(verdura);
-                $("#descripcion").text(desc);
-            }
+            click:compra
         });
         /*
          fin compra fruta
@@ -431,14 +401,14 @@
         var instrucciones=[
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Click en siguiente para ayuda",
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Verduras",
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Aceite y Grasas",
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
                 "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu verdura esta se desbloquea cambiando de color",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutoverdura.png'?>'>"}
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutoaceitegrasa.png'?>'>"}
         ];
         var contador=1;
         $("#instrumodal").on({

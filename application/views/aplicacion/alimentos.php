@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <figure>
-                            <img class="img-circle pull-left icon-inst" alt="estudiante4" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                            <img class="img-border pull-left icon-inst" alt="estudiante4" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
                         </figure>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
@@ -100,7 +100,7 @@
                     </div>
             </div>
         </div>
-    <div class="container animated bounceIn">
+    <div class="container animated flash">
         <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
@@ -115,7 +115,7 @@
                                                  title="<?php echo $alimento->nombre ?>"
                                                  src="<?php echo base_url() . $alimento->link ?>"
                                                  alt="<?php echo $alimento->nombre ?>"
-                                                 class="img-circle tamano fondofruta rotate center-block alimento borde"
+                                                 class="img-border tamano fondofruta rotate center-block alimento borde"
                                                  data-toggle="modal" data-target="#myModal">
                                         </figure>
                                     </div>
@@ -127,7 +127,7 @@
                                                  title="<?php echo $alimento->nombre ?>"
                                                  src="<?php echo base_url() . $alimento->link ?>"
                                                  alt="<?php echo $alimento->nombre ?>"
-                                                 class="img-circle tamano fondofruta rotate center-block gris borde"
+                                                 class="img-border tamano fondofruta rotate center-block gris borde"
                                                  data-toggle="" data-target="">
                                         </figure>
                                     </div>
@@ -143,7 +143,7 @@
                                              title="<?php echo $alimento->nombre ?>"
                                              src="<?php echo base_url() . $alimento->link ?>"
                                              alt="<?php echo $alimento->nombre ?>"
-                                             class="img-circle tamano fondofruta rotate center-block gris borde"
+                                             class="img-border tamano fondofruta rotate center-block gris borde"
                                              data-toggle="" data-target="">
                                     </figure>
                                 </div>
@@ -172,7 +172,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left icon-inst" alt="estudiante4"style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante4"style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
                 </figure>
             </div>
         </div>
@@ -209,7 +209,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left icon-inst" alt="estudiante4" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante4" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
                 </figure>
             </div>
         </div>
@@ -243,8 +243,6 @@
          * Created by leon on 30-05-2016.
          */
         var puntos = <?php echo $puntaje->puntos?>;
-        var alimento="Elige un alimento";
-        var desc="Te enseñare sobre el";
         var titulo, titulo2;
         var avance=<?php echo $avance->avance_alimento?>;
         function guardaEstadoTutorial(ruta,valor){
@@ -269,11 +267,6 @@
                 return resp;
             })
         }
-        /*function guardaCuestTemp(ruta,valor){
-            $.post(ruta,{valor:valor},function(resp){
-                return resp;
-            })
-        }*/
         function guardaAlimento(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -341,14 +334,6 @@
                                 }
 
                             });
-                            $("#" + id + ".alimento").on("mouseenter", function () {
-                                var texto = $(this).attr("title");
-                                $("#explica").text(texto);
-                            });
-                            $("#" + id + ".alimento").on("mouseleave", function () {
-                                $("#explica").text(alimento);
-                                $("#descripcion").text(desc);
-                            });
                             $("#" + id).attr("data-toggle", "modal");
                             $("#" + id).attr("data-target", "#myModal");
                         }
@@ -362,10 +347,6 @@
         var alimentos=<?php echo json_encode($alimentos,JSON_PRETTY_PRINT)?>;//arreglo con todas las frutas
         var tips=<?php echo json_encode($tipsAlimentos,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsFrutas
         $(".alimento").on({
-            mouseenter:function(){
-                var texto=$(this).attr("title");
-                $("#explica").text(texto);
-            },
             click:function(){
                 titulo=$(this).attr("title");
                 var link=$(this).attr("src");
@@ -381,18 +362,8 @@
                         $("#modal-categoria").text(alimentos[i].categoria);
                     }
                 }
-            },
-            mouseleave:function(){
-                $("#explica").text(alimento);
-                $("#descripcion").text(desc);
             }
         });
-        /*$(".cuest").on({
-            click:function(){
-                var cuestionario=$(this).attr("id");
-                guardaCuestTemp('<?php echo base_url()."aplicacion/guardaCuestTemp"?>',cuestionario);
-            }
-        });*/
         $(".tip").on({
             click:function(){
                 var titulo=$(this).attr("title");
@@ -409,15 +380,7 @@
          Compra un alimento
          */
         $(".gris").on({
-            click:compra,
-            mouseenter:function(){
-                titulo2=$(this).attr("title");
-                $("#explica").text(titulo2);
-            },
-            mouseleave:function(){
-                $("#explica").text(alimento);
-                $("#descripcion").text(desc);
-            }
+            click:compra
         });
         /*
          fin compra fruta

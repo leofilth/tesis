@@ -15,15 +15,15 @@ class mis_funciones {
         return $format;
     }
     function limpiaDos($var){
-        $aux=$var[0]->cuest_id_verdura;
+        $aux=$var[0]->cuest_id_acgrasa;
         $i=0;
         $format=array();
         $format[0]=$aux;
         foreach($var as $val){
-            if($val->cuest_id_verdura!=$aux){
+            if($val->cuest_id_acgrasa!=$aux){
                 $i++;
-                $aux=$val->cuest_id_verdura;
-                $format[$i]=$val->cuest_id_verdura;
+                $aux=$val->cuest_id_acgrasa;
+                $format[$i]=$val->cuest_id_acgrasa;
             }
         }
         return $format;
@@ -146,18 +146,18 @@ class mis_funciones {
         }
         return $format;
     }
-    function limpiaTuVerdura($var)
+    function limpiaTuAcGrasa($var)
     {
         $format = array();
         if ($var != null) {
-            $aux = $var[0]->id_verdura_fk;
+            $aux = $var[0]->id_acgrasa_fk;
             $i = 0;
             $format[0] = $aux;
             foreach ($var as $val) {
-                if ($val->id_verdura_fk != $aux) {
+                if ($val->id_acgrasa_fk != $aux) {
                     $i++;
-                    $aux = $val->id_verdura_fk;
-                    $format[$i] = $val->id_verdura_fk;
+                    $aux = $val->id_acgrasa_fk;
+                    $format[$i] = $val->id_acgrasa_fk;
                 }
             }
         }

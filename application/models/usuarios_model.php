@@ -136,10 +136,10 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->row();
     }
-    public function  getVerduraId($id){
+    public function  getAcGrasaId($id){
         $query=$this->db
             ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
-            ->from("verduras")
+            ->from("aceite_grasas")
             ->where(array("nombre"=>$id))
             ->get();
         return $query->row();
@@ -176,23 +176,23 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
-    public function getVerduras(){
+    public function getAcGrasas(){
         $query=$this->db
             ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo")
-            ->from("verduras")
+            ->from("aceite_grasas")
             ->get();
         return $query->result();
     }
-    public function getVerduraUsuario($nick){
+    public function getAcGrasaUsuario($nick){
         $query=$this->db
-            ->select("id_verdura_fk")
-            ->from("verdura_usuario")
+            ->select("id_acgrasa_fk")
+            ->from("aceite_grasa_usuario")
             ->where(array("nick_fk"=>$nick))
             ->get();
         return $query->result();
     }
-    public function guardaVerduraUsuario($datos=array()){
-        $this->db->insert("verdura_usuario",$datos);
+    public function guardaAcGrasaUsuario($datos=array()){
+        $this->db->insert("aceite_grasa_usuario",$datos);
         return true;
     }
     public function getAlimentos(){
@@ -273,8 +273,8 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->row();
     }
-    public function guardaCuestRespVerd($datos=array()){
-        $this->db->insert("cuest_resp_verd",$datos);
+    public function guardaCuestRespAcgrasa($datos=array()){
+        $this->db->insert("cuest_resp_acgrasa",$datos);
         return true;
     }
     public function guardaCuestRespFrut($datos=array()){
@@ -293,10 +293,10 @@ class usuarios_model extends CI_Model
         $this->db->insert("cuest_resp_cer",$datos);
         return true;
     }
-    public function getCuestResponVerd($nick){
+    public function getCuestResponAcgrasa($nick){
         $query=$this->db
-            ->select("cuest_id_verdura")
-            ->from("cuest_resp_verd")
+            ->select("cuest_id_acgrasa")
+            ->from("cuest_resp_acgrasa")
             ->where(array("nick_fk"=>$nick))
             ->get();
         return $query->result();
@@ -333,10 +333,10 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
-    public function getCuestionariosVerdura(){
+    public function getCuestionariosAcGrasa(){
         $query=$this->db
             ->select("idpregunta")
-            ->from("preguntasverdura")
+            ->from("preguntasaceitegrasa")
             ->get();
         return $query->result();
     }
@@ -377,10 +377,10 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
-    public function getPreguntasVerduraDesafioDiario(){
+    public function getPreguntasAcGrasaDesafioDiario(){
         $query=$this->db
             ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
-            ->from("preguntasverdura")
+            ->from("preguntasaceitegrasa")
             ->get();
         return $query->result();
     }
@@ -436,12 +436,12 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
-    public function getPreguntasVerdura($id){
+    public function getPreguntasAcGrasa($id){
         //consulta a dos tablas
         $query=$this->db
             ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta,
             d.feedback")
-            ->from("preguntasverdura as d")
+            ->from("preguntasaceitegrasa as d")
             ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->where(array('d.idpregunta' => $id))
             ->get();
@@ -504,7 +504,7 @@ class usuarios_model extends CI_Model
     }
     public function getTutorialUsuario($nick){
         $query=$this->db
-            ->select("cuenta,seccion_fruta,seccion_deporte,seccion_verdura,seccion_alimento,seccion_cuest,desafio_diario,
+            ->select("cuenta,seccion_fruta,seccion_deporte,seccion_acgrasa,seccion_alimento,seccion_cuest,desafio_diario,
             seccion_cereal")
             ->from("tutorial")
             ->where(array("nick_fk"=>$nick))
@@ -602,10 +602,10 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
-    public function getTipVerduras(){
+    public function getTipAcGrasa(){
         $query=$this->db
             ->select("id,nombre,descripcion")
-            ->from("tipsaludableverdura")
+            ->from("tipsaludableaceitegrasa")
             ->get();
         return $query->result();
     }
@@ -652,8 +652,8 @@ class usuarios_model extends CI_Model
      */
     public function getAvance($nick){
         $query=$this->db
-            ->select("avance_fruta,avance_verdura,avance_alimento,avance_deporte,
-                    avance_cuest_fruta,avance_cuest_verdura,avance_cuest_deporte,avance_cuest_alimento,
+            ->select("avance_fruta,avance_acgrasa,avance_alimento,avance_deporte,
+                    avance_cuest_fruta,avance_cuest_acgrasa,avance_cuest_deporte,avance_cuest_alimento,
                     avance_cereal,avance_cuest_cereal")
             ->from("avance")
             ->where(array("nick_fk"=>$nick))
@@ -662,7 +662,7 @@ class usuarios_model extends CI_Model
     }
     public function getEstadoDiploma($nick){
         $query=$this->db
-            ->select("valor_fruta,valor_verdura,valor_deporte,valor_alimento,valor_cereal")
+            ->select("valor_fruta,valor_acgrasa,valor_deporte,valor_alimento,valor_cereal")
             ->from("estado_diploma")
             ->where(array("nick_fk"=>$nick))
             ->get();
@@ -687,13 +687,13 @@ class usuarios_model extends CI_Model
         $query = $this->db->get('preguntasfruta');
         return count($query->result());
     }
-    public function getTotalVerduras(){
-        return $this->db->count_all_results('verduras');
+    public function getTotalAcGrasa(){
+        return $this->db->count_all_results('aceite_grasas');
     }
-    public function getTotalCuestVerdura(){
+    public function getTotalCuestAcGrasa(){
         $this->db->select('idpregunta');
         $this->db->distinct();
-        $query = $this->db->get('preguntasverdura');
+        $query = $this->db->get('preguntasaceitegrasa');
         return count($query->result());
     }
     public function getTotalDeportes(){

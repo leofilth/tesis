@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
             </div>
         </div>
@@ -53,47 +53,58 @@
     <div class="container animated tada">
         <!-- Progreso a diploma-->
         <div class="row">
-            <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="col-md-2 col-md-offset-1 col-sm-2  col-sm-offset-1 col-xs-6">
                 <?php if($estadoDiploma->valor_fruta==1){?>
-                    <figure>
-                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada1medalla.png"?>">
+                    <figure class="tool" data-toggle="tooltip" title="Frutas y Verduras">
+                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadafrutaverduracompleta.png"?>">
                     </figure>
                 <?php }else{?>
-                    <figure>
-                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada1m.png"?>">
+                    <figure class="tool" data-toggle="tooltip" title="Frutas y Verduras">
+                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadafrutaverdura.png"?>">
                     </figure>
                 <?php }?>
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="col-md-2 col-sm-2 col-xs-6">
                 <?php if($estadoDiploma->valor_cereal==1){?>
-                    <figure>
-                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada2medalla.png"?>">
+                    <figure class="tool" data-toggle="tooltip" title="Cereales">
+                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacerealcompleta.png"?>">
                     </figure>
                 <?php }else{?>
-                    <figure>
-                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada2m.png"?>">
+                    <figure class="tool" data-toggle="tooltip" title="Cereales">
+                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacereal.png"?>">
                     </figure>
                 <?php }?>
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="col-md-2 col-sm-2 col-xs-6">
                 <?php if($estadoDiploma->valor_deporte==1){?>
-                    <figure>
-                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada3medalla.png"?>">
+                    <figure class="tool" data-toggle="tooltip" title="Ejercicio y Deportes">
+                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadadeportecompleta.png"?>">
                     </figure>
                 <?php }else{?>
-                    <figure>
-                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada3m.png"?>">
+                    <figure class="tool" data-toggle="tooltip" title="Ejercicio y Deportes">
+                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
                     </figure>
                 <?php }?>
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="col-md-2 col-sm-2 col-xs-6">
                 <?php if($estadoDiploma->valor_alimento==1){?>
-                    <figure>
-                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada5medalla.png"?>">
+                    <figure class="tool" data-toggle="tooltip" title="Carnes, Lacteos, Huevos y Legumbres">
+                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacarnehuevocompleta.png"?>">
                     </figure>
                 <?php }else{?>
-                    <figure>
-                        <img class="img-circle img-responsive zoom" src="<?php echo base_url()."public/images/portada5m.png"?>">
+                    <figure class="tool" data-toggle="tooltip" title="Carnes, Lacteos, Huevos y Legumbres">
+                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacarnehuevo.png"?>">
+                    </figure>
+                <?php }?>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-6">
+                <?php if($estadoDiploma->valor_acgrasa==1){?>
+                    <figure class="tool" data-toggle="tooltip" title="Aceites y Grasas">
+                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadaaceitegrasacompleta.png"?>">
+                    </figure>
+                <?php }else{?>
+                    <figure class="tool" data-toggle="tooltip" title="Aceites y Grasas">
+                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadaaceitegrasa.png"?>">
                     </figure>
                 <?php }?>
             </div>
@@ -103,18 +114,18 @@
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
                 <div id="barraDiploma" class="progress barra">
                     <div id="barraDiploma2" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
                          style="width:<?php
-                         $suma=$estadoDiploma->valor_fruta+$estadoDiploma->valor_verdura+$estadoDiploma->valor_alimento
-                             +$estadoDiploma->valor_deporte;
-                         echo (($suma*100)/4);
+                         $suma=$estadoDiploma->valor_fruta+$estadoDiploma->valor_acgrasa+$estadoDiploma->valor_alimento
+                             +$estadoDiploma->valor_deporte+$estadoDiploma->valor_cereal;
+                         echo (($suma*100)/5)."%";
                          ?>%">
                         <span id="avanceFruta"> <?php
-                            $suma=$estadoDiploma->valor_fruta+$estadoDiploma->valor_verdura+$estadoDiploma->valor_alimento
-                                +$estadoDiploma->valor_deporte;
-                            echo (($suma*100)/4)."%";
+                            $suma=$estadoDiploma->valor_fruta+$estadoDiploma->valor_acgrasa+$estadoDiploma->valor_alimento
+                                +$estadoDiploma->valor_deporte+$estadoDiploma->valor_cereal;
+                            echo (($suma*100)/5)."%";
                             ?>
                         </span>
                     </div>
@@ -165,5 +176,6 @@
                 $(this).removeClass("animated jello");
             }
         });
+        $('[data-toggle="tooltip"]').tooltip();
     });
 </script>

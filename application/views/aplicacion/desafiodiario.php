@@ -198,7 +198,6 @@
         }
 
         var preguntas=<?php echo json_encode($preguntasDesafio,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
-        var preguntasVerdura=<?php echo json_encode($preguntasVerdura,JSON_PRETTY_PRINT)?>;
         var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
         var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres
         var fechaActual="<?php echo $fecha_actual?>";
@@ -240,7 +239,6 @@
                 var respondido=false;
                 var listo=true;
                 var cuestionario=preguntas[0].idpregunta;//obtengo el id del cuestionario seleccionado.
-                var cuestionarioVerdura=preguntasVerdura.idpregunta;
                 for(i=1;i<preguntas.length+1;i++){
                      cuest=preguntas[i-1].idpregunta;
                     if($('input:radio[name='+cuest+i+']').is(':checked')) {

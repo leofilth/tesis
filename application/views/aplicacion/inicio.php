@@ -65,26 +65,26 @@
     <div class="container" id="explicativo">
         <div class="row">
             <div class="col-md-7 col-sm-7 col-xs-12 fondo-portada1">
-                <h2 class="featurette-heading">Frutas Poderosas. <span class="text-muted">Todos su secretos al descubierto</span></h2>
+                <h2 class="featurette-heading">Frutas y Verduras Poderosas. <span class="text-muted">Todos su secretos al descubierto</span></h2>
                 <p class="lead">¿Cuáles comer? ¿A qué hora? ¿Cuánto debo consumir?</p>
                 <p class="lead">Esta y muchas más preguntas serán respondidas conmigo</p>
             </div>
             <div class="col-md-5 col-sm-5 col-xs-12">
                 <figure>
-                    <img alt="portada1" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portadafrutaverdura.png"?>">
+                    <img alt="portada1" class="img-responsive center-block img-portada img-border" src="<?php echo base_url()."public/images/portadafrutaverdura.png"?>">
                 </figure>
             </div>
         </div>
         <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-7 col-sm-7 col-sm-push-5 col-md-push-5 fondo-portada2">
-                <h2 class="featurette-heading">Verduras Mágicas <span class="text-muted">Todo sobre ellas.</span></h2>
+                <h2 class="featurette-heading">Cereales Mágicos <span class="text-muted">Todo sobre ellos.</span></h2>
                 <p class="lead">¿Cuáles comer? ¿A qué hora? ¿Cuánto debo consumir?</p>
-                <p class="lead">Conmigo aprenderás sus beneficios y por que comerlas.</p>
+                <p class="lead">Conmigo aprenderás sus beneficios y por que comerlos.</p>
             </div>
             <div class="col-md-5 col-sm-5 col-sm-pull-7 col-md-pull-7">
                 <figure>
-                    <img alt="portada2" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portadacereales.png"?>">
+                    <img alt="portada2" class="img-responsive center-block img-portada img-border" src="<?php echo base_url()."public/images/portadacereal.png"?>">
                 </figure>
             </div>
         </div>
@@ -96,7 +96,7 @@
             </div>
             <div class="col-md-5 col-sm-5">
                 <figure>
-                    <img alt="portada3" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
+                    <img alt="portada3" class="img-responsive center-block img-portada img-border" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
                 </figure>
             </div>
         </div>
@@ -108,7 +108,7 @@
             </div>
             <div class="col-md-5 col-md-pull-7 col-sm-5 col-sm-pull-7">
                 <figure>
-                    <img  alt="portada4" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portada7.png"?>">
+                    <img  alt="portada4" class="img-responsive center-block img-portada img-border" src="<?php echo base_url()."public/images/portada7.png"?>">
                 </figure>
             </div>
         </div>

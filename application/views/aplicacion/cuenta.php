@@ -23,7 +23,7 @@
                 </div>
                 <div class="triangulo"></div>
                 <br>
-                <img class="img-circle icon-inst" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                <img class="img-border icon-inst" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                 <div style="margin-top: 60px">
                     <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
                     <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
@@ -84,11 +84,11 @@
                         <div class=" text-center borde frutacuenta">
                             <?php if($estadoDiploma->valor_fruta==1){?>
                             <figure>
-                                <img id="portadafruta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadafrutaverduracompleta.png"?>">
+                                <img id="portadafruta" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadafrutaverduracompleta.png"?>">
                             </figure>
                             <?php }else{?>
                                 <figure>
-                                    <img id="portadafruta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadafrutaverdura.png"?>">
+                                    <img id="portadafruta" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadafrutaverdura.png"?>">
                                 </figure>
                             <?php }?>
                             <div class="maintitulo">
@@ -107,24 +107,24 @@
                             <a href="<?php echo base_url()."aplicacion/frutasverduras"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
-                    <div id="verdura" class="col-md-4 col-sm-6">
-                        <div class=" text-center borde  verduracuenta">
+                    <div id="cereales" class="col-md-4 col-sm-6">
+                        <div class=" text-center borde  cerealcuenta">
                             <?php if($estadoDiploma->valor_cereal==1){?>
                                 <figure>
-                                    <img id="portadacereal" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadacerealcompleta.png"?>">
+                                    <img id="portadacereal" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadacerealcompleta.png"?>">
                                 </figure>
                             <?php }else{?>
                                 <figure>
-                                    <img id="portadacereal" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadacereal.png"?>">
+                                    <img id="portadacereal" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadacereal.png"?>">
                                 </figure>
                             <?php }?>
                             <div class="maintitulo">
-                                <h3 id="tverd">
+                                <h3 id="tcer">
                                     Cereales
                                     <div class="progress barra">
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
                                              aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_cereal+$avance->avance_cuest_cereal)*100)/($totalCereales+$totalCuestCereal))?>%">
-                                            <span id="avanceVerdura">
+                                            <span id="avanceCereal">
                                                 <?php echo round((($avance->avance_cereal+$avance->avance_cuest_cereal)*100)/($totalCereales+$totalCuestCereal))."%"?>
                                             </span>
                                         </div>
@@ -134,15 +134,43 @@
                             <a href="<?php echo base_url()."aplicacion/cereales"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
+                    <div id="aceitegrasa" class="col-md-4 col-sm-6">
+                        <div class="text-center borde  acgrasacuenta">
+                            <?php if($estadoDiploma->valor_acgrasa==1){?>
+                                <figure>
+                                    <img id="portadaacgrasa" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadaaceitegrasacompleta.png"?>">
+                                </figure>
+                            <?php }else{?>
+                                <figure>
+                                    <img id="portadaacgrasa" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadaaceitegrasa.png"?>">
+                                </figure>
+                            <?php }?>
+                            <div class="maintitulo">
+                                <h3 id="tacgrasa">
+                                    Aceites y Grasas
+                                    <div class="progress barra">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_acgrasa+$avance->avance_cuest_acgrasa)*100)/($totalAcGrasa+$totalCuestAcGrasa))?>%">
+                                            <span id="avanceAcGrasa">
+                                                <?php echo round((($avance->avance_acgrasa+$avance->avance_cuest_acgrasa)*100)/($totalAcGrasa+$totalCuestAcGrasa))."%"?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </h3>
+                            </div>
+                            <!--<p class="descp-tarjeta">Todo sobre los alimentos</p>-->
+                            <a href="<?php echo base_url()."aplicacion/aceitegrasas"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                        </div>
+                    </div>
                     <div id="alimento" class="col-md-4 col-sm-6">
                         <div class="text-center borde  alimentocuenta">
                             <?php if($estadoDiploma->valor_alimento==1){?>
                                 <figure>
-                                    <img id="portadaalimento" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadacarnehuevocompleta.png"?>">
+                                    <img id="portadaalimento" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadacarnehuevocompleta.png"?>">
                                 </figure>
                             <?php }else{?>
                                 <figure>
-                                    <img id="portadaalimento" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadacarnehuevo.png"?>">
+                                    <img id="portadaalimento" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadacarnehuevo.png"?>">
                                 </figure>
                             <?php }?>
                             <div class="maintitulo">
@@ -166,11 +194,11 @@
                         <div class="text-center  borde deportecuenta">
                             <?php if($estadoDiploma->valor_deporte==1){?>
                                 <figure>
-                                    <img id="portadadeporte" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadadeportecompleta.png"?>">
+                                    <img id="portadadeporte" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadadeportecompleta.png"?>">
                                 </figure>
                             <?php }else{?>
                                 <figure>
-                                    <img id="portadadeporte" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
+                                    <img id="portadadeporte" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
                                 </figure>
                             <?php }?>
                             <div class="maintitulo">
@@ -190,8 +218,8 @@
                         </div>
                     </div>
                     <div id="micertificado" class="col-md-4  col-sm-6">
-                        <div class=" text-center  borde noticiacuenta">
-                            <img id="portadacertificado" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada7.png"?>">
+                        <div class=" text-center  borde diplomacuenta">
+                            <img id="portadacertificado" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portada7.png"?>">
                             <div class="maintitulo">
                                 <h3 id="tcert">Mi Diploma</h3>
                             </div>
@@ -209,21 +237,21 @@
                             <a href="<?php echo base_url()."aplicacion/receta"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>-->
-                    <div id="noticias" class="col-md-4 col-sm-6">
-                        <div class=" text-center  borde noticiacuenta">
-                            <img id="portadanoticia"  class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada6m.png"?>">
-                            <div class="maintitulo">
-                                <h3 id="tnot">Noticias</h3>
-                            </div>
-                            <a href="<?php echo base_url()."aplicacion/noticias"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
         <div class="container animated tada">
             <div class="row">
-                <div id="desafio" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                <div id="noticias" class="col-md-4 col-md-offset-2 col-sm-6">
+                    <div class=" text-center  borde noticiacuenta">
+                        <img id="portadanoticia"  class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portada6m.png"?>">
+                        <div class="maintitulo">
+                            <h3 id="tnot">Noticias</h3>
+                        </div>
+                        <a href="<?php echo base_url()."aplicacion/noticias"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
+                    </div>
+                </div>
+                <div id="desafio" class="col-md-4  col-md-offset-0 col-sm-6">
                     <div class=" text-center  borde desafiocuenta">
                         <img id="portadadesafio" class="center-block img-seccion" src="<?php echo base_url()."public/images/icons/star.png"?>">
                         <div class="maintitulo">
@@ -254,6 +282,7 @@
         var avanceFruta=$("#avanceFruta").text();
         var avanceCereal=$("#avanceCereal").text();
         var avanceAlimento=$("#avanceAlimento").text();
+        var avanceAcGrasa=$("#avanceAcGrasa").text();
         var avanceDeporte=$("#avanceDeporte").text();
         var tutorial =<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
         var estadoDiploma=<?php echo json_encode($estadoDiploma,JSON_PRETTY_PRINT)?>;
@@ -269,6 +298,11 @@
         if(avanceCereal==100){
             if(estadoDiploma.valor_cereal!=1){
                 guardaSeccionCompletada('<?php echo base_url()."aplicacion/guardaSeccionCompleta"?>',"cereal");
+            }
+        }
+        if(avanceAcGrasa==100){
+            if(estadoDiploma.valor_acgrasa!=1){
+                guardaSeccionCompletada('<?php echo base_url()."aplicacion/guardaSeccionCompleta"?>',"acgrasa");
             }
         }
         if(avanceDeporte==100){
@@ -294,81 +328,81 @@
 
         $("#fruta").on({
             mouseenter: function () {
-                $("#portadafruta").addClass("borde animated pulse");
-                $("#tfrut").css("color", "#673AB7");
+                $("#portadafruta").addClass("borde animated flipInY");
+                //$("#tfrut").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadafruta").removeClass("borde animated pulse");
+                $("#portadafruta").removeClass("borde animated flipInY");
                 $("#tfrut").css("color", "white");
             }
         });
-        $("#verdura").on({
+        $("#aceitegrasa").on({
             mouseenter: function () {
-                $("#portadaverdura").addClass("borde animated pulse");
-                $("#tverd").css("color", "#673AB7");
+                $("#portadaacgrasa").addClass("borde animated flipInY");
+                $("#tacgrasa").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadaverdura").removeClass("borde animated pulse");
-                $("#tverd").css("color", "white");
+                $("#portadaacgrasa").removeClass("borde animated flipInY");
+                $("#tacgrasa").css("color", "white");
             }
         });
         $("#alimento").on({
             mouseenter: function () {
-                $("#portadaalimento").addClass("borde animated pulse");
+                $("#portadaalimento").addClass("borde animated flipInY");
                 $("#tali").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadaalimento").removeClass("borde animated pulse");
+                $("#portadaalimento").removeClass("borde animated flipInY");
                 $("#tali").css("color", "white");
             }
         });
-        $("#receta").on({
+        $("#cereales").on({
             mouseenter: function () {
-                $("#portadareceta").addClass("borde");
-                $("#trec").css("color", "#673AB7");
+                $("#portadacereal").addClass("borde animated flipInY");
+                $("#tcer").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadareceta").removeClass("borde");
-                $("#trec").css("color", "white");
+                $("#portadacereal").removeClass("borde animated flipInY");
+                $("#tcer").css("color", "white");
             }
         });
         $("#deporte").on({
             mouseenter: function () {
-                $("#portadadeporte").addClass("borde animated pulse");
+                $("#portadadeporte").addClass("borde animated flipInY");
                 $("#tdep").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadadeporte").removeClass("borde animated pulse");
+                $("#portadadeporte").removeClass("borde animated flipInY");
                 $("#tdep").css("color", "white");
             }
         });
         $("#micertificado").on({
             mouseenter: function () {
-                $("#portadacertificado").addClass("borde animated pulse");
+                $("#portadacertificado").addClass("borde animated bounceIn");
                 $("#tcert").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadacertificado").removeClass("borde animated pulse");
+                $("#portadacertificado").removeClass("borde animated bounceIn");
                 $("#tcert").css("color", "white");
             }
         });
         $("#noticias").on({
             mouseenter: function () {
-                $("#portadanoticia").addClass("borde animated pulse");
+                $("#portadanoticia").addClass("borde animated rubberBand");
                 $("#tnot").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadanoticia").removeClass("borde animated pulse");
+                $("#portadanoticia").removeClass("borde animated rubberBand");
                 $("#tnot").css("color", "white");
             }
         });
         $("#desafio").on({
             mouseenter: function () {
-                $("#portadadesafio").addClass(" animated pulse");
+                $("#portadadesafio").addClass(" animated flip");
                 $("#tdes").css("color", "#673AB7");
             },
             mouseleave: function () {
-                $("#portadadesafio").removeClass("animated pulse");
+                $("#portadadesafio").removeClass("animated flip");
                 $("#tdes").css("color", "white");
             }
         });
@@ -382,7 +416,7 @@
                 "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"
             },
             {
-                "titulo": "<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas y Verduras, Cereales, Ejercicio y deportes, aceites y grasas,carnes, lácteos, huevos y legumbres",
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas y Verduras, Cereales, Ejercicio y Deportes, Aceites y Grasas, Carnes Lácteos Huevos y Legumbres",
                 "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto1.png'?>'>"
             },
             {
@@ -390,7 +424,7 @@
                 "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto2.png'?>'>"
             },
             {
-                "titulo": "<span class='glyphicon glyphicon-ok'></span> Canjea tus monedas por alimentos y deportes",
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Canjea tus monedas por Alimentos y Deportes",
                 "imagen": "<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto3.png'?>'>"
             },
             {

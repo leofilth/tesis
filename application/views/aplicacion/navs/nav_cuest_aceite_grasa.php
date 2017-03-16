@@ -12,7 +12,7 @@
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
                 <li class="nav-link-inicio li-nav">
-                    <a href="<?php echo base_url()."aplicacion/verduras#section2"?>">Volver a Verduras</a>
+                    <a href="<?php echo base_url()."aplicacion/aceitegrasas#section2"?>">Volver</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

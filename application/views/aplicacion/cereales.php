@@ -52,7 +52,7 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-circle icon-inst" alt="estudiante3" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                    <img class="img-border icon-inst" alt="estudiante3" src="<?php echo base_url().'public/images/modal/student3.png'?>">
                 </figure>
                 <div style="margin-top: 55px">
                     <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <figure>
-                            <img class="img-circle pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                            <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
                         </figure>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
@@ -100,7 +100,7 @@
                     </div>
             </div>
         </div>
-    <div class="container animated bounceIn">
+    <div class="container animated flash">
         <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
@@ -115,7 +115,7 @@
                                                  title="<?php echo $cereal->nombre ?>"
                                                  src="<?php echo base_url() . $cereal->link ?>"
                                                  alt="<?php echo $cereal->nombre ?>"
-                                                 class="img-circle tamano fondofruta rotate center-block cereal borde"
+                                                 class="img-border tamano fondofruta rotate center-block cereal borde"
                                                  data-toggle="modal" data-target="#myModal">
                                         </figure>
                                     </div>
@@ -127,7 +127,7 @@
                                                  title="<?php echo $cereal->nombre ?>"
                                                  src="<?php echo base_url() . $cereal->link ?>"
                                                  alt="<?php echo $cereal->nombre ?>"
-                                                 class="img-circle tamano fondofruta rotate center-block gris borde"
+                                                 class="img-border tamano fondofruta rotate center-block gris borde"
                                                  data-toggle="" data-target="">
                                         </figure>
                                     </div>
@@ -143,7 +143,7 @@
                                              title="<?php echo $cereal->nombre ?>"
                                              src="<?php echo base_url() . $cereal->link ?>"
                                              alt="<?php echo $cereal->nombre ?>"
-                                             class="img-circle tamano fondofruta rotate center-block gris borde"
+                                             class="img-border tamano fondofruta rotate center-block gris borde"
                                              data-toggle="" data-target="">
                                     </figure>
                                 </div>
@@ -172,7 +172,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left icon-inst" alt="estudiante3"style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante3"style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
                 </figure>
             </div>
         </div>
@@ -209,7 +209,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
                 </figure>
             </div>
         </div>
@@ -243,8 +243,6 @@
          * Created by leon on 30-05-2016.
          */
         var puntos = <?php echo $puntaje->puntos?>;
-        var alimento="Elige un alimento";
-        var desc="Te enseñare sobre el";
         var titulo, titulo2;
         var avance=<?php echo $avance->avance_cereal?>;
         function guardaEstadoTutorial(ruta,valor){
@@ -269,11 +267,6 @@
                 return resp;
             })
         }
-        /*function guardaCuestTemp(ruta,valor){
-            $.post(ruta,{valor:valor},function(resp){
-                return resp;
-            })
-        }*/
         function guardaCereal(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -341,14 +334,6 @@
                                 }
 
                             });
-                            $("#" + id + ".cereal").on("mouseenter", function () {
-                                var texto = $(this).attr("title");
-                                $("#explica").text(texto);
-                            });
-                            $("#" + id + ".cereal").on("mouseleave", function () {
-                                $("#explica").text(cereal);
-                                $("#descripcion").text(desc);
-                            });
                             $("#" + id).attr("data-toggle", "modal");
                             $("#" + id).attr("data-target", "#myModal");
                         }
@@ -362,10 +347,6 @@
         var cereales=<?php echo json_encode($cereales,JSON_PRETTY_PRINT)?>;//arreglo con todas las frutas
         var tips=<?php echo json_encode($tipsCereales,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsFrutas
         $(".cereal").on({
-            mouseenter:function(){
-                var texto=$(this).attr("title");
-                $("#explica").text(texto);
-            },
             click:function(){
                 titulo=$(this).attr("title");
                 var link=$(this).attr("src");
@@ -381,18 +362,8 @@
                         $("#modal-categoria").text(cereales[i].categoria);
                     }
                 }
-            },
-            mouseleave:function(){
-                $("#explica").text(cereal);
-                $("#descripcion").text(desc);
             }
         });
-        /*$(".cuest").on({
-            click:function(){
-                var cuestionario=$(this).attr("id");
-                guardaCuestTemp('<?php echo base_url()."aplicacion/guardaCuestTemp"?>',cuestionario);
-            }
-        });*/
         $(".tip").on({
             click:function(){
                 var titulo=$(this).attr("title");
@@ -409,15 +380,8 @@
          Compra un cereal
          */
         $(".gris").on({
-            click:compra,
-            mouseenter:function(){
-                titulo2=$(this).attr("title");
-                $("#explica").text(titulo2);
-            },
-            mouseleave:function(){
-                $("#explica").text(alimento);
-                $("#descripcion").text(desc);
-            }
+            click:compra
+
         });
         /*
          fin compra cereal
@@ -436,7 +400,7 @@
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu cereal este se desbloquea cambiando de color",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutoali.png'?>'>"}
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutocer.png'?>'>"}
         ];
         var contador=1;
         $("#instrumodal").on({
