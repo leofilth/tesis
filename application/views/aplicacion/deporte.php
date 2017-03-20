@@ -181,7 +181,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="row">
-                    <?php include "tests/testdeporte.php"?>
+                    <?php include "tests/test_deporte.php" ?>
                 </div>
                 <div id="cuestionario">
                 </div>
@@ -247,13 +247,29 @@
         var puntos = <?php echo $puntaje->puntos?>;
         var titulo, titulo2;
         var avance=<?php echo $avance->avance_deporte?>;
+        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
+        var mostrar=tutorial.seccion_deporte;
+        var deportes=<?php echo json_encode($deportes,JSON_PRETTY_PRINT)?>;//arreglo con todas las deportes
+        var tips=<?php echo json_encode($tipsDeportes,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsDeportes
+        var contador=1;
+        var instrucciones=[
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Deportes",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
+                "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu deporte este se desbloquea cambiando de color",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutodeporte.png'?>'>"}
+        ];
+
         function guardaEstadoTutorial(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
             })
         }
-        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
-        var mostrar=tutorial.seccion_deporte;
         $("#mostrarmodal").click(function(){
             mostrar=0;
             //guarda en bd
@@ -346,8 +362,6 @@
                 });
             }
         }
-        var deportes=<?php echo json_encode($deportes,JSON_PRETTY_PRINT)?>;//arreglo con todas las deportes
-        var tips=<?php echo json_encode($tipsDeportes,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsDeportes
         $(".deporte").on({
             click:function(){
                 titulo=$(this).attr("title");
@@ -387,23 +401,6 @@
         /*
          fin compra fruta
          */
-        /**
-         * Instrucciones
-         * @type {*[]}
-         */
-        var instrucciones=[
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Deportes",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
-                "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu deporte este se desbloquea cambiando de color",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutodeporte.png'?>'>"}
-        ];
-        var contador=1;
         $("#instrumodal").on({
             click:function(){
                 if(contador==5){

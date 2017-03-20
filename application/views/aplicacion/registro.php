@@ -2,12 +2,12 @@
 <section class="container-fluid bg-im padingtop">
     <header class="titulo1">Registro de usuarios</header>
         <div class="row">
-            <div class="col-md-5 col-md-offset-1">
+            <div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-1  animated rubberBand">
                 <?php $atributos=array('class'=>'form-group cuadradosombra','id'=>'form','name'=>'form');
                 echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
                 ?>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <h1 class="titulo2">Ingresa tus datos</h1>
                             <p class="obligatorio">*Todos los campos son obligatorios</p>
@@ -27,9 +27,9 @@
                             <label class="errorform"><?php echo form_error('nombre'); ?></label>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label class="control-label tituloform">Edad </label>
                             <?php
@@ -47,25 +47,25 @@
                             <label class="errorform"><?php echo form_error('edad'); ?></label>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
+
+
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="form-group">
                             <label class="control-label tituloform">Sexo </label>
                             <input class="tituloform" type="radio" name="sexo" value="masculino"> <span class="tituloform">Masculino</span><br>
                             <label class="errorform"><?php echo form_error('sexo'); ?></label>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="form-group">
                             <label class="control-label tituloform">Sexo </label>
                             <input class="tituloform" type="radio" name="sexo" value="femenino"> <span class="tituloform">Femenino</span><br>
                             <label class="errorform"><?php echo form_error('sexo'); ?></label>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label class="control-label tituloform">Ciudad </label>
                             <?php
@@ -83,9 +83,9 @@
                             <label class="errorform"><?php echo form_error('ciudad'); ?></label>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <h4 class="errorform"><?php if($this->session->flashdata('ErrorNick')!='')
                                 {
@@ -109,7 +109,7 @@
                             <label class="errorform"><?php echo form_error('nick'); ?></label>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label class="control-label tituloform">Contraseña </label>
                             <?php
@@ -141,31 +141,25 @@
                 echo form_close();
                 ?>
             </div>
-            <div class="col-md-4 col-md-offset-1">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="bubble rosado">
-                            <a title="" href="#">
-                                <h2>Unete</h2>
-                                <h3>Aprende conmigo</h3>
-                            </a>
-                        </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-1 text-center animated bounceInUp">
+                <div class="instruefecto animated infinite pulse">
+                    <div class="instruccion-naranjo">
+                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">
+                            Únete
+                        </h4>
+                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">
+                            Aprenderás muchas cosas!
+                        </h4>
                     </div>
-                    <div class="col-md-6">
-                        <div class="bubble datm">
-                            <a title="" href="#">
-                                <h2>Soy un maestro</h2>
-                                <h3>Eligeme.</h3>
-                            </a>
-                        </div>
+                    <div style="float: left;margin-left: 45%;clear: left">
+                        <div class="triangulo-naranjo"></div>
                     </div>
                 </div>
-                <div class="row">
-                    <figure>
-                        <img class="img-responsive center-block" alt="registro" src="<?php echo base_url()?>public/images/iniciar_sesion.png">
-                    </figure>
-                </div>
+                <figure>
+                    <img class="img-responsive center-block" alt="estudiante1"  src="<?php echo base_url().'public/images/modal/sesion2.png'?>">
+                </figure>
             </div>
         </div>
+
 </section>
 <?php include "footerinicio.php"?>

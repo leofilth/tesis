@@ -264,6 +264,41 @@
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
+        var avanceFruta=$("#avanceFruta").text();
+        var avanceCereal=$("#avanceCereal").text();
+        var avanceAlimento=$("#avanceAlimento").text();
+        var avanceAcGrasa=$("#avanceAcGrasa").text();
+        var avanceDeporte=$("#avanceDeporte").text();
+        var tutorial =<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
+        var estadoDiploma=<?php echo json_encode($estadoDiploma,JSON_PRETTY_PRINT)?>;
+        var mostrar = tutorial.cuenta;
+        var contador = 1;
+        /**
+         * Instrucciones
+         * @type {*[]}
+         */
+        var instrucciones = [
+            {
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
+                "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"
+            },
+            {
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas y Verduras, Cereales, Ejercicio y Deportes, Aceites y Grasas, Carnes Lácteos Huevos y Legumbres",
+                "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto1.png'?>'>"
+            },
+            {
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Supera los desafíos y gana monedas",
+                "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto2.png'?>'>"
+            },
+            {
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Canjea tus monedas por Alimentos y Deportes",
+                "imagen": "<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto3.png'?>'>"
+            },
+            {
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Aprende y obten tu certificado Wambo",
+                "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto4.png'?>'>"
+            }
+        ];
         /**
          *Si una seccion esta completa enviar a BD
          * */
@@ -277,14 +312,6 @@
                 return resp;
             })
         }
-        var avanceFruta=$("#avanceFruta").text();
-        var avanceCereal=$("#avanceCereal").text();
-        var avanceAlimento=$("#avanceAlimento").text();
-        var avanceAcGrasa=$("#avanceAcGrasa").text();
-        var avanceDeporte=$("#avanceDeporte").text();
-        var tutorial =<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
-        var estadoDiploma=<?php echo json_encode($estadoDiploma,JSON_PRETTY_PRINT)?>;
-        var mostrar = tutorial.cuenta;
         if(avanceFruta==100) {
             /*
              si ya agregó una vez no volver hacerlo.
@@ -404,33 +431,6 @@
                 $("#tdes").css("color", "white");
             }
         });
-        /**
-         * Instrucciones
-         * @type {*[]}
-         */
-        var instrucciones = [
-            {
-                "titulo": "<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
-                "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"
-            },
-            {
-                "titulo": "<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas y Verduras, Cereales, Ejercicio y Deportes, Aceites y Grasas, Carnes Lácteos Huevos y Legumbres",
-                "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto1.png'?>'>"
-            },
-            {
-                "titulo": "<span class='glyphicon glyphicon-ok'></span> Supera los desafíos y gana monedas",
-                "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto2.png'?>'>"
-            },
-            {
-                "titulo": "<span class='glyphicon glyphicon-ok'></span> Canjea tus monedas por Alimentos y Deportes",
-                "imagen": "<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto3.png'?>'>"
-            },
-            {
-                "titulo": "<span class='glyphicon glyphicon-ok'></span> Aprende y obten tu certificado Wambo",
-                "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto4.png'?>'>"
-            }
-        ];
-        var contador = 1;
         $("#instrumodal").on({
             click: function () {
                 if (contador == 5) {

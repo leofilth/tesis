@@ -35,6 +35,10 @@
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
+        var preguntas=<?php echo json_encode($preguntasDeporte,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
+        var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
+        var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres
+        var avance=<?php echo $avance->avance_cuest_deporte?>;
         /**
          * $('input[name=Choose]').attr('checked',false); //limpia el input
          */
@@ -59,12 +63,6 @@
                 return resp;
             })
         }
-        var texto="<?php echo $preguntasDeporte[0]->idpregunta?>";
-        var preguntas=<?php echo json_encode($preguntasDeporte,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
-        var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
-        var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres
-        var avance=<?php echo $avance->avance_cuest_deporte?>;
-
         $(".inputcuest").on({
             click:function() {
                 var i;
@@ -146,14 +144,9 @@
                     var temp2=puntaje+puntajeLider;
                     guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>',temp1);
                     guardaPuntajeLider('<?php echo base_url()."aplicacion/guardaPuntajeLider"?>',temp2);
-                    //$("#noguardado").removeClass("alert-danger");
-                    //$("#noguardado").addClass("alert-info");
-                    //$("#noguardado").text("Puntaje Guardado!");
                     temp1=0;
                     temp2=0;
-                    //$("#guardarPuntos").addClass("hidden");
                     $("#volver").removeClass("hidden");
-                    //$("#guardarPuntos").removeClass("hidden");
                 }
             }
         });

@@ -181,7 +181,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="row">
-                    <?php include "tests/testalimento.php"?>
+                    <?php include "tests/test_alimento.php" ?>
                 </div>
             </div>
         </div>
@@ -245,13 +245,29 @@
         var puntos = <?php echo $puntaje->puntos?>;
         var titulo, titulo2;
         var avance=<?php echo $avance->avance_alimento?>;
+        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
+        var mostrar=tutorial.seccion_alimento;
+        var alimentos=<?php echo json_encode($alimentos,JSON_PRETTY_PRINT)?>;//arreglo con todas los alimentos
+        var tips=<?php echo json_encode($tipsAlimentos,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsAlimentos
+        var contador=1;
+        var instrucciones=[
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Alimentos",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
+                "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu alimento este se desbloquea cambiando de color",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutoali.png'?>'>"}
+        ];
+
         function guardaEstadoTutorial(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
             })
         }
-        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
-        var mostrar=tutorial.seccion_alimento;
         $("#mostrarmodal").click(function(){
             mostrar=0;
             //guarda en bd
@@ -344,8 +360,7 @@
                 });
             }
         }
-        var alimentos=<?php echo json_encode($alimentos,JSON_PRETTY_PRINT)?>;//arreglo con todas las frutas
-        var tips=<?php echo json_encode($tipsAlimentos,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsFrutas
+
         $(".alimento").on({
             click:function(){
                 titulo=$(this).attr("title");
@@ -389,19 +404,6 @@
          * Instrucciones
          * @type {*[]}
          */
-        var instrucciones=[
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Alimentos",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
-                "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu alimento este se desbloquea cambiando de color",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutoali.png'?>'>"}
-        ];
-        var contador=1;
         $("#instrumodal").on({
             click:function(){
                 if(contador==5){

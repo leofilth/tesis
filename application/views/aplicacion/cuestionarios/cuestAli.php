@@ -75,7 +75,7 @@
         <div class="row">
             <div class="col-md-12">
                 <button  name="boton" id="verificacuestionario" class="btn  btn-cuest titulo4 center-block zoom">
-                    Enviar Respuestas
+                    Revisar Respuestas
                 </button>
                 <div class="col-md-6 col-md-offset-3" id="guardar">
                 </div>

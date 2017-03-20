@@ -147,7 +147,7 @@ class usuarios_model extends CI_Model
     public function  getAlimentoId($id){
         $query=$this->db
             ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
-            ->from("food")
+            ->from("alimentos")
             ->where(array("nombre"=>$id))
             ->get();
         return $query->row();
@@ -198,7 +198,7 @@ class usuarios_model extends CI_Model
     public function getAlimentos(){
         $query=$this->db
             ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo")
-            ->from("food")
+            ->from("alimentos")
             ->get();
         return $query->result();
     }
@@ -225,19 +225,6 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->row();
     }
-    public function agregarFoto($datos=array())
-    {
-        $this->db->insert("upload",$datos);
-        return true;
-    }
-    public function getFotos(){
-        $query=$this->db
-            ->select("id,link,descripcion,dueño")
-            ->from("upload")
-            ->order_by('id','DESC')
-            ->get();
-        return $query->result();
-    }
     public function agregarTip($datos=array()){
         $this->db->insert("tips",$datos);
         return true;
@@ -256,23 +243,7 @@ class usuarios_model extends CI_Model
     /**
      * Cuestionario
      */
-    public function agregaUserCuestTemp($datos=array()){
-        $this->db->insert("cuesttemp",$datos);
-        return true;
-    }
-    public function guardaCuestTemp($datos=array(),$nick){
-        $this->db->where('nick_fk',$nick);
-        $this->db->update('cuesttemp',$datos);
-        return true;
-    }
-    public function getCuestTemp($nick){
-        $query=$this->db
-            ->select("cuesttemp")
-            ->from("cuesttemp")
-            ->where(array("nick_fk"=>$nick))
-            ->get();
-        return $query->row();
-    }
+
     public function guardaCuestRespAcgrasa($datos=array()){
         $this->db->insert("cuest_resp_acgrasa",$datos);
         return true;
@@ -336,35 +307,35 @@ class usuarios_model extends CI_Model
     public function getCuestionariosAcGrasa(){
         $query=$this->db
             ->select("idpregunta")
-            ->from("preguntasaceitegrasa")
+            ->from("preguntas_aceitegrasa")
             ->get();
         return $query->result();
     }
     public function getCuestionariosFruta(){
         $query=$this->db
             ->select("idpregunta")
-            ->from("preguntasfruta")
+            ->from("preguntas_fruta")
             ->get();
         return $query->result();
     }
     public function getCuestionariosAlimento(){
         $query=$this->db
             ->select("idpregunta")
-            ->from("preguntasalimento")
+            ->from("preguntas_alimento")
             ->get();
         return $query->result();
     }
     public function getCuestionariosDeporte(){
         $query=$this->db
             ->select("idpregunta")
-            ->from("preguntasdeporte")
+            ->from("preguntas_deporte")
             ->get();
         return $query->result();
     }
     public function getCuestionariosCereal(){
         $query=$this->db
             ->select("idpregunta")
-            ->from("preguntascereal")
+            ->from("preguntas_cereal")
             ->get();
         return $query->result();
     }
@@ -373,35 +344,35 @@ class usuarios_model extends CI_Model
     public function getPreguntasFrutaDesafioDiario(){
         $query=$this->db
             ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
-            ->from("preguntasfruta")
+            ->from("preguntas_fruta")
             ->get();
         return $query->result();
     }
     public function getPreguntasAcGrasaDesafioDiario(){
         $query=$this->db
             ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
-            ->from("preguntasaceitegrasa")
+            ->from("preguntas_aceitegrasa")
             ->get();
         return $query->result();
     }
     public function getPreguntasAlimentoDesafioDiario(){
         $query=$this->db
             ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
-            ->from("preguntasalimento")
+            ->from("preguntas_alimento")
             ->get();
         return $query->result();
     }
     public function getPreguntasDeporteDesafioDiario(){
         $query=$this->db
             ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
-            ->from("preguntasdeporte")
+            ->from("preguntas_deporte")
             ->get();
         return $query->result();
     }
     public function getPreguntasCerealDesafioDiario(){
         $query=$this->db
             ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
-            ->from("preguntascereal")
+            ->from("preguntas_cereal")
             ->get();
         return $query->result();
     }
@@ -430,7 +401,7 @@ class usuarios_model extends CI_Model
         $query=$this->db
             ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta,
             d.feedback")
-            ->from("preguntasfruta as d")
+            ->from("preguntas_fruta as d")
             ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->where(array('d.idpregunta' => $id))
             ->get();
@@ -441,7 +412,7 @@ class usuarios_model extends CI_Model
         $query=$this->db
             ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta,
             d.feedback")
-            ->from("preguntasaceitegrasa as d")
+            ->from("preguntas_aceitegrasa as d")
             ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->where(array('d.idpregunta' => $id))
             ->get();
@@ -452,7 +423,7 @@ class usuarios_model extends CI_Model
         $query=$this->db
             ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta,
             d.feedback")
-            ->from("preguntasalimento as d")
+            ->from("preguntas_alimento as d")
             ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->where(array('d.idpregunta' => $id))
             ->get();
@@ -463,7 +434,7 @@ class usuarios_model extends CI_Model
         $query=$this->db
             ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta,
             d.feedback")
-            ->from("preguntasdeporte as d")
+            ->from("preguntas_deporte as d")
             ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->where(array('d.idpregunta' => $id))
             ->get();
@@ -474,7 +445,7 @@ class usuarios_model extends CI_Model
         $query=$this->db
             ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta,
             d.feedback")
-            ->from("preguntascereal as d")
+            ->from("preguntas_cereal as d")
             ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->where(array('d.idpregunta' => $id))
             ->get();
@@ -543,90 +514,40 @@ class usuarios_model extends CI_Model
      * fin
      */
     /**
-     * Recetas
-     */
-    public function agregaUserRecetaTemp($datos=array()){
-        $this->db->insert("recetatemp",$datos);
-        return true;
-    }
-    public function guardaRecetaTemp($datos=array(),$nick){
-        $this->db->where('nick_fk',$nick);
-        $this->db->update('recetatemp',$datos);
-        return true;
-    }
-    public function getRecetaTemp($nick){
-        $query=$this->db
-            ->select("receta")
-            ->from("recetatemp")
-            ->where(array("nick_fk"=>$nick))
-            ->get();
-        return $query->row();
-    }
-    public function getRecetaFull($id){
-        $query=$this->db
-            ->select("titulo,descripcion,ingredientes,preparacion,foto")
-            ->from("recetas")
-            ->where(array("id"=>$id))
-            ->get();
-        return $query->row();
-    }
-    public function getRecetas(){
-        $query=$this->db
-            ->select("id,titulo,descripcion,foto")
-            ->from("recetas")
-            ->get();
-        return $query->result();
-    }
-    public function guardaRecetaUsuario($datos=array()){
-        $this->db->insert("receta_usuario",$datos);
-        return true;
-    }
-    public function getRecetaUsuario($nick){
-        $query=$this->db
-            ->select("id_receta_fk")
-            ->from("receta_usuario")
-            ->where(array("nick_fk"=>$nick))
-            ->get();
-        return $query->result();
-    }
-    /**
-     * Fin Recetas
-     */
-    /**
      * Tips frutas verduras alimentos deporte
      */
     public function getTipFrutas(){
         $query=$this->db
             ->select("id,nombre,descripcion")
-            ->from("tipsaludablefruta")
+            ->from("tipsaludable_fruta")
             ->get();
         return $query->result();
     }
     public function getTipAcGrasa(){
         $query=$this->db
             ->select("id,nombre,descripcion")
-            ->from("tipsaludableaceitegrasa")
+            ->from("tipsaludable_aceitegrasa")
             ->get();
         return $query->result();
     }
     public function getTipAlimentos(){
         $query=$this->db
             ->select("id,nombre,descripcion")
-            ->from("tipsaludablealimento")
+            ->from("tipsaludable_alimento")
             ->get();
         return $query->result();
     }
     public function getTipDeportes(){
         $query=$this->db
             ->select("id,nombre,descripcion")
-            ->from("tipsaludabledeporte")
+            ->from("tipsaludable_deporte")
             ->get();
         return $query->result();
     }
     public function getTipCereales(){
         $query=$this->db
             ->select("id,nombre,descripcion")
-            ->from("tipsaludablecereal")
+            ->from("tipsaludable_cereal")
             ->get();
         return $query->result();
     }
@@ -684,7 +605,7 @@ class usuarios_model extends CI_Model
         //return $this->db->count_all_results('preguntasfruta');
         $this->db->select('idpregunta');
         $this->db->distinct();
-        $query = $this->db->get('preguntasfruta');
+        $query = $this->db->get('preguntas_fruta');
         return count($query->result());
     }
     public function getTotalAcGrasa(){
@@ -693,7 +614,7 @@ class usuarios_model extends CI_Model
     public function getTotalCuestAcGrasa(){
         $this->db->select('idpregunta');
         $this->db->distinct();
-        $query = $this->db->get('preguntasaceitegrasa');
+        $query = $this->db->get('preguntas_aceitegrasa');
         return count($query->result());
     }
     public function getTotalDeportes(){
@@ -702,16 +623,16 @@ class usuarios_model extends CI_Model
     public function getTotalCuestDeporte(){
         $this->db->select('idpregunta');
         $this->db->distinct();
-        $query = $this->db->get('preguntasdeporte');
+        $query = $this->db->get('preguntas_deporte');
         return count($query->result());
     }
     public function getTotalAlimentos(){
-        return $this->db->count_all_results('food');
+        return $this->db->count_all_results('alimentos');
     }
     public function getTotalCuestAlimento(){
         $this->db->select('idpregunta');
         $this->db->distinct();
-        $query = $this->db->get('preguntasalimento');
+        $query = $this->db->get('preguntas_alimento');
         return count($query->result());
     }
     public function getTotalCereales(){
@@ -720,7 +641,7 @@ class usuarios_model extends CI_Model
     public function getTotalCuestCereal(){
         $this->db->select('idpregunta');
         $this->db->distinct();
-        $query = $this->db->get('preguntascereal');
+        $query = $this->db->get('preguntas_cereal');
         return count($query->result());
     }
     /**

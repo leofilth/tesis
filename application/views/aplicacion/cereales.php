@@ -242,9 +242,30 @@
         /**
          * Created by leon on 30-05-2016.
          */
-        var puntos = <?php echo $puntaje->puntos?>;
+        var puntos = <?php echo $puntaje->puntos?>;//puntos del usuario
         var titulo, titulo2;
-        var avance=<?php echo $avance->avance_cereal?>;
+        var avance=<?php echo $avance->avance_cereal?>;//avance seccion cereal
+        var contadorInfo=0;//contador para ir cambiando la info mediante clicks
+        var cereales=<?php echo json_encode($cereales,JSON_PRETTY_PRINT)?>;//arreglo con todas los cereales
+        var tips=<?php echo json_encode($tipsCereales,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsCereales
+        var informacion;//array con la informacion de un cereal
+        /**
+         * Instrucciones
+         * @type {*[]}
+         */
+        var instrucciones=[
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Cereales",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
+                "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu cereal este se desbloquea cambiando de color",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutocer.png'?>'>"}
+        ];
+        var contador=1;//contador para las instrucciones
         function guardaEstadoTutorial(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -315,7 +336,7 @@
                             guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>', puntos);
                             avance++;
                             actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"cereal");
-                            //agrega clase fruta para ver en modal
+                            //agrega clase cereal para ver en modal
                             $("#" + id).addClass("cereal");
                             $("#" + id + ".cereal").on("click", function () {
                                 titulo = $(this).attr("title");
@@ -323,13 +344,25 @@
                                 var i;
                                 for (i = 0; i < cereales.length; i++) {
                                     if (cereales[i].nombre == titulo) {
-                                        $("#modal-descripcion").html(cereales[i].descripcion);
+                                        $("#modal-title").text(titulo);
+                                        $("#modalimg").attr("src", link);
+                                        informacion=[
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":cereales[i].descripcion},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":cereales[i].categoria},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":cereales[i].saludable},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":cereales[i].beneficios},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Consumo","informacion":cereales[i].consumo}
+                                        ];
+                                        $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
+                                        $("#info").text(cereales[i].descripcion);
+                                        contadorInfo++;
+                                        /*$("#modal-descripcion").html(cereales[i].descripcion);
                                         $("#modal-title").text(titulo);
                                         $("#modalimg").attr("src", link);
                                         $("#modal-consumo").text(cereales[i].consumo);
                                         $("#modal-saludable").text(cereales[i].saludable);
                                         $("#modal-beneficios").html(cereales[i].beneficios);
-                                        $("#modal-categoria").text(cereales[i].categoria);
+                                        $("#modal-categoria").text(cereales[i].categoria);*/
                                     }
                                 }
 
@@ -344,22 +377,33 @@
                 });
             }
         }
-        var cereales=<?php echo json_encode($cereales,JSON_PRETTY_PRINT)?>;//arreglo con todas las frutas
-        var tips=<?php echo json_encode($tipsCereales,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsFrutas
         $(".cereal").on({
             click:function(){
                 titulo=$(this).attr("title");
                 var link=$(this).attr("src");
                 var i;
+                contadorInfo=0;//resetea al hacer click en un elemento
                 for(i=0;i<cereales.length;i++){
                     if(cereales[i].nombre == titulo){
-                        $("#modal-descripcion").html(cereales[i].descripcion);
+                        $("#modal-title").text(titulo);
+                        $("#modalimg").attr("src",link);
+                         informacion=[
+                             {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":cereales[i].descripcion},
+                             {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":cereales[i].categoria},
+                             {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":cereales[i].saludable},
+                             {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":cereales[i].beneficios},
+                             {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Consumo","informacion":cereales[i].consumo}
+                         ];
+                        $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
+                        $("#info").text(cereales[i].descripcion);
+                        contadorInfo++;
+                        /*$("#modal-descripcion").html(cereales[i].descripcion);
                         $("#modal-title").text(titulo);
                         $("#modalimg").attr("src",link);
                         $("#modal-consumo").text(cereales[i].consumo);
                         $("#modal-saludable").text(cereales[i].saludable);
                         $("#modal-beneficios").html(cereales[i].beneficios);
-                        $("#modal-categoria").text(cereales[i].categoria);
+                        $("#modal-categoria").text(cereales[i].categoria);*/
                     }
                 }
             }
@@ -386,23 +430,6 @@
         /*
          fin compra cereal
          */
-        /**
-         * Instrucciones
-         * @type {*[]}
-         */
-        var instrucciones=[
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Cereales",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
-                "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu cereal este se desbloquea cambiando de color",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutocer.png'?>'>"}
-        ];
-        var contador=1;
         $("#instrumodal").on({
             click:function(){
                 if(contador==5){
@@ -415,6 +442,21 @@
                     $("#textoIns").html(instrucciones[contador].titulo);
                     $("#fotoIns").html(instrucciones[contador].imagen);
                     contador++;
+                }
+            }
+        });
+
+        $("#informacion").on({
+            click:function(){
+                if(contadorInfo==5){
+                    $("#titulo").html(informacion[0].titulo);
+                    $("#info").html(informacion[0].informacion);
+                    contadorInfo=1;
+                }
+                else{
+                    $("#titulo").html(informacion[contadorInfo].titulo);
+                    $("#info").html(informacion[contadorInfo].informacion);
+                    contadorInfo++;
                 }
             }
         });

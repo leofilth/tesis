@@ -249,13 +249,29 @@
         var puntos = <?php echo $puntaje->puntos?>;
         var titulo, titulo2;
         var avance=<?php echo $avance->avance_fruta?>;
+        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
+        var mostrar=tutorial.seccion_fruta;
+        var frutas=<?php echo json_encode($frutas,JSON_PRETTY_PRINT)?>;//arreglo con todas las frutas
+        var tips=<?php echo json_encode($tipsFrutas,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsFrutas
+        var contador=1;
+        var instrucciones=[
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Click en siguiente para ayuda",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Frutas y Verduras",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
+                "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu fruta o verdura esta se desbloquea cambiando de color",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutofruta.png'?>'>"}
+        ];
+
         function guardaEstadoTutorial(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
             })
         }
-        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
-        var mostrar=tutorial.seccion_fruta;
         $("#mostrarmodal").click(function(){
             mostrar=0;
             //guarda en bd
@@ -364,10 +380,7 @@
                 });
             }
         }
-        var frutas=<?php echo json_encode($frutas,JSON_PRETTY_PRINT)?>;//arreglo con todas las frutas
-        var tips=<?php echo json_encode($tipsFrutas,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsFrutas
         $(".fruta").on({
-
             click:cargaEnModal
         });
         $(".tip").on({
@@ -392,23 +405,6 @@
         /**
         fin compra fruta y verdura
          */
-        /**
-         * Instrucciones
-         * @type {*[]}
-         */
-        var instrucciones=[
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Click en siguiente para ayuda",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Frutas y Verduras",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
-                "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu fruta o verdura esta se desbloquea cambiando de color",
-            "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutofruta.png'?>'>"}
-        ];
-        var contador=1;
         $("#instrumodal").on({
             click:function(){
                 if(contador==5){

@@ -472,9 +472,9 @@ css cuenta
     transform:translateZ(0);
     overflow: visible;
 }
-.bubble.datm {
+/*.bubble.datm {
     animation: 1.8s ease-in-out 0s normal none infinite running float-b;
-}
+}*/
 .bubble a:hover{
     opacity: 1;
     transform: scale(1.1);
@@ -524,7 +524,7 @@ css cuenta
     color: white;
     font-family: "finger paint";
 }
-.bubble.rosado {
+/*.bubble.rosado {
     animation: 1.5s ease-in-out 0s normal none infinite running float-a;
 }
 .bubble.bg{
@@ -532,7 +532,7 @@ css cuenta
 }
 .bubble.verde{
     animation: 1.5s ease-in-out 0s normal none infinite running float-a;
-}
+}*/
 .bubble.verde a{
     background: #397C4A none repeat scroll 0 0;
     width: auto;

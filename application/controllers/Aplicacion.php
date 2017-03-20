@@ -49,14 +49,6 @@ class Aplicacion extends CI_Controller {
 					'sexo'=>$this->input->post("sexo",true),
 					'avatar_name_fk'=>"user"
 				);
-				/*$UserTempCuest=array(
-					'nick_fk'=>$this->input->post("nick",true),
-					'cuesttemp'=>"cuestionario"
-				);
-				$UserTempReceta=array(
-					'nick_fk'=>$this->input->post("nick",true),
-					'receta'=>"receta"
-				);*/
 				$tutorial=array(
 					'nick_fk'=>$this->input->post("nick",true),
 					'cuenta'=>'1',
@@ -198,11 +190,11 @@ class Aplicacion extends CI_Controller {
 			$y=0;
 			$z=0;
 			$c=0;
-			$valoresf=array();
-			$valoresag=array();
-			$valoresd=array();
-			$valoresa=array();
-			$valoresc=array();
+			$valoresf=array();//valores frutas verduras
+			$valoresag=array();//valores aceites y grasas
+			$valoresd=array();//valores deporte
+			$valoresa=array();//valores alimentos
+			$valoresc=array();//valores cereales
 			while ($x<2) {//numero de preguntas que obtendra, aqui 2
 				$num_aleatorio = rand(0,$largoPregFruta-1);
 				if (!in_array($num_aleatorio,$valoresf)) {
@@ -330,7 +322,7 @@ class Aplicacion extends CI_Controller {
 				$this->fpdf->setX(($ancho-20)/2);
 				$nombre=$datos->nombre;
 				//$this->fpdf->Write(5,"Monica Carrasco Santibañez");
-				$this->fpdf->Cell(20,10,'Leonardo Concha Mella',0,0,'C');
+				$this->fpdf->Cell(20,10,$nombre,0,0,'C');
 				echo $this->fpdf->Output('Diploma_'.$nombre.'.pdf','D');
 				/*
                  * Fin crea pdf usuario
@@ -718,55 +710,6 @@ class Aplicacion extends CI_Controller {
 		$this->usuarios_model->guardaCerealUsuario($aGuardar);
 	}
 
-	/**
-	 * Recetas
-	 */
-	public function tureceta(){
-
-		if (!empty($this->session_id)) {
-			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$receta=$this->usuarios_model->getRecetaTemp($datos->nick);
-			$recetafull=$this->usuarios_model->getRecetaFull($receta->receta);
-			$this->layout->view("tureceta",compact("datos","recetafull"));
-		} else {
-			redirect(base_url() . 'aplicacion', 301);
-		}
-	}
-	public function guardaRecetaTemp(){
-		$recetaId=$this->input->post("valor",true);
-		$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-		$aGuardar=array(
-			'receta'=>$recetaId
-		);
-		//guarda en bd el cuest temporal;
-		$this->usuarios_model->guardaRecetaTemp($aGuardar,$datos->nick);
-
-	}
-	public function receta(){
-		if (!empty($this->session_id)) {
-			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
-			$recetas=$this->usuarios_model->getRecetas();
-			$recetasUsuario=$this->usuarios_model->getRecetaUsuario($datos->nick);
-			$this->layout->view('receta', compact("datos","puntaje","recetas","recetasUsuario"));
-		} else {
-			redirect(base_url() . 'aplicacion', 301);
-		}
-	}
-	public function guardaRecetaUsuario(){
-		$idreceta=$this->input->post("valor",true);
-		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
-		$nick=$datos->nick;
-		$aGuardar=array(
-			'nick_fk'=>$nick,
-			'id_receta_fk'=>$idreceta
-		);
-		$this->usuarios_model->guardaRecetaUsuario($aGuardar);
-	}
-
-	/**
-	 * Fin Recetas
-	 */
 	public function lideres(){
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
@@ -956,54 +899,5 @@ class Aplicacion extends CI_Controller {
 	}
 	/*
 	 * Fin Cuestionario por url
-	 */
-
-	/**
-	 * Cuenta Administrador
-	 */
-	public function cuentaAdmin(){
-		if (!empty($this->session_id)) {
-			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			if($datos->nick=="admin"){
-				$this->layout->view('cuentaAdmin', compact("datos"));
-			}
-			else{
-				redirect(base_url() . 'aplicacion/cuenta', 301);
-			}
-		} else {
-			redirect(base_url() . 'aplicacion', 301);
-		}
-	}
-	public function nuevotip(){
-			if($this->input->post()) {
-				if ($this->form_validation->run("aplicacion/nuevotip") == true)//va a form_validation y obtiene las reglas
-				{
-					$tip = array
-					(
-						'descripcion' => $this->input->post("descripcion", true)
-					);
-					$this->usuarios_model->agregarTip($tip);
-					$this->session->set_flashdata('ControllerMessage','Tip guardado');
-					redirect(base_url() . 'aplicacion/nuevotip', 301);
-				}
-			}
-		if (!empty($this->session_id)) {
-			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-					if ($datos->nick == "admin") {
-						$this->layout->view('nuevotip', compact("datos"));
-					} else {
-						redirect(base_url() . 'aplicacion/cuenta', 301);
-					}
-				}
-			else {
-					redirect(base_url() . 'aplicacion', 301);
-				}
-	}
-
-	public function nuevocuestioanrio(){
-
-	}
-	/**
-	 * Fin Cuenta Administrador
 	 */
 }

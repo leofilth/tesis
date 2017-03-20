@@ -35,6 +35,10 @@
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
+        var preguntas=<?php echo json_encode($preguntasAlimento,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
+        var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
+        var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres
+        var avance=<?php echo $avance->avance_cuest_alimento?>;
         /**
          * $('input[name=Choose]').attr('checked',false); //limpia el input
          */
@@ -59,11 +63,6 @@
                 return resp;
             })
         }
-        var texto="<?php echo $preguntasAlimento[0]->idpregunta?>";
-        var preguntas=<?php echo json_encode($preguntasAlimento,JSON_PRETTY_PRINT)?>;//arreglo de preguntas desde base de datos
-        var puntosBD=<?php echo $puntaje->puntos?>;//puntos que posee el usuario
-        var puntajeLider=<?php echo $puntajeLider->puntaje?>;//puntaje total guardado en BD,para ranking lideres
-        var avance=<?php echo $avance->avance_cuest_alimento?>;
         $(".inputcuest").on({
             click:function() {
                 var i;

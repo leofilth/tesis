@@ -242,7 +242,6 @@
                 for(i=1;i<preguntas.length+1;i++){
                      cuest=preguntas[i-1].idpregunta;
                     if($('input:radio[name='+cuest+i+']').is(':checked')) {
-                        console.log(1);
                         $("#correcto"+i).text("Listo!");
                         $("#muestrarespuesta"+i).removeClass("infinite pulse");
                     }

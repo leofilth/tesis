@@ -247,13 +247,29 @@
         var puntos = <?php echo $puntaje->puntos?>;
         var titulo, titulo2;
         var avance=<?php echo $avance->avance_acgrasa?>;
+        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
+        var mostrar=tutorial.seccion_acgrasa;
+        var acgrasas=<?php echo json_encode($acGrasas,JSON_PRETTY_PRINT)?>;//arreglo con todas las verduras
+        var tips=<?php echo json_encode($tipsAcGrasas,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsVerduras
+        var contador=1;
+        var instrucciones=[
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Click en siguiente para ayuda",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Aceite y Grasas",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
+                "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu verdura esta se desbloquea cambiando de color",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutoaceitegrasa.png'?>'>"}
+        ];
+
         function guardaEstadoTutorial(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
             })
         }
-        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
-        var mostrar=tutorial.seccion_acgrasa;
         $("#mostrarmodal").click(function(){
             mostrar=0;
             //guarda en bd
@@ -346,10 +362,7 @@
                 });
             }
         }
-        var acgrasas=<?php echo json_encode($acGrasas,JSON_PRETTY_PRINT)?>;//arreglo con todas las verduras
-        var tips=<?php echo json_encode($tipsAcGrasas,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsVerduras
         $(".acgrasa").on({
-
             click:function(){
                 titulo=$(this).attr("title");
                 var link=$(this).attr("src");
@@ -367,12 +380,6 @@
                 }
             }
         });
-        /*$(".cuest").on({
-            click:function(){
-                var cuestionario=$(this).attr("id");
-                guardaCuestTemp('<?php echo base_url()."aplicacion/guardaCuestTemp"?>',cuestionario);
-            }
-        });*/
         $(".tip").on({
             click:function(){
                 var titulo=$(this).attr("title");
@@ -398,19 +405,6 @@
          * Instrucciones
          * @type {*[]}
          */
-        var instrucciones=[
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Click en siguiente para ayuda",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Aceite y Grasas",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
-                "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu verdura esta se desbloquea cambiando de color",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutoaceitegrasa.png'?>'>"}
-        ];
-        var contador=1;
         $("#instrumodal").on({
             click:function(){
                 if(contador==5){
