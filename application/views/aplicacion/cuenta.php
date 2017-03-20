@@ -35,7 +35,7 @@
 <section class="container-fluid bg-im3 padingbot padingtop">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-12">
                     <img id="imagenUsuario" width="200px" height="200px"  class="img-circle center-block fondoavatar animated"
                          src="<?php
                          if($datos->avatar_name=="user")
@@ -52,14 +52,14 @@
                          }
                          ?>">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12">
                     <?php if($datos->sexo == "masculino"){?>
                     <h1 class="titulo1 animated tada">Bienvenido <?php echo $datos->nick?></h1>
                     <?php }else{?>
                     <h1 class="titulo1 animated tada">Bienvenida <?php echo $datos->nick?></h1>
                     <?php }?>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-12">
                     <div class="">
                         <div class="cuadradotarjeta4 animated infinite pulse tipmain">
                             <div class="row">
@@ -79,7 +79,6 @@
         <h3 class="titulo1 text-center">Selecciona que quieres aprender</h3>
         <div class="container animated bounceIn">
             <div class="row">
-                <div class="col-md-12">
                     <div id="fruta" class="col-md-4 col-sm-6">
                         <div class=" text-center borde frutacuenta">
                             <?php if($estadoDiploma->valor_fruta==1){?>
@@ -237,7 +236,6 @@
                             <a href="<?php echo base_url()."aplicacion/receta"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>-->
-                </div>
             </div>
         </div>
         <div class="container animated tada">

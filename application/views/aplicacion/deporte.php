@@ -73,7 +73,7 @@
                             <div class="instruccion-morado">
                                 <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
                                 <ol class="texto-modal-tip" id="descripcion-tip">
-                                    <li>Compra tu deporte</li>
+                                    <li>Compra tu Deporte</li>
                                     <li>Haz click en el</li>
                                     <li>Aprende</li>
                                 </ol>
@@ -155,7 +155,7 @@
 </section>
 <section class="container-fluid" id="section2">
     <div class="container">
-        <header class="tituloSection">Desafío Wambo Deporte</header>
+        <header class="tituloSection">Desafío Wambo</header>
         <div class="row">
             <div class="col-md-8 col-sm-8">
                 <div class="instruefecto">
@@ -194,7 +194,7 @@
 </section>
 <section class="container-fluid" id="tipsaludable">
     <div class="container">
-        <header class="tituloSection">Tips Wambo Deportes</header>
+        <header class="tituloSection">Tips Wambo</header>
         <div class="row">
             <div class="col-md-8">
                 <div class="instruefecto">

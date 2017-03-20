@@ -411,7 +411,7 @@ css cuenta
     color: #fff;
 }
 .footer {
-    background: #495052 none repeat scroll 0 0;
+    background: #34495e none repeat scroll 0 0;
     padding-bottom: 80px;
     padding-top: 90px;
     text-align: center;
@@ -421,6 +421,7 @@ css cuenta
     color: white;
     font-size: 30px;
     line-height: 17px;
+    text-align: left;
 
 }
 .footer p{
@@ -661,12 +662,12 @@ css de barra nav
     font-size: 20px;
 }
 .nav-link-ayuda{
-    background-color: #E16C6C;
+    background-color: #f1c40f;
     font-family: 'finger paint';
     font-size: 20px;
 }
 .nav-link-registro{
-    background-color: #6FC191;
+    background-color: #2ecc71;
     font-family: 'finger paint';
     font-size: 16px;
 }
@@ -676,7 +677,7 @@ css de barra nav
     font-size: 20px;
 }
 .nav-link-sesion{
-    background-color: #008AD1;
+    background-color: #3498db;
     font-family: 'finger paint';
     font-size: 16px;
 }
@@ -696,12 +697,12 @@ css de barra nav
     font-size: 20px;
 }
 .nav-link-desafio{
-    background-color: #EDBF47;
+    background-color: #9b59b6;
     font-family: 'finger paint';
     font-size: 20px;
 }
 .nav-link-tip{
-    background-color: #C389CE;
+    background-color: #297FB8;
     font-family: 'finger paint';
     font-size: 20px;
 }
@@ -712,7 +713,7 @@ css de barra nav
 .li-nav:focus, .li-nav:hover {
     opacity: 1;
     /*transform: scale(1.1,1.1);*/
-    background-color: #EC774B;
+    background-color: #e67e22;
     font-family: 'finger paint';
     color: white;
 }
@@ -807,6 +808,7 @@ css de barra nav
     background-color: rgba(0,0,0,0.5);
     padding-bottom: 5px;
     padding-top: 5px;
+    border-radius: 5px;
 }
 .fondo-portada1{
     background-color: rgb(111,193,145);
@@ -1452,7 +1454,7 @@ tamaño imagen seccion
     font-size: 20px;
     color: white;
     list-style: none;
-    text-align: center;
+    text-align: left;
 }
 .textofooter  a{
     color: white;
@@ -1480,6 +1482,10 @@ tamaño imagen seccion
 }
 #tdes{
     padding-top: 12%;
+}
+.btn-naranjo{
+    background-color: #e67e22;
+    border-color: #e67e22;
 }
 @media screen and (max-width: 1280px){
     .img-seccion{
@@ -1614,6 +1620,16 @@ tamaño imagen seccion
     }
 }
 @media screen and (max-width: 360px){
+    .progress-bar{
+        font-size: 14px;
+        padding-top: 2px;
+    }
+    .maintitulo {
+        height: 85px;
+    }
+    .titulo5 {
+        font-size: 15px;
+    }
     .textofooter p{
         font-size: 13px;
     }
@@ -1628,7 +1644,7 @@ tamaño imagen seccion
         background-size: cover;
     }*/
     .img-seccion{
-        width: 100px;height: 100px;
+        width: 115px;height: 115px;
     }
     .tamano{
         width: 64px;

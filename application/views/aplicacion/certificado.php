@@ -53,7 +53,7 @@
     <div class="container animated tada">
         <!-- Progreso a diploma-->
         <div class="row">
-            <div class="col-md-2 col-md-offset-1 col-sm-2  col-sm-offset-1 col-xs-6">
+            <div class="col-md-2 col-md-offset-1 col-sm-2  col-sm-offset-1 col-xs-2 col-xs-offset-1">
                 <?php if($estadoDiploma->valor_fruta==1){?>
                     <figure class="tool" data-toggle="tooltip" title="Frutas y Verduras">
                         <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadafrutaverduracompleta.png"?>">
@@ -64,7 +64,7 @@
                     </figure>
                 <?php }?>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-6">
+            <div class="col-md-2 col-sm-2 col-xs-2">
                 <?php if($estadoDiploma->valor_cereal==1){?>
                     <figure class="tool" data-toggle="tooltip" title="Cereales">
                         <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacerealcompleta.png"?>">
@@ -75,7 +75,7 @@
                     </figure>
                 <?php }?>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-6">
+            <div class="col-md-2 col-sm-2 col-xs-2">
                 <?php if($estadoDiploma->valor_deporte==1){?>
                     <figure class="tool" data-toggle="tooltip" title="Ejercicio y Deportes">
                         <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadadeportecompleta.png"?>">
@@ -86,7 +86,7 @@
                     </figure>
                 <?php }?>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-6">
+            <div class="col-md-2 col-sm-2 col-xs-2">
                 <?php if($estadoDiploma->valor_alimento==1){?>
                     <figure class="tool" data-toggle="tooltip" title="Carnes, Lacteos, Huevos y Legumbres">
                         <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacarnehuevocompleta.png"?>">
@@ -97,7 +97,7 @@
                     </figure>
                 <?php }?>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-6">
+            <div class="col-md-2 col-sm-2 col-xs-2">
                 <?php if($estadoDiploma->valor_acgrasa==1){?>
                     <figure class="tool" data-toggle="tooltip" title="Aceites y Grasas">
                         <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadaaceitegrasacompleta.png"?>">

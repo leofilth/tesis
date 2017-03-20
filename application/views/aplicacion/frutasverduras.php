@@ -159,7 +159,7 @@
 </section>
 <section class="container-fluid animated fadeIn" id="section2">
     <div class="container">
-        <header class="tituloSection">Desafio Wambo Frutas y Verduras</header>
+        <header class="tituloSection">Desafíos Wambo</header>
         <div class="row">
             <div class="col-md-8 col-sm-8">
                 <div class="instruefecto">
@@ -167,7 +167,7 @@
                         <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
                         <ol class="texto-modal-tip" id="descripcion-tip">
                             <li>Responde y gana puntos</li>
-                            <li>Canjea por tus frutas </li>
+                            <li>Canjea por tus Frutas y Verduras </li>
                             <li>Demuestra todo lo que sabes</li>
                         </ol>
                     </div>
@@ -196,7 +196,7 @@
 </section>
 <section class="container-fluid" id="tipsaludable">
     <div class="container">
-        <header class="tituloSection">Tips Wambo Frutas y Verduras</header>
+        <header class="tituloSection">Tips Wambo</header>
         <div class="row">
             <div class="col-md-8">
                 <div class="instruefecto">

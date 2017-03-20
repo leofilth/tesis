@@ -71,7 +71,7 @@
                             <div class="instruccion-morado">
                                 <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
                                 <ol class="texto-modal-tip" id="descripcion-tip">
-                                    <li>Compra tu cereal</li>
+                                    <li>Compra tu Cereal</li>
                                     <li>Haz click en el</li>
                                     <li>Aprende</li>
                                 </ol>

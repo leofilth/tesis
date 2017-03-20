@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-circle pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
             </div>
         </div>

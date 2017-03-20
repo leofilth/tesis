@@ -19,7 +19,7 @@
                         <p>Wambo es una aplicación que te enseñará sobre la importancia de la educación física
                         y la vida saludable.</p>
                         <p>Tiene muchas cosas entretenidas, únete!.</p>
-                        <p><a role="button" href="<?php echo base_url()."aplicacion/registro"?>" class="btn btn-lg btn-primary">Regístrate Ahora!</a></p>
+                        <p><a role="button" href="<?php echo base_url()."aplicacion/registro"?>" class="animated infinite pulse btn-naranjo btn btn-lg btn-primary">Regístrate Ahora!</a></p>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                         <h1>¿Qué aprenderás?</h1>
                         <p>Aprenderás sobre alimentación saludable y sus beneficios.</p>
                         <p>Aprenderás sobre la actividad física, la importancia de realizar deporte, consejos y mucho más.</p>
-                        <p><a id="leermas" role="button" href="#" class="animated infinite pulse btn btn-lg btn-primary">Leer más</a></p>
+                        <p><a id="leermas" role="button" href="#" class="animated infinite pulse btn-naranjo btn btn-lg btn-primary">Leer más</a></p>
                     </div>
                 </div>
             </div>
