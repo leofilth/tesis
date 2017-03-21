@@ -59,7 +59,7 @@
                         <div id="flecha<?php echo $num?>" class="triangulo-morado"></div>
                     </div>
                 </div>
-                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student6.png'?>">
             </div>
         </div>
         <?php

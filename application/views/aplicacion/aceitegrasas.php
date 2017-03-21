@@ -15,7 +15,7 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-circle" width="20%" alt="estudiante3" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                    <img class="img-circle" width="20%" alt="estudiante3" src="<?php echo base_url().'public/images/modal/student6.png'?>">
                 </figure>
                 <button type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
             </div>
@@ -52,7 +52,7 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-circle icon-inst" alt="estudiante3" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                    <img class="img-circle icon-inst" alt="estudiante3" src="<?php echo base_url().'public/images/modal/student6.png'?>">
                 </figure>
                 <div style="margin-top: 55px">
                     <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <figure>
-                            <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                            <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student6.png'?>">
                         </figure>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
@@ -116,7 +116,7 @@
                                             <img id="<?php echo $aceiteGrasa->id ?>"
                                                  title="<?php echo $aceiteGrasa->nombre ?>"
                                                  src="<?php echo base_url() . $aceiteGrasa->link ?>"
-                                                 class="img-border tamano fondofruta rotate center-block verdura borde"
+                                                 class="img-border tamano fondofruta rotate center-block acgrasa borde"
                                                  data-toggle="modal" data-target="#myModal"
                                                 alt="<?php echo "imagen".$aceiteGrasa->nombre ?>">
                                         </figure>
@@ -174,7 +174,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student6.png'?>">
                 </figure>
             </div>
         </div>
@@ -211,7 +211,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                    <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student6.png'?>">
                 </figure>
             </div>
         </div>
@@ -249,8 +249,8 @@
         var avance=<?php echo $avance->avance_acgrasa?>;
         var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
         var mostrar=tutorial.seccion_acgrasa;
-        var acgrasas=<?php echo json_encode($acGrasas,JSON_PRETTY_PRINT)?>;//arreglo con todas las verduras
-        var tips=<?php echo json_encode($tipsAcGrasas,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsVerduras
+        var acgrasas=<?php echo json_encode($acGrasas,JSON_PRETTY_PRINT)?>;//arreglo con todos los alimentos
+        var tips=<?php echo json_encode($tipsAcGrasas,JSON_PRETTY_PRINT)?>;//arreglo con todos los tips
         var contador=1;
         var instrucciones=[
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Click en siguiente para ayuda",

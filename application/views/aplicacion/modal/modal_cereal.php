@@ -15,6 +15,7 @@
 
                                 </p>
                             </li>
+                            <img id="modalimg" width="15%" style="position:absolute;top:10px;right:10px;margin:0;" class="zoom fondofruta borde img-circle" src="">
                         </ul>
                         <!--<ul style="list-style: none">
                             <li><div class="texto-modal-tip"><span class="animated infinite pulse glyphicon glyphicon-info-sign glyfy"></span> Descripción</div><p id="modal-descripcion" class="texto-modal-tip"></p></li>

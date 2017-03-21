@@ -52,7 +52,7 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-border icon-inst" alt="estudiante2" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                    <img class="img-border icon-inst" alt="estudiante2" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
                 <div style="margin-top: 55px">
                     <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
