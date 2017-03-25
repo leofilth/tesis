@@ -781,12 +781,12 @@ class Aplicacion extends CI_Controller {
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
 			$avance=$this->usuarios_model->getAvance($datos->nick);
-			$identificador=$this->uri->segment(3);
-			$cuestionario=$identificador;//ej:cuestionario3, que esta en BD con id
+			$cuestionario=$this->uri->segment(3);
 			$preguntasDeporte=$this->usuarios_model->getPreguntasDeporte($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponDep($datos->nick);
+			$cuestionarioDisp=$this->usuarios_model->getCuestDispDeporte($datos->nick);
 			$this->layout->view("cuestionarioDep",compact("datos","identificador","preguntasDeporte","cuestionario",
-				"puntaje","puntajeLider","cuestRespondidos","avance"));
+				"puntaje","puntajeLider","cuestRespondidos","avance","cuestionarioDisp"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -912,6 +912,13 @@ class Aplicacion extends CI_Controller {
 			'puntaje'=>$puntaje
 		);
 		$this->usuarios_model->guardaPuntajeLider($aGuardar,$nick);
+	}
+	/*Borra Cuestionarios disponibles*/
+	public function borraCuestDispDeporte(){
+		$cuestionarioId=$this->input->post("valor",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$this->usuarios_model->deleteCuestDispDeporte($nick,$cuestionarioId);
 	}
 	/*
 	 * Fin Cuestionario por url

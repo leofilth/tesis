@@ -343,10 +343,17 @@ class usuarios_model extends CI_Model
         return $query->result();
     }
     public function getCuestionariosDeporte(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("idpregunta,titulo_fk")
             ->distinct()//distintos !!
             ->from("preguntas_deporte")
+            ->get();
+        return $query->result();*/
+        $query=$this->db
+            ->select("d.idpregunta,p.titulo")
+            ->distinct()//distintos !!
+            ->from("preguntas_deporte as d")
+            ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->get();
         return $query->result();
     }

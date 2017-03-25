@@ -254,6 +254,8 @@
         var frutas=<?php echo json_encode($frutas,JSON_PRETTY_PRINT)?>;//arreglo con todas las frutas
         var tips=<?php echo json_encode($tipsFrutas,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsFrutas
         var contador=1;
+        var informacion;//array con la informacion de un cereal
+        var contadorInfo=0;//contador para ir cambiando la info mediante clicks
         var instrucciones=[
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Click en siguiente para ayuda",
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
@@ -298,20 +300,33 @@
             })
         }
         function cargaEnModal(){
-            titulo=$(this).attr("title");
-            var link=$(this).attr("src");
-            var i;
-            for(i=0;i<frutas.length;i++){
-                if(frutas[i].nombre == titulo){
-                    $("#modal-descripcion").html(frutas[i].descripcion);
-                    $("#modal-title").text(titulo);
-                    $("#modalimg").attr("src",link);
-                    $("#modal-consumo").text(frutas[i].consumo);
-                    $("#modal-saludable").text(frutas[i].saludable);
-                    $("#modal-beneficios").html(frutas[i].beneficios);
-                    $("#modal-categoria").text(frutas[i].categoria);
+                titulo=$(this).attr("title");
+                var link=$(this).attr("src");
+                var i;
+                contadorInfo=0;//resetea al hacer click en un elemento
+                for(i=0;i<frutas.length;i++){
+                    if(frutas[i].nombre == titulo){
+                        $("#modal-title").text(titulo);
+                        $("#modalimg").attr("src",link);
+                        informacion=[
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":frutas[i].descripcion},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":frutas[i].categoria},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":frutas[i].saludable},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":frutas[i].beneficios},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Consumo","informacion":frutas[i].consumo}
+                        ];
+                        $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
+                        $("#info").html(frutas[i].descripcion);
+                        contadorInfo++;
+                        /*$("#modal-descripcion").html(cereales[i].descripcion);
+                         $("#modal-title").text(titulo);
+                         $("#modalimg").attr("src",link);
+                         $("#modal-consumo").text(cereales[i].consumo);
+                         $("#modal-saludable").text(cereales[i].saludable);
+                         $("#modal-beneficios").html(cereales[i].beneficios);
+                         $("#modal-categoria").text(cereales[i].categoria);*/
+                    }
                 }
-            }
         }
         function compra(){
             if(puntos <50){
@@ -353,18 +368,30 @@
                             //agrega clase fruta para ver en modal
                             $("#"+id).addClass("fruta");
                             $("#"+id+".fruta").on("click",function(){
-                                titulo=$(this).attr("title");
-                                var link=$(this).attr("src");
+                                titulo = $(this).attr("title");
+                                var link = $(this).attr("src");
                                 var i;
-                                for(i=0;i<frutas.length;i++){
-                                    if(frutas[i].nombre == titulo){
-                                        $("#modal-descripcion").html(frutas[i].descripcion);
+                                for (i = 0; i < frutas.length; i++) {
+                                    if (frutas[i].nombre == titulo) {
                                         $("#modal-title").text(titulo);
-                                        $("#modalimg").attr("src",link);
-                                        $("#modal-consumo").text(frutas[i].consumo);
-                                        $("#modal-saludable").text(frutas[i].saludable);
-                                        $("#modal-beneficios").html(frutas[i].beneficios);
-                                        $("#modal-categoria").text(frutas[i].categoria);
+                                        $("#modalimg").attr("src", link);
+                                        informacion=[
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":frutas[i].descripcion},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":frutas[i].categoria},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":frutas[i].saludable},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":frutas[i].beneficios},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Consumo","informacion":frutas[i].consumo}
+                                        ];
+                                        $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
+                                        $("#info").html(frutas[i].descripcion);
+                                        contadorInfo++;
+                                        /*$("#modal-descripcion").html(cereales[i].descripcion);
+                                         $("#modal-title").text(titulo);
+                                         $("#modalimg").attr("src", link);
+                                         $("#modal-consumo").text(cereales[i].consumo);
+                                         $("#modal-saludable").text(cereales[i].saludable);
+                                         $("#modal-beneficios").html(cereales[i].beneficios);
+                                         $("#modal-categoria").text(cereales[i].categoria);*/
                                     }
                                 }
 
@@ -405,6 +432,20 @@
         /**
         fin compra fruta y verdura
          */
+        $("#informacion").on({
+            click:function(){
+                if(contadorInfo==5){
+                    $("#titulo").html(informacion[0].titulo);
+                    $("#info").html(informacion[0].informacion);
+                    contadorInfo=1;
+                }
+                else{
+                    $("#titulo").html(informacion[contadorInfo].titulo);
+                    $("#info").html(informacion[contadorInfo].informacion);
+                    contadorInfo++;
+                }
+            }
+        });
         $("#instrumodal").on({
             click:function(){
                 if(contador==5){

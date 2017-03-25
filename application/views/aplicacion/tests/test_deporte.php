@@ -1,12 +1,15 @@
 <?php
 $i=1;
-$cuestionarioDisponible=$this->mis_funciones->limpiaCuestDisponibleDeporte($cuestionarioDisp);
+if($cuestionarioDisp!=null){
+    $cuestionarioDisponible=$this->mis_funciones->limpiaCuestDisponibleDeporte($cuestionarioDisp);
+}
 if($cuestRespondidos!=null) {
-    $limpio = $this->mis_funciones->limpiaSiete($cuestRespondidos);
+    $cuestionariosRespondidos = $this->mis_funciones->limpiaSiete($cuestRespondidos);
+    //cuestionarios contiene los nombres de los cuest y el titulo de cada cuest
     foreach ($cuestionarios as $cuestionario) {?>
-        <?php if (in_array($cuestionario->idpregunta, $limpio)) { ?>
-            <div class="col-md-3 col-sm-3 col-xs-4">
-                <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo_fk ?></h3>
+        <?php if (in_array($cuestionario->idpregunta, $cuestionariosRespondidos)) { ?>
+            <div class="col-md-2 col-sm-2 col-xs-3">
+                <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
                 <?php //$numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
                     <figure>
                         <img
@@ -19,44 +22,91 @@ if($cuestRespondidos!=null) {
 
             </div>
         <?php }
-        else {//gris sin link y disponibles
-            if(in_array($cuestionario->idpregunta, $cuestionarioDisponible)){?>
-                <div class="col-md-3 col-sm-3 col-xs-4">
-                    <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo_fk ?></h3>
-                    <a href='<?php echo base_url()."aplicacion/cuestionariodep/".$cuestionario->idpregunta?>'
+        else {//gris sin link y disponibles.
+            if ($cuestionarioDisp == null) {
+                    ?>
+                    <div class="col-md-2 col-sm-2 col-xs-3">
+                        <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
+                        <a id="<?php echo "link" . $cuestionario->idpregunta ?>" href="#section2">
+                            <figure>
+                                <img
+                                    class="cuestionario center-block img-circle borde zoom cuest cuest-gris tamano-cuest"
+                                    id="<?php echo $cuestionario->idpregunta ?>"
+                                    name="<?php echo $cuestionario->idpregunta ?>"
+                                    alt="<?php echo $cuestionario->idpregunta ?>"
+                                    src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
+                            </figure>
+                        </a>
+                    </div>
+
+                <?php
+            } else {//ya hay un cuestionario disponible
+                if (in_array($cuestionario->idpregunta, $cuestionarioDisponible))
+                //si esta en disponibles se pone en verde
+                {
+                    ?>
+                    <div class="col-md-2 col-sm-2 col-xs-3">
+                        <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
+                        <a href='<?php echo base_url() . "aplicacion/cuestionariodep/" . $cuestionario->idpregunta ?>'
                         <figure>
                             <img
                                 class="cuestionario center-block img-circle borde zoom cuest  tamano-cuest"
-                                id="<?php echo $cuestionario->idpregunta ?>" name="<?php echo $cuestionario->idpregunta ?>"
+                                id="<?php echo $cuestionario->idpregunta ?>"
+                                name="<?php echo $cuestionario->idpregunta ?>"
                                 alt="<?php echo $cuestionario->idpregunta ?>"
                                 src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
                         </figure>
-                    </a>
-                </div>
-                <?php }else{?>
-                <div class="col-md-3 col-sm-3 col-xs-4">
-                    <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo_fk ?></h3>
-                    <a id="<?php echo "link".$cuestionario->idpregunta ?>" href="#section2">
-                        <figure>
-                            <img
-                                class="cuestionario center-block img-circle borde zoom cuest cuest-gris tamano-cuest"
-                                id="<?php echo $cuestionario->idpregunta ?>" name="<?php echo $cuestionario->idpregunta ?>"
-                                alt="<?php echo $cuestionario->idpregunta ?>"
-                                src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
-                        </figure>
-                    </a>
-                </div>
-                <?php }?>
-        <?php } ?>
+                        </a>
+                    </div>
+                <?php } else
+                //se pone en gris
+                {
+                    ?>
+                    <div class="col-md-2 col-sm-2 col-xs-3">
+                        <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
+                        <a id="<?php echo "link" . $cuestionario->idpregunta ?>" href="#section2">
+                            <figure>
+                                <img
+                                    class="cuestionario center-block img-circle borde zoom cuest cuest-gris tamano-cuest"
+                                    id="<?php echo $cuestionario->idpregunta ?>"
+                                    name="<?php echo $cuestionario->idpregunta ?>"
+                                    alt="<?php echo $cuestionario->idpregunta ?>"
+                                    src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
+                            </figure>
+                        </a>
+                    </div>
+                <?php } ?>
+            <?php }
+        }?>
         <?php
         $i++;
     }
 }
 else{//ningun cuestionario respondido?>
+    <?php //si cuestionarioDisp esta vacio
+    if($cuestionarioDisp ==null) {
+        foreach ($cuestionarios as $cuestionario) {
+            ?>
+            <div class="col-md-2 col-sm-2 col-xs-3">
+                <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
+                <a id="<?php echo "link".$cuestionario->idpregunta ?>" href="#section2">
+                    <figure>
+                        <img
+                            class="cuestionario center-block img-circle borde zoom cuest cuest-gris tamano-cuest"
+                            id="<?php echo $cuestionario->idpregunta ?>" name="<?php echo $cuestionario->idpregunta ?>"
+                            alt="<?php echo $cuestionario->idpregunta ?>"
+                            src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
+                    </figure>
+                </a>
+            </div>
+
+        <?php }
+    }else {//ya hay un cuestionario disponible
+    ?>
     <?php foreach($cuestionarios as $cuestionario) {
         if(in_array($cuestionario->idpregunta, $cuestionarioDisponible)){?>
-        <div class="col-md-3 col-sm-3 col-xs-4">
-            <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo_fk ?></h3>
+        <div class="col-md-2 col-sm-2 col-xs-3">
+            <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
             <a href='<?php echo base_url()."aplicacion/cuestionariodep/".$cuestionario->idpregunta?>'
             <figure>
                 <img
@@ -68,8 +118,8 @@ else{//ningun cuestionario respondido?>
             </a>
         </div>
     <?php }else{?>
-        <div class="col-md-3 col-sm-3 col-xs-4">
-            <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo_fk ?></h3>
+        <div class="col-md-2 col-sm-2 col-xs-3">
+            <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
             <a id="<?php echo "link".$cuestionario->idpregunta ?>" href="#section2">
                 <figure>
                     <img
@@ -80,7 +130,9 @@ else{//ningun cuestionario respondido?>
                 </figure>
             </a>
         </div>
-    <?php }?>
-        <?php $i++;
-    }?>
-<?php }?>
+    <?php }
+         $i++;
+    }
+ }
+}
+?>

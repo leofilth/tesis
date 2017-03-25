@@ -179,7 +179,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="row">
                     <?php include "tests/test_deporte.php" ?>
                 </div>
@@ -249,6 +249,8 @@
         var avance=<?php echo $avance->avance_deporte?>;
         var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
         var mostrar=tutorial.seccion_deporte;
+        var contadorInfo=0;//contador para ir cambiando la info mediante clicks
+        var informacion;//array con la informacion de un cereal
         var deportes=<?php echo json_encode($deportes,JSON_PRETTY_PRINT)?>;//arreglo con todas las deportes
         var tips=<?php echo json_encode($tipsDeportes,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsDeportes
         var contador=1;
@@ -352,13 +354,18 @@
                                 var i;
                                 for (i = 0; i < deportes.length; i++) {
                                     if (deportes[i].nombre == titulo) {
-                                        $("#modal-descripcion").html(deportes[i].descripcion);
                                         $("#modal-title").text(titulo);
                                         $("#modalimg").attr("src", link);
-                                        $("#modal-frecuencia").text(deportes[i].frecuencia);
-                                        $("#modal-saludable").text(deportes[i].saludable);
-                                        $("#modal-beneficios").html(deportes[i].beneficios);
-                                        $("#modal-categoria").text(deportes[i].categoria);
+                                        informacion=[
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":deportes[i].descripcion},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":deportes[i].categoria},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":deportes[i].saludable},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":deportes[i].beneficios},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Consumo","informacion":deportes[i].consumo}
+                                        ];
+                                        $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
+                                        $("#info").text(deportes[i].descripcion);
+                                        contadorInfo++;
                                     }
                                 }
 
@@ -378,15 +385,28 @@
                 titulo=$(this).attr("title");
                 var link=$(this).attr("src");
                 var i;
+                contadorInfo=0;//resetea al hacer click en un elemento
                 for(i=0;i<deportes.length;i++){
                     if(deportes[i].nombre == titulo){
-                        $("#modal-descripcion").html(deportes[i].descripcion);
                         $("#modal-title").text(titulo);
                         $("#modalimg").attr("src",link);
-                        $("#modal-consumo").text(deportes[i].consumo);
-                        $("#modal-saludable").text(deportes[i].saludable);
-                        $("#modal-beneficios").html(deportes[i].beneficios);
-                        $("#modal-categoria").text(deportes[i].categoria);
+                        informacion=[
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":deportes[i].descripcion},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":deportes[i].categoria},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":deportes[i].saludable},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":deportes[i].beneficios},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Frecuencia","informacion":deportes[i].frecuencia}
+                        ];
+                        $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
+                        $("#info").text(deportes[i].descripcion);
+                        contadorInfo++;
+                        /*$("#modal-descripcion").html(cereales[i].descripcion);
+                         $("#modal-title").text(titulo);
+                         $("#modalimg").attr("src",link);
+                         $("#modal-consumo").text(cereales[i].consumo);
+                         $("#modal-saludable").text(cereales[i].saludable);
+                         $("#modal-beneficios").html(cereales[i].beneficios);
+                         $("#modal-categoria").text(cereales[i].categoria);*/
                     }
                 }
             }
@@ -424,6 +444,20 @@
                     $("#textoIns").html(instrucciones[contador].titulo);
                     $("#fotoIns").html(instrucciones[contador].imagen);
                     contador++;
+                }
+            }
+        });
+        $("#informacion").on({
+            click:function(){
+                if(contadorInfo==5){
+                    $("#titulo").html(informacion[0].titulo);
+                    $("#info").html(informacion[0].informacion);
+                    contadorInfo=1;
+                }
+                else{
+                    $("#titulo").html(informacion[contadorInfo].titulo);
+                    $("#info").html(informacion[contadorInfo].informacion);
+                    contadorInfo++;
                 }
             }
         });

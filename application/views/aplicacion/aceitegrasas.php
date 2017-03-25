@@ -181,7 +181,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="row">
                 <?php include "tests/test_aceite_grasa.php"?>
                 </div>
@@ -252,6 +252,8 @@
         var acgrasas=<?php echo json_encode($acGrasas,JSON_PRETTY_PRINT)?>;//arreglo con todos los alimentos
         var tips=<?php echo json_encode($tipsAcGrasas,JSON_PRETTY_PRINT)?>;//arreglo con todos los tips
         var contador=1;
+        var informacion;//array con la informacion de un cereal
+        var contadorInfo=0;//contador para ir cambiando la info mediante clicks
         var instrucciones=[
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Click en siguiente para ayuda",
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
@@ -341,13 +343,25 @@
                                 var i;
                                 for (i = 0; i < acgrasas.length; i++) {
                                     if (acgrasas[i].nombre == titulo) {
-                                        $("#modal-descripcion").html(acgrasas[i].descripcion);
                                         $("#modal-title").text(titulo);
                                         $("#modalimg").attr("src", link);
-                                        $("#modal-consumo").text(acgrasas[i].consumo);
-                                        $("#modal-saludable").text(acgrasas[i].saludable);
-                                        $("#modal-beneficios").html(acgrasas[i].beneficios);
-                                        $("#modal-categoria").text(acgrasas[i].categoria);
+                                        informacion=[
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":acgrasas[i].descripcion},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":acgrasas[i].categoria},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":acgrasas[i].saludable},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":acgrasas[i].beneficios},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Consumo","informacion":acgrasas[i].consumo}
+                                        ];
+                                        $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
+                                        $("#info").text(acgrasas[i].descripcion);
+                                        contadorInfo++;
+                                        /*$("#modal-descripcion").html(cereales[i].descripcion);
+                                         $("#modal-title").text(titulo);
+                                         $("#modalimg").attr("src", link);
+                                         $("#modal-consumo").text(cereales[i].consumo);
+                                         $("#modal-saludable").text(cereales[i].saludable);
+                                         $("#modal-beneficios").html(cereales[i].beneficios);
+                                         $("#modal-categoria").text(cereales[i].categoria);*/
                                     }
                                 }
 
@@ -367,15 +381,28 @@
                 titulo=$(this).attr("title");
                 var link=$(this).attr("src");
                 var i;
+                contadorInfo=0;//resetea al hacer click en un elemento
                 for(i=0;i<acgrasas.length;i++){
                     if(acgrasas[i].nombre == titulo){
-                        $("#modal-descripcion").html(acgrasas[i].descripcion);
                         $("#modal-title").text(titulo);
                         $("#modalimg").attr("src",link);
-                        $("#modal-consumo").text(acgrasas[i].consumo);
-                        $("#modal-saludable").text(acgrasas[i].saludable);
-                        $("#modal-beneficios").html(acgrasas[i].beneficios);
-                        $("#modal-categoria").text(acgrasas[i].categoria);
+                        informacion=[
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":acgrasas[i].descripcion},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":acgrasas[i].categoria},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":acgrasas[i].saludable},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":acgrasas[i].beneficios},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Consumo","informacion":acgrasas[i].consumo}
+                        ];
+                        $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
+                        $("#info").text(acgrasas[i].descripcion);
+                        contadorInfo++;
+                        /*$("#modal-descripcion").html(cereales[i].descripcion);
+                         $("#modal-title").text(titulo);
+                         $("#modalimg").attr("src",link);
+                         $("#modal-consumo").text(cereales[i].consumo);
+                         $("#modal-saludable").text(cereales[i].saludable);
+                         $("#modal-beneficios").html(cereales[i].beneficios);
+                         $("#modal-categoria").text(cereales[i].categoria);*/
                     }
                 }
             }
@@ -397,6 +424,20 @@
          */
         $(".gris").on({
             click:compra
+        });
+        $("#informacion").on({
+            click:function(){
+                if(contadorInfo==5){
+                    $("#titulo").html(informacion[0].titulo);
+                    $("#info").html(informacion[0].informacion);
+                    contadorInfo=1;
+                }
+                else{
+                    $("#titulo").html(informacion[contadorInfo].titulo);
+                    $("#info").html(informacion[contadorInfo].informacion);
+                    contadorInfo++;
+                }
+            }
         });
         /*
          fin compra fruta

@@ -1,35 +1,61 @@
 <?php include "navs/nav_cuest_deporte.php" ?>
 <section class="container-fluid bg-im3 padingtop padingbot">
     <div class="container">
-        <header class="titulo1 text-center">Bienvenido a Cuestionarios</header>
-        <?php if($cuestRespondidos == null){?>
+        <header class="titulo1 text-center">
+            Bienvenido a Cuestionarios
+        </header>
+        <?php //si no hay cuestionarios disponibles
+        if($cuestionarioDisp == null){?>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="instruefecto animated infinite pulse">
+                        <div class="instruccion-morado">
+                            <h4 id="titulo-tip" class="modal-title titulo-modal-tip">
+                                Este cuestionario ya ha sido respondido o no lo has desbloqueado.
+                            </h4>
+                        </div>
+                        <div style="float: left;margin-left: 45%;clear: left">
+                            <div class="triangulo-morado"></div>
+                        </div>
+                    </div>
+                    <figure>
+                        <img class="img-responsive center-block" alt="estudiante1"  src="<?php echo base_url().'public/images/modal/sesion2.png'?>">
+                    </figure>
+                    <a id='volver' class='btn  btn-cuest titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/deporte'?>'>Volver</a>
+                </div>
+            </div>
+        <?php }else
+        //hay cuestionarios disponibles
+        {
+            $cuestionarioDisponible=$this->mis_funciones->limpiaCuestDisponibleDeporte($cuestionarioDisp);
+            //si esta en cuestionarios disponibles, mostrarlo
+            if(in_array($cuestionario,$cuestionarioDisponible)){?>
             <?php include "cuestionarios/cuestDepor.php"?>
         <?php }
-        else {?>
-            <?php
-            $cuestResp=$this->mis_funciones->limpiaSiete($cuestRespondidos);
-            if(in_array($cuestionario,$cuestResp)){?>
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <div class="instruefecto animated infinite pulse">
-                            <div class="instruccion-morado">
-                                <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Este cuestionario ya ha sido respondido.</h4>
-                            </div>
-                            <div style="float: left;margin-left: 45%;clear: left">
-                                <div class="triangulo-morado"></div>
-                            </div>
+        else
+            //el cuestionario ya fue respondido o no esta disponible
+        {?>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="instruefecto animated infinite pulse">
+                        <div class="instruccion-morado">
+                            <h4 id="titulo-tip" class="modal-title titulo-modal-tip">
+                                Este cuestionario ya ha sido respondido o no lo has desbloqueado.
+                            </h4>
                         </div>
-                        <figure>
-                            <img class="img-responsive center-block" alt="estudiante1"  src="<?php echo base_url().'public/images/modal/sesion2.png'?>">
-                        </figure>
-                        <a id='volver' class='btn  btn-cuest titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/deporte'?>'>Volver</a>
+                        <div style="float: left;margin-left: 45%;clear: left">
+                            <div class="triangulo-morado"></div>
+                        </div>
                     </div>
+                    <figure>
+                        <img class="img-responsive center-block" alt="estudiante1"  src="<?php echo base_url().'public/images/modal/sesion2.png'?>">
+                    </figure>
+                    <a id='volver' class='btn  btn-cuest titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/deporte'?>'>Volver</a>
                 </div>
-            <?php }
-            else {?>
-                <?php include "cuestionarios/cuestDepor.php"?>
-            <?php }
+            </div>
+            <?php
         }?>
+        <?php }?>
     </div>
 </section>
 <?php include "footer.php"?>
@@ -42,6 +68,12 @@
         /**
          * $('input[name=Choose]').attr('checked',false); //limpia el input
          */
+        function borraCuestDisp(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp)
+            {
+                return resp;
+            });
+        }
         function actualizaAvance(ruta,valor1,valor2){
             $.post(ruta,{valor1:valor1,valor2:valor2},function(resp){
                 return resp;
@@ -136,6 +168,8 @@
                     //$('"#'+cuestionario+'"').removeClass("hidden");
                     var cuestionario="<?php echo $cuestionario?>";
                     guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestDep"?>',cuestionario);
+                    //borra cuestionario disponible
+                    borraCuestDisp('<?php echo base_url()."aplicacion/borraCuestDispDeporte"?>',cuestionario);
                     avance++;
                     actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"cuestDeporte");
                     $("#guardar").append("<a id='volver' class='btn  btn-cuest titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/deporte#section2'?>'>Volver</a>");

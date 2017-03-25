@@ -249,6 +249,9 @@
         var cereales=<?php echo json_encode($cereales,JSON_PRETTY_PRINT)?>;//arreglo con todas los cereales
         var tips=<?php echo json_encode($tipsCereales,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsCereales
         var informacion;//array con la informacion de un cereal
+        var contador=1;//contador para las instrucciones
+        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
+        var mostrar=tutorial.seccion_cereal;
         /**
          * Instrucciones
          * @type {*[]}
@@ -265,14 +268,11 @@
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu cereal este se desbloquea cambiando de color",
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutocer.png'?>'>"}
         ];
-        var contador=1;//contador para las instrucciones
         function guardaEstadoTutorial(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
             })
         }
-        var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
-        var mostrar=tutorial.seccion_cereal;
         $("#mostrarmodal").click(function(){
             mostrar=0;
             //guarda en bd
