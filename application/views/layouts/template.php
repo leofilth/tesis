@@ -9,7 +9,7 @@
     <meta name="description" content="<?php echo $this->layout->getDescripcion(); ?>">
     <meta name="keywords" content="<?php echo $this->layout->getKeywords(); ?>"/>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Tesis</title>
+    <title>Wambo</title>
     <!--Carga online de librerias bootstrap CSS y JS-->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">

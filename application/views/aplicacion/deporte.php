@@ -71,7 +71,7 @@
                     <div class="col-md-8 col-sm-8">
                         <div class="instruefecto">
                             <div class="instruccion-morado">
-                                <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
+                                <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
                                 <ol class="texto-modal-tip" id="descripcion-tip">
                                     <li>Compra tu Deporte</li>
                                     <li>Haz click en el</li>
@@ -160,7 +160,7 @@
             <div class="col-md-8 col-sm-8">
                 <div class="instruefecto">
                     <div class="instruccion-verde">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
+                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
                         <ol class="texto-modal-tip" id="descripcion-tip">
                             <li>Responde y gana puntos</li>
                             <li>Canjea por tus deporte </li>
@@ -270,6 +270,11 @@
                 return resp;
             })
         }
+        function guardaCuestDisp(ruta,valor){
+            $.post(ruta,{valor:valor},function(resp){
+                return resp;
+            })
+        }
         $("#mostrarmodal").click(function(){
             mostrar=0;
             //guarda en bd
@@ -308,6 +313,7 @@
             else {
                 var id = $(this).attr("id");
                 var nombre = $(this).attr("title");
+                var nombreminusculas=nombre.toLowerCase();
                 bootbox.confirm({
                     size: 'medium',
                     buttons: {
@@ -330,8 +336,13 @@
                             $("#" + id).removeClass("gris");//quita color gris de la imagen
                             $("#" + id).off("click", compra);//quita evento compra
                             guardaDeporte('<?php echo base_url()."aplicacion/guardaDeporteUsuario"?>', id);
+                            //guarda cuestionario disponible
+                            guardaCuestDisp('<?php echo base_url()."aplicacion/guardaCuestDispDeporte"?>',"cuestionario"+nombreminusculas);
+                            $("#cuestionario" + nombreminusculas).removeClass("cuest-gris");//quita color gris al cuestionario seleccionado
+                            $("#linkcuestionario" + nombreminusculas).attr("href",'<?php echo base_url()."aplicacion/cuestionariodep/"?>'+"cuestionario"+nombreminusculas);
                             guardaPuntaje('<?php echo base_url()."aplicacion/guardaPuntaje"?>', puntos);
                             avance++;
+                            console.log(nombreminusculas);
                             actualizaAvance('<?php echo base_url()."aplicacion/actualizaAvance"?>',avance,"deporte");
                             //agrega clase fruta para ver en modal
                             $("#" + id).addClass("deporte");

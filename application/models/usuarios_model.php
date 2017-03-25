@@ -264,6 +264,23 @@ class usuarios_model extends CI_Model
         $this->db->insert("cuest_resp_cer",$datos);
         return true;
     }
+    public function guardaCuestDispDeporte($datos=array()){
+        $this->db->insert("cuest_disp_depor",$datos);
+        return true;
+    }
+    public function getCuestDispDeporte($nick){
+        $query=$this->db
+            ->select("cuest_id_deporte")
+            ->from("cuest_disp_depor")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->result();
+    }
+    public function deleteCuestDispDeporte($nick,$cuest){
+        $this->db->where('cuest_id_deporte', $cuest);//es un AND
+        $this->db->where('nick_fk', $nick);
+        $this->db->delete('cuest_disp_depor');
+    }
     public function getCuestResponAcgrasa($nick){
         $query=$this->db
             ->select("cuest_id_acgrasa")
@@ -327,7 +344,8 @@ class usuarios_model extends CI_Model
     }
     public function getCuestionariosDeporte(){
         $query=$this->db
-            ->select("idpregunta")
+            ->select("idpregunta,titulo_fk")
+            ->distinct()//distintos !!
             ->from("preguntas_deporte")
             ->get();
         return $query->result();

@@ -33,7 +33,9 @@
                 </div>
                 <div class="triangulo"></div>
                 <br>
-                <img class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                <figure>
+                    <img alt="estudiante3" class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                </figure>
                 <button type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
             </div>
         </div>

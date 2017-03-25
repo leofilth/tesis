@@ -580,12 +580,13 @@ class Aplicacion extends CI_Controller {
 			$misdeportes=$this->usuarios_model->getDeporteUsuario($datos->nick);
 			$cuestionarios=$this->usuarios_model->getCuestionariosDeporte();
 			$cuestRespondidos=$this->usuarios_model->getCuestResponDep($datos->nick);
+			$cuestionarioDisp=$this->usuarios_model->getCuestDispDeporte($datos->nick);
 			$tipsDeportes=$this->usuarios_model->getTipDeportes();
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
 			$tutorial=$this->usuarios_model->getTutorialUsuario($datos->nick);
 			$avance=$this->usuarios_model->getAvance($datos->nick);
 			$this->layout->view('deporte', compact("datos","tutorial","deportes","cuestionarios","cuestRespondidos"
-				,"tipsDeportes","puntaje","misdeportes","avance"));
+				,"tipsDeportes","puntaje","misdeportes","avance","cuestionarioDisp"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
@@ -781,8 +782,7 @@ class Aplicacion extends CI_Controller {
 			$puntajeLider=$this->usuarios_model->getPuntajeLider($datos->nick);
 			$avance=$this->usuarios_model->getAvance($datos->nick);
 			$identificador=$this->uri->segment(3);
-			$cuestionario="cuestionario".$identificador;//ej:cuestionario3, que esta en BD con id
-			//$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
+			$cuestionario=$identificador;//ej:cuestionario3, que esta en BD con id
 			$preguntasDeporte=$this->usuarios_model->getPreguntasDeporte($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponDep($datos->nick);
 			$this->layout->view("cuestionarioDep",compact("datos","identificador","preguntasDeporte","cuestionario",
@@ -828,6 +828,22 @@ class Aplicacion extends CI_Controller {
 		} else {
 			redirect(base_url() . 'aplicacion', 301);
 		}
+	}
+	public function guardaCuestDispDeporte(){
+		$cuestionarioId=$this->input->post("valor",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$aGuardar=array(
+			'nick_fk'=>$nick,
+			'cuest_id_deporte'=>$cuestionarioId
+		);
+		$this->usuarios_model->guardaCuestDispDeporte($aGuardar);
+	}
+	public function eliminaCuestDispDeporte(){
+		$cuestionarioId=$this->input->post("valor1",true);
+		$datos=$this->usuarios_model->getDatosUsuario($this->session_id);
+		$nick=$datos->nick;
+		$this->usuarios_model->deleteCuestDispDeporte($nick,$cuestionarioId);
 	}
 	public function guardaCuestAcGrasa(){
 		$cuestionarioId=$this->input->post("valor1",true);

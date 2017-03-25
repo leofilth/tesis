@@ -1154,8 +1154,57 @@ css para cuestionario cuando se completa
     width: 0;
 }
 .gris {
-    -webkit-filter: grayscale(50%); /* Chrome, Safari, Opera */
-    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%);
+-o-filter: grayscale(100%);
+filter: grayscale(100%); /* Para cuando es estándar funcione en todos */
+filter: Gray(); /* IE4-8 and 9 */
+/*
+ opacity: 0.4;
+    filter: alpha(opacity=40); 
+    background-color: #000;
+*/
+}
+.cuest-gris {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%); /* Para cuando es estándar funcione en todos */
+    filter: Gray(); /* IE4-8 and 9 */
+    /*
+     opacity: 0.4;
+        filter: alpha(opacity=40);
+        background-color: #000;
+    */
+}
+@media screen and (min-width:0\0) { 
+    /* Tus estilos CSS para IE9, IE10, IE11  */
+    .gris {
+        opacity: 0.4;
+        filter: alpha(opacity=40); 
+        /*background-color: #000;*/
+    }
+    .cuest-gris {
+        opacity: 0.4;
+        filter: alpha(opacity=40);
+        /*background-color: #000;*/
+    }
+}
+/* Microsoft Edge Browser 13+ - @supports method */
+
+@supports (-ms-ime-align:auto) and (color:unset) {
+  .gris {
+        opacity: 0.4;
+        filter: alpha(opacity=40); 
+        /*background-color: #000;*/
+    }
+    .cuest-gris {
+        opacity: 0.4;
+        filter: alpha(opacity=40);
+        /*background-color: #000;*/
+    }
 }
 /*@media only screen and  (max-width: 768px) {
     .tituloreceta h2{

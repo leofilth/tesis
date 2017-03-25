@@ -13,7 +13,9 @@
                 <div class="triangulo-naranjo"></div>
             </div>
         </div>
-        <img class="img-circle pull-left icon-inst" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+        <figure>
+            <img alt="estudiante3" class="img-circle pull-left icon-inst" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+        </figure>
     </div>
 </div>
 <br>
@@ -59,7 +61,9 @@
                         <div id="flecha<?php echo $num?>" class="triangulo-morado"></div>
                     </div>
                 </div>
-                <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                <figure>
+                    <img alt="estudiante3" class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student3.png'?>">
+                </figure>
             </div>
         </div>
         <?php
@@ -68,7 +72,9 @@
     <div class="container">
         <div class="titulo1" id="puntajeCuest">
             Puntaje: <span id="puntaje"></span>
-            <img class="fondocoins" src="<?php echo base_url()."public/images/icons/coins.png"; ?>">
+            <figure>
+                <img alt="monedas" class="fondocoins" src="<?php echo base_url()."public/images/icons/coins.png"; ?>">
+            </figure>
         </div>
         <br>
         <br>
