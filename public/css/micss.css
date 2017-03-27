@@ -72,7 +72,7 @@ css vida sana
 }
 .glyfy{
     color: #673AB7;
-    font-size: 25px;
+    font-size: 35px;
 }
 .affix {
     top:0;
@@ -1054,6 +1054,13 @@ css para cuestionario cuando se completa
     border-radius: 5px;
     background-color: #673AB7;
     float: right;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .triangulo-morado{
     border-color: #5d35a5 transparent transparent;
@@ -1072,6 +1079,13 @@ css para cuestionario cuando se completa
     border-radius: 5px;
     background-color: #EC774B;
     float: left;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .triangulo-naranjo{
     border-color: #dd734b transparent transparent;
@@ -1090,6 +1104,13 @@ css para cuestionario cuando se completa
     border-radius: 5px;
     background-color: #6FC191;
     float: left;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .triangulo-verde{
     border-color: #62B090 transparent transparent;
@@ -1108,6 +1129,13 @@ css para cuestionario cuando se completa
     border-radius: 5px;
     background-color: #74CEE4;
     float: left;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .triangulo-celeste{
     border-color: #6FC4D9 transparent transparent;
@@ -1126,6 +1154,13 @@ css para cuestionario cuando se completa
     border-radius: 5px;
     background-color:  #EC644B;
     float: left;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .triangulo-rojo{
     border-color: #db5b43 transparent transparent;
@@ -1144,6 +1179,13 @@ css para cuestionario cuando se completa
     border-radius: 5px;
     background-color:  #4183D7;
     float: left;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .triangulo-azul{
     border-color: #3c7ac9 transparent transparent;
@@ -1306,6 +1348,13 @@ filter: Gray(); /* IE4-8 and 9 */
     width: 100%;
     border-radius: 5px;
     background-color: #6fc191;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .margen-modal{
 

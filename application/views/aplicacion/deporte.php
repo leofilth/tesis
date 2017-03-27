@@ -259,12 +259,16 @@
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Deportes",
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío no completado",
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío <b>No Disponible</b>",
+                "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testgris.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío <b>No Completado</b>",
                 "imagen":"<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/test.png'?>'>"},
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío completado",
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío <b>Completado</b>",
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu deporte este se desbloquea cambiando de color",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutodeporte.png'?>'>"}
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutodeporte.png'?>'>"},
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Cada deporte tiene un desafío asociado, cómpralo para desbloquearlo!",
+                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/desafiodeporte.png'?>'>"}
         ];
 
         function guardaEstadoTutorial(ruta,valor){
@@ -434,7 +438,7 @@
          */
         $("#instrumodal").on({
             click:function(){
-                if(contador==5){
+                if(contador==7){
                     $("#textoIns").html(instrucciones[0].titulo);
                     $("#fotoIns").html(instrucciones[0].imagen);
                     contador=1;
