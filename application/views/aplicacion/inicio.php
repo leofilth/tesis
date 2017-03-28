@@ -114,7 +114,9 @@
         </div>
         <hr class="featurette-divider">
         <div>
-            <img class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+            <figure>
+                <img alt="flechaTop" class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+            </figure>
         </div>
     </div>
 </section>

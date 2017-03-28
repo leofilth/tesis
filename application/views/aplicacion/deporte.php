@@ -1,7 +1,7 @@
 <?php include "navs/nav_edufisica.php"?>
 <?php include "modal/modal_deporte.php" ?>
 <!-- Modal Tip-->
-<div class="modal animated zoomInDown" id="modaltip" role="dialog" xmlns="http://www.w3.org/1999/html">
+<div class="modal animated zoomInDown" id="modaltip" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
@@ -15,9 +15,9 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-border" alt="estudiante2" width="20%" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                    <img class="img-border" alt="estudiante2" style="width:20%"  src="<?php echo base_url().'public/images/modal/student2.png'?>">
                 </figure>
-                <button type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -32,9 +32,9 @@
             <div class="modal-body" style="background-color: #673AB7">
                 <div class="tip-modal" id="instrumodal" style="cursor: pointer">
                     <div class="margen-modal">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?></h4>
+                        <h4  class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?></h4>
                         <h2 class="texto-modal-tip">Asi funciona Wambo Deportes</h2>
-                        <div class="texto-modal-tip" id="descripcion-tip">
+                        <div class="texto-modal-tip">
                             <div class="col-md-8" id="textoIns">
                                 <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para siguiente ayuda
                             </div>
@@ -55,8 +55,8 @@
                     <img class="img-border icon-inst" alt="estudiante2" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                 </figure>
                 <div style="margin-top: 55px">
-                    <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
-                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
+                    <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">No volver a mostar</button>
+                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">Entendido</button>
                 </div>
             </div>
         </div>
@@ -71,8 +71,8 @@
                     <div class="col-md-8 col-sm-8">
                         <div class="instruefecto">
                             <div class="instruccion-morado">
-                                <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
-                                <ol class="texto-modal-tip" id="descripcion-tip">
+                                <h4  class="modal-title titulo-modal-tip">Instrucciones</h4>
+                                <ol class="texto-modal-tip">
                                     <li>Compra tu Deporte</li>
                                     <li>Haz click en el</li>
                                     <li>Aprende</li>
@@ -82,7 +82,9 @@
                                 <div class="triangulo-morado"></div>
                             </div>
                         </div>
-                        <img class="img-border pull-left icon-inst" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                        <figure>
+                            <img alt="estudiante2" class="img-border pull-left icon-inst" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                        </figure>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="animated infinite bounce">
@@ -160,8 +162,8 @@
             <div class="col-md-8 col-sm-8">
                 <div class="instruefecto">
                     <div class="instruccion-verde">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
-                        <ol class="texto-modal-tip" id="descripcion-tip">
+                        <h4  class="modal-title titulo-modal-tip">Instrucciones</h4>
+                        <ol class="texto-modal-tip">
                             <li>Responde y gana puntos</li>
                             <li>Canjea por tus deporte </li>
                             <li>Demuestra todo lo que sabes</li>
@@ -189,19 +191,21 @@
         </div>
     </div>
     <div class="padingtop">
-        <img class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+        <figure>
+            <img alt="flechatop" class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+        </figure>
     </div>
 </section>
 <section class="container-fluid" id="tipsaludable">
     <div class="container">
-        <header class="tituloSection">Tips Wambo</header>
+        <header class="tituloSection">Beneficios y Tips Wambo</header>
         <div class="row">
             <div class="col-md-8">
                 <div class="instruefecto">
                     <div class="instruccion-naranjo">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
-                        <ol class="texto-modal-tip" id="descripcion-tip">
-                            <li>Selecciona tu TIP y aprende un poco mas</li>
+                        <h4  class="modal-title titulo-modal-tip">Instrucciones</h4>
+                        <ol class="texto-modal-tip">
+                            <li>Selecciona tu TIP o Beneficio y aprende un poco más</li>
                             <li>Son gratis</li>
                             <li>Consulta cuando quieras</li>
                         </ol>
@@ -235,7 +239,9 @@
         </div>
     </div>
     <div class="padingtop">
-        <img class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+        <figure>
+            <img alt="flechatop" class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+        </figure>
     </div>
 </section>
 <?php include "footer.php"?>
@@ -333,7 +339,7 @@
                         }
                     },
                     //mesaage:'<p class="text-center">Please wait while we do something...</p>',
-                    message: "<p class='compra text-center'>¿Comprar "+"<strong>"+nombre+"</strong>"+" por 50 <img class='tamano32' src='<?php echo base_url().'public/images/icons/coin.png'?>'> ?</p><br>"+"<p class='compra text-center'>Monedas disponibles: "+"<strong>"+puntos+"</strong> <img class='tamano32' src='<?php echo base_url().'public/images/icons/coins.png'?>'></p>",
+                    message: "<p class='compra text-center'>¿Comprar "+"<strong>"+nombre+"</strong>"+" por 50 <img alt='coin' class='tamano32' src='<?php echo base_url().'public/images/icons/coin.png'?>'> ?</p><br>"+"<p class='compra text-center'>Monedas disponibles: "+"<strong>"+puntos+"</strong> <img alt='coins' class='tamano32' src='<?php echo base_url().'public/images/icons/coins.png'?>'></p>",
                     callback: function (result) {
                         if (result) {
                             puntos = puntos - 50;

@@ -20,7 +20,7 @@
                 <li class="dropdown nav-link-cuenta li-nav">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <figure>
-                            <img height="24px"width="24px" src="<?php
+                            <img height="24" width="24" src="<?php
                             if($datos->avatar_name=="user")
                             {
                                 if($datos->sexo=="masculino"){
@@ -33,7 +33,7 @@
                             {
                                 echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
                             }
-                            ?>"  class="img-circle"><?php echo $datos->nick?><span class="caret"></span>
+                            ?>"  alt="avatar-usuario" class="img-circle"><?php echo $datos->nick?><span class="caret"></span>
                         </figure>
                     </a>
                     <ul class="dropdown-menu nav-link-cuenta dropmenu animated rubberBand">
@@ -41,7 +41,7 @@
                             <div class="row" style="padding-bottom: 5px">
                                 <div class="col-md-5">
                                     <figure>
-                                        <img height="64px"width="64px" src="<?php
+                                        <img height="64" width="64" src="<?php
                                         if($datos->avatar_name=="user")
                                         {
                                             if($datos->sexo=="masculino"){
@@ -70,12 +70,13 @@
                                     <a class="btn btn-warning" href="<?php echo base_url()."aplicacion/modificaperfil"?>">Modificar Perfil</a>
                                 </div>
                                 <div class="col-md-6 center-block text-center">
-                                    <a class="btn btn-danger" href="<?php echo base_url()."aplicacion/cerrarsesion"?>">Cerrar Sesión</a></li>
-        </div>
-    </div>
-    </ul>
-    </li>
-    </ul>
-    </div><!--/.nav-collapse -->
+                                    <a class="btn btn-danger" href="<?php echo base_url()."aplicacion/cerrarsesion"?>">Cerrar Sesión</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </nav>

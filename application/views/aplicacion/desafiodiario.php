@@ -9,49 +9,57 @@
             <div class="modal-body" style="background-color: #673AB7">
                 <div class="tip-modal" id="instrumodal" style="cursor: pointer">
                     <div class="margen-modal">
-                        <div class="texto-modal-tip" id="descripcion-tip">
-                            <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?> este es tu Desafío diario</h4>
+                        <div class="texto-modal-tip">
+                            <h4 class="modal-title titulo-modal-tip">
+                                Hola <?php echo $datos->nick?> este es tu Desafío diario
+                            </h4>
                             <div class="col-md-12" id="textoIns">
                                 <p><span class="glyphicon glyphicon-ok"></span> Cada día podrás desafiar tus conocimientos.</p>
                                 <p><span class="glyphicon glyphicon-ok"></span> Obten más monedas.</p>
                                 <p><span class="glyphicon glyphicon-ok"></span> Se el primero en el ranking Wambo!</p>
                             </div>
                             <div class="col-md-12" id="fotoIns">
-                                <img class="center-block tamano100"  src="<?php echo base_url()."public/images/icons/star2.png"?>">
+                                <figure>
+                                    <img alt="estrella" class="center-block tamano100"  src="<?php echo base_url()."public/images/icons/star2.png"?>">
+                                </figure>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="triangulo"></div>
                 <br>
-                <img class="img-circle icon-inst" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                <figure>
+                    <img alt="estudiante2" class="img-circle icon-inst" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                </figure>
                 <div style="margin-top: 60px">
-                    <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
-                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
+                    <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">No volver a mostar</button>
+                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">Entendido</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="container-fluid bg-im3 padingtop"style="padding-bottom: 100px">
+<div class="container-fluid bg-im3 padingtop" style="padding-bottom: 100px">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <img id="imagenUsuario" width="200px" height="200px"  class="img-circle center-block fondoavatar"
-                     src="<?php
-                     if($datos->avatar_name=="user")
-                     {
-                         if($datos->sexo=="masculino"){
-                             echo base_url()."public/images/user_avatar/user-mas.png";
-                         }else{
-                             echo base_url()."public/images/user_avatar/user-fem.png";
+                <figure>
+                    <img alt="usuario" id="imagenUsuario" width="200" height="200"  class="img-circle center-block fondoavatar"
+                         src="<?php
+                         if($datos->avatar_name=="user")
+                         {
+                             if($datos->sexo=="masculino"){
+                                 echo base_url()."public/images/user_avatar/user-mas.png";
+                             }else{
+                                 echo base_url()."public/images/user_avatar/user-fem.png";
+                             }
                          }
-                     }
-                     else
-                     {
-                         echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
-                     }
-                     ?>">
+                         else
+                         {
+                             echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
+                         }
+                         ?>">
+                </figure>
             </div>
             <div class="col-md-6">
                 <h1 class="titulo1 animated jello">Hola <?php echo $datos->nick?></h1>
@@ -65,8 +73,8 @@
             <div class="col-md-8 col-sm-8">
                 <div class="animated infinite pulse">
                     <div class="instruccion-naranjo">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Consejo</h4>
-                        <ol class="texto-modal-tip" id="descripcion-tip">
+                        <h4 class="modal-title titulo-modal-tip">Consejo</h4>
+                        <ol class="texto-modal-tip">
                             <li>Revisa cada respuesta</li>
                             <li>Responde con cuidado</li>
                             <li>Responde todas las preguntas</li>
@@ -94,7 +102,7 @@
                 ?>
                 <div class="row" style="margin-bottom: 15px">
                     <div class="col-md-6 col-md-offset-1">
-                        <li style="list-style: none"><p class="preg-cuest"><?php echo "<span class='numerocuest'>".$num."</span>".".- ".$pregunta->pregunta?></p>
+                            <p class="preg-cuest"><?php echo "<span class='numerocuest'>".$num."</span>".".- ".$pregunta->pregunta?></p>
                             <ul style="list-style: none">
                                 <li>
                                     <div class="radio">
@@ -112,7 +120,6 @@
                                     </div>
                                 </li>
                             </ul>
-                        </li>
                         <div id="monedas<?php echo $num?>"></div>
                     </div>
                     <div  class="col-md-4">
@@ -127,7 +134,9 @@
                                 <div id="flecha<?php echo $num?>" class="triangulo-morado"></div>
                             </div>
                         </div>
-                        <img class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                        <figure>
+                            <img alt="estudiante4" class="img-circle pull-left"  style="margin-top: 15px;width:20%" src="<?php echo base_url().'public/images/modal/student4.png'?>">
+                        </figure>
                     </div>
                 </div>
                 <?php
@@ -136,7 +145,9 @@
             <div class="container">
                 <div class="titulo1" id="puntajeCuest">
                     Puntaje: <span id="puntaje"></span>
-                    <img class="fondocoins" src="<?php echo base_url()."public/images/icons/coins.png"; ?>">
+                    <figure>
+                        <img alt="monedas" class="fondocoins" src="<?php echo base_url()."public/images/icons/coins.png"; ?>">
+                    </figure>
                 </div>
                 <br>
                 <br>
@@ -156,7 +167,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="instruefecto animated infinite pulse">
                     <div class="instruccion-morado">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">
+                        <h4 class="modal-title titulo-modal-tip">
                             Tu <strong>Desafío Diario</strong> ya ha sido respondido.
                             Vuelve mañana.
                         </h4>

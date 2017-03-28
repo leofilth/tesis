@@ -1415,7 +1415,7 @@ lideres
     background-color: #edbf47;
     border-radius: 5px;
 }
-.thead h1{
+.titulo-tabla{
     font-family:"Finger Paint";
     font-size: 20px;
     font-weight: 400;
@@ -1525,18 +1525,23 @@ tamaño imagen seccion
 }
 #avanceFruta{
     color: #673AB7;
+    font-family: "finger paint";
 }
 #avanceDeporte{
     color: #673AB7;
+    font-family: "finger paint";
 }
 #avanceAcGrasa{
     color: #673AB7;
+    font-family: "finger paint";
 }
 #avanceAlimento{
     color: #673AB7;
+    font-family: "finger paint";
 }
 #avanceCereal{
     color: #673AB7;
+    font-family: "finger paint";
 }
 .margenInicioSesion{
     margin-top: 50px;

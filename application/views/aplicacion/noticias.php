@@ -13,15 +13,19 @@
                                 <p class="texto-modal-tip" id="descripcion-tip"></p>
                             </div>
                             <div class="col-md-3">
-                                <img id="fotonoticia" src="" class="img-responsive center-block">
+                                <figure>
+                                    <img alt="imagen" id="fotonoticia" src="#" class="img-responsive center-block">
+                                </figure>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="triangulo"></div>
                 <br>
-                <img class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student5.png'?>">
-                <button type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
+                <figure>
+                    <img class="img-circle" style="width:20%" src="<?php echo base_url().'public/images/modal/student5.png'?>">
+                </figure>
+                <button type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -44,7 +48,9 @@
                         <div class="triangulo-naranjo"></div>
                     </div>
                 </div>
-                <img class="img-circle pull-left icon-inst"  style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student5.png'?>">
+                <figure>
+                    <img alt="estudiante5" class="img-circle pull-left icon-inst"  style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student5.png'?>">
+                </figure>
             </div>
         </div>
         <br>
@@ -61,7 +67,9 @@
                             <h3 class="titulo-tip text-center">
                                         <?php echo $noticia->titulo?>
                             </h3>
-                            <img class="img-circle center-block" width="90px" height="90px" src="<?php echo base_url().$noticia->foto?>">
+                            <figure>
+                                <img alt="<?php echo $noticia->titulo?>" class="img-circle center-block" width="90" height="90" src="<?php echo base_url().$noticia->foto?>">
+                            </figure>
                         </div>
                     </div>
                     <?php $i++;

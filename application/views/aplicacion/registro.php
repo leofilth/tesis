@@ -144,10 +144,10 @@
             <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-1 text-center animated bounceInUp">
                 <div class="instruefecto animated infinite pulse">
                     <div class="instruccion-naranjo">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">
+                        <h4  class="modal-title titulo-modal-tip">
                             Únete
                         </h4>
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">
+                        <h4  class="modal-title titulo-modal-tip">
                             Aprenderás muchas cosas!
                         </h4>
                     </div>

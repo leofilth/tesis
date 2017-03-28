@@ -15,7 +15,6 @@ if($cuestRespondidos!=null) {
                         <img
                             class="cuestionario center-block img-circle borde zoom tamano-cuest"
                             id="<?php echo $cuestionario->idpregunta ?>"
-                            name="<?php echo $cuestionario->idpregunta ?>"
                             alt="<?php echo $cuestionario->idpregunta ?>"
                             src="<?php echo base_url() . "public/images/icons/test/testHecho.png" ?>"/>
                     </figure>
@@ -32,7 +31,6 @@ if($cuestRespondidos!=null) {
                                 <img
                                     class="cuestionario center-block img-circle borde zoom cuest cuest-gris tamano-cuest"
                                     id="<?php echo $cuestionario->idpregunta ?>"
-                                    name="<?php echo $cuestionario->idpregunta ?>"
                                     alt="<?php echo $cuestionario->idpregunta ?>"
                                     src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
                             </figure>
@@ -47,12 +45,11 @@ if($cuestRespondidos!=null) {
                     ?>
                     <div class="col-md-2 col-sm-2 col-xs-3">
                         <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
-                        <a href='<?php echo base_url() . "aplicacion/cuestionariodep/" . $cuestionario->idpregunta ?>'
+                        <a href='<?php echo base_url() . "aplicacion/cuestionariodep/" . $cuestionario->idpregunta ?>'>
                         <figure>
                             <img
                                 class="cuestionario center-block img-circle borde zoom cuest  tamano-cuest"
                                 id="<?php echo $cuestionario->idpregunta ?>"
-                                name="<?php echo $cuestionario->idpregunta ?>"
                                 alt="<?php echo $cuestionario->idpregunta ?>"
                                 src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
                         </figure>
@@ -69,7 +66,6 @@ if($cuestRespondidos!=null) {
                                 <img
                                     class="cuestionario center-block img-circle borde zoom cuest cuest-gris tamano-cuest"
                                     id="<?php echo $cuestionario->idpregunta ?>"
-                                    name="<?php echo $cuestionario->idpregunta ?>"
                                     alt="<?php echo $cuestionario->idpregunta ?>"
                                     src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
                             </figure>
@@ -93,7 +89,7 @@ else{//ningun cuestionario respondido?>
                     <figure>
                         <img
                             class="cuestionario center-block img-circle borde zoom cuest cuest-gris tamano-cuest"
-                            id="<?php echo $cuestionario->idpregunta ?>" name="<?php echo $cuestionario->idpregunta ?>"
+                            id="<?php echo $cuestionario->idpregunta ?>"
                             alt="<?php echo $cuestionario->idpregunta ?>"
                             src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
                     </figure>
@@ -107,11 +103,11 @@ else{//ningun cuestionario respondido?>
         if(in_array($cuestionario->idpregunta, $cuestionarioDisponible)){?>
         <div class="col-md-2 col-sm-2 col-xs-3">
             <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
-            <a href='<?php echo base_url()."aplicacion/cuestionariodep/".$cuestionario->idpregunta?>'
+            <a href='<?php echo base_url()."aplicacion/cuestionariodep/".$cuestionario->idpregunta?>'>
             <figure>
                 <img
                     class="cuestionario center-block img-circle borde zoom cuest  tamano-cuest"
-                    id="<?php echo $cuestionario->idpregunta ?>" name="<?php echo $cuestionario->idpregunta ?>"
+                    id="<?php echo $cuestionario->idpregunta ?>"
                     alt="<?php echo $cuestionario->idpregunta ?>"
                     src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
             </figure>
@@ -124,7 +120,7 @@ else{//ningun cuestionario respondido?>
                 <figure>
                     <img
                         class="cuestionario center-block img-circle borde zoom cuest cuest-gris tamano-cuest"
-                        id="<?php echo $cuestionario->idpregunta ?>" name="<?php echo $cuestionario->idpregunta ?>"
+                        id="<?php echo $cuestionario->idpregunta ?>"
                         alt="<?php echo $cuestionario->idpregunta ?>"
                         src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
                 </figure>
