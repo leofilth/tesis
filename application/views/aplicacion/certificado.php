@@ -1,9 +1,9 @@
 <?php include "navs/nav_certificado.php" ?>
-<div class="container-fluid bg-im3 padingtop"style="padding-bottom: 100px">
+<div class="container-fluid bg-im3 padingtop" style="padding-bottom: 100px">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <img id="imagenUsuario" width="200px" height="200px"  class="img-circle center-block fondoavatar"
+                <img alt="imagenUsuario" id="imagenUsuario" width="200" height="200"  class="img-circle center-block fondoavatar"
                      src="<?php
                      if($datos->avatar_name=="user")
                      {
@@ -33,7 +33,7 @@
                 <div class="animated infinite pulse">
                     <div class="instruccion-naranjo">
                         <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Consejo</h4>
-                        <ol class="texto-modal-tip" id="descripcion-tip">
+                        <ol class="texto-modal-tip">
                             <li>Completa cada sección para desbloquear tu diploma Wambo</li>
                             <li>Al llegar a 100% podrás descargarlo</li>
                         </ol>
@@ -56,55 +56,55 @@
             <div class="col-md-2 col-md-offset-1 col-sm-2  col-sm-offset-1 col-xs-2 col-xs-offset-1">
                 <?php if($estadoDiploma->valor_fruta==1){?>
                     <figure class="tool" data-toggle="tooltip" title="Frutas y Verduras">
-                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadafrutaverduracompleta.png"?>">
+                        <img alt="portadaFrutaVerdura" class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadafrutaverduracompleta.png"?>">
                     </figure>
                 <?php }else{?>
                     <figure class="tool" data-toggle="tooltip" title="Frutas y Verduras">
-                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadafrutaverdura.png"?>">
+                        <img alt="portadaFrutaVerdura" class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadafrutaverdura.png"?>">
                     </figure>
                 <?php }?>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-2">
                 <?php if($estadoDiploma->valor_cereal==1){?>
                     <figure class="tool" data-toggle="tooltip" title="Cereales">
-                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacerealcompleta.png"?>">
+                        <img alt="portadaCereal" class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacerealcompleta.png"?>">
                     </figure>
                 <?php }else{?>
                     <figure class="tool" data-toggle="tooltip" title="Cereales">
-                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacereal.png"?>">
+                        <img alt="portadaCereal" class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacereal.png"?>">
                     </figure>
                 <?php }?>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-2">
                 <?php if($estadoDiploma->valor_deporte==1){?>
                     <figure class="tool" data-toggle="tooltip" title="Ejercicio y Deportes">
-                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadadeportecompleta.png"?>">
+                        <img alt="portadaDeporte" class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadadeportecompleta.png"?>">
                     </figure>
                 <?php }else{?>
                     <figure class="tool" data-toggle="tooltip" title="Ejercicio y Deportes">
-                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
+                        <img alt="portadaDeporte" class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
                     </figure>
                 <?php }?>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-2">
                 <?php if($estadoDiploma->valor_alimento==1){?>
                     <figure class="tool" data-toggle="tooltip" title="Carnes, Lacteos, Huevos y Legumbres">
-                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacarnehuevocompleta.png"?>">
+                        <img alt="portadaAlimentos" class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacarnehuevocompleta.png"?>">
                     </figure>
                 <?php }else{?>
                     <figure class="tool" data-toggle="tooltip" title="Carnes, Lacteos, Huevos y Legumbres">
-                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacarnehuevo.png"?>">
+                        <img alt="portadaAlimentos" class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadacarnehuevo.png"?>">
                     </figure>
                 <?php }?>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-2">
                 <?php if($estadoDiploma->valor_acgrasa==1){?>
                     <figure class="tool" data-toggle="tooltip" title="Aceites y Grasas">
-                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadaaceitegrasacompleta.png"?>">
+                        <img alt="portadaAceiteGrasa" class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadaaceitegrasacompleta.png"?>">
                     </figure>
                 <?php }else{?>
                     <figure class="tool" data-toggle="tooltip" title="Aceites y Grasas">
-                        <img class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadaaceitegrasa.png"?>">
+                        <img alt="portadaAceiteGrasa" class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadaaceitegrasa.png"?>">
                     </figure>
                 <?php }?>
             </div>
@@ -143,13 +143,13 @@
                     and $estadoDiploma->valor_alimento==1 and $estadoDiploma->valor_deporte==1){?>
                     <a href="<?php echo base_url()."aplicacion/diploma"?>">
                         <figure>
-                            <img class="img-responsive center-block img-seccion animated infinite pulse" src="<?php echo base_url()."public/images/icons/quality.png"?>">
+                            <img alt="diploma" class="img-responsive center-block img-seccion animated infinite pulse" src="<?php echo base_url()."public/images/icons/quality.png"?>">
                         </figure>
                     </a>
                 <?php }else{?>
                     <a href="#">
                         <figure>
-                            <img class="gris img-responsive center-block img-seccion animated infinite pulse" src="<?php echo base_url()."public/images/icons/quality.png"?>">
+                            <img alt="diploma" class="gris img-responsive center-block img-seccion animated infinite pulse" src="<?php echo base_url()."public/images/icons/quality.png"?>">
                         </figure>
                     </a>
                 <?php }?>

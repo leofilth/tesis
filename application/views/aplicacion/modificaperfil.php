@@ -13,20 +13,24 @@
                             if($datos->sexo == "masculino"){
                                 foreach($avatar_mas as $avatar){?>
                                     <div class="col-md-2 col-sm-2 col-xs-3">
-                                        <img class="img-circle avatar" title="<?php echo $avatar->nombre?>" width="80px" height="80px" src="<?php echo base_url().$avatar->link?>">
+                                        <figure>
+                                            <img alt="avatar" class="img-circle avatar" title="<?php echo $avatar->nombre?>" width="80" height="80" src="<?php echo base_url().$avatar->link?>">
+                                        </figure>
                                     </div>
                                 <?php }?>
                             <?php }else{
                                 foreach($avatar_fem as $avatar){
                                     ?>
                                     <div class="col-md-2 col-sm-2 col-xs-3">
-                                        <img class="img-circle avatar" title="<?php echo $avatar->nombre?>" width="80px" height="80px" src="<?php echo base_url().$avatar->link?>">
+                                        <figure>
+                                            <img alt="avatar" class="img-circle avatar" title="<?php echo $avatar->nombre?>" width="80" height="80" src="<?php echo base_url().$avatar->link?>">
+                                        </figure>
                                     </div>
                                 <?php }}?>
                         </div>
                     </div>
                 </div>
-                <button id="guardaAvatar" type="button" class="btn btn-info animated infinite pulse" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Guardar</button>
+                <button id="guardaAvatar" type="button" class="btn btn-info animated infinite pulse" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">Guardar</button>
             </div>
         </div>
     </div>
@@ -36,21 +40,23 @@
         <header class="titulo1 text-center">Modifica tu Perfil</header>
         <div class="row">
             <div class="col-md-6 col-md-offset-3 cuadradosombra">
-                <img id="avatar-user" width="200px" height="200px"  class="img-circle center-block fondoavatar"
-                     src="<?php
-                     if($datos->avatar_name=="user")
-                     {
-                         if($datos->sexo=="masculino"){
-                             echo base_url()."public/images/user_avatar/user-mas.png";
-                         }else{
-                             echo base_url()."public/images/user_avatar/user-fem.png";
+                <figure>
+                    <img alt="imagenUsuario" id="avatar-user" width="200" height="200"  class="img-circle center-block fondoavatar"
+                         src="<?php
+                         if($datos->avatar_name=="user")
+                         {
+                             if($datos->sexo=="masculino"){
+                                 echo base_url()."public/images/user_avatar/user-mas.png";
+                             }else{
+                                 echo base_url()."public/images/user_avatar/user-fem.png";
+                             }
                          }
-                     }
-                     else
-                     {
-                         echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
-                     }
-                     ?>">
+                         else
+                         {
+                             echo base_url()."public/images/user_avatar/".$datos->avatar_name.".png";
+                         }
+                         ?>">
+                </figure>
                 <br>
                     <button name="boton" id="muestramodal"  class="btn btn-primary btn-md center-block animated infinite pulse">
                         Cambiar avatar
@@ -108,6 +114,7 @@
     </div>
         <br>
         <br>
+    </div>
 </section>
 <?php include "footer.php"?>
 <script>
