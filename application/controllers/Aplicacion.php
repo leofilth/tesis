@@ -27,7 +27,7 @@ class Aplicacion extends CI_Controller {
 		{
 			if ($this->form_validation->run("aplicacion/registro")==true)//va a form_validation y obtiene las reglas
 			{
-				$pass=sha1($this->input->post("password",true));//encriptacion de password
+				$pass=password_hash($this->input->post("password",true), PASSWORD_DEFAULT);//encriptacion de password
 				$data=array
 				(
 					'nombre'=>$this->input->post("nombre",true),
@@ -140,12 +140,12 @@ class Aplicacion extends CI_Controller {
 				}
 			}
 			else {
-				$pass = sha1($this->input->post("password", true));
+				$pass=$this->input->post("password",true);
 				$datos = $this->usuarios_model->iniciar_sesion($this->input->post('nick', true), $pass);
 				if ($datos == 1) {
 					$this->session->set_userdata("sesionsita");//crea una sesion de codeigniter
 					$this->session->set_userdata('login', $this->input->post('nick', true));
-					$this->session->set_userdata('cuestionario','cuest');
+					//$this->session->set_userdata('cuestionario','cuest');
 					//$session_id=$this->session->userdata("login");
 					redirect(base_url() . 'aplicacion/cuenta', 301);
 

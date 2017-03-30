@@ -15,9 +15,9 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-circle" width="20%" alt="estudiante3" src="<?php echo base_url().'public/images/modal/student6.png'?>">
+                    <img class="img-circle" style="width:20%;" alt="estudiante3" src="<?php echo base_url().'public/images/modal/student6.png'?>">
                 </figure>
-                <button type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -55,8 +55,8 @@
                     <img class="img-circle icon-inst" alt="estudiante3" src="<?php echo base_url().'public/images/modal/student6.png'?>">
                 </figure>
                 <div style="margin-top: 55px">
-                    <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
-                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
+                    <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">No volver a mostar</button>
+                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'Finger Paint', cursive" data-dismiss="modal">Entendido</button>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
 </div>
 <section class="container-fluid padingtop animated fadeIn" id="section1">
     <div  class="container">
-        <header class="tituloSection">Verduras Wambo</header>
+        <header class="tituloSection">Aceites y Grasas Wambo</header>
         <div class="row">
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
@@ -396,13 +396,6 @@
                         $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
                         $("#info").text(acgrasas[i].descripcion);
                         contadorInfo++;
-                        /*$("#modal-descripcion").html(cereales[i].descripcion);
-                         $("#modal-title").text(titulo);
-                         $("#modalimg").attr("src",link);
-                         $("#modal-consumo").text(cereales[i].consumo);
-                         $("#modal-saludable").text(cereales[i].saludable);
-                         $("#modal-beneficios").html(cereales[i].beneficios);
-                         $("#modal-categoria").text(cereales[i].categoria);*/
                     }
                 }
             }
@@ -425,6 +418,9 @@
         $(".gris").on({
             click:compra
         });
+        /*
+         fin compra fruta
+         */
         $("#informacion").on({
             click:function(){
                 if(contadorInfo==5){
@@ -439,9 +435,6 @@
                 }
             }
         });
-        /*
-         fin compra fruta
-         */
         /**
          * Instrucciones
          * @type {*[]}

@@ -71,7 +71,7 @@
             </div>
             <div class="col-md-5 col-sm-5 col-xs-12">
                 <figure>
-                    <img alt="portada1" class="img-responsive center-block img-portada img-border" src="<?php echo base_url()."public/images/portadafrutaverdura.png"?>">
+                    <img alt="portada1" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portadafrutaverdura.png"?>">
                 </figure>
             </div>
         </div>
@@ -84,7 +84,7 @@
             </div>
             <div class="col-md-5 col-sm-5 col-sm-pull-7 col-md-pull-7">
                 <figure>
-                    <img alt="portada2" class="img-responsive center-block img-portada img-border" src="<?php echo base_url()."public/images/portadacereal.png"?>">
+                    <img alt="portada2" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portadacereal.png"?>">
                 </figure>
             </div>
         </div>
@@ -96,7 +96,7 @@
             </div>
             <div class="col-md-5 col-sm-5">
                 <figure>
-                    <img alt="portada3" class="img-responsive center-block img-portada img-border" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
+                    <img alt="portada3" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
                 </figure>
             </div>
         </div>
@@ -108,7 +108,7 @@
             </div>
             <div class="col-md-5 col-md-pull-7 col-sm-5 col-sm-pull-7">
                 <figure>
-                    <img  alt="portada4" class="img-responsive center-block img-portada img-border" src="<?php echo base_url()."public/images/portada7.png"?>">
+                    <img  alt="portada4" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portada7.png"?>">
                 </figure>
             </div>
         </div>

@@ -5,6 +5,9 @@ class usuarios_model extends CI_Model
     {
         parent::__construct();
     }
+    /*
+     * funciones usuario
+     */
     public function agregar_usuario($datos=array())
     {
         $this->db->insert("usuarios",$datos);
@@ -12,12 +15,18 @@ class usuarios_model extends CI_Model
     }
     public function iniciar_sesion($nick,$password)
     {
-        $query=$this->db
-            ->select("id,nick,password")
+        //hash obtiene el password del usuario
+        $hash=$this->db
+            ->select("password")
             ->from("usuarios")
-            ->where(array("nick"=>$nick,"password"=>$password))
-            ->count_all_results();
-        return $query;
+            ->where(array("nick"=>$nick))
+            ->get();
+        //se verifica mediante la funcion si el password pertenece a la clave hash generada
+        if (password_verify($password, $hash->row()->password)) {
+            return 1;//devuelve 1 si es verdadero
+        } else {
+            return 0;
+        }
     }
     public function getDatosUsuario($nick)
     {
@@ -74,6 +83,10 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
+
+    /*
+     * Fin funciones de usuario
+     */
     public function getFrutas($sexo){
         if($sexo=="masculino"){
             $query=$this->db
@@ -421,6 +434,9 @@ class usuarios_model extends CI_Model
     /*
      * Fin Obtiene preguntas desafio diario
      */
+    /*
+     * Obtiene las preguntas del cuestionario pasado por id
+     */
     public function getPreguntasFruta($id){
         //consulta a dos tablas
         $query=$this->db
@@ -476,6 +492,9 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->result();
     }
+    /*
+     * Fin obtener preguntas del cuestionario
+     */
     public function guardaPuntaje($datos=array(),$nick){
 
         /*$this->db->update('puntos',$datos)
@@ -539,7 +558,8 @@ class usuarios_model extends CI_Model
      * fin
      */
     /**
-     * Tips frutas verduras alimentos deporte
+     * Tips frutas y verduras, deporte,
+     * aceite grasas, carnes huevos legumbres, cereales
      */
     public function getTipFrutas(){
         $query=$this->db
@@ -594,7 +614,7 @@ class usuarios_model extends CI_Model
      * fin
      */
     /**
-     * anvance
+     * Avance del usuario
      */
     public function getAvance($nick){
         $query=$this->db

@@ -1,5 +1,3 @@
-<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,7 +28,6 @@
         <?php echo $this->layout->js; ?>
     <!--**********fin auxiliares*****************-->
 </head>
-<!--Padding por el menu bootstrap-->
 <body>
 <!--carga contenido en la vista-->
 <?php echo $content_for_layout; ?>

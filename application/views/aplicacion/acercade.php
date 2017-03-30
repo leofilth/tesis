@@ -4,28 +4,32 @@
     <div class="container">
         <header class="titulo1">Licencias y creditos a Autores</header>
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <ul class="textofooter">
+            <div class="col-md-6 col-md-offset-3 cuadradosombra">
+                <ul class="tituloform">
                     <li>
                         Iconos de Deporte<br>
                         <span class="glyphicon glyphicon-link"></span>
                         <a href="http://www.flaticon.com/authors/freepik">Designed by Freepik and distributed by Flaticon.</a>
                     </li>
+                    <br>
                     <li>
                         Iconos de Avatar <br>
                         <span class="glyphicon glyphicon-link"></span>
                         <a href="http://www.flaticon.com/authors/freepik">Designed by Freepik and distributed by Flaticon.</a>
                     </li>
+                    <br>
                     <li>
                         Imagen de Diploma <br>
                         <span class="glyphicon glyphicon-link"></span>
                         <a href="http://www.freepik.com">Designed by Freepik.</a>
                     </li>
+                    <br>
                     <li>
-                        Iconos de Frutas, verduras y alimentos<br>
+                        Iconos de Alimentos<br>
                         <span class="glyphicon glyphicon-link"></span>
                         <a href="http://www.freepik.com">Designed by Freepik.</a>
                     </li>
+                    <br>
                     <li>
                         Personajes de Wambo <br>
                         <span class="glyphicon glyphicon-link"></span>

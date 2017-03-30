@@ -19,7 +19,7 @@
                 <li class="dropdown nav-link-cuenta li-nav">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <figure>
-                            <img id="avatarNav" height="24px"width="24px" src="<?php
+                            <img id="avatarNav" height="24" width="24" src="<?php
                             if($datos->avatar_name=="user")
                             {
                                 if($datos->sexo=="masculino"){
@@ -40,7 +40,7 @@
                             <div class="row" style="padding-bottom: 5px">
                                 <div class="col-md-5">
                                     <figure>
-                                        <img id="avatarNav2" height="64px"width="64px" src="<?php
+                                        <img id="avatarNav2" height="64" width="64" src="<?php
                                         if($datos->avatar_name=="user")
                                         {
                                             if($datos->sexo=="masculino"){
@@ -69,9 +69,10 @@
                                     <a class="btn btn-warning" href="<?php echo base_url()."aplicacion/modificaperfil"?>">Modificar Perfil</a>
                                 </div>
                                 <div class="col-md-6 center-block text-center">
-                                    <a class="btn btn-danger" href="<?php echo base_url()."aplicacion/cerrarsesion"?>">Cerrar Sesión</a></li>
+                                    <a class="btn btn-danger" href="<?php echo base_url()."aplicacion/cerrarsesion"?>">Cerrar Sesión</a>
                                 </div>
                             </div>
+                        </li>
                     </ul>
                 </li>
             </ul>

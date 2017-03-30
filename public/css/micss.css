@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic);
 @import url(http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700);
-@import url(http://fonts.googleapis.com/css?family=Finger+Paint);
+/*@import url(http://fonts.googleapis.com/css?family=Finger+Paint);*/
 @import url(https://fonts.googleapis.com/css?family=Chewy);
 @keyframes float-b {
     0% {
@@ -39,6 +39,14 @@
     src: local("Pacifico Regular"), local("Pacifico-Regular"), url("http://fonts.gstatic.com/s/pacifico/v7/Q_Z9mv4hySLTMoMjnk_rCfesZW2xOQ-xsNqO47m55DA.woff2") format("woff2");
     unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
+/* latin */
+@font-face {
+    font-family: "Finger Paint";
+    font-style: normal;
+    font-weight: 400;
+    src: local('Finger Paint'), local('FingerPaint-Regular'), url(http://fonts.gstatic.com/s/fingerpaint/v5/m_ZRbiY-aPb13R3DWPBGX-gdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
 .featurette-divider {
     margin: 80px 0;
 }
@@ -61,14 +69,14 @@
 css vida sana
 **/
 .texto-modal{
-    font-family: "montserrat";
+    font-family: "finger paint",cursive;
     font-size: 15px;
     color: rgb(73,80,82);
 }
 .texto-modal-titulo{
     text-transform: uppercase;
     color: black;
-    font-family: "montserrat";
+    font-family: "Montserrat", sans-serif;
 }
 .glyfy{
     color: #673AB7;
@@ -80,7 +88,7 @@ css vida sana
     z-index: 9999 !important;
 }
 .navbar {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .affix ~ .container-fluid {
@@ -148,13 +156,14 @@ css cuenta
     margin-bottom: 5%;
 }
 .maintitulo h3{
-    font-family: 'finger paint';
+    font-family: "Finger Paint",cursive;
     color: white;
-    padding: 5%;
+    padding-top: 3%;
     font-size: 20px;
 }
 #tali{
     font-size: 15px;
+    padding-bottom: 2%;
 }
 .btn-cuenta{
     box-shadow: 0 4px 0 0 #5c34a3;
@@ -179,7 +188,7 @@ css cuenta
     font-size: 24px;
 }
 .titulocuenta {
-    font-family: "finger paint";
+    font-family: "finger paint",cursive;
     color: white;
     font-size: 36px;
     font-weight: 700;
@@ -196,13 +205,13 @@ css cuenta
 }
 .descp-tarjeta{
     color: white;
-    font-family: "montserrat";
+    font-family: "Montserrat", sans-serif;
     font-size: 15px;
     line-height: 22px;
 }
 .titulo-tarjeta{
     color: white;
-    font-family: "montserrat";
+    font-family: "Montserrat", sans-serif;
     font-size: 15px;
     line-height: 22px;
 }
@@ -237,10 +246,10 @@ css cuenta
     padding: 5px 5px 5px 5px;
 }
 .borde:hover{
-    box-shadow: 5px 0px 40px #EC774B;
+    box-shadow: 5px 0 40px #EC774B;
 }
 .borde{
-    box-shadow: 5px 0px 20px #008ad1;
+    box-shadow: 5px 0 20px #008ad1;
 }
 /*fin css cuenta*/
 /*Barra nav vida sana*/
@@ -250,7 +259,7 @@ css cuenta
 }
 /**/
 .titulo1 {
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
     color: #008ad1;
     font-size: 36px;
     font-weight: 700;
@@ -261,7 +270,7 @@ css cuenta
     text-transform: uppercase;
 }
 .tituloSection {
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
     color: #ffffff;
     font-size: 36px;
     font-weight: 700;
@@ -271,7 +280,7 @@ css cuenta
     text-transform: uppercase;
 }
 .numerocuest {
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
     color: #008ad1;
     font-size: 24px;
     font-weight: 700;
@@ -280,7 +289,7 @@ css cuenta
     padding-top: 10px;
 }
 .titulo2 {
-     font-family: "finger paint";
+     font-family: "Finger Paint", cursive;
      color: #89b730;
      font-size: 24px;
      font-weight: 400;
@@ -288,7 +297,7 @@ css cuenta
     padding-bottom: 10px;
  }
 .titulopuntaje{
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
     color: #f68a26;
     font-size: 24px;
 }
@@ -313,7 +322,7 @@ css cuenta
     text-align: center;
     border-radius: 100%;
     background-color:#f0c41b;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
 }
 .titulo3 {
     color: #f68a26;
@@ -326,7 +335,7 @@ css cuenta
 }
 
 .titulo4 {
-    font-family:"Finger Paint";
+    font-family: "Finger Paint", cursive;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -335,7 +344,7 @@ css cuenta
     color: #ffffff;
 }
 .tituloNickLider {
-    font-family:"Finger Paint";
+    font-family: "Finger Paint", cursive;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -353,14 +362,14 @@ css cuenta
     color: white;
 }
 .tituloform {
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
     font-size: 16px;
     color: #008ad1;
     font-weight: 400;
     line-height: 24px;
 }
 .titulopiegaleria {
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
     font-size: 14px;
     color: #ffffff;
     font-weight: 400;
@@ -382,7 +391,7 @@ css cuenta
     border: 2px solid #008ad1;
     border-radius: 10px;
     color: #008ad1;
-    font-family: "Finger Paint";
+    font-family: "Finger Paint", cursive;
     font-size: 18px;
     font-weight: 400;
     line-height: 20px;
@@ -399,7 +408,7 @@ css cuenta
     border: 2px solid #FFFFFF;
     border-radius: 10px;
     color: #FFFFFF;
-    font-family: "Finger Paint";
+    font-family: "Finger Paint",cursive;
     font-size: 18px;
     font-weight: 400;
     line-height: 20px;
@@ -417,7 +426,7 @@ css cuenta
     text-align: center;
 }
 .footer h4{
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
     color: white;
     font-size: 30px;
     line-height: 17px;
@@ -426,7 +435,7 @@ css cuenta
 }
 .footer p{
     color: white;
-    font-family: "montserrat";
+    font-family: "Montserrat", sans-serif;
     font-size: 15px;
     line-height: 22px;
 }
@@ -518,11 +527,11 @@ css cuenta
 .bubble a h3 {
     line-height: 20px;
     color: white;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
 }
 .bubble a h2{
     color: white;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
 }
 /*.bubble.rosado {
     animation: 1.5s ease-in-out 0s normal none infinite running float-a;
@@ -579,7 +588,7 @@ a:link, a:visited {
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
-    font-family: "montserrat";
+    font-family: "Montserrat", sans-serif;
 }
 .rotate {
     transition: all 0.5s ease 0s;
@@ -592,7 +601,7 @@ a:link, a:visited {
     transform: scale(1.1,1.1);
 }
 .form-control{
-    font-family: "montserrat";
+    font-family: "Montserrat", sans-serif;
 }
 .form-group {
     margin-bottom: 0;
@@ -644,7 +653,7 @@ css de barra nav
 }
 .navbar-default .navbar-brand {
     color: #F68A26;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
     font-size: 36px;
 }
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
@@ -653,57 +662,57 @@ css de barra nav
 }
 .nav-link-inicio{
     background-color: #74CEE4;
-    font-family: 'finger paint';
+    font-family: "Finger Paint", cursive;
     font-size: 20px;
 }
 .nav-link-lider{
     background-color: #6FC191;
-    font-family: 'finger paint';
+    font-family: "Finger Paint", cursive;
     font-size: 20px;
 }
 .nav-link-ayuda{
     background-color: #f1c40f;
-    font-family: 'finger paint';
+    font-family: "Finger Paint", cursive;
     font-size: 20px;
 }
 .nav-link-registro{
     background-color: #2ecc71;
-    font-family: 'finger paint';
+    font-family: "Finger Paint", cursive;
     font-size: 16px;
 }
 .nav-link-certificado{
     background-color: #EDBF47;
-    font-family: 'finger paint';
+    font-family: "Finger Paint", cursive;
     font-size: 20px;
 }
 .nav-link-sesion{
     background-color: #3498db;
-    font-family: 'finger paint';
+    font-family: "Finger Paint", cursive;
     font-size: 16px;
 }
 .nav-link-acercade{
     background-color: #E16C6C;
-    font-family: 'finger paint';
+    font-family: "Finger Paint", cursive;
     font-size: 16px;
 }
 .nav-link-contacto{
     background-color: #EDBF47;
-    font-family: 'finger paint';
+    font-family: "Finger Paint", cursive;
     font-size: 16px;
 }
 .nav-link-cuenta{
     background-color: #008AD1;
-    font-family: 'finger paint';
+    font-family: "Finger Paint", cursive;
     font-size: 20px;
 }
 .nav-link-desafio{
     background-color: #9b59b6;
-    font-family: 'finger paint';
+    font-family: "Finger Paint", cursive;
     font-size: 20px;
 }
 .nav-link-tip{
     background-color: #297FB8;
-    font-family: 'finger paint';
+    font-family: "Finger Paint", cursive;
     font-size: 20px;
 }
 .li-nav{
@@ -714,7 +723,7 @@ css de barra nav
     opacity: 1;
     /*transform: scale(1.1,1.1);*/
     background-color: #e67e22;
-    font-family: 'finger paint';
+    font-family: "Finger Paint", cursive;
     color: white;
 }
 /**
@@ -799,10 +808,10 @@ css de barra nav
     font-size: 21px;
     line-height: 1.4;
     margin-bottom: 20px;
-    font-family: "montserrat";
+    font-family: "Montserrat", sans-serif;
 }
 .carousel-caption h1{
-    font-family: "montserrat";
+    font-family: "Montserrat", sans-serif;
 }
 .cc-text{
     background-color: rgba(0,0,0,0.5);
@@ -842,7 +851,7 @@ css de barra nav
     font-size: 50px;
     letter-spacing: -1px;
     line-height: 1;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
     color: white;
 }
 .carousel .item {
@@ -1274,8 +1283,8 @@ filter: Gray(); /* IE4-8 and 9 */
     line-height: 24px;
     text-transform: capitalize;
     text-align: center;
-    margin-bottom: 0px;
-    margin-top: 0px;
+    margin-bottom: 0;
+    margin-top: 0;
     padding-bottom: 2%;
     padding-top: 2%;
 }
@@ -1380,14 +1389,14 @@ filter: Gray(); /* IE4-8 and 9 */
     text-align: right;
 }
 .texto-modal-tip{
-    font-family: "montserrat";
+    font-family: "Montserrat", sans-serif;
     font-size: 17px;
     color: white;
 }
 .titulo-modal-tip{
     padding: 15px;
     text-align: center;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
     font-size: 20px;
     color: white;
     text-transform: uppercase;
@@ -1397,7 +1406,7 @@ filter: Gray(); /* IE4-8 and 9 */
 *cuestionario
 */
 .preg-cuest{
-    font-family: "montserrat";
+    font-family: "Montserrat", sans-serif;
     font-size: 15px;
     color: #008AD1;
 }
@@ -1405,7 +1414,7 @@ filter: Gray(); /* IE4-8 and 9 */
     position: absolute;
     top: 1px;
     left: 1px;
-    margin: 0px;
+    margin: 0;
 }
 /**/
 /*
@@ -1416,7 +1425,7 @@ lideres
     border-radius: 5px;
 }
 .titulo-tabla{
-    font-family:"Finger Paint";
+    font-family: "Finger Paint", cursive;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -1507,7 +1516,7 @@ tamaño imagen seccion
 #barraDiploma2{
     padding-top: 15px;
     font-size: 25px;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
     color: #673AB7;
 }
 #imagenUsuario{
@@ -1525,35 +1534,35 @@ tamaño imagen seccion
 }
 #avanceFruta{
     color: #673AB7;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
 }
 #avanceDeporte{
     color: #673AB7;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
 }
 #avanceAcGrasa{
     color: #673AB7;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
 }
 #avanceAlimento{
     color: #673AB7;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
 }
 #avanceCereal{
     color: #673AB7;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
 }
 .margenInicioSesion{
     margin-top: 50px;
 }
 .feedback{
     color: white;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
     font-size: 14px;
     text-align: center;
 }
 .textofooter p{
-    font-family: "montserrat";
+    font-family: "Montserrat", sans-serif;
     font-size: 20px;
     color: white;
     list-style: none;
@@ -1572,7 +1581,7 @@ tamaño imagen seccion
     border: 1px solid #EC774B;
     padding: 15px;
     font-size: 20px;
-    font-family: "finger paint";
+    font-family: "Finger Paint", cursive;
 }
 .tool + .tooltip.top > .tooltip-arrow {
     border-top: 5px solid #EC774B;
@@ -1590,14 +1599,22 @@ tamaño imagen seccion
     background-color: #e67e22;
     border-color: #e67e22;
 }
+.padding-contacto{
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
 @media screen and (max-width: 1280px){
     .img-seccion{
         width: 200px;height: 200px;
     }
 }
 @media screen and (max-width: 980px){
+    #tali{
+        font-size: 13px;
+        padding-bottom: 1%;
+    }
     .maintitulo h3{
-        padding: 5%;
+        padding-top: 5%;
         font-size: 17px;
     }
     .img-seccion{
