@@ -8,7 +8,7 @@ if($cuestRespondidos!=null) {
     //cuestionarios contiene los nombres de los cuest y el titulo de cada cuest
     foreach ($cuestionarios as $cuestionario) {?>
         <?php if (in_array($cuestionario->idpregunta, $cuestionariosRespondidos)) { ?>
-            <div class="col-md-2 col-sm-2 col-xs-3">
+            <div class="col-md-3 col-sm-4 col-xs-4">
                 <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
                 <?php //$numero = intval(preg_replace('/[^0-9]+/', '', $cuestionario), 10); ?><!--obtiene solo el o los numeros de la cadena-->
                     <figure>
@@ -24,7 +24,7 @@ if($cuestRespondidos!=null) {
         else {//gris sin link y disponibles.
             if ($cuestionarioDisp == null) {
                     ?>
-                    <div class="col-md-2 col-sm-2 col-xs-3">
+                    <div class="col-md-3 col-sm-4 col-xs-4">
                         <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
                         <a id="<?php echo "link" . $cuestionario->idpregunta ?>" href="#section2">
                             <figure>
@@ -43,7 +43,7 @@ if($cuestRespondidos!=null) {
                 //si esta en disponibles se pone en verde
                 {
                     ?>
-                    <div class="col-md-2 col-sm-2 col-xs-3">
+                    <div class="col-md-3 col-sm-4 col-xs-4">
                         <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
                         <a href='<?php echo base_url() . "aplicacion/cuestionariodep/" . $cuestionario->idpregunta ?>'>
                         <figure>
@@ -59,7 +59,7 @@ if($cuestRespondidos!=null) {
                 //se pone en gris
                 {
                     ?>
-                    <div class="col-md-2 col-sm-2 col-xs-3">
+                    <div class="col-md-3 col-sm-4 col-xs-4">
                         <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
                         <a id="<?php echo "link" . $cuestionario->idpregunta ?>" href="#section2">
                             <figure>
@@ -83,7 +83,7 @@ else{//ningun cuestionario respondido?>
     if($cuestionarioDisp ==null) {
         foreach ($cuestionarios as $cuestionario) {
             ?>
-            <div class="col-md-2 col-sm-2 col-xs-3">
+            <div class="col-md-3 col-sm-4 col-xs-4">
                 <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
                 <a id="<?php echo "link".$cuestionario->idpregunta ?>" href="#section2">
                     <figure>
@@ -101,7 +101,7 @@ else{//ningun cuestionario respondido?>
     ?>
     <?php foreach($cuestionarios as $cuestionario) {
         if(in_array($cuestionario->idpregunta, $cuestionarioDisponible)){?>
-        <div class="col-md-2 col-sm-2 col-xs-3">
+        <div class="col-md-3 col-sm-4 col-xs-4">
             <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
             <a href='<?php echo base_url()."aplicacion/cuestionariodep/".$cuestionario->idpregunta?>'>
             <figure>
@@ -114,7 +114,7 @@ else{//ningun cuestionario respondido?>
             </a>
         </div>
     <?php }else{?>
-        <div class="col-md-2 col-sm-2 col-xs-3">
+        <div class="col-md-3 col-sm-4 col-xs-4">
             <h3 class="titulo4 text-center"><?php echo $cuestionario->titulo ?></h3>
             <a id="<?php echo "link".$cuestionario->idpregunta ?>" href="#section2">
                 <figure>

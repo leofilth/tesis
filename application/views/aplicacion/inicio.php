@@ -67,7 +67,7 @@
             <div class="col-md-7 col-sm-7 col-xs-12 fondo-portada1">
                 <h2 class="featurette-heading">Frutas y Verduras Poderosas. <span class="text-muted">Todos su secretos al descubierto</span></h2>
                 <p class="lead">¿Cuáles comer? ¿A qué hora? ¿Cuánto debo consumir?</p>
-                <p class="lead">Esta y muchas más preguntas serán respondidas conmigo</p>
+                <p class="lead">Esto y mucho más encontrarás.</p>
             </div>
             <div class="col-md-5 col-sm-5 col-xs-12">
                 <figure>
@@ -80,7 +80,7 @@
             <div class="col-md-7 col-sm-7 col-sm-push-5 col-md-push-5 fondo-portada2">
                 <h2 class="featurette-heading">Cereales Mágicos <span class="text-muted">Todo sobre ellos.</span></h2>
                 <p class="lead">¿Cuáles comer? ¿A qué hora? ¿Cuánto debo consumir?</p>
-                <p class="lead">Conmigo aprenderás sus beneficios y por que comerlos.</p>
+                <p class="lead">Conmigo aprenderás sus beneficios y por qué comerlos.</p>
             </div>
             <div class="col-md-5 col-sm-5 col-sm-pull-7 col-md-pull-7">
                 <figure>
@@ -103,8 +103,8 @@
         <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-7 col-md-push-5 col-sm-7 col-sm-push-5 fondo-portada4">
-                <h2 class="featurette-heading">Obtén tu Diploma Wambo! <span class="text-muted">Completa los desafios y gana</span></h2>
-                <p class="lead">Gana en Wambo y coloca tu diploma para que todos lo vean!</p>
+                <h2 class="featurette-heading">Obtén tu Diploma Wambo! <span class="text-muted">Completa los desafíos y gana</span></h2>
+                <p class="lead">Gana en Wambo y obtén tu diploma para que todos lo vean!</p>
             </div>
             <div class="col-md-5 col-md-pull-7 col-sm-5 col-sm-pull-7">
                 <figure>

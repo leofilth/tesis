@@ -306,7 +306,7 @@ class Aplicacion extends CI_Controller {
 				$this->fpdf->setX(($ancho-20)/2);
 				$nombre=$datos->nombre;
 				//$this->fpdf->Write(5,"Monica Carrasco Santibañez");
-				$this->fpdf->Cell(20,10,'Leonardo Concha Mella',0,0,'C');
+				$this->fpdf->Cell(20,10,$nombre,0,0,'C');
 				echo $this->fpdf->Output('Diploma_'.$nombre.'.pdf','D');
 				/*
                  * Fin crea pdf usuario
@@ -364,6 +364,11 @@ class Aplicacion extends CI_Controller {
 			} else {
 				redirect(base_url() . 'aplicacion', 301);
 			}
+		/*
+		 * he Profiler Class will display benchmark results, queries you have run,
+		 *  and $_POST data at the bottom of your pages.
+		 * This information can be useful during development in order to help with debugging and optimization.
+		 * $this->output->enable_profiler(TRUE);*/
 	}
 	public function certificado(){
 		if (!empty($this->session_id)) {
@@ -379,27 +384,6 @@ class Aplicacion extends CI_Controller {
 	 * Perfil usuario
 	 */
 	public function modificaPerfil(){
-		/*if ($this->input->post()) {
-			//proceso la imagen
-			$error = null;
-			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
-			//valido la foto
-			$config['upload_path'] = './public/images/user_avatar';
-			$config['allowed_types'] = 'jpg';
-			$config['overwrite'] = true;
-			$config['encrypt_name'] = false;
-			$config['file_name'] = $datos->nick;
-			$this->load->library('upload', $config);
-			if ($this->upload->do_upload('archivo')) {
-				$datos->avatar_name = $datos->nick;
-				//actualizar dato
-				$this->usuarios_model->actualiza_usuario($datos, $this->session_id);
-				redirect(base_url() . 'aplicacion/modificaperfil', 'refresh');
-			} else {
-				$error = array('error' => $this->upload->display_errors());
-				$this->session->set_flashdata('ControllerMessage', $error["error"]);
-			}
-		}*/
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$avatar_fem=$this->usuarios_model->getAvatarFem();
@@ -557,7 +541,7 @@ class Aplicacion extends CI_Controller {
 	public function cerrarsesion()
 	{
 		$this->session->unset_userdata(array('login'=>''));
-		$this->session->sess_destroy("taller_ci");
+		$this->session->sess_destroy("sesionsita");
 		redirect(base_url().'aplicacion',301);
 	}
 	public  function  restablecepassword(){

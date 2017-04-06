@@ -336,11 +336,11 @@ css cuenta
 
 .titulo4 {
     font-family: "Finger Paint", cursive;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 120%;
+    /*font-weight: 400;
     line-height: 24px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 10px;*/
     color: #ffffff;
 }
 .tituloNickLider {
@@ -670,6 +670,11 @@ css de barra nav
     font-family: "Finger Paint", cursive;
     font-size: 20px;
 }
+.nav-link-deporte{
+    background-color: #6FC191;
+    font-family: "Finger Paint", cursive;
+    font-size: 20px;
+}
 .nav-link-ayuda{
     background-color: #f1c40f;
     font-family: "Finger Paint", cursive;
@@ -767,7 +772,7 @@ css de barra nav
 @media screen and (max-width: 980px){
     .carousel-caption {
         z-index: 10;
-        padding-bottom: 20% !important;
+        padding-bottom: 10% !important;
     }
     /*altura del carousel
     .carousel{
@@ -831,21 +836,21 @@ css de barra nav
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 90px;
+    margin-top: 120px;
 }
 .fondo-portada3{
     background-color: rgb(237,191,71);
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 90px;
+    margin-top: 120px;
 }
 .fondo-portada4{
     background-color: rgb(236,119,75);
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 90px;
+    margin-top: 130px;
 }
 .titulo-portada{
     font-size: 50px;
@@ -1621,7 +1626,7 @@ tamaño imagen seccion
         width: 160px;height: 160px;
     }
     .fondo-portada1{
-        margin-top: 30px;
+        margin-top: 1%;
     }
     .fondo-portada1 h2{
         font-size: 30px;
@@ -1630,7 +1635,7 @@ tamaño imagen seccion
         font-size: 17px;
     }
     .fondo-portada2{
-        margin-top: 30px;
+        margin-top: 3%;
     }
     .fondo-portada2 h2{
         font-size: 30px;
@@ -1639,7 +1644,7 @@ tamaño imagen seccion
         font-size: 17px;
     }
     .fondo-portada3{
-        margin-top: 30px;
+        margin-top: 5%;
     }
     .fondo-portada3 h2{
         font-size: 30px;
@@ -1648,7 +1653,7 @@ tamaño imagen seccion
         font-size: 17px;
     }
     .fondo-portada4{
-        margin-top: 30px;
+        margin-top: 7%;
     }
     .fondo-portada4 h2{
         font-size: 30px;

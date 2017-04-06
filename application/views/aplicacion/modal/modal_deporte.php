@@ -1,5 +1,5 @@
-<div class="modal animated zoomInDown" id="myModal" role="dialog">
-    <div class="modal-dialog">
+<div class="modal animated zoomIn" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body" style="background-color: #673AB7">
@@ -17,7 +17,7 @@
                             </li>
                         </ul>
                         <figure>
-                            <img alt="deporte" id="modalimg"  style="width:15%;position:absolute;top:10px;right:10px;margin:0;" class="zoom fondofruta borde img-circle" src="#">
+                            <img alt="deporte" id="modalimg"  style="width:13%;position:absolute;top:10px;right:10px;margin:0;" class="zoom fondofruta borde img-circle" src="#">
                         </figure>
                     </div>
                     <figure>
