@@ -950,7 +950,7 @@ Fin Css Carousel
     .altura{
         height: 120px !important;
     }
-}*/
+}
 .altura{
     height: 250px;
 }
@@ -1235,6 +1235,10 @@ filter: Gray(); /* IE4-8 and 9 */
         background-color: #000;
     */
 }
+.tamanodep{
+    width: 150px;
+    height: auto;
+}
 @media screen and (min-width:0\0) { 
     /* Tus estilos CSS para IE9, IE10, IE11  */
     .gris {
@@ -1505,8 +1509,8 @@ tamaño imagen seccion
     width: 200px;height: 200px;
 }
 .icon-inst{
-    height: 120px;
-    width: 120px;
+    height: 20%;
+    width: 20%;
 }
 .progress{
     height: 30px;/*alto de barra de progreso*/
@@ -1614,6 +1618,9 @@ tamaño imagen seccion
     }
 }
 @media screen and (max-width: 980px){
+    .margenins{
+        left: 0;
+    }
     #tali{
         font-size: 13px;
         padding-bottom: 1%;
@@ -1702,8 +1709,8 @@ tamaño imagen seccion
         padding: 5px 5px !important;
     }
     .tamano100{
-        width: auto;
-        height: 64px;
+        width: 20%;
+        height: 20%;
     }
     /*.bg-im3 {
         background: url("http://146.83.216.208/public/images/aprender360.png") no-repeat center center fixed;
@@ -1770,6 +1777,14 @@ tamaño imagen seccion
     }*/
     .img-seccion{
         width: 115px;height: 115px;
+    }
+    .tamano100{
+        width: 30%;
+        height: 30%;
+    }
+    .tamanodep{
+        width: 40%;
+        height: 40%;
     }
     .tamano{
         width: 64px;

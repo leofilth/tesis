@@ -2,8 +2,8 @@
     <div class="col-md-8 col-sm-12 col-xs-12">
         <div class="animated bounce">
             <div class="instruccion-naranjo">
-                <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
-                <ol class="texto-modal-tip" id="descripcion-tip">
+                <h4 class="modal-title titulo-modal-tip">Intrucciones</h4>
+                <ol class="texto-modal-tip">
                     <li>Responde cada pregunta</li>
                     <li>Revisa bien tu respuesta</li>
                     <li>cuando estes listo revisa tus resultados</li>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <figure>
-                    <img alt="estudiante1" class="img-circle pull-left" width="20%" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                    <img alt="estudiante1" class="img-circle pull-left" style="width:20%;margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
             </div>
     </div>

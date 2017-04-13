@@ -14,7 +14,6 @@ if($cuestRespondidos!=null) {
                         <img class="cuestionario center-block borde img-circle zoom tamano-cuest"
                             id="<?php echo $cuestionario ?>"
                             alt="<?php echo $cuestionario ?>"
-                            name="<?php echo $cuestionario ?>"
                             src="<?php echo base_url() . "public/images/icons/test/testHecho.png" ?>"
                             />
                     </figure>
@@ -30,7 +29,6 @@ if($cuestRespondidos!=null) {
                                 <img class="cuestionario center-block img-circle borde zoom cuest tamano-cuest"
                                     id="<?php echo $cuestionario ?>"
                                      alt="<?php echo $cuestionario ?>"
-                                    name="<?php echo $cuestionario ?>"
                                     src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
                             </figure>
                         </a>
@@ -48,7 +46,6 @@ else{?>
                 <figure>
                     <img class="cuestionario center-block img-circle borde zoom cuest tamano-cuest"
                         id="<?php echo $cuestionario ?>"
-                         name="<?php echo $cuestionario ?>"
                          alt="<?php echo $cuestionario ?>"
                         src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
                 </figure>

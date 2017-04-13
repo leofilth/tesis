@@ -14,7 +14,6 @@ class Aplicacion extends CI_Controller {
 		$this->layout->css(array(base_url()."public/css/micss.css"));
 		$this->layout->css(array(base_url()."public/css/animate.css"));
 		$this->layout->js(array(base_url()."public/js/bootstrap-filestyle.min.js"));//borrar a futuro
-		$this->layout->js(array(base_url()."public/js/miJS.js"));
 		$this->layout->js(array(base_url()."public/js/bootbox.js"));
 	}
 	public function index()
@@ -355,12 +354,19 @@ class Aplicacion extends CI_Controller {
 				$totalCereales=$this->usuarios_model->getTotalCereales();
 				$totalCuestCereal=$this->usuarios_model->getTotalCuestCereal();
 				/*
+				 * Totales
+				 */
+				$totalFruta=round((($avance->avance_fruta+$avance->avance_cuest_fruta)*100)/($totalFrutas+$totalCuestFruta));
+				$totalCereal=round((($avance->avance_cereal+$avance->avance_cuest_cereal)*100)/($totalCereales+$totalCuestCereal));
+				$totalAcGrasa=round((($avance->avance_acgrasa+$avance->avance_cuest_acgrasa)*100)/($totalAcGrasa+$totalCuestAcGrasa));
+				$totalAlimento=round((($avance->avance_alimento+$avance->avance_cuest_alimento)*100)/($totalAlimentos+$totalCuestAlimento));
+				$totalDeporte=round((($avance->avance_deporte+$avance->avance_cuest_deporte)*100)/($totalDeportes+$totalCuestDeporte));
+				/*
 				 * obtener estado_diploma
 				 */
 				$estadoDiploma=$this->usuarios_model->getEstadoDiploma($datos->nick);
 				$this->layout->view('cuenta', compact("datos","tip","puntaje","tutorial","avance",
-					"totalFrutas","totalCuestFruta","totalAcGrasa","totalCuestAcGrasa","totalDeportes","totalCuestDeporte",
-					"totalAlimentos","totalCuestAlimento","estadoDiploma","totalCereales","totalCuestCereal"));
+					"totalFruta","totalAcGrasa","totalDeporte", "totalAlimento","estadoDiploma","totalCereal"));
 			} else {
 				redirect(base_url() . 'aplicacion', 301);
 			}

@@ -9,15 +9,15 @@
                 <div class="tip-modal">
                     <div class="margen-modal">
                         <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Modal Header</h4>
-                        <p class="texto-modal-tip" id="descripcion-tip"></p>
+                        <p class="texto-modal-tip" id="descripcion-tip">a</p>
                     </div>
                 </div>
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img class="img-border" alt="estudiante1" width="20%" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                    <img class="img-border" alt="estudiante1" style="width: 20%" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
-                <button  type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Cerrar</button>
+                <button  type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -32,9 +32,9 @@
             <div class="modal-body" style="background-color: #673AB7">
                 <div class="tip-modal" id="instrumodal" style="cursor: pointer">
                     <div class="margen-modal">
-                        <header id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?></header>
+                        <header class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?></header>
                         <h2 class="texto-modal-tip">Asi funciona Wambo Frutas y Verduras</h2>
-                        <div class="texto-modal-tip" id="descripcion-tip">
+                        <div class="texto-modal-tip">
                                 <div class="col-md-8" id="textoIns">
                                     <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para siguiente ayuda
                                 </div>
@@ -55,8 +55,8 @@
                     <img class="img-border icon-inst" alt="estudiante2" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
                 <div style="margin-top: 55px">
-                    <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">No volver a mostar</button>
-                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'"data-dismiss="modal">Entendido</button>
+                    <button id="mostrarmodal" type="button" class="btn btn-danger" style="position:absolute;bottom:10px;left:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">No volver a mostar</button>
+                    <button type="button" class="btn btn-info" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">Entendido</button>
                 </div>
             </div>
         </div>
@@ -72,8 +72,8 @@
                     <div class="col-md-8 col-sm-8 col-xs-12">
                         <div class="instruefecto">
                             <div class="instruccion-morado">
-                                <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
-                                <ol class="texto-modal-tip" id="descripcion-tip">
+                                <h4 class="modal-title titulo-modal-tip">Intrucciones</h4>
+                                <ol class="texto-modal-tip">
                                     <li>Compra tu fruta</li>
                                     <li>Haz click en ella</li>
                                     <li>Aprende</li>
@@ -164,8 +164,8 @@
             <div class="col-md-8 col-sm-8">
                 <div class="instruefecto">
                     <div class="instruccion-verde">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
-                        <ol class="texto-modal-tip" id="descripcion-tip">
+                        <h4 class="modal-title titulo-modal-tip">Intrucciones</h4>
+                        <ol class="texto-modal-tip">
                             <li>Responde y gana puntos</li>
                             <li>Canjea por tus Frutas y Verduras </li>
                             <li>Demuestra todo lo que sabes</li>
@@ -191,7 +191,7 @@
         </div>
     </div>
     <div class="padingtop">
-        <img class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+        <img class="ir-arriba animated infinite pulse center-block tamano" alt="flechaTop" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
     </div>
 </section>
 <section class="container-fluid" id="tipsaludable">
@@ -201,8 +201,8 @@
             <div class="col-md-8">
                 <div class="instruefecto">
                     <div class="instruccion-naranjo">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
-                        <ol class="texto-modal-tip" id="descripcion-tip">
+                        <h4 class="modal-title titulo-modal-tip">Instrucciones</h4>
+                        <ol class="texto-modal-tip">
                             <li>Selecciona tu TIP y aprende un poco más</li>
                             <li>Son gratis</li>
                             <li>Consulta cuando quieras</li>
@@ -227,7 +227,7 @@
                 foreach ($tipsFrutas as $tipfruta){
                     ?>
                     <div class="col-md-3 col-xs-6 col-sm-4 alturatip">
-                        <div class="tip-<?php echo $colores[$i]?> tip animated infinite pulse borde" title="<?php echo $tipfruta->nombre?>" data-toggle="modal" data-target="#modaltip">
+                        <div class="tip-<?php echo $colores[$i]?> efecto-<?php echo $colores[$i]?> tip borde" title="<?php echo $tipfruta->nombre?>" data-toggle="modal" data-target="#modaltip">
                             <div><h1 class="titulo-tip"><?php echo $tipfruta->nombre?></h1></div><div><i class="glyphicon glyphicon-apple hoja"></i></div>
                         </div>
                     </div>
@@ -237,7 +237,7 @@
         </div>
     </div>
     <div class="padingtop">
-        <img class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+        <img class="ir-arriba animated infinite pulse center-block tamano" alt="flechaTop" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
     </div>
 </section>
 <?php include "footer.php"?>
@@ -502,5 +502,51 @@
          * Tooltip para las frutas y verduras
          */
         $('[data-toggle="tooltip"]').tooltip();
+        /*
+         Efectos en los tips o secretos
+         */
+        $(".efecto-rojo").on({
+            mouseenter: function(){
+                $(this).addClass("animated jello infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated jello");
+            }
+        });
+        $(".efecto-verde").on({
+            mouseenter: function(){
+                $(this).addClass("animated shake infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated shake");
+            }
+        });
+        $(".efecto-naranjo").on({
+            mouseenter: function(){
+                $(this).addClass("animated tada infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated tada");
+            }
+        });
+        $(".efecto-rosado").on({
+            mouseenter: function(){
+                $(this).addClass("animated swing infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated swing");
+            }
+        });
+        $(".efecto-celeste").on({
+            mouseenter: function(){
+                $(this).addClass("animated rubberBand infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated rubberBand");
+            }
+        });
+        /*
+         fin efecto tips secretos
+         */
     });
 </script>

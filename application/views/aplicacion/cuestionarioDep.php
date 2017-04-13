@@ -10,7 +10,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="instruefecto animated infinite pulse">
                         <div class="instruccion-morado">
-                            <h4 id="titulo-tip" class="modal-title titulo-modal-tip">
+                            <h4 class="modal-title titulo-modal-tip">
                                 Este cuestionario ya ha sido respondido o no lo has desbloqueado.
                             </h4>
                         </div>

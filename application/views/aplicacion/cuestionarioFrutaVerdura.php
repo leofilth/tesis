@@ -13,7 +13,9 @@
                     <div class="col-md-6 col-md-offset-3">
                         <div class="instruefecto animated infinite pulse">
                             <div class="instruccion-morado">
-                                <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Este cuestionario ya ha sido respondido.</h4>
+                                <h4 class="modal-title titulo-modal-tip">
+                                    Este cuestionario ya ha sido respondido.
+                                </h4>
                             </div>
                             <div style="float: left;margin-left: 45%;clear: left">
                                 <div class="triangulo-morado"></div>

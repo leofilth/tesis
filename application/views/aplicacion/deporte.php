@@ -95,7 +95,7 @@
                 foreach ($tipsDeportes as $tipdeporte){
                     ?>
                     <div class="col-md-3 col-xs-6 col-sm-4 alturatip">
-                        <div class="tip-<?php echo $colores[$i]?> tip zoom animated infinite pulse borde" title="<?php echo $tipdeporte->nombre?>" data-toggle="modal" data-target="#modaltip">
+                        <div class="tip-<?php echo $colores[$i]?> efecto-<?php echo $colores[$i]?> tip borde" title="<?php echo $tipdeporte->nombre?>" data-toggle="modal" data-target="#modaltip">
                             <div><h1 class="titulo-tip"><?php echo $tipdeporte->nombre?></h1></div><div><i class="glyphicon glyphicon-tint hoja"></i></div>
                         </div>
                     </div>
@@ -273,9 +273,9 @@
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Este es un desafío <b>Completado</b>",
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/test/testHecho.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Al comprar tu deporte este se desbloquea cambiando de color",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/tutodeporte.png'?>'>"},
+                "imagen":"<img class='animated rubberBand center-block tamanodep' src='<?php echo base_url().'public/images/icons/tutodeporte.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Cada deporte tiene un desafío asociado, cómpralo para desbloquearlo!",
-                "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/desafiodeporte.png'?>'>"}
+                "imagen":"<img class='animated rubberBand center-block tamanodep' src='<?php echo base_url().'public/images/icons/desafiodeporte.png'?>'>"}
         ];
 
         function guardaEstadoTutorial(ruta,valor){
@@ -510,5 +510,51 @@
                 scrollTop: $('#section2').position().top}, 'slow');
         });
         $('[data-toggle="tooltip"]').tooltip();
+        /*
+         Efectos en los tips o secretos
+         */
+        $(".efecto-rojo").on({
+            mouseenter: function(){
+                $(this).addClass("animated jello infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated jello");
+            }
+        });
+        $(".efecto-verde").on({
+            mouseenter: function(){
+                $(this).addClass("animated shake infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated shake");
+            }
+        });
+        $(".efecto-naranjo").on({
+            mouseenter: function(){
+                $(this).addClass("animated tada infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated tada");
+            }
+        });
+        $(".efecto-rosado").on({
+            mouseenter: function(){
+                $(this).addClass("animated swing infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated swing");
+            }
+        });
+        $(".efecto-celeste").on({
+            mouseenter: function(){
+                $(this).addClass("animated rubberBand infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated rubberBand");
+            }
+        });
+        /*
+         fin efecto tips secretos
+         */
     });
 </script>

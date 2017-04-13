@@ -5,7 +5,7 @@
             <div class="modal-body" style="background-color: #673AB7">
                 <div class="tip-modal avatar" id="informacion">
                     <div class="margen-modal">
-                        <h4 id="modal-title" class="modal-title titulo-modal-tip"></h4>
+                        <h4 id="modal-title" class="modal-title titulo-modal-tip">a</h4>
                         <ul style="list-style: none">
                             <li>
                                 <div class="texto-modal-tip" id="titulo">

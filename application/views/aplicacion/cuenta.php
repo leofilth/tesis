@@ -104,9 +104,9 @@
                                 </h3>
                                 <div class="progress barra">
                                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                         aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_fruta+$avance->avance_cuest_fruta)*100)/($totalFrutas+$totalCuestFruta))?>%">
+                                         aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $totalFruta?>%">
                                             <span id="avanceFruta">
-                                                <?php echo round((($avance->avance_fruta+$avance->avance_cuest_fruta)*100)/($totalFrutas+$totalCuestFruta))."%"?>
+                                                <?php echo $totalFruta."%"?>
                                             </span>
                                     </div>
                                 </div>
@@ -131,9 +131,9 @@
                                 </h3>
                                 <div class="progress barra">
                                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                         aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_cereal+$avance->avance_cuest_cereal)*100)/($totalCereales+$totalCuestCereal))?>%">
+                                         aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $totalCereal?>%">
                                             <span id="avanceCereal">
-                                                <?php echo round((($avance->avance_cereal+$avance->avance_cuest_cereal)*100)/($totalCereales+$totalCuestCereal))."%"?>
+                                                <?php echo $totalCereal."%"?>
                                             </span>
                                     </div>
                                 </div>
@@ -158,14 +158,13 @@
                                 </h3>
                                 <div class="progress barra">
                                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                         aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_acgrasa+$avance->avance_cuest_acgrasa)*100)/($totalAcGrasa+$totalCuestAcGrasa))?>%">
+                                         aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $totalAcGrasa?>%">
                                             <span id="avanceAcGrasa">
-                                                <?php echo round((($avance->avance_acgrasa+$avance->avance_cuest_acgrasa)*100)/($totalAcGrasa+$totalCuestAcGrasa))."%"?>
+                                                <?php echo $totalAcGrasa."%"?>
                                             </span>
                                     </div>
                                 </div>
                             </div>
-                            <!--<p class="descp-tarjeta">Todo sobre los alimentos</p>-->
                             <a href="<?php echo base_url()."aplicacion/aceitegrasas"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
@@ -186,14 +185,13 @@
                                 </h3>
                                 <div class="progress barra">
                                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                         aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_alimento+$avance->avance_cuest_alimento)*100)/($totalAlimentos+$totalCuestAlimento))?>%">
+                                         aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $totalAlimento?>%">
                                             <span id="avanceAlimento">
-                                                <?php echo round((($avance->avance_alimento+$avance->avance_cuest_alimento)*100)/($totalAlimentos+$totalCuestAlimento))."%"?>
+                                                <?php echo $totalAlimento."%"?>
                                             </span>
                                     </div>
                                 </div>
                             </div>
-                            <!--<p class="descp-tarjeta">Todo sobre los alimentos</p>-->
                             <a href="<?php echo base_url()."aplicacion/alimentos"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
@@ -214,9 +212,9 @@
                                 </h3>
                                 <div class="progress barra">
                                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                         aria-valuemin="0" aria-valuemax="100" style="width:<?php echo round((($avance->avance_deporte+$avance->avance_cuest_deporte)*100)/($totalDeportes+$totalCuestDeporte))?>%">
+                                         aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $totalDeporte?>%">
                                             <span id="avanceDeporte">
-                                               <?php echo round((($avance->avance_deporte+$avance->avance_cuest_deporte)*100)/($totalDeportes+$totalCuestDeporte))."%"?>
+                                               <?php echo $totalDeporte."%"?>
                                             </span>
                                     </div>
                                 </div>
@@ -233,17 +231,6 @@
                             <a href="<?php echo base_url()."aplicacion/certificado"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
                         </div>
                     </div>
-                    <!--<div id="receta" class="col-md-4 col-sm-6">
-                        <div class="text-center  borde recetacuenta">
-                            <img id="portadareceta" class="img-circle center-block img-seccion" src="<?php echo base_url()."public/images/portada4.jpg"?>">
-                            <div class="maintitulo">
-                                <h3 id="trec">
-                                    Mis recetas
-                                </h3>
-                            </div>
-                            <a href="<?php echo base_url()."aplicacion/receta"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
-                        </div>
-                    </div>-->
             </div>
         </div>
         <div class="container animated tada">

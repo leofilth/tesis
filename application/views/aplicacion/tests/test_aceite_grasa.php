@@ -13,7 +13,6 @@ if($cuestRespondidos!=null) {
                     <figure>
                         <img class="cuestionario img-circle borde center-block tamano-cuest"
                              id="<?php echo $cuestionario ?>"
-                             name="<?php echo $cuestionario ?>"
                              alt="<?php echo $cuestionario."hecho" ?>"
                              src="<?php echo base_url() . "public/images/icons/test/testHecho.png" ?>"/>
                     </figure>
@@ -27,7 +26,7 @@ if($cuestRespondidos!=null) {
                 <a href="<?php echo base_url() . "aplicacion/cuestionarioacgrasa/".$numero?>">
                     <figure>
                         <img class="cuestionario center-block zoom  img-circle borde cuest tamano-cuest"
-                            id="<?php echo $cuestionario ?>" name="<?php echo $cuestionario ?>"
+                            id="<?php echo $cuestionario ?>"
                              alt="<?php echo $cuestionario ?>"
                             src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
                     </figure>
@@ -46,7 +45,7 @@ else{?>
             <a href="<?php echo base_url() . "aplicacion/cuestionarioacgrasa/".$numero?>">
                 <figure>
                     <img class="cuestionario center-block zoom img-circle borde  cuest tamano-cuest"
-                         id="<?php echo $cuestionario ?>" name="<?php echo $cuestionario ?>"
+                         id="<?php echo $cuestionario ?>"
                          alt="<?php echo $cuestionario ?>"
                          src="<?php echo base_url() . "public/images/icons/test/test.png" ?>"/>
                 </figure>

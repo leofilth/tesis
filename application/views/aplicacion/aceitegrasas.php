@@ -9,7 +9,7 @@
                 <div class="tip-modal">
                     <div class="margen-modal">
                         <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Modal Header</h4>
-                        <p class="texto-modal-tip" id="descripcion-tip"></p>
+                        <p class="texto-modal-tip" id="descripcion-tip">a</p>
                     </div>
                 </div>
                 <div class="triangulo"></div>
@@ -32,9 +32,9 @@
             <div class="modal-body" style="background-color: #673AB7">
                 <div class="tip-modal" id="instrumodal" style="cursor: pointer">
                     <div class="margen-modal">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?></h4>
+                        <h4 class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?></h4>
                         <h2 class="texto-modal-tip">Asi funciona Wambo Verduras</h2>
-                        <div class="texto-modal-tip" id="descripcion-tip">
+                        <div class="texto-modal-tip">
                             <div class="col-md-8" id="textoIns">
                                 <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para siguiente ayuda
                             </div>
@@ -70,8 +70,8 @@
                     <div class="col-md-8 col-sm-8">
                         <div class="instruefecto">
                             <div class="instruccion-morado">
-                                <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
-                                <ol class="texto-modal-tip" id="descripcion-tip">
+                                <h4 class="modal-title titulo-modal-tip">Intrucciones</h4>
+                                <ol class="texto-modal-tip">
                                     <li>Compra tu verdura</li>
                                     <li>Haz click en ella</li>
                                     <li>Aprende</li>
@@ -162,8 +162,8 @@
             <div class="col-md-8 col-sm-8">
                 <div class="instruefecto">
                     <div class="instruccion-verde">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Intrucciones</h4>
-                        <ol class="texto-modal-tip" id="descripcion-tip">
+                        <h4 class="modal-title titulo-modal-tip">Intrucciones</h4>
+                        <ol class="texto-modal-tip">
                             <li>Responde y gana puntos</li>
                             <li>Canjea por tus Alimentos </li>
                             <li>Demuestra todo lo que sabes</li>
@@ -189,7 +189,7 @@
         </div>
     </div>
     <div class="padingtop">
-        <img class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+        <img class="ir-arriba animated infinite pulse center-block tamano" alt="flechaTop" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
     </div>
 </section>
 <section class="container-fluid" id="tipsaludable">
@@ -199,8 +199,8 @@
             <div class="col-md-8">
                 <div class="instruefecto">
                     <div class="instruccion-naranjo">
-                        <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
-                        <ol class="texto-modal-tip" id="descripcion-tip">
+                        <h4 class="modal-title titulo-modal-tip">Instrucciones</h4>
+                        <ol class="texto-modal-tip">
                             <li>Selecciona tu TIP y aprende un poco más</li>
                             <li>Son gratis</li>
                             <li>Consulta cuando quieras</li>
@@ -225,7 +225,7 @@
                 foreach ($tipsAcGrasas as $tipAcGrasa){
                     ?>
                     <div class="col-md-3 col-xs-6 col-sm-4 alturatip">
-                        <div class="tip-<?php echo $colores[$i]?> tip zoom animated infinite pulse borde" title="<?php echo $tipAcGrasa->nombre?>" data-toggle="modal" data-target="#modaltip">
+                        <div class="tip-<?php echo $colores[$i]?> efecto-<?php echo $colores[$i]?> tip borde" title="<?php echo $tipAcGrasa->nombre?>" data-toggle="modal" data-target="#modaltip">
                             <div><h1 class="titulo-tip"><?php echo $tipAcGrasa->nombre?></h1></div><div><i class="glyphicon glyphicon-leaf hoja"></i></div>
                         </div>
                     </div>
@@ -235,7 +235,7 @@
         </div>
     </div>
     <div class="padingtop">
-        <img class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+        <img class="ir-arriba animated infinite pulse center-block tamano" alt="flechaTop" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
     </div>
 </section>
 <?php include "footer.php"?>
@@ -492,5 +492,51 @@
                 scrollTop: $('#section2').position().top}, 'slow');
         });
         $('[data-toggle="tooltip"]').tooltip();
+        /*
+         Efectos en los tips o secretos
+         */
+        $(".efecto-rojo").on({
+            mouseenter: function(){
+                $(this).addClass("animated jello infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated jello");
+            }
+        });
+        $(".efecto-verde").on({
+            mouseenter: function(){
+                $(this).addClass("animated shake infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated shake");
+            }
+        });
+        $(".efecto-naranjo").on({
+            mouseenter: function(){
+                $(this).addClass("animated tada infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated tada");
+            }
+        });
+        $(".efecto-rosado").on({
+            mouseenter: function(){
+                $(this).addClass("animated swing infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated swing");
+            }
+        });
+        $(".efecto-celeste").on({
+            mouseenter: function(){
+                $(this).addClass("animated rubberBand infinite");
+            },
+            mouseleave:function() {
+                $(this).removeClass("animated rubberBand");
+            }
+        });
+        /*
+         fin efecto tips secretos
+         */
     });
 </script>

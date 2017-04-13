@@ -5,7 +5,7 @@
             <div class="modal-body" style="background-color: #673AB7">
                 <div class="tip-modal avatar" id="informacion">
                     <div class="margen-modal">
-                        <h4 id="modal-title" class="modal-title titulo-modal-tip"></h4>
+                        <h4 id="modal-title" class="modal-title titulo-modal-tip">a</h4>
                         <ul style="list-style: none">
                             <li>
                                 <div class="texto-modal-tip" id="titulo">
@@ -15,7 +15,7 @@
                             </li>
                         </ul>
                         <figure>
-                            <img id="modalimg" style="width:15%;position:absolute;top:10px;right:10px;margin:0;" class="zoom fondofruta borde img-circle" src="#">
+                            <img id="modalimg" style="width:15%;position:absolute;top:10px;right:10px;margin:0;" alt="FrutaVerdura" class="zoom fondofruta borde img-circle" src="#">
                         </figure>
                     </div>
                     <figure>
@@ -25,7 +25,7 @@
                 <div class="triangulo"></div>
                 <br>
                 <figure>
-                    <img alt="estudiante1" class="img-circle" width="20%" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                    <img alt="estudiante1" class="img-circle" style="width: 20%" src="<?php echo base_url().'public/images/modal/student1.png'?>">
                 </figure>
                 <button type="button" class="btn btn-danger" style="position:absolute;bottom:10px;right:10px;margin:0;padding:10px 10px;font-family: 'finger paint'" data-dismiss="modal">Cerrar</button>
             </div>

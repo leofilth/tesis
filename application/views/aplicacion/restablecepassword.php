@@ -1,4 +1,4 @@
-<?php include "nav.php" ?>
+<?php include "navs/nav.php" ?>
 <div class="container-fluid bg-im">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
