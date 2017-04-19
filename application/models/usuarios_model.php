@@ -36,6 +36,8 @@ class usuarios_model extends CI_Model
             ->where(array("nick"=>$nick))
             ->get();
         return $query->row();
+        /*$query=$this->db->query('"'."call obtiene_datos_usuario('".$nick."')".'"');
+        return $query->row();*/
     }
     public function verifica_nick($nick){
         $query=$this->db
@@ -57,10 +59,12 @@ class usuarios_model extends CI_Model
         return true;
     }
     public function getAvatarFem(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("nombre,link")
             ->from("avatar_fem")
             ->get();
+        return $query->result();*/
+        $query=$this->db->get('ver_avatar_femenino');
         return $query->result();
     }
     public function guardaAvatar($datos=array(),$datos2=array(),$nick)
@@ -77,30 +81,26 @@ class usuarios_model extends CI_Model
         $this->db->update('tutorial',$datos);
     }
     public function getAvatarMas(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("nombre,link")
             ->from("avatar_mas")
             ->get();
+        return $query->result();*/
+        $query=$this->db->get('ver_avatar_masculino');
         return $query->result();
     }
 
     /*
      * Fin funciones de usuario
      */
-    public function getFrutas($sexo){
-        if($sexo=="masculino"){
-            $query=$this->db
-                ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo_boy as consumo")
+    public function getFrutas(){
+        /*$query=$this->db
+                ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo")
                 ->from("frutas")
                 ->get();
-            return $query->result();
-        }else{
-            $query=$this->db
-                ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo_girl as consumo")
-                ->from("frutas")
-                ->get();
-            return $query->result();
-        }
+            return $query->result();*/
+        $query=$this->db->get('ver_frutas_verduras');
+        return $query->result();
     }
     public function getFrutaUsuario($nick){
         $query=$this->db
@@ -115,10 +115,12 @@ class usuarios_model extends CI_Model
         return true;
     }
     public function getDeportes(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,frecuencia")
             ->from("deportes")
             ->get();
+        return $query->result();*/
+        $query=$this->db->get('ver_deportes');
         return $query->result();
     }
     public function getDeporteUsuario($nick){
@@ -190,10 +192,12 @@ class usuarios_model extends CI_Model
         return $query->result();
     }
     public function getAcGrasas(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo")
             ->from("aceite_grasas")
             ->get();
+        return $query->result();*/
+        $query=$this->db->get('ver_aceite_grasas');
         return $query->result();
     }
     public function getAcGrasaUsuario($nick){
@@ -209,10 +213,12 @@ class usuarios_model extends CI_Model
         return true;
     }
     public function getAlimentos(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo")
             ->from("alimentos")
             ->get();
+        return $query->result();*/
+        $query=$this->db->get('ver_alimentos');
         return $query->result();
     }
     public function guardaAlimentoUsuario($datos=array()){
@@ -220,10 +226,12 @@ class usuarios_model extends CI_Model
         return true;
     }
     public function getCereales(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("id,nombre,link,descripcion,categoria,saludable,beneficios,consumo")
             ->from("cereales")
             ->get();
+        return $query->result();*/
+        $query=$this->db->get('ver_cereales');
         return $query->result();
     }
     public function guardaCerealUsuario($datos=array()){
@@ -246,11 +254,13 @@ class usuarios_model extends CI_Model
         return $this->db->count_all_results('tips');
     }
     public function getLideres(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("nick_fk,puntaje,sexo,avatar_name_fk")
             ->from("lideres")
             ->order_by('puntaje','DESC')
             ->get();
+        return $query->result();*/
+        $query=$this->db->get('ver_lideres');
         return $query->result();
     }
     /**
@@ -380,38 +390,23 @@ class usuarios_model extends CI_Model
     /*Obtiene preguntas para desafio diario
     */
     public function getPreguntasFrutaDesafioDiario(){
-        $query=$this->db
-            ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
-            ->from("preguntas_fruta")
-            ->get();
+        $query=$this->db->get('ver_preguntas_fruta_verdura');
         return $query->result();
     }
     public function getPreguntasAcGrasaDesafioDiario(){
-        $query=$this->db
-            ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
-            ->from("preguntas_aceitegrasa")
-            ->get();
+        $query=$this->db->get('ver_preguntas_aceite_grasa');
         return $query->result();
     }
     public function getPreguntasAlimentoDesafioDiario(){
-        $query=$this->db
-            ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
-            ->from("preguntas_alimento")
-            ->get();
+        $query=$this->db->get('ver_preguntas_alimento');
         return $query->result();
     }
     public function getPreguntasDeporteDesafioDiario(){
-        $query=$this->db
-            ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
-            ->from("preguntas_deporte")
-            ->get();
+        $query=$this->db->get('ver_preguntas_deporte');
         return $query->result();
     }
     public function getPreguntasCerealDesafioDiario(){
-        $query=$this->db
-            ->select("idpregunta,pregunta,respuesta1,respuesta2,respuesta3,respcorrecta,feedback")
-            ->from("preguntas_cereal")
-            ->get();
+        $query=$this->db->get('ver_preguntas_cereal');
         return $query->result();
     }
     public function getEstadoDesafioDiario($nick){
@@ -562,38 +557,48 @@ class usuarios_model extends CI_Model
      * aceite grasas, carnes huevos legumbres, cereales
      */
     public function getTipFrutas(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("id,nombre,descripcion")
             ->from("tipsaludable_fruta")
             ->get();
+        return $query->result();*/
+        $query=$this->db->get('ver_tip_frutas');
         return $query->result();
     }
     public function getTipAcGrasa(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("id,nombre,descripcion")
             ->from("tipsaludable_aceitegrasa")
             ->get();
+        return $query->result();*/
+        $query=$this->db->get('ver_tip_aceite_grasa');
         return $query->result();
     }
     public function getTipAlimentos(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("id,nombre,descripcion")
             ->from("tipsaludable_alimento")
             ->get();
+        return $query->result();*/
+        $query=$this->db->get('ver_tip_alimentos');
         return $query->result();
     }
     public function getTipDeportes(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("id,nombre,descripcion")
             ->from("tipsaludable_deporte")
             ->get();
+        return $query->result();*/
+        $query=$this->db->get('ver_tip_deportes');
         return $query->result();
     }
     public function getTipCereales(){
-        $query=$this->db
+        /*$query=$this->db
             ->select("id,nombre,descripcion")
             ->from("tipsaludable_cereal")
             ->get();
+        return $query->result();*/
+        $query=$this->db->get('ver_tip_cereales');
         return $query->result();
     }
 
@@ -604,11 +609,26 @@ class usuarios_model extends CI_Model
      * noticias
      */
     public function getNoticias(){
-        $query=$this->db
+
+        /*
+         * //obtiene los datos generando esta consulta a la BD
+         * $query=$this->db
             ->select("id,titulo,descripcion,foto")
             ->from("noticias")
             ->get();
+        return $query->result();*/
+
+         //obtiene los datos desde la vista ver_noticias en la BD
+         $query=$this->db->get('ver_noticias');
         return $query->result();
+
+        /*
+         * otra forma de obtener los datos desde la vista
+         * $query=$this->db
+            ->select("*")
+            ->from("ver_noticias")
+            ->get();
+        return $query->result();*/
     }
     /**
      * fin

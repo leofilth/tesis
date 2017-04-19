@@ -595,7 +595,7 @@ class Aplicacion extends CI_Controller {
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			/*si es masculino o femenino*/
-			$frutas=$this->usuarios_model->getFrutas($datos->sexo);
+			$frutas=$this->usuarios_model->getFrutas();
 			$misfrutas=$this->usuarios_model->getFrutaUsuario($datos->nick);
 			$cuestionarios=$this->usuarios_model->getCuestionariosFruta();
 			$cuestRespondidos=$this->usuarios_model->getCuestResponFrut($datos->nick);
