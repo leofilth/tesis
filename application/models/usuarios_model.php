@@ -137,7 +137,7 @@ class usuarios_model extends CI_Model
     }
     public function  getDeporteId($id){
         $query=$this->db
-            ->select("nombre,link,descripcion,categoria,saludable,beneficios,frecuencia")
+            ->select("nombre,link,descripcion1,descripcion2,descripcion3,descripcion4,descripcion5")
             ->from("deportes")
             ->where(array("nombre"=>$id))
             ->get();

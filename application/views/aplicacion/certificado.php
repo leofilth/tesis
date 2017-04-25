@@ -81,7 +81,7 @@
                         <img alt="portadaDeporte" class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadadeportecompleta.png"?>">
                     </figure>
                 <?php }else{?>
-                    <figure class="tool" data-toggle="tooltip" title="Ejercicio y Deportes">
+                    <figure class="tool" data-toggle="tooltip" title="Deportes">
                         <img alt="portadaDeporte" class="img-border img-responsive zoom" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
                     </figure>
                 <?php }?>

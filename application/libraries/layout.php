@@ -33,7 +33,7 @@ class Layout
      * @var sting
      */
     public $title       = 'Title por defecto';
-    public $keywords    = 'Deporte Niños Web Html5 CSS3 ';
+    public $keywords    = 'Deporte Niños Web Html5 CSS3 Vida sana valdivia uach chile';
     public $descripcion = 'Aplicación html5 educativa deporte y vida sana';
 
     /**

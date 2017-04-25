@@ -85,7 +85,7 @@
             </div>
         </div>
         <h3 class="titulo1 text-center">Selecciona que quieres aprender</h3>
-        <div class="container animated bounceIn">
+        <div id="container1" class="container animated bounceIn">
             <div class="row">
                     <div id="fruta" class="col-md-4 col-sm-6">
                         <div class=" text-center borde frutacuenta">
@@ -208,7 +208,7 @@
                             <?php }?>
                             <div class="maintitulo">
                                 <h3 id="tdep">
-                                    Ejercicio y Deportes
+                                    Deportes
                                 </h3>
                                 <div class="progress barra">
                                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
@@ -233,7 +233,7 @@
                     </div>
             </div>
         </div>
-        <div class="container animated tada">
+        <div id="container2" class="container animated tada">
             <div class="row">
                 <div id="noticias" class="col-md-4 col-md-offset-2 col-sm-6">
                     <div class=" text-center  borde noticiacuenta">
@@ -257,6 +257,202 @@
                         <a href="<?php echo base_url()."aplicacion/desafiodiario"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div id="container3" class="container animated tada">
+            <div data-ride="carousel" data-interval="false" class="carousel slide" id="myCarousel">
+                <!-- Indicators -->
+                <ol id="lista-carousel" class="carousel-indicators hidden">
+                    <li class="" data-slide-to="0" data-target="#myCarousel"></li>
+                    <li data-slide-to="1" data-target="#myCarousel" class="active"></li>
+                    <li data-slide-to="2" data-target="#myCarousel" class=""></li>
+                    <li data-slide-to="3" data-target="#myCarousel" class=""></li>
+                    <li data-slide-to="4" data-target="#myCarousel" class=""></li>
+                    <li data-slide-to="5" data-target="#myCarousel" class=""></li>
+                    <li data-slide-to="6" data-target="#myCarousel" class=""></li>
+                    <li data-slide-to="7" data-target="#myCarousel" class=""></li>
+                </ol>
+                <div role="listbox" class="carousel-inner">
+                    <div class="item active">
+                        <div id="fruta" class="col-md-4 col-sm-6">
+                            <div class=" text-center borde frutacuenta">
+                                <?php if($estadoDiploma->valor_fruta==1){?>
+                                    <figure>
+                                        <img alt="verduraCompleta" id="portadafruta" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadafrutaverduracompleta.png"?>">
+                                    </figure>
+                                <?php }else{?>
+                                    <figure>
+                                        <img alt="verduraIncompleta" id="portadafruta" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadafrutaverdura.png"?>">
+                                    </figure>
+                                <?php }?>
+                                <div class="maintitulo">
+                                    <h3 id="tfrut">
+                                        Frutas y Verduras
+                                    </h3>
+                                    <div class="progress barra">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $totalFruta?>%">
+                                            <span id="avanceFruta">
+                                                <?php echo $totalFruta."%"?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="<?php echo base_url()."aplicacion/frutasverduras"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div id="cereales" class="col-md-4 col-sm-6">
+                            <div class=" text-center borde  cerealcuenta">
+                                <?php if($estadoDiploma->valor_cereal==1){?>
+                                    <figure>
+                                        <img alt="cerealCompleto" id="portadacereal" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadacerealcompleta.png"?>">
+                                    </figure>
+                                <?php }else{?>
+                                    <figure>
+                                        <img alt="cerealIncompleto" id="portadacereal" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadacereal.png"?>">
+                                    </figure>
+                                <?php }?>
+                                <div class="maintitulo">
+                                    <h3 id="tcer">
+                                        Cereales
+                                    </h3>
+                                    <div class="progress barra">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $totalCereal?>%">
+                                            <span id="avanceCereal">
+                                                <?php echo $totalCereal."%"?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="<?php echo base_url()."aplicacion/cereales"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div id="aceitegrasa" class="col-md-4 col-sm-6">
+                            <div class="text-center borde  acgrasacuenta">
+                                <?php if($estadoDiploma->valor_acgrasa==1){?>
+                                    <figure>
+                                        <img alt="aceitegrasaCompleto" id="portadaacgrasa" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadaaceitegrasacompleta.png"?>">
+                                    </figure>
+                                <?php }else{?>
+                                    <figure>
+                                        <img alt="aceitegrasaIncompleto" id="portadaacgrasa" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadaaceitegrasa.png"?>">
+                                    </figure>
+                                <?php }?>
+                                <div class="maintitulo">
+                                    <h3 id="tacgrasa">
+                                        Aceites y Grasas
+                                    </h3>
+                                    <div class="progress barra">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $totalAcGrasa?>%">
+                                            <span id="avanceAcGrasa">
+                                                <?php echo $totalAcGrasa."%"?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="<?php echo base_url()."aplicacion/aceitegrasas"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div id="alimento" class="col-md-4 col-sm-6">
+                            <div class="text-center borde  alimentocuenta">
+                                <?php if($estadoDiploma->valor_alimento==1){?>
+                                    <figure>
+                                        <img alt="alimentoCompleto" id="portadaalimento" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadacarnehuevocompleta.png"?>">
+                                    </figure>
+                                <?php }else{?>
+                                    <figure>
+                                        <img alt="alimentoIncompleto" id="portadaalimento" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadacarnehuevo.png"?>">
+                                    </figure>
+                                <?php }?>
+                                <div class="maintitulo">
+                                    <h3 id="tali">
+                                        Carne, Lacteos, Huevos y Legumbres
+                                    </h3>
+                                    <div class="progress barra">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $totalAlimento?>%">
+                                            <span id="avanceAlimento">
+                                                <?php echo $totalAlimento."%"?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="<?php echo base_url()."aplicacion/alimentos"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div id="deporte" class="col-md-4 col-sm-6">
+                            <div class="text-center  borde deportecuenta">
+                                <?php if($estadoDiploma->valor_deporte==1){?>
+                                    <figure>
+                                        <img alt="deporteCompleto" id="portadadeporte" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadadeportecompleta.png"?>">
+                                    </figure>
+                                <?php }else{?>
+                                    <figure>
+                                        <img alt="deporteIncompleto" id="portadadeporte" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
+                                    </figure>
+                                <?php }?>
+                                <div class="maintitulo">
+                                    <h3 id="tdep">
+                                        Deportes
+                                    </h3>
+                                    <div class="progress barra">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $totalDeporte?>%">
+                                            <span id="avanceDeporte">
+                                               <?php echo $totalDeporte."%"?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="<?php echo base_url()."aplicacion/deporte"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div id="noticias" class="col-md-4 col-md-offset-2 col-sm-6">
+                            <div class=" text-center  borde noticiacuenta">
+                                <figure>
+                                    <img alt="noticias" id="portadanoticia"  class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portada6m.png"?>">
+                                </figure>
+                                <div class="maintitulo">
+                                    <h3 id="tnot">Noticias</h3>
+                                </div>
+                                <a href="<?php echo base_url()."aplicacion/noticias"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div id="desafio" class="col-md-4  col-md-offset-0 col-sm-6">
+                            <div class=" text-center  borde desafiocuenta">
+                                <figure>
+                                    <img alt="estrella" id="portadadesafio" class="center-block img-seccion" src="<?php echo base_url()."public/images/icons/star.png"?>">
+                                </figure>
+                                <div class="maintitulo">
+                                    <h3 id="tdes">Desafío Diario</h3>
+                                </div>
+                                <a href="<?php echo base_url()."aplicacion/desafiodiario"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a data-slide="prev" role="button" href="#myCarousel" class="left carousel-control">
+                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a data-slide="next" role="button" href="#myCarousel" class="right carousel-control">
+                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
 </section>

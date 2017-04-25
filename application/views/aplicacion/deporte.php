@@ -257,7 +257,7 @@
         var tutorial=<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
         var mostrar=tutorial.seccion_deporte;
         var contadorInfo=0;//contador para ir cambiando la info mediante clicks
-        var informacion;//array con la informacion de un cereal
+        var informacion;//array con la informacion de un deporte
         var deportes=<?php echo json_encode($deportes,JSON_PRETTY_PRINT)?>;//arreglo con todas las deportes
         var tips=<?php echo json_encode($tipsDeportes,JSON_PRETTY_PRINT)?>;//arreglo con todos los tipsDeportes
         var contador=1;
@@ -368,14 +368,14 @@
                                         $("#modal-title").text(titulo);
                                         $("#modalimg").attr("src", link);
                                         informacion=[
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":deportes[i].descripcion},
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":deportes[i].categoria},
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":deportes[i].saludable},
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":deportes[i].beneficios},
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Frecuencia","informacion":deportes[i].frecuencia}
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":deportes[i].descripcion1},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Descripción","informacion":deportes[i].descripcion2},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Descripción","informacion":deportes[i].descripcion3},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Descripción","informacion":deportes[i].descripcion4},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Descripción","informacion":deportes[i].descripcion5}
                                         ];
                                         $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
-                                        $("#info").text(deportes[i].descripcion);
+                                        $("#info").html(deportes[i].descripcion1);
                                         contadorInfo++;
                                     }
                                 }
@@ -402,14 +402,14 @@
                         $("#modal-title").text(titulo);
                         $("#modalimg").attr("src",link);
                         informacion=[
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":deportes[i].descripcion},
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":deportes[i].categoria},
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":deportes[i].saludable},
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":deportes[i].beneficios},
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Frecuencia","informacion":deportes[i].frecuencia}
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":deportes[i].descripcion1},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Descripción","informacion":deportes[i].descripcion2},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Descripción","informacion":deportes[i].descripcion3},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Descripción","informacion":deportes[i].descripcion4},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Descripción","informacion":deportes[i].descripcion5}
                         ];
                         $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
-                        $("#info").html(deportes[i].descripcion);
+                        $("#info").html(deportes[i].descripcion1);
                         contadorInfo++;
                         /*$("#modal-descripcion").html(cereales[i].descripcion);
                          $("#modal-title").text(titulo);
