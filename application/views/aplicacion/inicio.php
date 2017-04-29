@@ -2,7 +2,7 @@
 <?php include "navs/nav.php" ?>
 <div data-ride="carousel" class="carousel slide carousel-fade" id="myCarousel">
     <!-- Indicators -->
-    <ol class="carousel-indicators">
+    <ol class="carousel-indicators hidden">
         <li class="" data-slide-to="0" data-target="#myCarousel"></li>
         <li data-slide-to="1" data-target="#myCarousel" class="active"></li>
         <li data-slide-to="2" data-target="#myCarousel" class=""></li>

@@ -1,16 +1,16 @@
 <?php include "navs/nav.php" ?>
-<section class="container-fluid bg-im padingtop">
-    <header class="titulo1">Registro de usuarios</header>
+<section class="container-fluid bg-im4 padingtop padingbot">
+    <div class="container">
+        <header class="titulo1">Registro de usuarios</header>
         <div class="row">
-            <div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-1  animated rubberBand">
-                <?php $atributos=array('class'=>'form-group cuadradosombra','id'=>'form','name'=>'form');
+            <div class="col-md-5 col-md-offset-1 col-sm-6  col-xs-12 animated fadeIn padingbot">
+                <?php $atributos=array('class'=>'form-group borde cuadradosombra-sesion','id'=>'form','name'=>'form');
                 echo form_open_multipart(null,$atributos);//utilizar siempre null, recomendado
                 ?>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
-                            <h1 class="titulo2">Ingresa tus datos</h1>
-                            <p class="obligatorio">*Todos los campos son obligatorios</p>
+                            <h1 class="titulo2 hidden">Ingresa tus datos</h1>
                             <label class="control-label tituloform">Nombre</label>
                             <?php
                             $value=set_value("nombre");
@@ -27,8 +27,6 @@
                             <label class="errorform"><?php echo form_error('nombre'); ?></label>
                         </div>
                     </div>
-
-
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label class="control-label tituloform">Edad </label>
@@ -47,8 +45,6 @@
                             <label class="errorform"><?php echo form_error('edad'); ?></label>
                         </div>
                     </div>
-
-
                     <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="form-group">
                             <label class="control-label tituloform">Sexo </label>
@@ -63,8 +59,6 @@
                             <label class="errorform"><?php echo form_error('sexo'); ?></label>
                         </div>
                     </div>
-
-
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label class="control-label tituloform">Ciudad </label>
@@ -83,8 +77,6 @@
                             <label class="errorform"><?php echo form_error('ciudad'); ?></label>
                         </div>
                     </div>
-
-
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <h4 class="errorform"><?php if($this->session->flashdata('ErrorNick')!='')
@@ -135,13 +127,14 @@
                             <span class="glyphicon glyphicon-save"></span> Registrarme
                         </button>
                         <br>
+                        <p class="obligatorio">*Todos los campos son obligatorios</p>
                     </div>
                 </div>
                 <?php
                 echo form_close();
                 ?>
             </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-1 text-center animated bounceInUp">
+            <div class="col-md-4 col-md-offset-1  col-sm-6  hidden-xs text-center animated bounceInUp">
                 <div class="instruefecto animated infinite pulse">
                     <div class="instruccion-naranjo">
                         <h4  class="modal-title titulo-modal-tip">
@@ -156,10 +149,10 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-responsive center-block" alt="estudiante1"  src="<?php echo base_url().'public/images/modal/sesion2.png'?>">
+                    <img class="img-responsive center-block img-circle" alt="estudiante1"  height="300" width="300" src="<?php echo base_url().'public/images/modal/sesion22.png'?>">
                 </figure>
             </div>
         </div>
-
+    </div>
 </section>
 <?php include "footerinicio.php"?>

@@ -77,6 +77,13 @@ css vida sana
     text-transform: uppercase;
     color: black;
     font-family: "Montserrat", sans-serif;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .glyfy{
     color: #673AB7;
@@ -160,6 +167,13 @@ css cuenta
     color: white;
     padding-top: 3%;
     font-size: 20px;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 #tali{
     font-size: 15px;
@@ -186,6 +200,13 @@ css cuenta
     font-family: "pacifico";
     color: rgb(69,178,157);
     font-size: 24px;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .titulocuenta {
     font-family: "finger paint",cursive;
@@ -208,12 +229,26 @@ css cuenta
     font-family: "Montserrat", sans-serif;
     font-size: 15px;
     line-height: 22px;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .titulo-tarjeta{
     color: white;
     font-family: "Montserrat", sans-serif;
     font-size: 15px;
     line-height: 22px;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .cuadradotarjeta2{
      box-shadow: 0 4px 0 0 #74CEE4;
@@ -268,6 +303,13 @@ css cuenta
     padding-top: 10px;
     text-align: center;
     text-transform: uppercase;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .tituloSection {
     font-family: "Finger Paint", cursive;
@@ -278,6 +320,13 @@ css cuenta
     padding-bottom: 10px;
     padding-top: 10px;
     text-transform: uppercase;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .numerocuest {
     font-family: "Finger Paint", cursive;
@@ -300,6 +349,13 @@ css cuenta
     font-family: "Finger Paint", cursive;
     color: #f68a26;
     font-size: 24px;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .puntaje{
     font-size: 30px;
@@ -311,6 +367,13 @@ css cuenta
     text-align: center;
     border-radius: 100%;
     background-color:#EC774B;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .puntaje-seccion{
     font-size: 25px;
@@ -323,6 +386,13 @@ css cuenta
     border-radius: 100%;
     background-color:#f0c41b;
     font-family: "Finger Paint", cursive;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .titulo3 {
     color: #f68a26;
@@ -342,6 +412,13 @@ css cuenta
     padding-top: 10px;
     padding-bottom: 10px;*/
     color: #ffffff;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .tituloNickLider {
     font-family: "Finger Paint", cursive;
@@ -360,6 +437,13 @@ css cuenta
     padding-top: 10px;
     padding-bottom: 10px;
     color: white;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .tituloform {
     font-family: "Finger Paint", cursive;
@@ -367,6 +451,13 @@ css cuenta
     color: #008ad1;
     font-weight: 400;
     line-height: 24px;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .titulopiegaleria {
     font-family: "Finger Paint", cursive;
@@ -440,7 +531,7 @@ css cuenta
     line-height: 22px;
 }
 .bg-im {
-    background: url("http://146.83.216.208/wambo/public/images/paisaje.jpg") no-repeat center center fixed;
+    background: url("../images/paisaje.jpg") no-repeat center center fixed;
      -webkit-background-size: cover;
      -moz-background-size: cover;
      -o-background-size: cover;
@@ -449,7 +540,7 @@ css cuenta
     padding-bottom: 100px;
 }
 .bg-im2 {
-    background: url("http://146.83.216.208/wambo/public/images/Middle_texture.jpg") no-repeat center center fixed;
+    background: url("../images/Middle_texture.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -458,20 +549,20 @@ css cuenta
     padding-bottom: 100px;
 }
 .bg-im3 {
-    background: url("http://146.83.216.208/wambo/public/images/aprender.jpg") no-repeat center center fixed;
+    background: url('../images/aprender.jpg') no-repeat center fixed;
     /*-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;*/
-    background-size: cover;
+    /*background-size: cover;*/
+    background-size:cover;
 }
 .bg-im4 {
-    background: url("http://146.83.216.208/wambo/public/images/education-package-powerpoint-backgrounds.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
+    background: url('../images/fondo2.jpg') no-repeat center fixed;
+    /*-webkit-background-size: cover;
     -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    padding-top: 50px;
-    padding-bottom: 100px;
+    -o-background-size: cover;*/
+    /*background-size: cover;*/
+    background-size:cover;
 }
 .bubble{
     -webkit-transform:translateZ(0);
@@ -622,6 +713,12 @@ a:link, a:visited {
     padding-right: 15px;
     padding-top: 10px;
 }
+.cuadradosombra-sesion{
+    /*box-shadow: 0 4px 0 0 #f1f1f1;*/
+    background-color: rgb(250,250,250);
+    border-radius: 5px;
+    padding:15px;
+}
 .cuadradosombracuest{
     /*box-shadow: 0 4px 0 0 #f1f1f1;*/
     background-color: rgba(249,249,249,0.5);
@@ -633,6 +730,13 @@ a:link, a:visited {
     color: red;
     font-family: "Montserrat", sans-serif;
     font-size: small;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 /**
 css de barra nav
@@ -709,6 +813,13 @@ css de barra nav
     background-color: #008AD1;
     font-family: "Finger Paint", cursive;
     font-size: 20px;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .nav-link-desafio{
     background-color: #9b59b6;
@@ -858,6 +969,13 @@ css de barra nav
     line-height: 1;
     font-family: "Finger Paint", cursive;
     color: white;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .carousel .item {
     background-color: transparent;
@@ -1319,6 +1437,13 @@ filter: Gray(); /* IE4-8 and 9 */
     text-align: center;
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .tip-naranjo{
     box-shadow: 0 4px 0 0 #DF764E;
@@ -1419,6 +1544,13 @@ filter: Gray(); /* IE4-8 and 9 */
     font-size: 20px;
     color: white;
     text-transform: uppercase;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 /**/
 /**
@@ -1452,6 +1584,13 @@ lideres
     padding-bottom: 10px;
     color: #673CB4;
     text-align: center;
+    /*No se puede seleccionar el texto*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .tbody{
     background-color: #f9f9f9;
@@ -1502,6 +1641,9 @@ frutas
 }
 .padingbot{
     padding-bottom: 100px;
+}
+.padingbot-sesion{
+    padding-bottom: 10%;
 }
 #fotoIns{
     margin-top: 10px;
@@ -1770,7 +1912,7 @@ tamaño imagen seccion
         margin: 10px 0;
     }
 }
-@media screen and (max-width: 360px){
+@media screen and (max-width: 500px){
     #container1{
         display: none;
     }
@@ -1780,6 +1922,8 @@ tamaño imagen seccion
     #container3{
         display: block;
     }
+}
+@media screen and (max-width: 360px){
     .titulo4{
         font-size: 13px;
     }

@@ -22,7 +22,7 @@ class Aplicacion extends CI_Controller {
 	}
 	public function registro()
 	{
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if($this->input->post())
 		{
 			if ($this->form_validation->run("aplicacion/registro")==true)//va a form_validation y obtiene las reglas
@@ -122,7 +122,7 @@ class Aplicacion extends CI_Controller {
 	}
 	public function sesion()
 	{
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if($this->input->post())
 		{
 			$user=$this->input->post("nick",true);
@@ -159,15 +159,15 @@ class Aplicacion extends CI_Controller {
 		$this->layout->view('sesion');
 	}
 	public function acercade(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		$this->layout->view("acercade");
 	}
 	public function contacto(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		$this->layout->view("contacto");
 	}
 	public function desafioDiario(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$desafioDatos=$this->usuarios_model->getEstadoDesafioDiario($this->session_id);
@@ -293,7 +293,7 @@ class Aplicacion extends CI_Controller {
 
 	}
 	public function diploma(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if (!empty($this->session_id)) {
 			$this->load->library('fpdf_gen');
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
@@ -341,7 +341,7 @@ class Aplicacion extends CI_Controller {
 	}
 	public function cuenta()
 	{
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 			if (!empty($this->session_id)) {
 				$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 				$maximo=$this->usuarios_model->getMaxTips();
@@ -384,7 +384,7 @@ class Aplicacion extends CI_Controller {
 		 * $this->output->enable_profiler(TRUE);*/
 	}
 	public function certificado(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$puntaje=$this->usuarios_model->getPuntaje($datos->nick);
@@ -398,7 +398,7 @@ class Aplicacion extends CI_Controller {
 	 * Perfil usuario
 	 */
 	public function modificaPerfil(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$avatar_fem=$this->usuarios_model->getAvatarFem();
@@ -469,7 +469,7 @@ class Aplicacion extends CI_Controller {
 		$this->usuarios_model->guardaEstadoTutorial($aGuardar,$this->session_id);
 	}
 	public function actualizaperfil(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		$this->layout->setLayout('template_ajax');
 		$nombre=$this->input->post("valor1",true);
 		$edad=$this->input->post("valor2",true);
@@ -556,17 +556,17 @@ class Aplicacion extends CI_Controller {
 	 */
 	public function cerrarsesion()
 	{
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		$this->session->unset_userdata(array('login'=>''));
 		$this->session->sess_destroy("sesionsita");
 		redirect(base_url().'aplicacion',301);
 	}
 	public  function  restablecepassword(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		$this->layout->view("restablecepassword");
 	}
 	public function noticias(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$noticias=$this->usuarios_model->getNoticias();
@@ -577,7 +577,7 @@ class Aplicacion extends CI_Controller {
 		}
 	}
 	public function deporte(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$deportes=$this->usuarios_model->getDeportes();
@@ -606,7 +606,7 @@ class Aplicacion extends CI_Controller {
 		$this->usuarios_model->guardaDeporteUsuario($aGuardar);
 	}
 	public function frutasverduras(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			/*si es masculino o femenino*/
@@ -635,7 +635,7 @@ class Aplicacion extends CI_Controller {
 		$this->usuarios_model->guardaFrutaUsuario($aGuardar);
 	}
 	public function aceiteGrasas(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$acGrasas=$this->usuarios_model->getAcGrasas();
@@ -663,7 +663,7 @@ class Aplicacion extends CI_Controller {
 		$this->usuarios_model->guardaAcGrasaUsuario($aGuardar);
 	}
 	public function alimentos(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$alimentos=$this->usuarios_model->getAlimentos();
@@ -691,7 +691,7 @@ class Aplicacion extends CI_Controller {
 		$this->usuarios_model->guardaAlimentoUsuario($aGuardar);
 	}
 	public function cereales(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$cereales=$this->usuarios_model->getCereales();
@@ -720,7 +720,7 @@ class Aplicacion extends CI_Controller {
 	}
 
 	public function lideres(){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
 			$lideres=$this->usuarios_model->getLideres();
@@ -745,7 +745,7 @@ class Aplicacion extends CI_Controller {
 
 	}*/
 	public function cuestionarioAcGrasa($id){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
@@ -765,7 +765,7 @@ class Aplicacion extends CI_Controller {
 		}
 	}
 	public function cuestionarioFrutaVerdura($id){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
@@ -786,7 +786,7 @@ class Aplicacion extends CI_Controller {
 		}
 	}
 	public function cuestionarioDep($id){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
@@ -804,7 +804,7 @@ class Aplicacion extends CI_Controller {
 		}
 	}
 	public function cuestionarioAli($id){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);
@@ -824,7 +824,7 @@ class Aplicacion extends CI_Controller {
 		}
 	}
 	public function cuestionarioCer($id){
-		$this->layout->css(array(base_url()."public/css/micss.css"));
+		$this->layout->css(array(base_url()."public/css/css_general.css"));
 
 		if (!empty($this->session_id)) {
 			$datos = $this->usuarios_model->getDatosUsuario($this->session_id);

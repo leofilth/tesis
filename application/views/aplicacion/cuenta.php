@@ -478,7 +478,7 @@
                 "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"
             },
             {
-                "titulo": "<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas y Verduras, Cereales, Ejercicio y Deportes, Aceites y Grasas, Carnes Lácteos Huevos y Legumbres",
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Elije tu sección: Frutas y Verduras, Cereales, Deportes, Aceites y Grasas, Carnes Lácteos Huevos y Legumbres",
                 "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto1.png'?>'>"
             },
             {
@@ -490,7 +490,7 @@
                 "imagen": "<img  class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto3.png'?>'>"
             },
             {
-                "titulo": "<span class='glyphicon glyphicon-ok'></span> Aprende y obten tu certificado Wambo",
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Aprende y obtén tu certificado Wambo",
                 "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/tuto4.png'?>'>"
             }
         ];

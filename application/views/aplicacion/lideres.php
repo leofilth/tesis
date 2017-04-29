@@ -1,4 +1,4 @@
-<?php include "navs/nav_cuenta.php"?>
+<?php include "navs/nav_lideres.php"?>
 <div class="container-fluid bg-im3 padingtop">
     <div class="container">
         <h1 class="text-center titulo1">Lideres de Wambo</h1>
@@ -17,6 +17,8 @@
                 </figure>
             </div>
         </div>
+        <br>
+        <br>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <table class="table tableshadow">
