@@ -6,19 +6,16 @@
                 <div class="tip-modal avatar" id="informacion">
                     <div class="margen-modal">
                         <h4 id="modal-title" class="modal-title titulo-modal-tip">Modal Header</h4>
-                        <ul style="list-style: none">
-                            <li>
-                                <div class="texto-modal-tip" id="titulo">
-
+                                <div class="texto-modal-tip" id="titulo">a
                                 </div>
-                                <p id="info" class="texto-modal-tip">
-
+                                <p id="info" class="texto-modal-tip">a
                                 </p>
-                            </li>
-                        </ul>
                         <figure>
                             <img alt="deporte" id="modalimg"  style="width:13%;position:absolute;top:10px;right:10px;margin:0;" class="zoom fondofruta borde img-circle" src="#">
                         </figure>
+                    </div>
+                    <div class="contador">
+                        <span id="contadorElemento">1</span>/5
                     </div>
                     <figure>
                         <img class="animated infinite flash icon-click" alt="click" src="<?php echo base_url()."public/images/icons/click.png"?>">

@@ -44,6 +44,9 @@
                                 </figure>
                             </div>
                         </div>
+                        <div class="contador">
+                            <span id="contadorInstru">1</span>/5
+                        </div>
                     </div>
                     <figure>
                         <img class="animated infinite flash icon-click" alt="click" src="<?php echo base_url()."public/images/icons/click.png"?>">
@@ -433,11 +436,13 @@
                     $("#titulo").html(informacion[0].titulo);
                     $("#info").html(informacion[0].informacion);
                     contadorInfo=1;
+                    $("#contadorElemento").text(contadorInfo);
                 }
                 else{
                     $("#titulo").html(informacion[contadorInfo].titulo);
                     $("#info").html(informacion[contadorInfo].informacion);
                     contadorInfo++;
+                    $("#contadorElemento").text(contadorInfo);
                 }
             }
         });
@@ -451,12 +456,14 @@
                     $("#textoIns").html(instrucciones[0].titulo);
                     $("#fotoIns").html(instrucciones[0].imagen);
                     contador=1;
+                    $("#contadorInstru").text(contador);
                 }
                 else{
 
                     $("#textoIns").html(instrucciones[contador].titulo);
                     $("#fotoIns").html(instrucciones[contador].imagen);
                     contador++;
+                    $("#contadorInstru").text(contador);
                 }
             }
         });

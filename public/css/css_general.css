@@ -1622,7 +1622,13 @@ frutas
     width: 64px;
     height: 64px;
     float: right;
-}.tamano100{
+}
+.contador{
+    font-family: "Montserrat", sans-serif;
+
+    color: #673AB7;
+}
+.tamano100{
      width: auto;
      height: 120px;
  }

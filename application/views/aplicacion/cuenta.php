@@ -20,6 +20,9 @@
                                 </figure>
                             </div>
                         </div>
+                        <div class="contador">
+                            <span id="contadorInstru">1</span>/5
+                        </div>
                     </div>
                     <figure>
                         <img alt="click" class="icon-click animated infinite flash" src="<?php echo base_url()."public/images/icons/click.png"?>">
@@ -293,7 +296,7 @@
                                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
                                              aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $totalFruta?>%">
                                             <span id="avanceFruta">
-                                                <?php echo $totalFruta."%"?>
+                                                <?php echo $totalFruta."% Completado"?>
                                             </span>
                                         </div>
                                     </div>
@@ -632,12 +635,14 @@
                     $("#textoIns").html(instrucciones[0].titulo);
                     $("#fotoIns").html(instrucciones[0].imagen);
                     contador = 1;
+                    $("#contadorInstru").text(contador);
                 }
                 else {
 
                     $("#textoIns").html(instrucciones[contador].titulo);
                     $("#fotoIns").html(instrucciones[contador].imagen);
                     contador++;
+                    $("#contadorInstru").text(contador);
                 }
             }
         });
