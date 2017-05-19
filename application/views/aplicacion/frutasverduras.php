@@ -303,10 +303,11 @@
             })
         }
         function cargaEnModal(){
-                titulo=$(this).attr("title");
-                var link=$(this).attr("src");
-                var i;
-                contadorInfo=0;//resetea al hacer click en un elemento
+            titulo=$(this).attr("title");
+            var link=$(this).attr("src");
+            var i;
+            contadorInfo=0;//resetea al hacer click en un elemento
+            $("#contadorElemento").text(1);
                 for(i=0;i<frutas.length;i++){
                     if(frutas[i].nombre == titulo){
                         $("#modal-title").text(titulo);

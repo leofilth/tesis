@@ -386,6 +386,7 @@
                 var link=$(this).attr("src");
                 var i;
                 contadorInfo=0;//resetea al hacer click en un elemento
+                $("#contadorElemento").text(1);
                 for(i=0;i<cereales.length;i++){
                     if(cereales[i].nombre == titulo){
                         $("#modal-title").text(titulo);

@@ -90,6 +90,8 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
     <?php date_default_timezone_set("Chile/Continental");
     $fechaHoy=date("Y-m-d");
     //echo "La hora en Chile es: " . date ("H:i",time()) . "<br />";
@@ -154,7 +156,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <button  name="boton" id="verificacuestionario" class="btn  btn-cuest titulo4 center-block zoom">
-                            Enviar Respuestas
+                            Revisar Respuestas
                         </button>
                         <div class="col-md-6 col-md-offset-3" id="guardar">
                         </div>
