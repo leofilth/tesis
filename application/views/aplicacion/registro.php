@@ -1,7 +1,7 @@
 <?php include "navs/nav.php" ?>
 <section class="container-fluid bg-im4 padingtop padingbot">
     <div class="container">
-        <header class="titulo1">Registro de usuarios</header>
+        <header class="titulo1 animated fadeInLeft">Registro de usuarios</header>
         <div class="row">
             <div class="col-md-5 col-md-offset-1 col-sm-6  col-xs-12 animated fadeIn padingbot">
                 <?php $atributos=array('class'=>'form-group borde cuadradosombra-sesion','id'=>'form','name'=>'form');
@@ -38,7 +38,9 @@
                                 'id'=>'edad',
                                 'class'=>'form-control',
                                 'value'=>$value,
-                                'placeholder'=>'Tu edad'
+                                'placeholder'=>'Tu edad',
+                                'type'=>'number',
+                                'min'=>'5'
                             );
                             echo form_input($datos);
                             ?>

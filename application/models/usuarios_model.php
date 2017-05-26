@@ -105,13 +105,13 @@ class usuarios_model extends CI_Model
     public function getFrutaUsuario($nick){
         $query=$this->db
             ->select("id_fruta_fk")
-            ->from("fruta_usuario")
+            ->from("fruta_verdura_usuario")
             ->where(array("nick_fk"=>$nick))
             ->get();
         return $query->result();
     }
     public function guardaFrutaUsuario($datos=array()){
-        $this->db->insert("fruta_usuario",$datos);
+        $this->db->insert("fruta_verdura_usuario",$datos);
         return true;
     }
     public function getDeportes(){
@@ -146,7 +146,7 @@ class usuarios_model extends CI_Model
     public function  getFrutaId($id){
         $query=$this->db
             ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
-            ->from("frutas")
+            ->from("frutas_verduras")
             ->where(array("nombre"=>$id))
             ->get();
         return $query->row();
@@ -354,7 +354,7 @@ class usuarios_model extends CI_Model
     public function getCuestionariosFruta(){
         $query=$this->db
             ->select("idpregunta")
-            ->from("preguntas_fruta")
+            ->from("preguntas_fruta_verdura")
             ->get();
         return $query->result();
     }
@@ -437,7 +437,7 @@ class usuarios_model extends CI_Model
         $query=$this->db
             ->select("p.id as id_pregunta,d.idpregunta,d.pregunta,d.respuesta1,d.respuesta2,d.respuesta3,d.respcorrecta,
             d.feedback")
-            ->from("preguntas_fruta as d")
+            ->from("preguntas_fruta_verdura as d")
             ->join("preguntas as p","p.id=d.idpregunta","inner")
             ->where(array('d.idpregunta' => $id))
             ->get();
@@ -562,7 +562,7 @@ class usuarios_model extends CI_Model
             ->from("tipsaludable_fruta")
             ->get();
         return $query->result();*/
-        $query=$this->db->get('ver_tip_frutas');
+        $query=$this->db->get('ver_tip_frutas_verduras');
         return $query->result();
     }
     public function getTipAcGrasa(){
@@ -664,13 +664,13 @@ class usuarios_model extends CI_Model
      * obtiene todas las filas distintas
      */
     public function getTotalFrutas(){
-        return $this->db->count_all_results('frutas');
+        return $this->db->count_all_results('frutas_verduras');
     }
     public function getTotalCuestFruta(){
         //return $this->db->count_all_results('preguntasfruta');
         $this->db->select('idpregunta');
         $this->db->distinct();
-        $query = $this->db->get('preguntas_fruta');
+        $query = $this->db->get('preguntas_fruta_verdura');
         return count($query->result());
     }
     public function getTotalAcGrasa(){
