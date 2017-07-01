@@ -15,7 +15,7 @@
                         </figure>
                     </div>
                     <div class="contador">
-                        <span id="contadorElemento">1</span>/5
+                        <span id="contadorElemento">1</span>/3
                     </div>
                     <figure>
                         <img class="animated infinite flash icon-click" alt="click" src="<?php echo base_url()."public/images/icons/click.png"?>">

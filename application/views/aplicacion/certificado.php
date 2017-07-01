@@ -35,7 +35,7 @@
                         <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Consejo</h4>
                         <ol class="texto-modal-tip">
                             <li>Completa cada sección para desbloquear tu diploma Wambo</li>
-                            <li>Al llegar a 100% podrás descargarlo</li>
+                            <li>Al llegar a 100% podrás obtenerlo</li>
                         </ol>
                     </div>
                     <div style="float: left;margin-left: 50px;clear: left">

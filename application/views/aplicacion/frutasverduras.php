@@ -313,14 +313,12 @@
                         $("#modal-title").text(titulo);
                         $("#modalimg").attr("src",link);
                         informacion=[
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":frutas[i].descripcion},
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":frutas[i].categoria},
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":frutas[i].saludable},
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":frutas[i].beneficios},
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Consumo","informacion":frutas[i].consumo}
-                        ];
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":frutas[i].descripcion1},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Descripción","informacion":frutas[i].descripcion2},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Descripción","informacion":frutas[i].descripcion3}
+                            ];
                         $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
-                        $("#info").html(frutas[i].descripcion);
+                        $("#info").html(frutas[i].descripcion1);
                         contadorInfo++;
                         /*$("#modal-descripcion").html(cereales[i].descripcion);
                          $("#modal-title").text(titulo);
@@ -380,14 +378,12 @@
                                         $("#modal-title").text(titulo);
                                         $("#modalimg").attr("src", link);
                                         informacion=[
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":frutas[i].descripcion},
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":frutas[i].categoria},
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":frutas[i].saludable},
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":frutas[i].beneficios},
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Consumo","informacion":frutas[i].consumo}
-                                        ];
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":frutas[i].descripcion1},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Descripción","informacion":frutas[i].descripcion2},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Descripción","informacion":frutas[i].descripcion3}
+                                            ];
                                         $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
-                                        $("#info").html(frutas[i].descripcion);
+                                        $("#info").html(frutas[i].descripcion1);
                                         contadorInfo++;
                                         /*$("#modal-descripcion").html(cereales[i].descripcion);
                                          $("#modal-title").text(titulo);
@@ -438,7 +434,7 @@
          */
         $("#informacion").on({
             click:function(){
-                if(contadorInfo==5){
+                if(contadorInfo>=3){
                     $("#titulo").html(informacion[0].titulo);
                     $("#info").html(informacion[0].informacion);
                     contadorInfo=1;

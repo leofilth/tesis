@@ -349,14 +349,12 @@
                                         $("#modal-title").text(titulo);
                                         $("#modalimg").attr("src", link);
                                         informacion=[
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":acgrasas[i].descripcion},
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":acgrasas[i].categoria},
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":acgrasas[i].saludable},
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":acgrasas[i].beneficios},
-                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Consumo","informacion":acgrasas[i].consumo}
-                                        ];
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":acgrasas[i].descripcion1},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Descripción","informacion":acgrasas[i].descripcion2},
+                                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Descripción","informacion":acgrasas[i].descripcion3}
+                                            ];
                                         $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
-                                        $("#info").text(acgrasas[i].descripcion);
+                                        $("#info").text(acgrasas[i].descripcion1);
                                         contadorInfo++;
                                         /*$("#modal-descripcion").html(cereales[i].descripcion);
                                          $("#modal-title").text(titulo);
@@ -391,14 +389,12 @@
                         $("#modal-title").text(titulo);
                         $("#modalimg").attr("src",link);
                         informacion=[
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":acgrasas[i].descripcion},
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Categoria","informacion":acgrasas[i].categoria},
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Saludable","informacion":acgrasas[i].saludable},
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-star glyfy'></span> Beneficios","informacion":acgrasas[i].beneficios},
-                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-time glyfy'></span> Consumo","informacion":acgrasas[i].consumo}
-                        ];
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción","informacion":acgrasas[i].descripcion1},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-question-sign glyfy'></span> Descripción","informacion":acgrasas[i].descripcion2},
+                            {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Descripción","informacion":acgrasas[i].descripcion3}
+                            ];
                         $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
-                        $("#info").text(acgrasas[i].descripcion);
+                        $("#info").text(acgrasas[i].descripcion1);
                         contadorInfo++;
                     }
                 }
@@ -427,7 +423,7 @@
          */
         $("#informacion").on({
             click:function(){
-                if(contadorInfo==5){
+                if(contadorInfo>=3){
                     $("#titulo").html(informacion[0].titulo);
                     $("#info").html(informacion[0].informacion);
                     contadorInfo=1;
