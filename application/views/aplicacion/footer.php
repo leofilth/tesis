@@ -7,7 +7,7 @@
                 <div class="textofooter">
                     <p>
                         <span class="glyphicon glyphicon-link"></span>
-                        <a href="<?php echo base_url()."aplicacion/frutas"?>">Wambo Frutas y Verduras</a>
+                        <a href="<?php echo base_url()."aplicacion/frutasverduras"?>">Wambo Frutas y Verduras</a>
                     </p>
                     <p>
                         <span class="glyphicon glyphicon-link"></span>

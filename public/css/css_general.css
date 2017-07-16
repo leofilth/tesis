@@ -1658,7 +1658,7 @@ frutas
     left: -20px;
 }
 .alturanoticia{
-    height: auto;
+    height: 180px;
 }
 /*
 tamaño imagen seccion
@@ -1676,6 +1676,7 @@ tamaño imagen seccion
 .progress-bar{
     padding-top: 4px;
     font-size: 20px;
+
 }
 #barraDiploma{
     height: 50px;

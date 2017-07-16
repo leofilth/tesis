@@ -50,7 +50,7 @@
     </div>
     <br>
     <br>
-    <div class="container animated tada">
+    <div class="container animated tada" id="obdiploma">
         <!-- Progreso a diploma-->
         <div class="row">
             <div class="col-md-2 col-md-offset-1 col-sm-2  col-sm-offset-1 col-xs-2 col-xs-offset-1">
@@ -116,11 +116,11 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
                 <div id="barraDiploma" class="progress barra">
-                    <div id="barraDiploma2" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                    <div id="barraDiploma2" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
                          style="width:<?php
                          $suma=$estadoDiploma->valor_fruta+$estadoDiploma->valor_acgrasa+$estadoDiploma->valor_alimento
                              +$estadoDiploma->valor_deporte+$estadoDiploma->valor_cereal;
-                         echo (($suma*100)/5)."%";
+                         echo (($suma*100)/5);
                          ?>%">
                         <span id="avanceFruta"> <?php
                             $suma=$estadoDiploma->valor_fruta+$estadoDiploma->valor_acgrasa+$estadoDiploma->valor_alimento
@@ -139,15 +139,16 @@
         <!-- Link a diploma-->
         <div class="row">
             <div class="col-md-12 center-block">
-                <?php if($estadoDiploma->valor_fruta==1 and $estadoDiploma->valor_verdura==1
-                    and $estadoDiploma->valor_alimento==1 and $estadoDiploma->valor_deporte==1){?>
+                <?php if($estadoDiploma->valor_fruta==1 and $estadoDiploma->valor_acgrasa==1
+                    and $estadoDiploma->valor_alimento==1 and $estadoDiploma->valor_deporte==1
+                    and $estadoDiploma->valor_cereal==1){?>
                     <a href="<?php echo base_url()."aplicacion/diploma"?>">
                         <figure>
                             <img alt="diploma" class="img-responsive center-block img-seccion animated infinite pulse" src="<?php echo base_url()."public/images/icons/quality.png"?>">
                         </figure>
                     </a>
                 <?php }else{?>
-                    <a href="#">
+                    <a href="#obdiploma">
                         <figure>
                             <img alt="diploma" class="gris img-responsive center-block img-seccion animated infinite pulse" src="<?php echo base_url()."public/images/icons/quality.png"?>">
                         </figure>

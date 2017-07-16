@@ -68,34 +68,36 @@
     </div>
     <br>
     <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-sm-8">
-                <div class="animated infinite pulse">
-                    <div class="instruccion-naranjo">
-                        <h4 class="modal-title titulo-modal-tip">Consejo</h4>
-                        <ol class="texto-modal-tip">
-                            <li>Revisa cada respuesta</li>
-                            <li>Responde con cuidado</li>
-                            <li>Responde todas las preguntas</li>
-                        </ol>
-                    </div>
-                    <div style="float: left;margin-left: 50px;clear: left">
-                        <div class="triangulo-naranjo"></div>
-                    </div>
-                </div>
-                <figure>
-                    <img class="img-border pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
-                </figure>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
     <?php date_default_timezone_set("Chile/Continental");
     $fechaHoy=date("Y-m-d");
     //echo "La hora en Chile es: " . date ("H:i",time()) . "<br />";
+    //echo $fechaHoy;
+    //echo $desafioDatos->fecha_cuest;
     if($desafioDatos->fecha_cuest != $fechaHoy){?>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    <div class="animated infinite pulse">
+                        <div class="instruccion-naranjo">
+                            <h4 class="modal-title titulo-modal-tip">Consejo</h4>
+                            <ol class="texto-modal-tip">
+                                <li>Revisa cada respuesta</li>
+                                <li>Responde con cuidado</li>
+                                <li>Responde todas las preguntas</li>
+                            </ol>
+                        </div>
+                        <div style="float: left;margin-left: 50px;clear: left">
+                            <div class="triangulo-naranjo"></div>
+                        </div>
+                    </div>
+                    <figure>
+                        <img class="img-border pull-left icon-inst" alt="estudiante1" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student1.png'?>">
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
         <div class="container cuadradosombracuest">
             <?php
             //para hacer name con nombre unico usando el id de la bd
@@ -145,10 +147,10 @@
                 $num++;
             }?>
             <div class="container">
-                <div class="titulo1" id="puntajeCuest">
-                    Puntaje: <span id="puntaje"></span>
+                <div class="titulo1 hidden" id="puntajeCuest">
+                    Puntaje
                     <figure>
-                        <img alt="monedas" class="fondocoins" src="<?php echo base_url()."public/images/icons/coins.png"; ?>">
+                        <span id="puntaje"></span> <img alt="monedas" class="fondocoins" src="<?php echo base_url()."public/images/icons/coins.png"; ?>">
                     </figure>
                 </div>
                 <br>
@@ -306,7 +308,8 @@
                 if(respondido){
                     $("#puntaje").text(puntaje);
                     $(".infocuest").removeClass("animated infinite pulse");
-                    $("#puntajeCuest").addClass("animated infinite pulse");
+                    $("#puntajeCuest").removeClass("hidden");
+                    $("#puntajeCuest").addClass("animated infinite bounce");
                     $("#guardar").append("<a id='volver' class='btn  btn-info titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/cuenta'?>'>Volver</a>");
                     $("#verificacuestionario").addClass("hidden");
                     var temp1=puntaje+puntosBD;

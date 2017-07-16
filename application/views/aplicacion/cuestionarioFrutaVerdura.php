@@ -134,7 +134,8 @@
                 if(respondido){
                     $("#puntaje").text(puntaje);
                     $(".infocuest").removeClass("animated infinite pulse");
-                    $("#puntajeCuest").addClass("animated infinite pulse");
+                    $("#puntajeCuest").removeClass("hidden");
+                    $("#puntajeCuest").addClass("animated infinite bounce");
                     var cuestionario="<?php echo $cuestionario?>";
                     guardaCuestionario('<?php echo base_url()."aplicacion/guardaCuestFrut"?>',cuestionario);
                     avance++;

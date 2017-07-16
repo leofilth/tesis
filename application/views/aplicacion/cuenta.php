@@ -462,15 +462,20 @@
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
-        var avanceFruta=$("#avanceFruta").text();
-        var avanceCereal=$("#avanceCereal").text();
-        var avanceAlimento=$("#avanceAlimento").text();
-        var avanceAcGrasa=$("#avanceAcGrasa").text();
-        var avanceDeporte=$("#avanceDeporte").text();
+        var avanceFruta=$("#avanceFruta").text().match(/\d/g).join("");
+        var avanceCereal=$("#avanceCereal").text().match(/\d/g).join("");
+        var avanceAlimento=$("#avanceAlimento").text().match(/\d/g).join("");
+        var avanceAcGrasa=$("#avanceAcGrasa").text().match(/\d/g).join("");
+        var avanceDeporte=$("#avanceDeporte").text().match(/\d/g).join("");
         var tutorial =<?php echo json_encode($tutorial,JSON_PRETTY_PRINT)?>;
         var estadoDiploma=<?php echo json_encode($estadoDiploma,JSON_PRETTY_PRINT)?>;
         var mostrar = tutorial.cuenta;
         var contador = 1;
+        //var thenum = avanceFruta.match(/\d/g);
+        //var numb = thenum.join("");
+        //console.log(avanceFruta);
+        //if(avanceFruta==100){console.log("si");}
+        //console.log("100%");
         /**
          * Instrucciones
          * @type {*[]}
@@ -516,26 +521,31 @@
              */
             if (estadoDiploma.valor_fruta != 1) {
                 guardaSeccionCompletada('<?php echo base_url()."aplicacion/guardaSeccionCompleta"?>', "fruta");
+                $("#portadafruta").attr("src","<?php echo base_url().'public/images/portadafrutaverduracompleta.png'?>");
             }
         }
         if(avanceCereal==100){
             if(estadoDiploma.valor_cereal!=1){
                 guardaSeccionCompletada('<?php echo base_url()."aplicacion/guardaSeccionCompleta"?>',"cereal");
+                $("#portadacereal").attr("src","<?php echo base_url().'public/images/portadacerealcompleta.png'?>");
             }
         }
         if(avanceAcGrasa==100){
             if(estadoDiploma.valor_acgrasa!=1){
                 guardaSeccionCompletada('<?php echo base_url()."aplicacion/guardaSeccionCompleta"?>',"acgrasa");
+                $("#portadaacgrasa").attr("src","<?php echo base_url().'public/images/portadaaceitegrasacompleta.png'?>");
             }
         }
         if(avanceDeporte==100){
             if(estadoDiploma.valor_deporte!=1) {
-                guardaSeccionCompletada('<?php echo base_url()."aplicacion/guardaSeccionCompleta"?>', "deporte")
+                guardaSeccionCompletada('<?php echo base_url()."aplicacion/guardaSeccionCompleta"?>', "deporte");
+                $("#portadadeporte").attr("src","<?php echo base_url().'public/images/portadadeportecompleta.png'?>");
             }
         }
         if(avanceAlimento==100){
             if(estadoDiploma.valor_alimento!=1) {
-                guardaSeccionCompletada('<?php echo base_url()."aplicacion/guardaSeccionCompleta"?>', "alimento")
+                guardaSeccionCompletada('<?php echo base_url()."aplicacion/guardaSeccionCompleta"?>', "alimento");
+                $("#portadaalimento").attr("src","<?php echo base_url().'public/images/portadacarnehuevocompleta.png'?>");
             }
         }
         $("#mostrarmodal").click(function () {

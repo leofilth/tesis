@@ -69,10 +69,10 @@
         $num++;
     }?>
     <div class="container">
-        <div class="titulo1" id="puntajeCuest">
-            Puntaje: <span id="puntaje"></span>
+        <div class="titulo1 hidden" id="puntajeCuest">
+            Puntaje
             <figure>
-                <img alt="monedas" class="fondocoins" src="<?php echo base_url()."public/images/icons/coins.png"; ?>">
+                <span id="puntaje"></span> <img alt="monedas" class="fondocoins" src="<?php echo base_url()."public/images/icons/coins.png"; ?>">
             </figure>
         </div>
         <br>

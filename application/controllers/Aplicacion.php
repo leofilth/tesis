@@ -41,8 +41,8 @@ class Aplicacion extends CI_Controller {
 				);
 				$jugador=array(
 					'nick_fk'=>$this->input->post("nick",true),
-					'puntos'=>0
-				);//al comenzar tiene 0 puntos
+					'puntos'=>100
+				);//al comenzar tiene 100 puntos
 				$lider=array(
 					'nick_fk'=>$this->input->post("nick",true),
 					'puntaje'=>0,
@@ -180,6 +180,7 @@ class Aplicacion extends CI_Controller {
 			$preguntasAlimento=$this->usuarios_model->getPreguntasAlimentoDesafioDiario();
 			$preguntasCereal=$this->usuarios_model->getPreguntasCerealDesafioDiario();
 			$preguntasDesafio=array();
+            date_default_timezone_set("Chile/Continental");
 			$fecha_actual=date("Y-m-d");
 			$largoPregFruta=count($preguntasFruta);
 			$largoPregAcGrasa=count($preguntasAcGrasa);
@@ -199,7 +200,7 @@ class Aplicacion extends CI_Controller {
 			$valoresd=array();//valores deporte
 			$valoresa=array();//valores alimentos
 			$valoresc=array();//valores cereales
-			while ($x<2) {//numero de preguntas que obtendra, aqui 2
+			while ($x<1) {//numero de preguntas que obtendra, aqui 2
 				$num_aleatorio = rand(0,$largoPregFruta-1);
 				if (!in_array($num_aleatorio,$valoresf)) {
 					array_push($valoresf,$num_aleatorio);
@@ -207,7 +208,7 @@ class Aplicacion extends CI_Controller {
 					$x++;
 				}
 			}
-			while ($y<2) {//numero de preguntas que obtendra, aqui 2
+			while ($y<1) {//numero de preguntas que obtendra, aqui 2
 				$num_aleatorio = rand(0,$largoPregAcGrasa-1);
 				if (!in_array($num_aleatorio,$valoresag)) {
 					array_push($valoresag,$num_aleatorio);
@@ -215,7 +216,7 @@ class Aplicacion extends CI_Controller {
 					$y++;
 				}
 			}
-			while ($z<2) {//numero de preguntas que obtendra, aqui 2
+			while ($z<1) {//numero de preguntas que obtendra, aqui 2
 				$num_aleatorio = rand(0,$largoPregDeporte-1);
 				if (!in_array($num_aleatorio,$valoresd)) {
 					array_push($valoresd,$num_aleatorio);
@@ -223,7 +224,7 @@ class Aplicacion extends CI_Controller {
 					$z++;
 				}
 			}
-			while ($w<2) {//numero de preguntas que obtendra, aqui 2
+			while ($w<1) {//numero de preguntas que obtendra, aqui 2
 				$num_aleatorio = rand(0,$largoPregAlimento-1);
 				if (!in_array($num_aleatorio,$valoresa)) {
 					array_push($valoresa,$num_aleatorio);
@@ -231,7 +232,7 @@ class Aplicacion extends CI_Controller {
 					$w++;
 				}
 			}
-			while ($c<2) {//numero de preguntas que obtendra, aqui 2
+			while ($c<1) {//numero de preguntas que obtendra, aqui 2
 				$num_aleatorio = rand(0,$largoPregCereal-1);
 				if (!in_array($num_aleatorio,$valoresc)) {
 					array_push($valoresc,$num_aleatorio);
@@ -310,9 +311,10 @@ class Aplicacion extends CI_Controller {
 				$ancho=$this->fpdf->GetPageWidth();
 				$this->fpdf->setX(($ancho-20)/2);
 				$nombre=$datos->nombre;
+                $str = utf8_decode($nombre);
 				//$this->fpdf->Write(5,"Monica Carrasco Santibañez");
-				$this->fpdf->Cell(20,10,$nombre,0,0,'C');
-				echo $this->fpdf->Output('Diploma_'.$nombre.'.pdf','D');
+				$this->fpdf->Cell(20,10,$str,0,0,'C');
+				echo $this->fpdf->Output('Diploma_'.$str.'.pdf','D');
 				/*
                  * Fin crea pdf usuario
                  */
