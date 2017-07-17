@@ -18,8 +18,8 @@
                         <h1>¿En qué consiste?</h1>
                         <p>Wambo es una aplicación que te enseñará sobre la importancia de la educación física
                         y la vida saludable.</p>
-                        <p>Tiene muchas cosas entretenidas, únete!.</p>
-                        <p><a role="button" href="<?php echo base_url()."aplicacion/registro"?>" class="animated infinite pulse btn-naranjo btn btn-lg btn-primary">Regístrate Ahora!</a></p>
+                        <p>Tiene muchas cosas entretenidas ¡Únete!</p>
+                        <p><a role="button" href="<?php echo base_url()."aplicacion/registro"?>" class="animated infinite pulse btn-naranjo btn btn-lg btn-primary">¡Regístrate ahora!</a></p>
                     </div>
                 </div>
             </div>
@@ -32,9 +32,9 @@
                 <div class="carousel-caption">
                     <div class="cc-text animated bounceInUp">
                         <h1>¿Qué aprenderás?</h1>
-                        <p>Aprenderás sobre alimentación saludable y sus beneficios.</p>
-                        <p>Aprenderás sobre la actividad física, la importancia de realizar deporte, consejos y mucho más.</p>
-                        <p><a id="leermas" role="button" href="#" class="animated infinite pulse btn-naranjo btn btn-lg btn-primary">Leer más</a></p>
+                        <p>Conocerás sobre alimentación saludable y sus beneficios.</p>
+                        <p>Recibirás información sobre actividad física, la importancia de realizar deporte, consejos y mucho más.</p>
+                        <p><a id="leermas" role="button" href="#" class="animated infinite pulse btn-naranjo btn btn-lg btn-primary">Continuar</a></p>
                     </div>
                 </div>
             </div>
@@ -65,9 +65,9 @@
     <div class="container" id="explicativo">
         <div class="row">
             <div class="col-md-7 col-sm-7 col-xs-12 fondo-portada1">
-                <h2 class="featurette-heading">Frutas y Verduras Poderosas. <span class="text-muted">Todos su secretos al descubierto</span></h2>
+                <h2 class="featurette-heading">¡Frutas y verduras poderosas! <span class="text-muted">Todos su secretos al descubierto</span></h2>
                 <p class="lead">¿Cuáles comer? ¿A qué hora? ¿Cuánto debo consumir?</p>
-                <p class="lead">Esto y mucho más encontrarás.</p>
+                <p class="lead">Esto y mucho más encontrarás en Wambo</p>
             </div>
             <div class="col-md-5 col-sm-5 col-xs-12">
                 <figure>
@@ -78,7 +78,7 @@
         <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-7 col-sm-7 col-sm-push-5 col-md-push-5 fondo-portada2">
-                <h2 class="featurette-heading">Cereales Mágicos <span class="text-muted">Todo sobre ellos.</span></h2>
+                <h2 class="featurette-heading">Cereales mágicos  <span class="text-muted">¡Todo sobre ellos!</span></h2>
                 <p class="lead">¿Cuáles comer? ¿A qué hora? ¿Cuánto debo consumir?</p>
                 <p class="lead">Conmigo aprenderás sus beneficios y por qué comerlos.</p>
             </div>
@@ -91,7 +91,7 @@
         <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-7 col-sm-7 fondo-portada3">
-                <h2 class="featurette-heading">¿Quieres ser más fuerte, más rapido?<span class="text-muted">Conmigo sabrás cómo !</span></h2>
+                <h2 class="featurette-heading">¿Quieres ser más fuerte y más rapido?<span class="text-muted">¡Conmigo sabrás cómo !</span></h2>
                 <p class="lead">Conocerás muchos deportes y aprenderás la importancia del ejercicio y sus beneficios.</p>
             </div>
             <div class="col-md-5 col-sm-5">
@@ -103,8 +103,8 @@
         <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-7 col-md-push-5 col-sm-7 col-sm-push-5 fondo-portada4">
-                <h2 class="featurette-heading">Obtén tu Diploma Wambo! <span class="text-muted">Completa los desafíos y gana</span></h2>
-                <p class="lead">Gana en Wambo y obtén tu diploma para que todos lo vean!</p>
+                <h2 class="featurette-heading">¡Obtén tu diploma Wambo! <span class="text-muted">Completa los desafíos y gana</span></h2>
+                <p class="lead">¡Termina Wambo y obtén tu diploma para que todos lo vean!</p>
             </div>
             <div class="col-md-5 col-md-pull-7 col-sm-5 col-sm-pull-7">
                 <figure>

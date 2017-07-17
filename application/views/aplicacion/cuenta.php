@@ -75,7 +75,7 @@
                             <div class="row">
                                 <div class="col-md-4 col-xs-4">
                                     <figure>
-                                        <img alt="ampolleta" width="70" height="70" class="zoom center-block animated flash" src="<?php echo base_url()."public/images/icons/bulb.png"?>">
+                                        <img alt="ampolleta" width="70" height="70" class="zoom center-block animated flash img-portada" src="<?php echo base_url()."public/images/icons/bulb.png"?>">
                                     </figure>
                                 </div>
                                 <div class="col-md-8 col-xs-8">
@@ -87,7 +87,7 @@
                 </div>
             </div>
         </div>
-        <h3 class="titulo1 text-center">Selecciona que quieres aprender</h3>
+        <h3 class="titulo1 text-center">¿Qué quieres aprender hoy?</h3>
         <div id="container1" class="container animated bounceIn">
             <div class="row">
                     <div id="fruta" class="col-md-4 col-sm-6">
@@ -422,6 +422,17 @@
                         </div>
                     </div>
                     <div class="item">
+                        <div id="micertificado" class="col-md-4  col-sm-6">
+                            <div class=" text-center  borde diplomacuenta">
+                                <img alt="certificado" id="portadacertificado" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portada7.png"?>">
+                                <div class="maintitulo">
+                                    <h3 id="tcert">Mi Diploma</h3>
+                                </div>
+                                <a href="<?php echo base_url()."aplicacion/certificado"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
                         <div id="noticias" class="col-md-4 col-md-offset-2 col-sm-6">
                             <div class=" text-center  borde noticiacuenta">
                                 <figure>
@@ -674,6 +685,14 @@
             },
             mouseleave:function() {
                 $(this).removeClass("animated jello");
+            }
+        });
+        $(".img-portada").on({
+            mouseenter: function(){
+                $(this).addClass("animated flip");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated flip");
             }
         });
     });

@@ -314,7 +314,7 @@ class Aplicacion extends CI_Controller {
                 $str = utf8_decode($nombre);
 				//$this->fpdf->Write(5,"Monica Carrasco Santibañez");
 				$this->fpdf->Cell(20,10,$str,0,0,'C');
-				echo $this->fpdf->Output('Diploma_'.$str.'.pdf','D');
+				echo $this->fpdf->Output('Diploma_'.$str.'.pdf','I');
 				/*
                  * Fin crea pdf usuario
                  */
@@ -330,7 +330,7 @@ class Aplicacion extends CI_Controller {
 				$nombre=$datos->nombre;
 				//$this->fpdf->Write(5,"Monica Carrasco Santibañez");
 				$this->fpdf->Cell(20,10,$nombre,0,0,'C');
-				echo $this->fpdf->Output('Diploma_'.$nombre.'.pdf','D');
+				echo $this->fpdf->Output('Diploma_'.$nombre.'.pdf','I');
 				/*
                  * Fin crea pdf usuario
                  */

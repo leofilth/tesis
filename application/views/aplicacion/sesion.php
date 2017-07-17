@@ -31,18 +31,30 @@
             <div class="col-md-4 col-sm-6  hidden-xs col-md-offset-1 text-center animated bounceInUp">
                 <div class="instruefecto animated infinite pulse">
                     <div class="instruccion-morado">
-                        <h4  class="modal-title titulo-modal-tip">Vamos!</h4>
-                        <h4  class="modal-title titulo-modal-tip">Momento de aprender!</h4>
+                        <h4  class="modal-title titulo-modal-tip">¡Vamos!</h4>
+                        <h4  class="modal-title titulo-modal-tip">¡Es momento de aprender!</h4>
                     </div>
                     <div style="float: left;margin-left: 45%;clear: left">
                         <div class="triangulo-morado"></div>
                     </div>
                 </div>
                 <figure>
-                    <img class="img-responsive center-block" alt="estudiante1"  width="300" height="300" src="<?php echo base_url().'public/images/modal/sesion22.png'?>">
+                    <img class="img-responsive center-block img-portada" alt="estudiante1"  width="300" height="300" src="<?php echo base_url().'public/images/modal/sesion22.png'?>">
                 </figure>
             </div>
         </div>
     </div>
 </section>
 <?php include "footerinicio.php"?>
+<script>
+    $(document).ready(function() {
+        $(".img-portada").on({
+            mouseenter: function(){
+                $(this).addClass("animated rubberBand");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated rubberBand");
+            }
+        });
+    });
+</script>

@@ -1,7 +1,7 @@
 <?php include "navs/nav.php" ?>
 <section class="container-fluid bg-im4 padingtop padingbot">
     <div class="container">
-        <header class="titulo1 animated fadeInLeft">Registro de usuarios</header>
+        <header class="titulo1 animated fadeInLeft">Regístrate</header>
         <div class="row">
             <div class="col-md-5 col-md-offset-1 col-sm-6  col-xs-12 animated fadeIn padingbot">
                 <?php $atributos=array('class'=>'form-group borde cuadradosombra-sesion','id'=>'form','name'=>'form');
@@ -143,7 +143,7 @@
                             Únete
                         </h4>
                         <h4  class="modal-title titulo-modal-tip">
-                            Aprenderás muchas cosas!
+                            ¡Aprenderás muchas cosas!
                         </h4>
                     </div>
                     <div style="float: left;margin-left: 45%;clear: left">
@@ -151,10 +151,22 @@
                     </div>
                 </div>
                 <figure>
-                    <img class="img-responsive center-block img-circle" alt="estudiante1"  height="300" width="300" src="<?php echo base_url().'public/images/modal/sesion22.png'?>">
+                    <img class="img-responsive center-block img-circle img-portada" alt="estudiante1"  height="300" width="300" src="<?php echo base_url().'public/images/modal/sesion22.png'?>">
                 </figure>
             </div>
         </div>
     </div>
 </section>
 <?php include "footerinicio.php"?>
+<script>
+    $(document).ready(function() {
+        $(".img-portada").on({
+            mouseenter: function(){
+                $(this).addClass("animated jello");
+            },
+            mouseleave:function(){
+                $(this).removeClass("animated jello");
+            }
+        });
+    });
+</script>

@@ -65,50 +65,7 @@
         </div>
     </div>
 </div>
-<section class="container-fluid padingtop" id="tipsaludable">
-    <div class="container">
-        <header class="tituloSection">Beneficios y Tips Wambo</header>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="instruefecto">
-                    <div class="instruccion-naranjo">
-                        <h4  class="modal-title titulo-modal-tip">Instrucciones</h4>
-                        <ol class="texto-modal-tip">
-                            <li>Selecciona tu TIP o Beneficio y aprende un poco más</li>
-                            <li>Son gratis</li>
-                            <li>Consulta cuando quieras</li>
-                        </ol>
-                    </div>
-                    <div style="float: left;margin-left: 50px;clear: left">
-                        <div class="triangulo-naranjo"></div>
-                    </div>
-                </div>
-                <figure>
-                    <img class="img-border pull-left icon-inst" alt="estudiante2" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
-                </figure>
-            </div>
-        </div>
-    </div>
-    <div class="container" id="container-tip">
-        <div class="row">
-            <div class="col-md-12">
-                <?php
-                $i=0;
-                $colores=array("verde","rosado","celeste","naranjo","rojo");
-                foreach ($tipsDeportes as $tipdeporte){
-                    ?>
-                    <div class="col-md-3 col-xs-6 col-sm-4 alturatip">
-                        <div class="tip-<?php echo $colores[$i]?> efecto-<?php echo $colores[$i]?> tip borde" title="<?php echo $tipdeporte->nombre?>" data-toggle="modal" data-target="#modaltip">
-                            <div><h1 class="titulo-tip"><?php echo $tipdeporte->nombre?></h1></div><div><i class="glyphicon glyphicon-tint hoja"></i></div>
-                        </div>
-                    </div>
-                    <?php $i++;
-                    if($i==5){$i=0;}}?>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="container-fluid  animated fadeIn" id="section1">
+<section class="container-fluid  padingtop animated fadeIn" id="section1">
     <div  class="container">
         <header class="tituloSection">Deportes Wambo</header>
         <div class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
@@ -200,11 +157,6 @@
                     </div>
                 </div>
             </div>
-    <div class="padingtop">
-        <figure>
-            <img alt="flechatop" class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
-        </figure>
-    </div>
 </section>
 <section class="container-fluid" id="section2">
     <div class="container">
@@ -247,7 +199,54 @@
         </figure>
     </div>
 </section>
-
+<section class="container-fluid" id="tipsaludable">
+    <div class="container">
+        <header class="tituloSection">Beneficios y Tips Wambo</header>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="instruefecto">
+                    <div class="instruccion-naranjo">
+                        <h4  class="modal-title titulo-modal-tip">Instrucciones</h4>
+                        <ol class="texto-modal-tip">
+                            <li>Selecciona tu TIP o Beneficio y aprende un poco más</li>
+                            <li>Son gratis</li>
+                            <li>Consulta cuando quieras</li>
+                        </ol>
+                    </div>
+                    <div style="float: left;margin-left: 50px;clear: left">
+                        <div class="triangulo-naranjo"></div>
+                    </div>
+                </div>
+                <figure>
+                    <img class="img-border pull-left icon-inst" alt="estudiante2" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="container-tip">
+        <div class="row">
+            <div class="col-md-12">
+                <?php
+                $i=0;
+                $colores=array("verde","rosado","celeste","naranjo","rojo");
+                foreach ($tipsDeportes as $tipdeporte){
+                    ?>
+                    <div class="col-md-3 col-xs-6 col-sm-4 alturatip">
+                        <div class="tip-<?php echo $colores[$i]?> efecto-<?php echo $colores[$i]?> tip borde" title="<?php echo $tipdeporte->nombre?>" data-toggle="modal" data-target="#modaltip">
+                            <div><h1 class="titulo-tip"><?php echo $tipdeporte->nombre?></h1></div><div><i class="glyphicon glyphicon-tint hoja"></i></div>
+                        </div>
+                    </div>
+                    <?php $i++;
+                    if($i==5){$i=0;}}?>
+            </div>
+        </div>
+    </div>
+    <div class="padingtop">
+        <figure>
+            <img alt="flechatop" class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+        </figure>
+    </div>
+</section>
 <?php include "footer.php"?>
 <script>
     $(document).ready(function(){
@@ -509,9 +508,9 @@
                 scrollTop: '0px'
             },1000 );
         });
-        $('#deportes').click(function(){
+        $('#tips').click(function(){
             $('body, html').animate({
-                scrollTop: $('#section1').position().top}, 'slow');
+                scrollTop: $('#tipsaludable').position().top}, 'slow');
         });
         $('#desafio').click(function(){
             $('body, html').animate({
