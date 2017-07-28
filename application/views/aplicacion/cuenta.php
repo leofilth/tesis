@@ -12,7 +12,7 @@
                         <div class="texto-modal-tip" id="descripcion-tip">
                             <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Hola <?php echo $datos->nick?>, así funciona Wambo</h4>
                             <div class="col-md-12" id="textoIns">
-                                <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para siguiente ayuda
+                                <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para la siguiente ayuda
                             </div>
                             <div class="col-md-12" id="fotoIns">
                                 <figure>
@@ -493,7 +493,7 @@
          */
         var instrucciones = [
             {
-                "titulo": "<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para siguiente ayuda",
+                "titulo": "<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para la siguiente ayuda",
                 "imagen": "<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"
             },
             {
@@ -573,7 +573,7 @@
         $("#fruta").on({
             mouseenter: function () {
                 $("#portadafruta").addClass("borde animated flipInY");
-                //$("#tfrut").css("color", "#673AB7");
+                $("#tfrut").css("color", "#ff9e49");
             },
             mouseleave: function () {
                 $("#portadafruta").removeClass("borde animated flipInY");
@@ -583,7 +583,7 @@
         $("#aceitegrasa").on({
             mouseenter: function () {
                 $("#portadaacgrasa").addClass("borde animated flipInY");
-                $("#tacgrasa").css("color", "#673AB7");
+                $("#tacgrasa").css("color", "#ff9e49");
             },
             mouseleave: function () {
                 $("#portadaacgrasa").removeClass("borde animated flipInY");
@@ -593,7 +593,7 @@
         $("#alimento").on({
             mouseenter: function () {
                 $("#portadaalimento").addClass("borde animated flipInY");
-                $("#tali").css("color", "#673AB7");
+                $("#tali").css("color", "#ff9e49");
             },
             mouseleave: function () {
                 $("#portadaalimento").removeClass("borde animated flipInY");
@@ -603,7 +603,7 @@
         $("#cereales").on({
             mouseenter: function () {
                 $("#portadacereal").addClass("borde animated flipInY");
-                $("#tcer").css("color", "#673AB7");
+                $("#tcer").css("color", "#ff9e49");
             },
             mouseleave: function () {
                 $("#portadacereal").removeClass("borde animated flipInY");
@@ -613,7 +613,7 @@
         $("#deporte").on({
             mouseenter: function () {
                 $("#portadadeporte").addClass("borde animated flipInY");
-                $("#tdep").css("color", "#673AB7");
+                $("#tdep").css("color", "#ff9e49");
             },
             mouseleave: function () {
                 $("#portadadeporte").removeClass("borde animated flipInY");
@@ -623,7 +623,7 @@
         $("#micertificado").on({
             mouseenter: function () {
                 $("#portadacertificado").addClass("borde animated bounceIn");
-                $("#tcert").css("color", "#673AB7");
+                $("#tcert").css("color", "#ff9e49");
             },
             mouseleave: function () {
                 $("#portadacertificado").removeClass("borde animated bounceIn");
@@ -633,7 +633,7 @@
         $("#noticias").on({
             mouseenter: function () {
                 $("#portadanoticia").addClass("borde animated rubberBand");
-                $("#tnot").css("color", "#673AB7");
+                $("#tnot").css("color", "#ff9e49");
             },
             mouseleave: function () {
                 $("#portadanoticia").removeClass("borde animated rubberBand");
@@ -643,7 +643,7 @@
         $("#desafio").on({
             mouseenter: function () {
                 $("#portadadesafio").addClass(" animated flip");
-                $("#tdes").css("color", "#673AB7");
+                $("#tdes").css("color", "#ff9e49");
             },
             mouseleave: function () {
                 $("#portadadesafio").removeClass("animated flip");

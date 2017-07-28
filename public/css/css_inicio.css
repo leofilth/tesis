@@ -440,7 +440,7 @@ css cuenta
     line-height: 22px;
 }
 .bg-im {
-    background: url("http://146.83.216.208/wambo/public/images/paisaje.jpg") no-repeat center center fixed;
+    background: url("../images/paisaje.jpg") no-repeat center center fixed;
      -webkit-background-size: cover;
      -moz-background-size: cover;
      -o-background-size: cover;
@@ -449,7 +449,7 @@ css cuenta
     padding-bottom: 100px;
 }
 .bg-im2 {
-    background: url("http://146.83.216.208/wambo/public/images/Middle_texture.jpg") no-repeat center center fixed;
+    background: url("../images/Middle_texture.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -458,14 +458,14 @@ css cuenta
     padding-bottom: 100px;
 }
 .bg-im3 {
-    background: url("http://146.83.216.208/wambo/public/images/aprender.jpg") no-repeat center center fixed;
+    background: url("../images/aprender.jpg") no-repeat center center fixed;
     /*-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;*/
     background-size: cover;
 }
 .bg-im4 {
-    background: url("http://146.83.216.208/wambo/public/images/education-package-powerpoint-backgrounds.jpg") no-repeat center center fixed;
+    background: url("../images/fondo2.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

@@ -68,17 +68,18 @@
 <section class="container-fluid  padingtop animated fadeIn" id="section1">
     <div  class="container">
         <header class="tituloSection">Deportes Wambo</header>
-        <div class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
-            animate a superar el desafío Wambo Deportes!.</div>
+        <p class="titulo5">Diviértete aprendiendo más sobre Deportes. Cuando te sientas preparado, anímate
+            a superar los desafíos Wambo.
+        </p>
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
                         <div class="instruefecto">
                             <div class="instruccion-morado">
                                 <h4  class="modal-title titulo-modal-tip">Instrucciones</h4>
                                 <ol class="texto-modal-tip">
-                                    <li>Compra tu Deporte</li>
+                                    <li>Elige un Deporte y cómpralo</li>
                                     <li>Haz click en el</li>
-                                    <li>Aprende</li>
+                                    <li>Comienza a aprender</li>
                                 </ol>
                             </div>
                             <div style="float: left;margin-left: 50px;clear: left">
@@ -168,7 +169,7 @@
                         <h4  class="modal-title titulo-modal-tip">Instrucciones</h4>
                         <ol class="texto-modal-tip">
                             <li>Responde y gana puntos</li>
-                            <li>Canjea por tus deporte </li>
+                            <li>Canjea por Deportes </li>
                             <li>Demuestra todo lo que sabes</li>
                         </ol>
                     </div>
@@ -208,8 +209,8 @@
                     <div class="instruccion-naranjo">
                         <h4  class="modal-title titulo-modal-tip">Instrucciones</h4>
                         <ol class="texto-modal-tip">
-                            <li>Selecciona tu TIP o Beneficio y aprende un poco más</li>
-                            <li>Son gratis</li>
+                            <li>Aquí tienes beneficios y secretos (son gratis)</li>
+                            <li>Aprende un poco más</li>
                             <li>Consulta cuando quieras</li>
                         </ol>
                     </div>
@@ -465,7 +466,7 @@
         });
         $("#informacion").on({
             click:function(){
-                if(contadorInfo==5){
+                if(contadorInfo>=5){
                     $("#titulo").html(informacion[0].titulo);
                     $("#info").html(informacion[0].informacion);
                     contadorInfo=1;

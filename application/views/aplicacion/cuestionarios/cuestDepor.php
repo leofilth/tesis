@@ -2,11 +2,11 @@
     <div class="col-md-8 col-xs-12 col-sm-12">
         <div class="animated bounce">
             <div class="instruccion-naranjo">
-                <h4  class="modal-title titulo-modal-tip">Intrucciones</h4>
+                <h4  class="modal-title titulo-modal-tip">Instrucciones</h4>
                 <ol class="texto-modal-tip">
                     <li>Responde cada pregunta</li>
                     <li>Revisa bien tu respuesta</li>
-                    <li>cuando estes listo revisa tus resultados</li>
+                    <li>Cuando estes listo revisa tus resultados</li>
                 </ol>
             </div>
             <div style="float: left;margin-left: 50px;clear: left">

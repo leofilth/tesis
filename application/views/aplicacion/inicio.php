@@ -91,7 +91,7 @@
         <hr class="featurette-divider">
         <div class="row">
             <div class="col-md-7 col-sm-7 fondo-portada3">
-                <h2 class="featurette-heading">¿Quieres ser más fuerte y más rapido?<span class="text-muted">¡Conmigo sabrás cómo !</span></h2>
+                <h2 class="featurette-heading">¿Quieres ser más fuerte y más rápido? <span class="text-muted">¡Conmigo sabrás cómo!</span></h2>
                 <p class="lead">Conocerás muchos deportes y aprenderás la importancia del ejercicio y sus beneficios.</p>
             </div>
             <div class="col-md-5 col-sm-5">
@@ -133,34 +133,34 @@
         });
         $(".fondo-portada1").on({
             mouseenter: function(){
-                $(this).addClass("animated pulse");
+                $(this).addClass("animated pulse infinite");
             },
             mouseleave:function(){
-                $(this).removeClass("animated pulse");
+                $(this).removeClass("animated pulse infinite");
             }
         });
         $(".fondo-portada2").on({
             mouseenter: function(){
-                $(this).addClass("animated pulse");
+                $(this).addClass("animated pulse infinite");
             },
             mouseleave:function(){
-                $(this).removeClass("animated pulse");
+                $(this).removeClass("animated pulse infinite");
             }
         });
         $(".fondo-portada3").on({
             mouseenter: function(){
-                $(this).addClass("animated pulse");
+                $(this).addClass("animated pulse infinite");
             },
             mouseleave:function(){
-                $(this).removeClass("animated pulse");
+                $(this).removeClass("animated pulse infinite");
             }
         });
         $(".fondo-portada4").on({
             mouseenter: function(){
-                $(this).addClass("animated pulse");
+                $(this).addClass("animated pulse infinite");
             },
             mouseleave:function(){
-                $(this).removeClass("animated pulse");
+                $(this).removeClass("animated pulse infinite");
             }
         });
         $('#leermas').click(function(){

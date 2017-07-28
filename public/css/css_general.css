@@ -73,6 +73,10 @@ css vida sana
     font-size: 15px;
     color: rgb(73,80,82);
 }
+.modal-title{
+    color: #FFFFFF;
+    text-align: center;
+}
 .texto-modal-titulo{
     text-transform: uppercase;
     color: black;
@@ -556,6 +560,14 @@ css cuenta
     /*background-size: cover;*/
     background-size:cover;
 }
+.bg-lideres {
+    background: url('../images/cuest.png') no-repeat center fixed;
+    /*-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;*/
+    /*background-size: cover;*/
+    background-size:cover;
+}
 .bg-im4 {
     background: url('../images/fondo2.jpg') no-repeat center fixed;
     /*-webkit-background-size: cover;
@@ -715,7 +727,7 @@ a:link, a:visited {
 }
 .cuadradosombra-sesion{
     /*box-shadow: 0 4px 0 0 #f1f1f1;*/
-    background-color: rgb(250,250,250);
+    background-color: rgba(219, 227, 89,0.9);
     border-radius: 5px;
     padding:15px;
 }
@@ -727,7 +739,7 @@ a:link, a:visited {
     padding-bottom: 15px;
 }
 .obligatorio{
-    color: red;
+    color: #B80000;
     font-family: "Montserrat", sans-serif;
     font-size: small;
     /*No se puede seleccionar el texto*/
@@ -1528,7 +1540,17 @@ filter: Gray(); /* IE4-8 and 9 */
 .modal-footer {
     border-top: none;
     padding: 5px;
-    text-align: right;
+    text-align: center;
+}
+.modal-footer .btn-danger, .btn-success{
+    font-size: 20px;
+}
+.close {
+    color: #FFFFFF;
+    opacity: 1;
+}
+.bootbox .modal-dialog .modal-content{
+    background-color: #673AB7;
 }
 .texto-modal-tip{
     font-family: "Montserrat", sans-serif;
@@ -1639,8 +1661,12 @@ frutas
 .compra{
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
-    color: #673AB7;
-
+    color: #FFFFFF;
+    text-align: center;
+}
+.btn-cuenta:hover{
+    background-color: #E67E22;
+    box-shadow: 0 4px 0 0 #cc6a14;
 }
 .padingtop{
     padding-top: 80px;
@@ -1877,8 +1903,8 @@ tamaño imagen seccion
         padding: 5px 5px !important;
     }
     .tamano100{
-        width: 20%;
-        height: 20%;
+        width: auto;
+        height: 80px;
     }
     /*.bg-im3 {
         background: url("http://146.83.216.208/public/images/aprender360.png") no-repeat center center fixed;

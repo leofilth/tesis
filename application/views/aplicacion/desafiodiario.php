@@ -15,8 +15,8 @@
                             </h4>
                             <div class="col-md-12" id="textoIns">
                                 <p><span class="glyphicon glyphicon-ok"></span> Cada día podrás desafiar tus conocimientos.</p>
-                                <p><span class="glyphicon glyphicon-ok"></span> Obten más monedas.</p>
-                                <p><span class="glyphicon glyphicon-ok"></span> Se el primero en el ranking Wambo!</p>
+                                <p><span class="glyphicon glyphicon-ok"></span> Obtén más monedas.</p>
+                                <p><span class="glyphicon glyphicon-ok"></span> ¡Se el primero en el ranking Wambo!</p>
                             </div>
                             <div class="col-md-12" id="fotoIns">
                                 <figure>
@@ -81,9 +81,9 @@
                         <div class="instruccion-naranjo">
                             <h4 class="modal-title titulo-modal-tip">Consejo</h4>
                             <ol class="texto-modal-tip">
-                                <li>Revisa cada respuesta</li>
-                                <li>Responde con cuidado</li>
-                                <li>Responde todas las preguntas</li>
+                                <li>Lee con atención</li>
+                                <li>Responde cada pregunta</li>
+                                <li>Revisa tus respuestas</li>
                             </ol>
                         </div>
                         <div style="float: left;margin-left: 50px;clear: left">

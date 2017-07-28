@@ -760,7 +760,7 @@ class Aplicacion extends CI_Controller {
 			//$cuestionario=$this->cuest_id;//cuestionario de la variable de session asociado al usuario
 			$preguntasAcGrasa=$this->usuarios_model->getPreguntasAcGrasa($cuestionario);
 			$cuestRespondidos=$this->usuarios_model->getCuestResponAcGrasa($datos->nick);
-			$this->layout->view("cuestionarioAcgrasa",compact("datos","identificador","preguntasAcGrasa","cuestionario",
+			$this->layout->view("cuestionarioAcGrasa",compact("datos","identificador","preguntasAcGrasa","cuestionario",
 				"puntaje","puntajeLider","cuestRespondidos","avance"));
 		} else {
 			redirect(base_url() . 'aplicacion', 301);

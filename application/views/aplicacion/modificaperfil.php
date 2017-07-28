@@ -120,6 +120,7 @@
 <script>
     $(document).ready(function(){
         var nombre,link;
+        var conteo=0;
         function guardaAvatar(ruta,valor){
             $.post(ruta,{valor:valor},function(resp){
                 return resp;
@@ -142,14 +143,16 @@
             nombre=$(this).attr("title");
             link=$(this).attr("src");
             $(this).addClass("selecciona");
+            conteo=1;
 
         });
         $("#guardaAvatar").click(function(){
-            $("#avatar-user").attr("src",link);
-            $("#avatarNav").attr("src",link);
-            $("#avatarNav2").attr("src",link);
-            $(".avatar").removeClass("selecciona");
-            guardaAvatar('<?php echo base_url()."aplicacion/guardaAvatar"?>',nombre);
+            if(conteo==1){ $("#avatar-user").attr("src",link);
+                $("#avatarNav").attr("src",link);
+                $("#avatarNav2").attr("src",link);
+                $(".avatar").removeClass("selecciona");
+                guardaAvatar('<?php echo base_url()."aplicacion/guardaAvatar"?>',nombre);}
+
         });
         $("#muestramodal").click(function () {
             $(".avatar").removeClass("selecciona");

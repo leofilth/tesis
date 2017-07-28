@@ -1,7 +1,7 @@
 <?php include "navs/nav_cuest_aceite_grasa.php" ?>
 <section class="container-fluid bg-im3 padingtop padingbot">
     <div class="container">
-        <header class="titulo1 text-center">Bienvenido a Cuestionarios</header>
+        <header class="titulo1 text-center">Bienvenido a Desafíos Wambo</header>
         <?php if($cuestRespondidos == null){?>
             <?php include "cuestionarios/cuestAceiteGrasa.php"?>
         <?php }

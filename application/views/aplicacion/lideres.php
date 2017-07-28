@@ -1,5 +1,5 @@
 <?php include "navs/nav_lideres.php"?>
-<div class="container-fluid bg-im3 padingtop">
+<div class="container-fluid bg-lideres padingtop padingbot">
     <div class="container">
         <h1 class="text-center titulo1">Lideres de Wambo</h1>
         <div class="row">

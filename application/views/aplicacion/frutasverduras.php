@@ -36,7 +36,7 @@
                         <h2 class="texto-modal-tip">Asi funciona Wambo Frutas y Verduras</h2>
                         <div class="texto-modal-tip">
                                 <div class="col-md-8" id="textoIns">
-                                    <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para siguiente ayuda
+                                    <span class="glyphicon glyphicon-ok"></span> Haz click en el cuadro verde para la siguiente ayuda
                                 </div>
                                 <div class="col-md-4 margenins" id="fotoIns">
                                     <figure>
@@ -68,18 +68,18 @@
 <section class="container-fluid padingtop" id="section1">
     <div  class="container">
         <header class="tituloSection">frutas y verduras Wambo</header>
-        <p class="titulo5">Aquí encontrarás mucha información disponible para que aprendas, y cuando estes listo
-            animate a superar el desafío Wambo Frutas!.
+        <p class="titulo5">Diviértete aprendiendo más sobre Frutas y Verduras. Cuando te sientas preparado, anímate
+            a superar los desafíos Wambo.
         </p>
         <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-12">
                         <div class="instruefecto">
                             <div class="instruccion-morado">
-                                <h4 class="modal-title titulo-modal-tip">Intrucciones</h4>
+                                <h4 class="modal-title titulo-modal-tip">Instrucciones</h4>
                                 <ol class="texto-modal-tip">
-                                    <li>Compra tu fruta</li>
+                                    <li>Elige una fruta y cómprala</li>
                                     <li>Haz click en ella</li>
-                                    <li>Aprende</li>
+                                    <li>Comienza a aprender</li>
                                 </ol>
                             </div>
                             <div style="float: left;margin-left: 50px;clear: left">
@@ -167,10 +167,10 @@
             <div class="col-md-8 col-sm-8">
                 <div class="instruefecto">
                     <div class="instruccion-verde">
-                        <h4 class="modal-title titulo-modal-tip">Intrucciones</h4>
+                        <h4 class="modal-title titulo-modal-tip">Instrucciones</h4>
                         <ol class="texto-modal-tip">
                             <li>Responde y gana puntos</li>
-                            <li>Canjea por tus Frutas y Verduras </li>
+                            <li>Canjea por Frutas y Verduras </li>
                             <li>Demuestra todo lo que sabes</li>
                         </ol>
                     </div>
@@ -206,8 +206,8 @@
                     <div class="instruccion-naranjo">
                         <h4 class="modal-title titulo-modal-tip">Instrucciones</h4>
                         <ol class="texto-modal-tip">
-                            <li>Selecciona tu TIP y aprende un poco más</li>
-                            <li>Son gratis</li>
+                            <li>Aquí tienes beneficios y secretos (son gratis)</li>
+                            <li>Aprende un poco más</li>
                             <li>Consulta cuando quieras</li>
                         </ol>
                     </div>
@@ -260,7 +260,7 @@
         var informacion;//array con la informacion de un cereal
         var contadorInfo=0;//contador para ir cambiando la info mediante clicks
         var instrucciones=[
-            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Click en siguiente para ayuda",
+            {"titulo":"<span class='glyphicon glyphicon-ok'></span> Haz click en el cuadro verde para la siguiente ayuda",
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/customer-service.png'?>'>"},
             {"titulo":"<span class='glyphicon glyphicon-ok'></span> Obten monedas superando los desafíos Wambo Frutas y Verduras",
                 "imagen":"<img class='animated rubberBand center-block tamano100' src='<?php echo base_url().'public/images/icons/coins.png'?>'>"},

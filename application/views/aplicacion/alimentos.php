@@ -68,15 +68,18 @@
 <section class="container-fluid padingtop animated fadeIn" id="section1">
     <div  class="container">
         <header class="tituloSection">Carne, Lacteos, Huevos y Legumbres Wambo</header>
+        <p class="titulo5">Diviértete aprendiendo más sobre Carnes, Lácteos, Huevos y Legumbres. Cuando te sientas preparado, anímate
+            a superar los desafíos Wambo.
+        </p>
         <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-12 ">
                         <div class="instruefecto">
                             <div class="instruccion-morado">
-                                <h4 class="modal-title titulo-modal-tip">Intrucciones</h4>
+                                <h4 class="modal-title titulo-modal-tip">Instrucciones</h4>
                                 <ol class="texto-modal-tip">
-                                    <li>Compra tu Alimento</li>
+                                    <li>Elige un alimento y cómpralo</li>
                                     <li>Haz click en el</li>
-                                    <li>Aprende</li>
+                                    <li>Comienza a aprender</li>
                                 </ol>
                             </div>
                             <div style="float: left;margin-left: 50px;clear: left">
@@ -163,10 +166,10 @@
             <div class="col-md-8 col-sm-8">
                 <div class="instruefecto">
                     <div class="instruccion-verde">
-                        <h4 class="modal-title titulo-modal-tip">Intrucciones</h4>
+                        <h4 class="modal-title titulo-modal-tip">Instrucciones</h4>
                         <ol class="texto-modal-tip">
                             <li>Responde y gana puntos</li>
-                            <li>Canjea por tus alimentos </li>
+                            <li>Canjea por Alimentos </li>
                             <li>Demuestra todo lo que sabes</li>
                         </ol>
                     </div>
@@ -202,8 +205,8 @@
                     <div class="instruccion-naranjo">
                         <h4 class="modal-title titulo-modal-tip">Instrucciones</h4>
                         <ol class="texto-modal-tip">
-                            <li>Selecciona tu TIP y aprende un poco mas</li>
-                            <li>Son gratis</li>
+                            <li>Aquí tienes beneficios y secretos (son gratis)</li>
+                            <li>Aprende un poco más</li>
                             <li>Consulta cuando quieras</li>
                         </ol>
                     </div>
@@ -352,7 +355,7 @@
                                             {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Descripción","informacion":alimentos[i].descripcion3}
                                             ];
                                         $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
-                                        $("#info").text(alimentos[i].descripcion1);
+                                        $("#info").html(alimentos[i].descripcion1);
                                         contadorInfo++;
                                         /*$("#modal-descripcion").html(cereales[i].descripcion);
                                          $("#modal-title").text(titulo);
@@ -393,7 +396,7 @@
                             {"titulo":"<span class='animated infinite pulse glyphicon glyphicon-heart glyfy'></span> Descripción","informacion":alimentos[i].descripcion3}
                             ];
                         $("#titulo").html("<span class='animated infinite pulse glyphicon glyphicon-info-sign glyfy'></span> Descripción");
-                        $("#info").text(alimentos[i].descripcion1);
+                        $("#info").html(alimentos[i].descripcion1);
                         contadorInfo++;
                         /*$("#modal-descripcion").html(cereales[i].descripcion);
                          $("#modal-title").text(titulo);

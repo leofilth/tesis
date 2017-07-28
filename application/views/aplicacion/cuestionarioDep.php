@@ -2,7 +2,7 @@
 <section class="container-fluid bg-im3 padingtop padingbot">
     <div class="container">
         <header class="titulo1 text-center">
-            Bienvenido a Cuestionarios
+            Bienvenido a Desafíos Wambo
         </header>
         <?php //si no hay cuestionarios disponibles
         if($cuestionarioDisp == null){?>

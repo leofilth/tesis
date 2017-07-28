@@ -71,8 +71,8 @@ class usuarios_model extends CI_Model
     {
         $this->db->where('nick',$nick);
         $this->db->update('usuarios',$datos);
-        $this->db->where('nick_fk',$nick);
-        $this->db->update('lideres',$datos2);
+        /*$this->db->where('nick_fk',$nick);
+        $this->db->update('lideres',$datos2);*/
         return true;
 
     }
