@@ -448,15 +448,6 @@ css cuenta
     padding-top: 70px;
     padding-bottom: 100px;
 }
-.bg-im2 {
-    background: url("../images/Middle_texture.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    padding-top: 30px;
-    padding-bottom: 100px;
-}
 .bg-im3 {
     background: url("../images/aprender.jpg") no-repeat center center fixed;
     /*-webkit-background-size: cover;
@@ -1213,11 +1204,11 @@ css para cuestionario cuando se completa
     width: 150px;
     height: auto;
 }
-@media screen and (min-width:0\0) { 
+@media screen and (min-width:0\0) {
     /* Tus estilos CSS para IE9, IE10, IE11  */
     .gris {
         opacity: 0.4;
-        filter: alpha(opacity=40); 
+        filter: alpha(opacity=40);
         /*background-color: #000;*/
     }
     .cuest-gris {
@@ -1231,7 +1222,7 @@ css para cuestionario cuando se completa
 @supports (-ms-ime-align:auto) and (color:unset) {
   .gris {
         opacity: 0.4;
-        filter: alpha(opacity=40); 
+        filter: alpha(opacity=40);
         /*background-color: #000;*/
     }
     .cuest-gris {

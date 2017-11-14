@@ -22,7 +22,7 @@
                         <figure>
                             <img class="img-responsive center-block" alt="estudiante1"  src="<?php echo base_url().'public/images/modal/sesion2.png'?>">
                         </figure>
-                        <a id='volver' class='btn  btn-cuest titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/alimentos'?>'>Volver</a>
+                        <a id='volver' class='btn  btn-cuest titulo4 center-block zoom' href='<?php echo base_url().'aplicacion/alimentos#section2'?>'>Volver</a>
                     </div>
                 </div>
             <?php }

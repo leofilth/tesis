@@ -6,7 +6,7 @@
             <div class="col-md-8 col-sm-8 col-xs-12">
                 <div class="instruefecto">
                     <div class="instruccion-morado">
-                        <h4 class="modal-title titulo-modal-tip">Bienvenido al Ranking Wambo, esfuérzate por ser el número uno! </h4>
+                        <h4 class="modal-title titulo-modal-tip">Bienvenido al Ranking Wambo, ¡esfuérzate por ser el número uno! </h4>
                     </div>
                     <div style="float: left;margin-left: 50px;clear: left">
                         <div class="triangulo-morado"></div>

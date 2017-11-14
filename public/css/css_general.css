@@ -543,15 +543,6 @@ css cuenta
     padding-top: 70px;
     padding-bottom: 100px;
 }
-.bg-im2 {
-    background: url("../images/Middle_texture.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    padding-top: 30px;
-    padding-bottom: 100px;
-}
 .bg-im3 {
     background: url('../images/aprender.jpg') no-repeat center fixed;
     /*-webkit-background-size: cover;
@@ -569,7 +560,7 @@ css cuenta
     background-size:cover;
 }
 .bg-im4 {
-    background: url('../images/fondo2.jpg') no-repeat center fixed;
+    background: url('../images/fondoblur.jpg') no-repeat center fixed;
     /*-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;*/
@@ -727,7 +718,7 @@ a:link, a:visited {
 }
 .cuadradosombra-sesion{
     /*box-shadow: 0 4px 0 0 #f1f1f1;*/
-    background-color: rgba(219, 227, 89,0.9);
+    background-color: #8BC34A;
     border-radius: 5px;
     padding:15px;
 }
@@ -1350,7 +1341,7 @@ css para cuestionario cuando se completa
 .gris {
     -webkit-filter: grayscale(100%);
 -moz-filter: grayscale(100%);
--ms-filter: grayscale(100%);
+/*-ms-filter: grayscale(100%);*/
 -o-filter: grayscale(100%);
 filter: grayscale(100%); /* Para cuando es estándar funcione en todos */
 filter: Gray(); /* IE4-8 and 9 */
@@ -1363,7 +1354,7 @@ filter: Gray(); /* IE4-8 and 9 */
 .cuest-gris {
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
+    /*-ms-filter: grayscale(100%);*/
     -o-filter: grayscale(100%);
     filter: grayscale(100%); /* Para cuando es estándar funcione en todos */
     filter: Gray(); /* IE4-8 and 9 */

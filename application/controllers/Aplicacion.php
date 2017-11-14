@@ -11,9 +11,8 @@ class Aplicacion extends CI_Controller {
 		$this->layout->setLayout('template');
 		$this->session_id=$this->session->userdata('login');
 		//$this->cuest_id=$this->session->userdata('cuestionario');//variable de sesion
-		$this->layout->css(array(base_url()."public/css/animate.css"));
-		$this->layout->js(array(base_url()."public/js/bootstrap-filestyle.min.js"));//borrar a futuro
-		$this->layout->js(array(base_url()."public/js/bootbox.js"));
+		$this->layout->css(array(base_url()."public/css/animate.min.css"));
+		$this->layout->js(array(base_url()."public/js/bootbox.min.js"));
 	}
 	public function index()
 	{

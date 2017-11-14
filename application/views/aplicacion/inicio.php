@@ -10,7 +10,7 @@
     <div role="listbox" class="carousel-inner">
         <div class="item">
             <figure>
-                <img alt="First slide" src="<?php echo base_url()."public/images/fondo2.png"?>">
+                <img alt="First slide" src="<?php echo base_url()."public/images/fondo2.jpg"?>">
             </figure>
             <div class="container">
                 <div class="carousel-caption">
@@ -26,7 +26,7 @@
         </div>
         <div class="item active">
             <figure>
-                <img alt="Second slide" src="<?php echo base_url()."public/images/fondo.png"?>" class="second-slide">
+                <img alt="Second slide" src="<?php echo base_url()."public/images/fondo.jpg"?>" class="second-slide">
             </figure>
             <div class="container">
                 <div class="carousel-caption">
