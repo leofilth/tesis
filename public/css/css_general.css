@@ -1946,6 +1946,10 @@ tamaño imagen seccion
     #container3{
         display: block;
     }
+    .tamano{
+        width: 64px;
+        height: 64px;
+    }
 }
 @media screen and (max-width: 360px){
     .titulo4{
@@ -1987,10 +1991,6 @@ tamaño imagen seccion
     .tamanodep{
         width: 40%;
         height: 40%;
-    }
-    .tamano{
-        width: 64px;
-        height: 64px;
     }
     .tamano-cuest{
         width: 64px;

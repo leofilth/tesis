@@ -20,7 +20,9 @@
                                 'id'=>'nombre',
                                 'class'=>'form-control',
                                 'value'=>$value,
-                                'placeholder'=>'Nombre y Apellido'
+                                'placeholder'=>'Nombre y Apellido',
+                                'pattern'=>'[A-Za-z ]+',
+                                'title'=>'Solo letras'
                             );
                             echo form_input($datos);
                             ?>
@@ -70,7 +72,9 @@
                                 'id'=>'ciudad',
                                 'class'=>'form-control',
                                 'value'=>$value,
-                                'placeholder'=>'Ejemplo: Valdivia'
+                                'placeholder'=>'Ejemplo: Valdivia',
+                                'pattern'=>'[A-Za-z]+',
+                                'title'=>'solo letras'
                             );
                             echo form_input($datos);
                             ?>
@@ -94,7 +98,9 @@
                                 'id'=>'nick',
                                 'class'=>'form-control',
                                 'value'=>$value,
-                                'placeholder'=>'Ejemplo: Terminator'
+                                'placeholder'=>'solo letras y números',
+                                'minlength'=>'3',
+                                'maxlength'=>'20'
                             );
                             echo form_input($datos);
                             ?>
@@ -113,7 +119,7 @@
                                 'class'=>'form-control',
                                 'value'=>$value,
                                 'type'=>'password',
-                                'placeholder'=>'Tu contraseña'
+                                'placeholder'=>'Tu contraseña',
                             );
                             echo form_input($datos);
                             ?>
@@ -158,6 +164,12 @@
 <?php include "footerinicio.php"?>
 <script>
     $(document).ready(function() {
+        $("#nick").on('keyup', function(e) {
+            var val = $(this).val();
+            if (val.match(/[^a-zA-Z0-9._]/g)) {
+                $(this).val(val.replace(/[^a-zA-Z0-9._]/g, ''));
+            }
+        });
         $(".img-portada").on({
             mouseenter: function(){
                 $(this).addClass("animated jello");
