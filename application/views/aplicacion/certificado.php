@@ -139,7 +139,7 @@
     <div class="container">
         <!-- Link a diploma-->
         <div class="row">
-            <div class="col-md-12 center-block">
+            <div data-aos="zoom-in" class="col-md-12 center-block">
                 <?php if($estadoDiploma->valor_fruta==1 and $estadoDiploma->valor_acgrasa==1
                     and $estadoDiploma->valor_alimento==1 and $estadoDiploma->valor_deporte==1
                     and $estadoDiploma->valor_cereal==1){?>
@@ -162,6 +162,9 @@
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
+        AOS.init({
+            easing: 'ease-in-out-sine'
+        });
         $("#imagenUsuario").on({
             mouseenter: function () {
                 $(this).addClass(" animated rubberBand");

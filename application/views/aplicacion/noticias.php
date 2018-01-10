@@ -32,10 +32,10 @@
 </div>
 <section class="container-fluid padingtop bg-im3 animated fadeIn" id="tipsaludable">
     <div class="container">
-        <header class="titulo1 animated tada">Super Noticias</header>
+        <header data-aos="flip-up" class="titulo1 animated tada">Super Noticias</header>
         <div class="row">
             <div class="col-md-8">
-                <div class="instruefecto">
+                <div data-aos="zoom-in" class="instruefecto">
                     <div class="instruccion-naranjo">
                         <h4 id="titulo-tip" class="modal-title titulo-modal-tip">Instrucciones</h4>
                         <ol class="texto-modal-tip" id="descripcion-tip">
@@ -48,7 +48,7 @@
                         <div class="triangulo-naranjo"></div>
                     </div>
                 </div>
-                <figure>
+                <figure data-aos="zoom-out">
                     <img alt="estudiante5" class="img-circle pull-left icon-inst"  style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student5.png'?>">
                 </figure>
             </div>
@@ -62,7 +62,7 @@
                 $colores=array("verde","rosado","celeste","naranjo","rojo");
                 foreach ($noticias as $noticia){
                     ?>
-                    <div class="col-md-4 col-xs-12 col-sm-6">
+                    <div data-aos="zoom-in" class="col-md-4 col-xs-12 col-sm-6">
                         <div class="tip-<?php echo $colores[$i]?> zoom borde animated infinite pulse noticia alturanoticia" title="<?php echo $noticia->titulo?>" data-toggle="modal" data-target="#modaltip">
                             <h3 class="titulo-tip text-center">
                                         <?php echo $noticia->titulo?>
@@ -81,6 +81,9 @@
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
+        AOS.init({
+            easing: 'ease-in-out-sine'
+        });
         var noticias=<?php echo json_encode($noticias,JSON_PRETTY_PRINT)?>;//arreglo con todos las noticias
         $(".noticia").on({
             click: function () {

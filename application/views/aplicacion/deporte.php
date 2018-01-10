@@ -67,13 +67,13 @@
 </div>
 <section class="container-fluid  padingtop animated fadeIn" id="section1">
     <div  class="container">
-        <header class="tituloSection">Deportes Wambo</header>
+        <header data-aos="flip-up" class="tituloSection">Deportes Wambo</header>
         <p class="titulo5">Diviértete aprendiendo más sobre Deportes. Cuando te sientas preparado, anímate
             a superar los desafíos Wambo.
         </p>
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
-                        <div class="instruefecto">
+                        <div data-aos="zoom-in" class="instruefecto">
                             <div class="instruccion-morado">
                                 <h4  class="modal-title titulo-modal-tip">Instrucciones</h4>
                                 <ol class="texto-modal-tip">
@@ -86,11 +86,11 @@
                                 <div class="triangulo-morado"></div>
                             </div>
                         </div>
-                        <figure>
+                        <figure data-aos="zoom-out">
                             <img alt="estudiante2" class="img-border pull-left icon-inst" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                         </figure>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div  data-aos="fade-up" class="col-md-4 col-sm-4 col-xs-12">
                         <div class="animated infinite bounce">
                             <figure>
                                 <img class="center-block fondocoins"
@@ -115,7 +115,7 @@
                             foreach ($deportes as $deporte) {
                                 if (in_array($deporte->id, $misdeportes_limpio)) {
                                     ?>
-                                    <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
+                                    <div data-aos="zoom-in" class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
                                         <figure class="tool" data-toggle="tooltip" title="<?php echo $deporte->nombre ?>">
                                             <img id="<?php echo $deporte->id ?>"
                                                  title="<?php echo $deporte->nombre ?>"
@@ -127,7 +127,7 @@
                                     </div>
                                 <?php } else {
                                     ?>
-                                    <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
+                                    <div data-aos="zoom-in" class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
                                         <figure class="tool" data-toggle="tooltip" title="<?php echo $deporte->nombre ?>">
                                             <img id="<?php echo $deporte->id ?>"
                                                  title="<?php echo $deporte->nombre ?>"
@@ -143,7 +143,7 @@
                         else{
                             foreach ($deportes as $deporte) {
                                 ?>
-                                <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
+                                <div data-aos="zoom-in" class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
                                     <figure class="tool" data-toggle="tooltip" title="<?php echo $deporte->nombre ?>">
                                         <img id="<?php echo $deporte->id ?>"
                                              title="<?php echo $deporte->nombre ?>"
@@ -161,10 +161,10 @@
 </section>
 <section class="container-fluid" id="section2">
     <div class="container">
-        <header class="tituloSection">Desafío Wambo</header>
+        <header data-aos="flip-up" class="tituloSection">Desafío Wambo</header>
         <div class="row">
             <div class="col-md-8 col-sm-8">
-                <div class="instruefecto">
+                <div data-aos="zoom-in" class="instruefecto">
                     <div class="instruccion-verde">
                         <h4  class="modal-title titulo-modal-tip">Instrucciones</h4>
                         <ol class="texto-modal-tip">
@@ -177,7 +177,7 @@
                         <div class="triangulo-verde"></div>
                     </div>
                 </div>
-                <figure>
+                <figure data-aos="zoom-out">
                     <img class="img-border pull-left icon-inst" alt="estudiante2" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                 </figure>
             </div>
@@ -185,7 +185,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div data-aos="zoom-in" class="col-md-10 col-md-offset-1">
                 <div class="row">
                     <?php include "tests/test_deporte.php" ?>
                 </div>
@@ -195,17 +195,17 @@
         </div>
     </div>
     <div class="padingtop">
-        <figure>
+        <figure data-aos="fade-up">
             <img alt="flechatop" class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
         </figure>
     </div>
 </section>
 <section class="container-fluid" id="tipsaludable">
     <div class="container">
-        <header class="tituloSection">Beneficios y Tips Wambo</header>
+        <header data-aos="flip-up" class="tituloSection">Beneficios y Tips Wambo</header>
         <div class="row">
             <div class="col-md-8">
-                <div class="instruefecto">
+                <div data-aos="zoom-in" class="instruefecto">
                     <div class="instruccion-naranjo">
                         <h4  class="modal-title titulo-modal-tip">Instrucciones</h4>
                         <ol class="texto-modal-tip">
@@ -218,7 +218,7 @@
                         <div class="triangulo-naranjo"></div>
                     </div>
                 </div>
-                <figure>
+                <figure data-aos="zoom-out">
                     <img class="img-border pull-left icon-inst" alt="estudiante2" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student2.png'?>">
                 </figure>
             </div>
@@ -232,7 +232,7 @@
                 $colores=array("verde","rosado","celeste","naranjo","rojo");
                 foreach ($tipsDeportes as $tipdeporte){
                     ?>
-                    <div class="col-md-3 col-xs-6 col-sm-4 alturatip">
+                    <div data-aos="zoom-in" class="col-md-3 col-xs-6 col-sm-4 alturatip">
                         <div class="tip-<?php echo $colores[$i]?> efecto-<?php echo $colores[$i]?> tip borde" title="<?php echo $tipdeporte->nombre?>" data-toggle="modal" data-target="#modaltip">
                             <div><h1 class="titulo-tip"><?php echo $tipdeporte->nombre?></h1></div><div><i class="glyphicon glyphicon-tint hoja"></i></div>
                         </div>
@@ -243,7 +243,7 @@
         </div>
     </div>
     <div class="padingtop">
-        <figure>
+        <figure data-aos="fade-up">
             <img alt="flechatop" class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
         </figure>
     </div>
@@ -254,6 +254,9 @@
         /**
          * Created by leon on 30-05-2016.
          */
+        AOS.init({
+            easing: 'ease-in-out-sine'
+        });
         var puntos = <?php echo $puntaje->puntos?>;
         var titulo, titulo2;
         var avance=<?php echo $avance->avance_deporte?>;

@@ -13,6 +13,8 @@ class Aplicacion extends CI_Controller {
 		//$this->cuest_id=$this->session->userdata('cuestionario');//variable de sesion
 		$this->layout->css(array(base_url()."public/css/animate.min.css"));
 		$this->layout->js(array(base_url()."public/js/bootbox.min.js"));
+        $this->layout->js(array(base_url()."public/js/aos.js"));
+        $this->layout->css(array(base_url()."public/css/aos.css"));
 	}
 	public function index()
 	{

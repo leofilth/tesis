@@ -67,14 +67,14 @@
 </div>
 <section class="container-fluid padingtop animated fadeIn" id="section1">
     <div  class="container">
-        <header class="tituloSection">Aceites y Grasas Wambo</header>
+        <header data-aos="flip-up" class="tituloSection">Aceites y Grasas Wambo</header>
         <p class="titulo5">Diviértete aprendiendo más sobre aceites y grasas. Cuando te sientas preparado, anímate
             a superar los desafíos Wambo.
         </p>
         <div class="row">
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
-                        <div class="instruefecto">
+                        <div data-aos="zoom-in" class="instruefecto">
                             <div class="instruccion-morado">
                                 <h4 class="modal-title titulo-modal-tip">Instrucciones</h4>
                                 <ol class="texto-modal-tip">
@@ -87,11 +87,11 @@
                                 <div class="triangulo-morado"></div>
                             </div>
                         </div>
-                        <figure>
+                        <figure data-aos="zoom-out">
                             <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student6.png'?>">
                         </figure>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div data-aos="fade-up" class="col-md-4 col-sm-4 col-xs-12">
                         <div class="animated infinite bounce">
                             <figure>
                                 <img class="center-block fondocoins"
@@ -110,14 +110,14 @@
         </div>
     <div class="container animated flash">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2" style="padding-bottom: 10px;padding-top: 10px">
+                    <div  class="col-md-8 col-md-offset-2" style="padding-bottom: 10px;padding-top: 10px">
                         <?php
                         if($misAcGrasas!=null) {
                             $misAcGrasa_limpio = $this->mis_funciones->limpiaTuAcGrasa($misAcGrasas);
                             foreach ($acGrasas as $aceiteGrasa) {
                                 if (in_array($aceiteGrasa->id, $misAcGrasa_limpio)) {
                                     ?>
-                                    <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
+                                    <div data-aos="zoom-in" class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
                                         <figure class="tool" data-toggle="tooltip" title="<?php echo $aceiteGrasa->nombre ?>">
                                             <img id="<?php echo $aceiteGrasa->id ?>"
                                                  title="<?php echo $aceiteGrasa->nombre ?>"
@@ -129,7 +129,7 @@
                                     </div>
                                 <?php } else {
                                     ?>
-                                    <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
+                                    <div data-aos="zoom-in" class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
                                        <figure class="tool" data-toggle="tooltip" title="<?php echo $aceiteGrasa->nombre ?>">
                                            <img id="<?php echo $aceiteGrasa->id ?>"
                                                 title="<?php echo $aceiteGrasa->nombre ?>"
@@ -145,7 +145,7 @@
                         else{
                             foreach ($acGrasas as $aceiteGrasa) {
                                 ?>
-                                <div class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
+                                <div data-aos="zoom-in" class="col-md-2 col-sm-3 col-xs-3" style="padding-bottom: 10px">
                                     <figure class="tool" data-toggle="tooltip" title="<?php echo $aceiteGrasa->nombre ?>">
                                         <img id="<?php echo $aceiteGrasa->id ?>"
                                              title="<?php echo $aceiteGrasa->nombre ?>"
@@ -163,10 +163,10 @@
 </section>
 <section class="container-fluid" id="section2">
     <div class="container">
-        <header class="tituloSection">Desafíos Wambo</header>
+        <header data-aos="flip-up" class="tituloSection">Desafíos Wambo</header>
         <div class="row">
             <div class="col-md-8 col-sm-8">
-                <div class="instruefecto">
+                <div data-aos="zoom-in" class="instruefecto">
                     <div class="instruccion-verde">
                         <h4 class="modal-title titulo-modal-tip">Instrucciones</h4>
                         <ol class="texto-modal-tip">
@@ -179,7 +179,7 @@
                         <div class="triangulo-verde"></div>
                     </div>
                 </div>
-                <figure>
+                <figure data-aos="zoom-out" >
                     <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student6.png'?>">
                 </figure>
             </div>
@@ -187,7 +187,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div data-aos="zoom-in" class="col-md-10 col-md-offset-1">
                 <div class="row">
                 <?php include "tests/test_aceite_grasa.php"?>
                 </div>
@@ -195,15 +195,15 @@
         </div>
     </div>
     <div class="padingtop">
-        <img class="ir-arriba animated infinite pulse center-block tamano" alt="flechaTop" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+        <img data-aos="fade-in" class="ir-arriba animated infinite pulse center-block tamano" alt="flechaTop" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
     </div>
 </section>
 <section class="container-fluid" id="tipsaludable">
     <div class="container">
-        <header class="tituloSection">Tips Wambo</header>
+        <header data-aos="flip-up" class="tituloSection">Tips Wambo</header>
         <div class="row">
             <div class="col-md-8">
-                <div class="instruefecto">
+                <div data-aos="zoom-in" class="instruefecto">
                     <div class="instruccion-naranjo">
                         <h4 class="modal-title titulo-modal-tip">Instrucciones</h4>
                         <ol class="texto-modal-tip">
@@ -216,7 +216,7 @@
                         <div class="triangulo-naranjo"></div>
                     </div>
                 </div>
-                <figure>
+                <figure data-aos="zoom-out">
                     <img class="img-border pull-left icon-inst" alt="estudiante3" style="margin-top: 15px" src="<?php echo base_url().'public/images/modal/student6.png'?>">
                 </figure>
             </div>
@@ -224,13 +224,13 @@
     </div>
     <div class="container" id="container-tip">
         <div class="row">
-            <div class="col-md-12">
+            <div data-aos="zoom-in" class="col-md-12">
                 <?php
                 $i=0;
                 $colores=array("verde","rosado","celeste","naranjo","rojo");
                 foreach ($tipsAcGrasas as $tipAcGrasa){
                     ?>
-                    <div class="col-md-3 col-xs-6 col-sm-4 alturatip">
+                    <div data-aos="zoom-in" class="col-md-3 col-xs-6 col-sm-4 alturatip">
                         <div class="tip-<?php echo $colores[$i]?> efecto-<?php echo $colores[$i]?> tip borde" title="<?php echo $tipAcGrasa->nombre?>" data-toggle="modal" data-target="#modaltip">
                             <div><h1 class="titulo-tip"><?php echo $tipAcGrasa->nombre?></h1></div><div><i class="glyphicon glyphicon-leaf hoja"></i></div>
                         </div>
@@ -241,12 +241,15 @@
         </div>
     </div>
     <div class="padingtop">
-        <img class="ir-arriba animated infinite pulse center-block tamano" alt="flechaTop" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
+        <img data-aos="fade-in" class="ir-arriba animated infinite pulse center-block tamano" alt="flechaTop" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
     </div>
 </section>
 <?php include "footer.php"?>
 <script>
     $(document).ready(function(){
+        AOS.init({
+            easing: 'ease-in-out-sine'
+        });
         /**
          * Created by leon on 30-05-2016.
          */

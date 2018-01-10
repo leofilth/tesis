@@ -64,12 +64,12 @@
 <section class="container-fluid bg-im">
     <div class="container" id="explicativo">
         <div class="row">
-            <div class="col-md-7 col-sm-7 col-xs-12 fondo-portada1">
+            <div data-aos="fade-right" class="col-md-7 col-sm-7 col-xs-12 fondo-portada1">
                 <h2 class="featurette-heading">¡Frutas y verduras poderosas! <span class="text-muted">Todos su secretos al descubierto</span></h2>
                 <p class="lead">¿Cuáles comer? ¿A qué hora? ¿Cuánto debo consumir?</p>
                 <p class="lead">Esto y mucho más encontrarás en Wambo</p>
             </div>
-            <div class="col-md-5 col-sm-5 col-xs-12">
+            <div data-aos="fade-left" class="col-md-5 col-sm-5 col-xs-12">
                 <figure>
                     <img alt="portada1" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portadafrutaverdura.png"?>">
                 </figure>
@@ -77,12 +77,12 @@
         </div>
         <hr class="featurette-divider">
         <div class="row">
-            <div class="col-md-7 col-sm-7 col-sm-push-5 col-md-push-5 fondo-portada2">
+            <div data-aos="fade-right" class="col-md-7 col-sm-7 col-sm-push-5 col-md-push-5 fondo-portada2">
                 <h2 class="featurette-heading">Cereales mágicos  <span class="text-muted">¡Todo sobre ellos!</span></h2>
                 <p class="lead">¿Cuáles comer? ¿A qué hora? ¿Cuánto debo consumir?</p>
                 <p class="lead">Conmigo aprenderás sus beneficios y por qué comerlos.</p>
             </div>
-            <div class="col-md-5 col-sm-5 col-sm-pull-7 col-md-pull-7">
+            <div data-aos="fade-left" class="col-md-5 col-sm-5 col-sm-pull-7 col-md-pull-7">
                 <figure>
                     <img alt="portada2" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portadacereal.png"?>">
                 </figure>
@@ -90,11 +90,11 @@
         </div>
         <hr class="featurette-divider">
         <div class="row">
-            <div class="col-md-7 col-sm-7 fondo-portada3">
+            <div data-aos="fade-right" class="col-md-7 col-sm-7 fondo-portada3">
                 <h2 class="featurette-heading">¿Quieres ser más fuerte y más rápido? <span class="text-muted">¡Conmigo sabrás cómo!</span></h2>
                 <p class="lead">Conocerás muchos deportes y aprenderás la importancia del ejercicio y sus beneficios.</p>
             </div>
-            <div class="col-md-5 col-sm-5">
+            <div data-aos="fade-left" class="col-md-5 col-sm-5">
                 <figure>
                     <img alt="portada3" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portadadeporte.png"?>">
                 </figure>
@@ -102,11 +102,11 @@
         </div>
         <hr class="featurette-divider">
         <div class="row">
-            <div class="col-md-7 col-md-push-5 col-sm-7 col-sm-push-5 fondo-portada4">
+            <div data-aos="fade-right" class="col-md-7 col-md-push-5 col-sm-7 col-sm-push-5 fondo-portada4">
                 <h2 class="featurette-heading">¡Obtén tu diploma Wambo! <span class="text-muted">Completa los desafíos y gana</span></h2>
                 <p class="lead">¡Termina Wambo y obtén tu diploma para que todos lo vean!</p>
             </div>
-            <div class="col-md-5 col-md-pull-7 col-sm-5 col-sm-pull-7">
+            <div data-aos="fade-left" class="col-md-5 col-md-pull-7 col-sm-5 col-sm-pull-7">
                 <figure>
                     <img  alt="portada4" class="img-responsive center-block img-portada img-circle" src="<?php echo base_url()."public/images/portada7.png"?>">
                 </figure>
@@ -114,7 +114,7 @@
         </div>
         <hr class="featurette-divider">
         <div>
-            <figure>
+            <figure data-aos="fade-up">
                 <img alt="flechaTop" class="ir-arriba animated infinite pulse center-block tamano" src="<?php echo base_url()."public/images/icons/up-arrow.png"?>">
             </figure>
         </div>
@@ -123,6 +123,9 @@
 <?php include "footerinicio.php"?>
 <script>
     $(document).ready(function() {
+            AOS.init({
+            easing: 'ease-in-out-sine'
+        });
         $(".img-portada").on({
             mouseenter: function(){
                 $(this).addClass("animated rubberBand");

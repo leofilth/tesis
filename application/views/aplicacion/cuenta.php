@@ -90,7 +90,7 @@
         <h3 class="titulo1 text-center">¿Qué quieres aprender hoy?</h3>
         <div id="container1" class="container animated bounceIn">
             <div class="row">
-                    <div id="fruta" class="col-md-4 col-sm-6">
+                    <div data-aos="zoom-in-right" id="fruta" class="col-md-4 col-sm-6">
                         <div class=" text-center borde frutacuenta">
                             <?php if($estadoDiploma->valor_fruta==1){?>
                             <figure>
@@ -117,7 +117,7 @@
                             <a href="<?php echo base_url()."aplicacion/frutasverduras"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
-                    <div id="cereales" class="col-md-4 col-sm-6">
+                    <div data-aos="zoom-in-up" id="cereales" class="col-md-4 col-sm-6">
                         <div class=" text-center borde  cerealcuenta">
                             <?php if($estadoDiploma->valor_cereal==1){?>
                                 <figure>
@@ -144,7 +144,7 @@
                             <a href="<?php echo base_url()."aplicacion/cereales"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
-                    <div id="aceitegrasa" class="col-md-4 col-sm-6">
+                    <div data-aos="zoom-in-left" id="aceitegrasa" class="col-md-4 col-sm-6">
                         <div class="text-center borde  acgrasacuenta">
                             <?php if($estadoDiploma->valor_acgrasa==1){?>
                                 <figure>
@@ -171,7 +171,7 @@
                             <a href="<?php echo base_url()."aplicacion/aceitegrasas"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
-                    <div id="alimento" class="col-md-4 col-sm-6">
+                    <div data-aos="zoom-in-right" id="alimento" class="col-md-4 col-sm-6">
                         <div class="text-center borde  alimentocuenta">
                             <?php if($estadoDiploma->valor_alimento==1){?>
                                 <figure>
@@ -198,7 +198,7 @@
                             <a href="<?php echo base_url()."aplicacion/alimentos"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
-                    <div id="deporte" class="col-md-4 col-sm-6">
+                    <div data-aos="zoom-in-up" id="deporte" class="col-md-4 col-sm-6">
                         <div class="text-center  borde deportecuenta">
                             <?php if($estadoDiploma->valor_deporte==1){?>
                                 <figure>
@@ -225,7 +225,7 @@
                             <a href="<?php echo base_url()."aplicacion/deporte"?>" class="btn-cuenta titulo5 center-block zoom">Aprender</a>
                         </div>
                     </div>
-                    <div id="micertificado" class="col-md-4  col-sm-6">
+                    <div data-aos="zoom-in-left" id="micertificado" class="col-md-4  col-sm-6">
                         <div class=" text-center  borde diplomacuenta">
                             <img alt="certificado" id="portadacertificado" class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portada7.png"?>">
                             <div class="maintitulo">
@@ -238,7 +238,7 @@
         </div>
         <div id="container2" class="container animated tada">
             <div class="row">
-                <div id="noticias" class="col-md-4 col-md-offset-2 col-sm-6">
+                <div data-aos="zoom-in-right" id="noticias" class="col-md-4 col-md-offset-2 col-sm-6">
                     <div class=" text-center  borde noticiacuenta">
                         <figure>
                             <img alt="noticias" id="portadanoticia"  class="img-border center-block img-seccion" src="<?php echo base_url()."public/images/portada6m.png"?>">
@@ -249,7 +249,7 @@
                         <a href="<?php echo base_url()."aplicacion/noticias"?>" class="btn-cuenta titulo5 center-block zoom">Ir</a>
                     </div>
                 </div>
-                <div id="desafio" class="col-md-4  col-md-offset-0 col-sm-6">
+                <div data-aos="zoom-in-left" id="desafio" class="col-md-4  col-md-offset-0 col-sm-6">
                     <div class=" text-center  borde desafiocuenta">
                         <figure>
                             <img alt="estrella" id="portadadesafio" class="center-block img-seccion" src="<?php echo base_url()."public/images/icons/star.png"?>">
@@ -473,6 +473,9 @@
 <?php include "footer.php"?>
 <script>
     $(document).ready(function() {
+        AOS.init({
+            easing: 'ease-in-out-sine'
+        });
         var avanceFruta=$("#avanceFruta").text().match(/\d/g).join("");
         var avanceCereal=$("#avanceCereal").text().match(/\d/g).join("");
         var avanceAlimento=$("#avanceAlimento").text().match(/\d/g).join("");
