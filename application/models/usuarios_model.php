@@ -143,7 +143,7 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->row();
     }
-    public function  getFrutaId($id){
+    /*public function  getFrutaId($id){
         $query=$this->db
             ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
             ->from("frutas_verduras")
@@ -167,14 +167,6 @@ class usuarios_model extends CI_Model
             ->get();
         return $query->row();
     }
-    public function getAlimentoUsuario($nick){
-        $query=$this->db
-            ->select("id_alimento_fk")
-            ->from("alimento_usuario")
-            ->where(array("nick_fk"=>$nick))
-            ->get();
-        return $query->result();
-    }
     public function  getCerealId($id){
         $query=$this->db
             ->select("nombre,link,descripcion,categoria,saludable,beneficios,consumo")
@@ -182,6 +174,14 @@ class usuarios_model extends CI_Model
             ->where(array("nombre"=>$id))
             ->get();
         return $query->row();
+    }*/
+    public function getAlimentoUsuario($nick){
+        $query=$this->db
+            ->select("id_alimento_fk")
+            ->from("alimento_usuario")
+            ->where(array("nick_fk"=>$nick))
+            ->get();
+        return $query->result();
     }
     public function getCerealUsuario($nick){
         $query=$this->db
@@ -664,7 +664,7 @@ class usuarios_model extends CI_Model
      * obtiene todas las filas distintas
      */
     public function getTotalFrutas(){
-        return $this->db->count_all_results('frutas_verduras');
+        return $this->db->count_all_results('ver_frutas_verduras');
     }
     public function getTotalCuestFruta(){
         //return $this->db->count_all_results('preguntasfruta');
@@ -674,7 +674,7 @@ class usuarios_model extends CI_Model
         return count($query->result());
     }
     public function getTotalAcGrasa(){
-        return $this->db->count_all_results('aceite_grasas');
+        return $this->db->count_all_results('ver_aceite_grasas');
     }
     public function getTotalCuestAcGrasa(){
         $this->db->select('idpregunta');
@@ -683,7 +683,7 @@ class usuarios_model extends CI_Model
         return count($query->result());
     }
     public function getTotalDeportes(){
-        return $this->db->count_all_results('deportes');
+        return $this->db->count_all_results('ver_deportes');
     }
     public function getTotalCuestDeporte(){
         $this->db->select('idpregunta');
@@ -692,7 +692,7 @@ class usuarios_model extends CI_Model
         return count($query->result());
     }
     public function getTotalAlimentos(){
-        return $this->db->count_all_results('alimentos');
+        return $this->db->count_all_results('ver_alimentos');
     }
     public function getTotalCuestAlimento(){
         $this->db->select('idpregunta');
@@ -701,7 +701,7 @@ class usuarios_model extends CI_Model
         return count($query->result());
     }
     public function getTotalCereales(){
-        return $this->db->count_all_results('cereales');
+        return $this->db->count_all_results('ver_cereales');
     }
     public function getTotalCuestCereal(){
         $this->db->select('idpregunta');
